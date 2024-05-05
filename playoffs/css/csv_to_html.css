@@ -48,9 +48,14 @@
 }
 
 .points,
-.possible_points {
+.possible_points,
+.rank {
     font-weight: bold;
     text-align: center;
+}
+
+.leader {
+    background-color: yellow !important;
 }
 
 .games {
