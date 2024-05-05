@@ -1,1 +1,89 @@
-/home/mbryan/localgit/hockeydraft/csv_to_html.css
+.containing_table {
+    border-collapse: collapse;
+    margin: 5px;
+    /* padding: 5px; */
+}
+
+.containing_table td, table th {
+    border: 1px solid black;
+}
+
+.containing_table tr:first-child th {
+    border-top: 0;
+}
+
+.containing_table tr:last-child td {
+    border-bottom: 0;
+}
+
+.containing_table tr td:first-child,
+.containing_table tr th:first-child {
+    border-left: 0;
+}
+
+.containing_table tr td:last-child,
+.containing_table tr th:last-child {
+    border-right: 0;
+}
+
+.person {
+    font-weight: bold;
+}
+
+.pick {
+    width: 100%;
+    background-color: inherit !important;
+}
+
+.pick tr td {
+    text-align: center;
+    vertical-align: middle;
+    background-color: inherit;
+    border: 0px !important;
+}
+
+.pick img {
+    height: 50px;
+    width: 50px;
+}
+
+.points,
+.possible_points {
+    font-weight: bold;
+    text-align: center;
+}
+
+.games {
+    color: black;
+    font-weight: bold;
+    width: 20px;
+    padding: 3px;
+}
+
+.correct {
+    background-color: #66B666 !important;
+}
+
+.incorrect {
+    background-color: #EB7676 !important;
+}
+
+.unknown {
+}
+
+.winning_seed {
+    font-weight: bolder;
+    background-color: #66B666;
+}
+
+tr th {
+    background-color: white;
+}
+
+.containing_table tr:nth-child(even) {
+    background-color: white;
+}
+
+.containing_table tr:nth-child(odd) {
+    background-color: lightgrey;
+}
