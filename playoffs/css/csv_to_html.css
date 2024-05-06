@@ -43,7 +43,6 @@ table.table.table-striped td {
 .pick {
     width: 100%;
     height: 100%;
-    background-color: inherit !important;
     text-align: center;
 }
 
