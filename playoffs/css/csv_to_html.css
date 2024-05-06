@@ -1,11 +1,13 @@
 .containing_table {
     border-collapse: collapse;
-    margin: 5px;
-    /* padding: 5px; */
+    margin: 0px;
+    padding: 0px;
 }
 
 .containing_table td, table th {
     border: 1px solid black;
+    vertical-align: middle;
+    height: 50px;
 }
 
 .containing_table tr:first-child th {
@@ -26,13 +28,41 @@
     border-right: 0;
 }
 
+.containing_table th {
+    text-align: center;
+}
+
+table.table.table-striped td {
+    padding: 0px;
+}
+
 .person {
     font-weight: bold;
 }
 
 .pick {
     width: 100%;
+    height: 100%;
     background-color: inherit !important;
+    text-align: center;
+}
+
+.pick div {
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.pick .img_container {
+    width: 80%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.pick .games {
+    width: 20%;
+    height: 100%;
+    vertical-align: middle;
 }
 
 .pick tr td {
@@ -43,7 +73,6 @@
 }
 
 .pick img {
-    height: 50px;
     width: 50px;
 }
 
@@ -61,8 +90,9 @@
 .games {
     color: black;
     font-weight: bold;
-    width: 20px;
-    padding: 3px;
+    vertical-align: middle;
+    height: 100%;
+    width: 100%;
 }
 
 .correct {
@@ -80,15 +110,15 @@
     font-weight: bolder;
     background-color: #66B666;
 }
-
+/*
 tr th {
     background-color: white;
-}
-
+} */
+/*
 .containing_table tr:nth-child(even) {
     background-color: white;
 }
 
 .containing_table tr:nth-child(odd) {
     background-color: lightgrey;
-}
+} */
