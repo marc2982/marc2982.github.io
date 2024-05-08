@@ -82,8 +82,13 @@ table.table.table-striped td {
     text-align: center;
 }
 
-.leader {
+.leader,
+.leader td {
     background-color: yellow !important;
+}
+
+.round_total {
+    text-align: center;
 }
 
 .games {
@@ -109,15 +114,3 @@ table.table.table-striped td {
     font-weight: bolder;
     background-color: #66B666;
 }
-/*
-tr th {
-    background-color: white;
-} */
-/*
-.containing_table tr:nth-child(even) {
-    background-color: white;
-}
-
-.containing_table tr:nth-child(odd) {
-    background-color: lightgrey;
-} */
