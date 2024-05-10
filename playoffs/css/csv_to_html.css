@@ -73,6 +73,7 @@ table.table.table-striped td {
 
 .pick img {
     width: 50px;
+    height: 100%;
 }
 
 .points,
