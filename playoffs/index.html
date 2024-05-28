@@ -4,15 +4,22 @@
     <script>
         window.onload = function() {
             const TEAMS = {
-                'COL': 'Colorado Avalanche',
-                'DET': 'Detroit Red Wings',
-                'DAL': 'Dallas Stars',
-                'VGK': 'Vegas Golden Knights',
-                'NJD': 'New Jersey Devils',
-                'TBL': 'Tampa Bay Lightning',
+                '': '',
+                'ANA': 'Anaheim Ducks',
                 'BOS': 'Boston Bruins',
+                'CAR': 'Carolina Hurricanes',
                 'CHI': 'Chicago Blackhawks',
-                'ANA': 'Anaheim Ducks'
+                'COL': 'Colorado Avalanche',
+                'DAL': 'Dallas Stars',
+                'DET': 'Detroit Red Wings',
+                'LAK': 'Los Angeles Kings',
+                'LOCKOUT': 'LOCKOUT',
+                'NJD': 'New Jersey Devils',
+                'PIT': 'Pittsburgh Penguins',
+                'STL': 'St. Louis Blues',
+                'TBL': 'Tampa Bay Lightning',
+                'VGK': 'Vegas Golden Knights',
+                'WAS': 'Washington Capitals',
             }
             const DATA = [
                 { year: 1996, link: false, poolWinners: 'Derrick', poolLosers: '', cupWinner: 'COL'},
@@ -24,7 +31,7 @@
                 { year: 2002, link: false, poolWinners: 'Chrissy', poolLosers: '', cupWinner: 'DET'},
                 { year: 2003, link: false, poolWinners: 'Marc', poolLosers: '', cupWinner: 'NJD'},
                 { year: 2004, link: false, poolWinners: 'Derrick', poolLosers: '', cupWinner: 'TBL'},
-                { year: 2005, link: false, poolWinners: '-', poolLosers: '-', cupWinner: 'LOCKOUT'},
+                { year: 2005, link: false, poolWinners: '', poolLosers: '', cupWinner: 'LOCKOUT'},
                 { year: 2006, link: false, poolWinners: 'Derrick', poolLosers: '', cupWinner: 'CAR'},
                 { year: 2007, link: false, poolWinners: 'Marc*', poolLosers: '', cupWinner: 'ANA'},
                 { year: 2008, link: false, poolWinners: 'Chrissy', poolLosers: ['Derrick', 'Stephanie'], cupWinner: 'DET'},
@@ -59,7 +66,8 @@
                 row.insertCell().outerHTML = "<td>" + innerHtml + "</td>"
                 row.insertCell().outerHTML = "<td>" + year.poolWinners + "</td>"
                 row.insertCell().outerHTML = "<td>" + year.poolLosers + "</td>"
-                row.insertCell().outerHTML = "<td class='" + year.cupWinner + "'>" + TEAMS[year.cupWinner] + "</td>"
+                //row.insertCell().outerHTML = "<td class='" + year.cupWinner + "'>" + TEAMS[year.cupWinner] + "</td>"
+                row.insertCell().outerHTML = "<td>" + TEAMS[year.cupWinner] + "</td>"
             })
         }
     </script>
@@ -70,156 +78,6 @@
     </div>
     <div style="display: flex; justify-content: center; align-items: center; text-align: center;">
         <table id="contents" style="border: 0px; border-spacing: 2em 0;">
-            <!-- <tr>
-                <th>Year</th>
-                <th>Winner(s)</th>
-                <th>Cup Winner</th>
-            </tr>
-            <tr>
-                <td><a href="2024.html">2024</a></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td><a href="2023.html">2023</a></td>
-                <td>Nathan</td>
-                <td class="VGK">Vegas Golden Knights</td>
-            </tr>
-            <tr>
-                <td><a href="2022.html">2022</a></td>
-                <td>Stephanie</td>
-                <td>Colorado Avalanche</td>
-            </tr>
-            <tr>
-                <td><a href="2021.html">2021</a></td>
-                <td>Stephanie</td>
-                <td>Tampa Bay Lightning</td>
-            </tr>
-            <tr>
-                <td><a href="2020.html">2020</a></td>
-                <td>Nathan</td>
-                <td>Tampa Bay Lightning</td>
-            </tr>
-            <tr>
-                <td><a href="2019.html">2019</a></td>
-                <td>Nathan</td>
-                <td>St Louis Blues</td>
-            </tr>
-            <tr>
-                <td><a href="2018.html">2018</a></td>
-                <td>Ryan</td>
-                <td>Washington Capitals</td>
-            </tr>
-            <tr>
-                <td><a href="2017.html">2017</a></td>
-                <td>Glenda, Marc</td>
-                <td>Pittsburgh Penguins</td>
-            </tr>
-            <tr>
-                <td><a href="2016.html">2016</a></td>
-                <td>Stephanie</td>
-                <td>Pittsburgh Penguins</td>
-            </tr>
-            <tr>
-                <td><a href="2015.html">2015</a></td>
-                <td>Nathan</td>
-                <td>Chicago Blackhawks</td>
-            </tr>
-            <tr>
-                <td><a href="2014.html">2014</a></td>
-                <td>Nathan</td>
-                <td>Los Angeles Kings</td>
-            </tr>
-            <tr>
-                <td><a>2013</a></td>
-                <td></td>
-                <td>Chicago Blackhawks</td>
-            </tr>
-            <tr>
-                <td><a>2012</a></td>
-                <td></td>
-                <td>Los Angeles Kings</td>
-            </tr>
-            <tr>
-                <td><a>2011</a></td>
-                <td></td>
-                <td>Boston Bruins</td>
-            </tr>
-            <tr>
-                <td><a>2010</a></td>
-                <td></td>
-                <td>Chicago Blackhawks</td>
-            </tr>
-            <tr>
-                <td><a>2009</a></td>
-                <td></td>
-                <td>Pittsburgh Penguins</td>
-            </tr>
-            <tr>
-                <td><a>2008</a></td>
-                <td></td>
-                <td>Detroit Red Wings</td>
-            </tr>
-            <tr>
-                <td><a>2007</a></td>
-                <td></td>
-                <td>Anaheim Ducks</td>
-            </tr>
-            <tr>
-                <td><a>2006</a></td>
-                <td></td>
-                <td>Carolina Hurricanes</td>
-            </tr>
-            <tr>
-                <td><a>2005</a></td>
-                <td>-</td>
-                <td>LOCKOUT</td>
-            </tr>
-            <tr>
-                <td><a>2004</a></td>
-                <td></td>
-                <td>Tampa Bay Lightning</td>
-            </tr>
-            <tr>
-                <td><a>2003</a></td>
-                <td></td>
-                <td>New Jersey Devils</td>
-            </tr>
-            <tr>
-                <td><a>2002</a></td>
-                <td></td>
-                <td>Detroit Red Wings</td>
-            </tr>
-            <tr>
-                <td><a>2001</a></td>
-                <td></td>
-                <td>Colorado Avalanche</td>
-            </tr>
-            <tr>
-                <td><a>2000</a></td>
-                <td></td>
-                <td>New Jersey Devils</td>
-            </tr>
-            <tr>
-                <td><a>1999</a></td>
-                <td></td>
-                <td>Dallas Stars</td>
-            </tr>
-            <tr>
-                <td><a>1998</a></td>
-                <td></td>
-                <td>Detroit Red Wings</td>
-            </tr>
-            <tr>
-                <td><a>1997</a></td>
-                <td></td>
-                <td>Detroit Red Wings</td>
-            </tr>
-            <tr>
-                <td><a>1996</a></td>
-                <td></td>
-                <td>Colorado Avalanche</td>
-            </tr> -->
         </table>
     </div>
 </body>
