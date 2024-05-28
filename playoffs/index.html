@@ -1,14 +1,76 @@
 <html>
 <head>
     <link href="css/teams.css" rel="stylesheet" />
+    <script>
+        window.onload = function() {
+            const TEAMS = {
+                'COL': 'Colorado Avalanche',
+                'DET': 'Detroit Red Wings',
+                'DAL': 'Dallas Stars',
+                'VGK': 'Vegas Golden Knights',
+                'NJD': 'New Jersey Devils',
+                'TBL': 'Tampa Bay Lightning',
+                'BOS': 'Boston Bruins',
+                'CHI': 'Chicago Blackhawks',
+                'ANA': 'Anaheim Ducks'
+            }
+            const DATA = [
+                { year: 1996, link: false, poolWinners: 'Derrick', poolLosers: '', cupWinner: 'COL'},
+                { year: 1997, link: false, poolWinners: 'Jaclyn', poolLosers: '', cupWinner: 'DET'},
+                { year: 1998, link: false, poolWinners: 'Jaclyn', poolLosers: '', cupWinner: 'DET'},
+                { year: 1999, link: false, poolWinners: 'Derrick', poolLosers: '', cupWinner: 'DAL'},
+                { year: 2000, link: false, poolWinners: 'Derrick', poolLosers: '', cupWinner: 'NJD'},
+                { year: 2001, link: false, poolWinners: 'Chrissy', poolLosers: '', cupWinner: 'COL'},
+                { year: 2002, link: false, poolWinners: 'Chrissy', poolLosers: '', cupWinner: 'DET'},
+                { year: 2003, link: false, poolWinners: 'Marc', poolLosers: '', cupWinner: 'NJD'},
+                { year: 2004, link: false, poolWinners: 'Derrick', poolLosers: '', cupWinner: 'TBL'},
+                { year: 2005, link: false, poolWinners: '-', poolLosers: '-', cupWinner: 'LOCKOUT'},
+                { year: 2006, link: false, poolWinners: 'Derrick', poolLosers: '', cupWinner: 'CAR'},
+                { year: 2007, link: false, poolWinners: 'Marc*', poolLosers: '', cupWinner: 'ANA'},
+                { year: 2008, link: false, poolWinners: 'Chrissy', poolLosers: ['Derrick', 'Stephanie'], cupWinner: 'DET'},
+                { year: 2009, link: false, poolWinners: 'Marc', poolLosers: 'Nickall', cupWinner: 'PIT'},
+                { year: 2010, link: false, poolWinners: 'Jaclyn', poolLosers: 'Derrick', cupWinner: 'CHI'},
+                { year: 2011, link: false, poolWinners: 'Marc', poolLosers: 'Jaclyn', cupWinner: 'BOS'},
+                { year: 2012, link: false, poolWinners: 'Nathan**', poolLosers: 'Stephanie', cupWinner: 'LAK'},
+                { year: 2013, link: false, poolWinners: 'Derrick', poolLosers: 'Ryan', cupWinner: 'CHI'},
+                { year: 2014, link: true, poolWinners: 'Nathan', poolLosers: 'Nickall', cupWinner: 'LAK'},
+                { year: 2015, link: true, poolWinners: 'Nathan', poolLosers: 'Glenda', cupWinner: 'CHI'},
+                { year: 2016, link: true, poolWinners: 'Stephanie', poolLosers: 'Derrick', cupWinner: 'PIT'},
+                { year: 2017, link: true, poolWinners: ['Glenda', 'Marc'], poolLosers: ['Jake', 'Nickall'], cupWinner: 'PIT'},
+                { year: 2018, link: true, poolWinners: 'Ryan', poolLosers: 'Robin', cupWinner: 'WAS'},
+                { year: 2019, link: true, poolWinners: 'Nathan', poolLosers: 'Marc', cupWinner: 'STL'},
+                { year: 2020, link: true, poolWinners: 'Nathan', poolLosers: 'Robin', cupWinner: 'TBL'},
+                { year: 2021, link: true, poolWinners: 'Stephanie', poolLosers: ['Kiersten', 'Robin'], cupWinner: 'TBL'},
+                { year: 2022, link: true, poolWinners: 'Stephanie', poolLosers: 'Glenda', cupWinner: 'COL'},
+                { year: 2023, link: true, poolWinners: 'Nathan', poolLosers: 'Jake', cupWinner: 'VGK'},
+                { year: 2024, link: true, poolWinners: '', poolLosers: '', cupWinner: ''}
+            ];
+            table = document.getElementById("contents");
+
+            var headerRow = table.insertRow();
+            headerRow.insertCell().outerHTML = "<th>Year</th>"
+            headerRow.insertCell().outerHTML = "<th>Pool Winner(s)</th>"
+            headerRow.insertCell().outerHTML = "<th>Pool Loser(s)</th>"
+            headerRow.insertCell().outerHTML = "<th>Cup Winner</th>"
+
+            DATA.forEach( year => {
+                var row = table.insertRow(1); // insert in reverse order
+                var innerHtml = year.link ? "<a href=\"" + year.year + ".html\">" + year.year +" </a>" : year.year
+                row.insertCell().outerHTML = "<td>" + innerHtml + "</td>"
+                row.insertCell().outerHTML = "<td>" + year.poolWinners + "</td>"
+                row.insertCell().outerHTML = "<td>" + year.poolLosers + "</td>"
+                row.insertCell().outerHTML = "<td class='" + year.cupWinner + "'>" + TEAMS[year.cupWinner] + "</td>"
+            })
+        }
+    </script>
 </head>
 <body style="font-size: large";>
     <div style="display: flex; justify-content: center; align-items: center; text-align: center;">
         <h2>Bryan Family Playoff Pools</h2>
     </div>
     <div style="display: flex; justify-content: center; align-items: center; text-align: center;">
-        <table style="border: 0px; border-spacing: 2em 0;">
-            <tr>
+        <table id="contents" style="border: 0px; border-spacing: 2em 0;">
+            <!-- <tr>
                 <th>Year</th>
                 <th>Winner(s)</th>
                 <th>Cup Winner</th>
@@ -157,7 +219,7 @@
                 <td><a>1996</a></td>
                 <td></td>
                 <td>Colorado Avalanche</td>
-            </tr>
+            </tr> -->
         </table>
     </div>
 </body>
