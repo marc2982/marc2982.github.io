@@ -14,8 +14,8 @@ td {
     background-color: blue !important;
 } */
 
-.backToIndex {
-    padding-bottom: 10px;
+#backToIndex {
+    margin-bottom: 10px;
 }
 
 .table_div {
