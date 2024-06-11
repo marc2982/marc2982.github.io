@@ -1,84 +1,44 @@
-<html>
+<html lang="en">
 <head>
+    <title>Bryan Family Playoff Pools</title>
+    <link href="css/index.css" rel="stylesheet" />
     <link href="css/teams.css" rel="stylesheet" />
-    <script>
+
+    <script src="js/yearlyResults.js" type="module"></script>
+    <script src="js/winsLosses.js" type="module"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+    <link href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" rel="stylesheet" />
+
+    <script type="module">
+        import { yearlyResults } from './js/yearlyResults.js';
+        import { winsLosses } from './js/winsLosses.js';
+
         window.onload = function() {
-            const TEAMS = {
-                '': '',
-                'ANA': 'Anaheim Ducks',
-                'BOS': 'Boston Bruins',
-                'CAR': 'Carolina Hurricanes',
-                'CHI': 'Chicago Blackhawks',
-                'COL': 'Colorado Avalanche',
-                'DAL': 'Dallas Stars',
-                'DET': 'Detroit Red Wings',
-                'LAK': 'Los Angeles Kings',
-                'LOCKOUT': 'LOCKOUT',
-                'NJD': 'New Jersey Devils',
-                'PIT': 'Pittsburgh Penguins',
-                'STL': 'St. Louis Blues',
-                'TBL': 'Tampa Bay Lightning',
-                'VGK': 'Vegas Golden Knights',
-                'WAS': 'Washington Capitals',
-            }
-            const DATA = [
-                { year: 1996, link: false, poolWinners: 'Derrick', poolLosers: '', cupWinner: 'COL'},
-                { year: 1997, link: true, poolWinners: 'Jaclyn', poolLosers: 'Marc', cupWinner: 'DET'},
-                { year: 1998, link: true, poolWinners: 'Jaclyn', poolLosers: 'Chrissy', cupWinner: 'DET'},
-                { year: 1999, link: true, poolWinners: 'Derrick', poolLosers: 'Stephanie?', cupWinner: 'DAL'},
-                { year: 2000, link: true, poolWinners: 'Derrick', poolLosers: 'Chrissy', cupWinner: 'NJD'},
-                { year: 2001, link: true, poolWinners: 'Chrissy', poolLosers: 'Derrick', cupWinner: 'COL'},
-                { year: 2002, link: true, poolWinners: 'Chrissy', poolLosers: 'Stephanie', cupWinner: 'DET'},
-                { year: 2003, link: true, poolWinners: 'Marc', poolLosers: 'Derrick', cupWinner: 'NJD'},
-                { year: 2004, link: true, poolWinners: 'Derrick', poolLosers: 'Stephanie', cupWinner: 'TBL'},
-                { year: 2005, link: false, poolWinners: '-', poolLosers: '-', cupWinner: 'LOCKOUT'},
-                { year: 2006, link: true, poolWinners: 'Derrick', poolLosers: 'Jaclyn', cupWinner: 'CAR'},
-                { year: 2007, link: true, poolWinners: 'Marc*', poolLosers: 'Chrissy', cupWinner: 'ANA'},
-                { year: 2008, link: false, poolWinners: 'Chrissy', poolLosers: ['Derrick', 'Stephanie'], cupWinner: 'DET'},
-                { year: 2009, link: false, poolWinners: 'Marc', poolLosers: 'Nickall', cupWinner: 'PIT'},
-                { year: 2010, link: false, poolWinners: 'Jaclyn', poolLosers: 'Derrick', cupWinner: 'CHI'},
-                { year: 2011, link: false, poolWinners: 'Marc', poolLosers: 'Jaclyn', cupWinner: 'BOS'},
-                { year: 2012, link: false, poolWinners: 'Nathan**', poolLosers: 'Stephanie', cupWinner: 'LAK'},
-                { year: 2013, link: false, poolWinners: 'Derrick', poolLosers: 'Ryan', cupWinner: 'CHI'},
-                { year: 2014, link: true, poolWinners: 'Nathan', poolLosers: 'Nickall', cupWinner: 'LAK'},
-                { year: 2015, link: true, poolWinners: 'Nathan', poolLosers: 'Glenda', cupWinner: 'CHI'},
-                { year: 2016, link: true, poolWinners: 'Stephanie', poolLosers: 'Derrick', cupWinner: 'PIT'},
-                { year: 2017, link: true, poolWinners: ['Glenda', 'Marc'], poolLosers: ['Jake', 'Nickall'], cupWinner: 'PIT'},
-                { year: 2018, link: true, poolWinners: 'Ryan', poolLosers: 'Robin', cupWinner: 'WAS'},
-                { year: 2019, link: true, poolWinners: 'Nathan', poolLosers: 'Marc', cupWinner: 'STL'},
-                { year: 2020, link: true, poolWinners: 'Nathan', poolLosers: 'Robin', cupWinner: 'TBL'},
-                { year: 2021, link: true, poolWinners: 'Stephanie', poolLosers: ['Kiersten', 'Robin'], cupWinner: 'TBL'},
-                { year: 2022, link: true, poolWinners: 'Stephanie', poolLosers: 'Glenda', cupWinner: 'COL'},
-                { year: 2023, link: true, poolWinners: 'Nathan', poolLosers: 'Jake', cupWinner: 'VGK'},
-                { year: 2024, link: true, poolWinners: '', poolLosers: '', cupWinner: ''}
-            ];
-            table = document.getElementById("contents");
+            let yearlyResultsTable = $('#yearlyResults');
+            let winsLossesTable = $('#winsLosses');
 
-            var headerRow = table.insertRow();
-            headerRow.insertCell().outerHTML = "<th>Year</th>"
-            headerRow.insertCell().outerHTML = "<th>Pool Winner(s)</th>"
-            headerRow.insertCell().outerHTML = "<th>Pool Loser(s)</th>"
-            headerRow.insertCell().outerHTML = "<th>Cup Winner</th>"
-
-            DATA.forEach( year => {
-                var row = table.insertRow(1); // insert in reverse order
-                var innerHtml = year.link ? "<a href=\"" + year.year + ".html\">" + year.year +" </a>" : year.year
-                row.insertCell().outerHTML = "<td>" + innerHtml + "</td>"
-                row.insertCell().outerHTML = "<td>" + year.poolWinners + "</td>"
-                row.insertCell().outerHTML = "<td>" + year.poolLosers + "</td>"
-                //row.insertCell().outerHTML = "<td class='" + year.cupWinner + "'>" + TEAMS[year.cupWinner] + "</td>"
-                row.insertCell().outerHTML = "<td>" + TEAMS[year.cupWinner] + "</td>"
-            })
+            let winners, losers = yearlyResults(yearlyResultsTable);
+            winsLosses(winsLossesTable, winners, losers);
         }
     </script>
 </head>
-<body style="font-size: large";>
-    <div style="display: flex; justify-content: center; align-items: center; text-align: center;">
-        <h2>Bryan Family Playoff Pools</h2>
-    </div>
-    <div style="display: flex; justify-content: center; align-items: center; text-align: center;">
-        <table id="contents" style="border: 0px; border-spacing: 2em 0;">
-        </table>
+<body>
+    <div id="container" style="display: grid; grid-template-rows: auto auto; grid-template-columns: auto auto; width: auto; justify-content: center; text-align: center;">
+        <div style="grid-column: 1 / span 2;">
+            <h2>Bryan Family Playoff Pools</h2>
+        </div>
+        <div class="table_div">
+            <h2>Results</h2>
+            <table id="yearlyResults" class="stripe">
+            </table>
+        </div>
+        <div class="table_div">
+            <h2>Stats</h2>
+            <table id="winsLosses" class="stripe">
+            </table>
+        </div>
     </div>
 </body>
 </html>
