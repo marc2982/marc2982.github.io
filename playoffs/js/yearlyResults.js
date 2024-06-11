@@ -26,8 +26,8 @@ export function yearlyResults(resultsTable) {
     });
 
     resultsTable.DataTable({
-        aaSorting: "Year",
         info: false,
+        order: [[1, 'desc']],
         ordering: false,
         paging: false,
         searching: false,
