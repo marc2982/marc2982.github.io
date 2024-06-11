@@ -41,6 +41,7 @@ export function winsLosses(winsLossesTable) {
         info: false,
         paging: false,
         searching: false,
+        order: [[1, 'desc']]
         // stripeClasses: ['stripe-1', 'stripe-2']
     });
 }
