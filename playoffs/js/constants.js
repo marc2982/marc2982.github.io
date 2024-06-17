@@ -49,7 +49,7 @@ export const DATA = [
     { year: 2005, link: false, poolWinners: '-', poolLosers: '-', cupWinner: 'LOCKOUT'},
     { year: 2006, link: true, poolWinners: 'Derrick', poolLosers: 'Jaclyn', cupWinner: 'CAR'},
     { year: 2007, link: true, poolWinners: 'Marc*', poolLosers: 'Chrissy', cupWinner: 'ANA'},
-    { year: 2008, link: false, poolWinners: 'Chrissy', poolLosers: ['Derrick', 'Stephanie'], cupWinner: 'DET'},
+    { year: 2008, link: true, poolWinners: 'Chrissy', poolLosers: ['Derrick', 'Stephanie'], cupWinner: 'DET'},
     { year: 2009, link: false, poolWinners: 'Marc', poolLosers: 'Nickall', cupWinner: 'PIT'},
     { year: 2010, link: false, poolWinners: 'Jaclyn', poolLosers: 'Derrick', cupWinner: 'CHI'},
     { year: 2011, link: false, poolWinners: 'Marc', poolLosers: 'Jaclyn', cupWinner: 'BOS'},
