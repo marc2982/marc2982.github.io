@@ -40,7 +40,7 @@ export const DATA = [
     { year: 1996, link: false, poolWinners: 'Derrick', poolLosers: '', cupWinner: 'COL'},
     { year: 1997, link: true, poolWinners: 'Jaclyn', poolLosers: 'Marc', cupWinner: 'DET'},
     { year: 1998, link: true, poolWinners: 'Jaclyn', poolLosers: 'Chrissy', cupWinner: 'DET'},
-    { year: 1999, link: true, poolWinners: 'Derrick', poolLosers: 'Stephanie?', cupWinner: 'DAL'},
+    { year: 1999, link: true, poolWinners: 'Derrick', poolLosers: 'Stephanie', cupWinner: 'DAL'},
     { year: 2000, link: true, poolWinners: 'Derrick', poolLosers: 'Chrissy', cupWinner: 'NJD'},
     { year: 2001, link: true, poolWinners: 'Chrissy', poolLosers: 'Derrick', cupWinner: 'COL'},
     { year: 2002, link: true, poolWinners: 'Chrissy', poolLosers: 'Stephanie', cupWinner: 'DET'},
