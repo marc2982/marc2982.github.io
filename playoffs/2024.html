@@ -22,6 +22,19 @@ window.onload = function() {
             { targets: [0,1,2], className: 'dt-body-center dt-head-center' }
         ]
     });
+
+    $('#projectionTable').DataTable({
+        paging: false,
+        searching: false,
+        info: false,
+        order: [
+            [1, 'asc'],
+        ],
+        ordering: false,
+        columnDefs: [
+            { targets: [0,1,2], className: 'dt-body-center dt-head-center' }
+        ]
+    });
 }
 </script>
   </head>
@@ -52,8 +65,8 @@ window.onload = function() {
           <td class="round_total">14</td>
           <td class="round_total">29</td>
           <td class="round_total">15</td>
-          <td class="round_total">0</td>
-          <td class="points">58</td>
+          <td class="round_total">5</td>
+          <td class="points">63</td>
           <td class="rank">1</td>
           <td class="possible_points">73</td>
         </tr>
@@ -65,7 +78,7 @@ window.onload = function() {
           <td class="round_total">0</td>
           <td class="points">54</td>
           <td class="rank">2</td>
-          <td class="possible_points">69</td>
+          <td class="possible_points">64</td>
         </tr>
         <tr class="">
           <td class="person">Derrick</td>
@@ -75,6 +88,26 @@ window.onload = function() {
           <td class="round_total">0</td>
           <td class="points">48</td>
           <td class="rank">3</td>
+          <td class="possible_points">58</td>
+        </tr>
+        <tr class="">
+          <td class="person">Kiersten</td>
+          <td class="round_total">21</td>
+          <td class="round_total">13</td>
+          <td class="round_total">6</td>
+          <td class="round_total">5</td>
+          <td class="points">45</td>
+          <td class="rank">4</td>
+          <td class="possible_points">55</td>
+        </tr>
+        <tr class="">
+          <td class="person">Marc</td>
+          <td class="round_total">18</td>
+          <td class="round_total">13</td>
+          <td class="round_total">7</td>
+          <td class="round_total">5</td>
+          <td class="points">43</td>
+          <td class="rank">5</td>
           <td class="possible_points">53</td>
         </tr>
         <tr class="">
@@ -84,18 +117,18 @@ window.onload = function() {
           <td class="round_total">8</td>
           <td class="round_total">0</td>
           <td class="points">41</td>
-          <td class="rank">4</td>
-          <td class="possible_points">46</td>
+          <td class="rank">6</td>
+          <td class="possible_points">51</td>
         </tr>
         <tr class="">
-          <td class="person">Kiersten</td>
-          <td class="round_total">21</td>
-          <td class="round_total">13</td>
-          <td class="round_total">6</td>
-          <td class="round_total">0</td>
+          <td class="person">Jamie</td>
+          <td class="round_total">17</td>
+          <td class="round_total">11</td>
+          <td class="round_total">7</td>
+          <td class="round_total">5</td>
           <td class="points">40</td>
-          <td class="rank">5</td>
-          <td class="possible_points">55</td>
+          <td class="rank">7</td>
+          <td class="possible_points">50</td>
         </tr>
         <tr class="">
           <td class="person">Benedict</td>
@@ -104,28 +137,48 @@ window.onload = function() {
           <td class="round_total">15</td>
           <td class="round_total">0</td>
           <td class="points">40</td>
-          <td class="rank">5</td>
-          <td class="possible_points">45</td>
+          <td class="rank">7</td>
+          <td class="possible_points">50</td>
         </tr>
         <tr class="">
-          <td class="person">Marc</td>
-          <td class="round_total">18</td>
+          <td class="person">Theodore</td>
+          <td class="round_total">12</td>
           <td class="round_total">13</td>
           <td class="round_total">7</td>
-          <td class="round_total">0</td>
-          <td class="points">38</td>
-          <td class="rank">7</td>
-          <td class="possible_points">53</td>
+          <td class="round_total">5</td>
+          <td class="points">37</td>
+          <td class="rank">9</td>
+          <td class="possible_points">47</td>
         </tr>
         <tr class="">
-          <td class="person">Jamie</td>
+          <td class="person">Ryan</td>
           <td class="round_total">17</td>
-          <td class="round_total">11</td>
           <td class="round_total">7</td>
-          <td class="round_total">0</td>
-          <td class="points">35</td>
-          <td class="rank">8</td>
-          <td class="possible_points">50</td>
+          <td class="round_total">8</td>
+          <td class="round_total">5</td>
+          <td class="points">37</td>
+          <td class="rank">9</td>
+          <td class="possible_points">47</td>
+        </tr>
+        <tr class="">
+          <td class="person">Sophie</td>
+          <td class="round_total">23</td>
+          <td class="round_total">5</td>
+          <td class="round_total">3</td>
+          <td class="round_total">5</td>
+          <td class="points">36</td>
+          <td class="rank">11</td>
+          <td class="possible_points">46</td>
+        </tr>
+        <tr class="">
+          <td class="person">Robin</td>
+          <td class="round_total">12</td>
+          <td class="round_total">13</td>
+          <td class="round_total">6</td>
+          <td class="round_total">5</td>
+          <td class="points">36</td>
+          <td class="rank">11</td>
+          <td class="possible_points">46</td>
         </tr>
         <tr class="">
           <td class="person">Jaclyn</td>
@@ -134,28 +187,8 @@ window.onload = function() {
           <td class="round_total">3</td>
           <td class="round_total">0</td>
           <td class="points">34</td>
-          <td class="rank">9</td>
-          <td class="possible_points">39</td>
-        </tr>
-        <tr class="">
-          <td class="person">Theodore</td>
-          <td class="round_total">12</td>
-          <td class="round_total">13</td>
-          <td class="round_total">7</td>
-          <td class="round_total">0</td>
-          <td class="points">32</td>
-          <td class="rank">10</td>
-          <td class="possible_points">47</td>
-        </tr>
-        <tr class="">
-          <td class="person">Ryan</td>
-          <td class="round_total">17</td>
-          <td class="round_total">7</td>
-          <td class="round_total">8</td>
-          <td class="round_total">0</td>
-          <td class="points">32</td>
-          <td class="rank">10</td>
-          <td class="possible_points">47</td>
+          <td class="rank">13</td>
+          <td class="possible_points">44</td>
         </tr>
         <tr class="">
           <td class="person">Jake</td>
@@ -164,36 +197,16 @@ window.onload = function() {
           <td class="round_total">7</td>
           <td class="round_total">0</td>
           <td class="points">32</td>
-          <td class="rank">10</td>
-          <td class="possible_points">37</td>
-        </tr>
-        <tr class="">
-          <td class="person">Sophie</td>
-          <td class="round_total">23</td>
-          <td class="round_total">5</td>
-          <td class="round_total">3</td>
-          <td class="round_total">0</td>
-          <td class="points">31</td>
-          <td class="rank">13</td>
-          <td class="possible_points">46</td>
-        </tr>
-        <tr class="">
-          <td class="person">Robin</td>
-          <td class="round_total">12</td>
-          <td class="round_total">13</td>
-          <td class="round_total">6</td>
-          <td class="round_total">0</td>
-          <td class="points">31</td>
-          <td class="rank">13</td>
-          <td class="possible_points">46</td>
+          <td class="rank">14</td>
+          <td class="possible_points">42</td>
         </tr>
         <tr class="">
           <td class="person">Nickall</td>
           <td class="round_total">5</td>
           <td class="round_total">12</td>
           <td class="round_total">4</td>
-          <td class="round_total">0</td>
-          <td class="points">21</td>
+          <td class="round_total">5</td>
+          <td class="points">26</td>
           <td class="rank">15</td>
           <td class="possible_points">36</td>
         </tr>
@@ -2310,7 +2323,7 @@ window.onload = function() {
             <br />
             <span class="">FLA 3</span>
             <br />
-            <span class="">EDM 2</span>
+            <span class="">EDM 3</span>
           </th>
           <th>Points</th>
           <th>Rank</th>
@@ -2323,12 +2336,12 @@ window.onload = function() {
               <div class="img_container unknown">
                 <img src="https://assets.nhle.com/logos/nhl/svg/EDM_dark.svg" alt="EDM" />
               </div>
-              <div class="games unknown">6</div>
+              <div class="games incorrect">6</div>
             </div>
           </td>
           <td class="points">0</td>
-          <td class="rank">1</td>
-          <td class="possible_points">5</td>
+          <td class="rank">10</td>
+          <td class="possible_points">10</td>
         </tr>
         <tr>
           <td class="person">Derrick</td>
@@ -2337,25 +2350,25 @@ window.onload = function() {
               <div class="img_container unknown">
                 <img src="https://assets.nhle.com/logos/nhl/svg/EDM_dark.svg" alt="EDM" />
               </div>
-              <div class="games unknown">6</div>
+              <div class="games incorrect">6</div>
             </div>
           </td>
           <td class="points">0</td>
-          <td class="rank">1</td>
-          <td class="possible_points">5</td>
+          <td class="rank">10</td>
+          <td class="possible_points">10</td>
         </tr>
         <tr>
-          <td class="person">Glenda</td>
+          <td class="person leader">Glenda</td>
           <td>
             <div class="pick">
               <div class="img_container unknown">
                 <img src="https://assets.nhle.com/logos/nhl/svg/EDM_dark.svg" alt="EDM" />
               </div>
-              <div class="games unknown">7</div>
+              <div class="games correct">7</div>
             </div>
           </td>
-          <td class="points">0</td>
-          <td class="rank">1</td>
+          <td class="points leader">5</td>
+          <td class="rank leader">1</td>
           <td class="possible_points">15</td>
         </tr>
         <tr>
@@ -2365,12 +2378,12 @@ window.onload = function() {
               <div class="img_container unknown">
                 <img src="https://assets.nhle.com/logos/nhl/svg/EDM_dark.svg" alt="EDM" />
               </div>
-              <div class="games unknown">6</div>
+              <div class="games incorrect">6</div>
             </div>
           </td>
           <td class="points">0</td>
-          <td class="rank">1</td>
-          <td class="possible_points">5</td>
+          <td class="rank">10</td>
+          <td class="possible_points">10</td>
         </tr>
         <tr>
           <td class="person">Jake</td>
@@ -2379,53 +2392,53 @@ window.onload = function() {
               <div class="img_container unknown">
                 <img src="https://assets.nhle.com/logos/nhl/svg/EDM_dark.svg" alt="EDM" />
               </div>
-              <div class="games unknown">6</div>
+              <div class="games incorrect">6</div>
             </div>
           </td>
           <td class="points">0</td>
-          <td class="rank">1</td>
-          <td class="possible_points">5</td>
+          <td class="rank">10</td>
+          <td class="possible_points">10</td>
         </tr>
         <tr>
-          <td class="person">Jamie</td>
+          <td class="person leader">Jamie</td>
           <td>
             <div class="pick">
               <div class="img_container unknown">
                 <img src="https://assets.nhle.com/logos/nhl/svg/EDM_dark.svg" alt="EDM" />
               </div>
-              <div class="games unknown">7</div>
+              <div class="games correct">7</div>
             </div>
           </td>
-          <td class="points">0</td>
-          <td class="rank">1</td>
+          <td class="points leader">5</td>
+          <td class="rank leader">1</td>
           <td class="possible_points">15</td>
         </tr>
         <tr>
-          <td class="person">Kiersten</td>
+          <td class="person leader">Kiersten</td>
           <td>
             <div class="pick">
               <div class="img_container unknown">
                 <img src="https://assets.nhle.com/logos/nhl/svg/EDM_dark.svg" alt="EDM" />
               </div>
-              <div class="games unknown">7</div>
+              <div class="games correct">7</div>
             </div>
           </td>
-          <td class="points">0</td>
-          <td class="rank">1</td>
+          <td class="points leader">5</td>
+          <td class="rank leader">1</td>
           <td class="possible_points">15</td>
         </tr>
         <tr>
-          <td class="person">Marc</td>
+          <td class="person leader">Marc</td>
           <td>
             <div class="pick">
               <div class="img_container unknown">
                 <img src="https://assets.nhle.com/logos/nhl/svg/EDM_dark.svg" alt="EDM" />
               </div>
-              <div class="games unknown">7</div>
+              <div class="games correct">7</div>
             </div>
           </td>
-          <td class="points">0</td>
-          <td class="rank">1</td>
+          <td class="points leader">5</td>
+          <td class="rank leader">1</td>
           <td class="possible_points">15</td>
         </tr>
         <tr>
@@ -2435,67 +2448,67 @@ window.onload = function() {
               <div class="img_container unknown">
                 <img src="https://assets.nhle.com/logos/nhl/svg/FLA_dark.svg" alt="FLA" />
               </div>
-              <div class="games unknown">6</div>
+              <div class="games incorrect">6</div>
             </div>
           </td>
           <td class="points">0</td>
-          <td class="rank">1</td>
-          <td class="possible_points">15</td>
+          <td class="rank">10</td>
+          <td class="possible_points">10</td>
         </tr>
         <tr>
-          <td class="person">Nickall</td>
+          <td class="person leader">Nickall</td>
           <td>
             <div class="pick">
               <div class="img_container unknown">
                 <img src="https://assets.nhle.com/logos/nhl/svg/FLA_dark.svg" alt="FLA" />
               </div>
-              <div class="games unknown">7</div>
+              <div class="games correct">7</div>
             </div>
           </td>
-          <td class="points">0</td>
-          <td class="rank">1</td>
+          <td class="points leader">5</td>
+          <td class="rank leader">1</td>
           <td class="possible_points">15</td>
         </tr>
         <tr>
-          <td class="person">Robin</td>
+          <td class="person leader">Robin</td>
           <td>
             <div class="pick">
               <div class="img_container unknown">
                 <img src="https://assets.nhle.com/logos/nhl/svg/EDM_dark.svg" alt="EDM" />
               </div>
-              <div class="games unknown">7</div>
+              <div class="games correct">7</div>
             </div>
           </td>
-          <td class="points">0</td>
-          <td class="rank">1</td>
+          <td class="points leader">5</td>
+          <td class="rank leader">1</td>
           <td class="possible_points">15</td>
         </tr>
         <tr>
-          <td class="person">Ryan</td>
+          <td class="person leader">Ryan</td>
           <td>
             <div class="pick">
               <div class="img_container unknown">
                 <img src="https://assets.nhle.com/logos/nhl/svg/EDM_dark.svg" alt="EDM" />
               </div>
-              <div class="games unknown">7</div>
+              <div class="games correct">7</div>
             </div>
           </td>
-          <td class="points">0</td>
-          <td class="rank">1</td>
+          <td class="points leader">5</td>
+          <td class="rank leader">1</td>
           <td class="possible_points">15</td>
         </tr>
         <tr>
-          <td class="person">Sophie</td>
+          <td class="person leader">Sophie</td>
           <td>
             <div class="pick">
               <div class="img_container unknown">
                 <img src="https://assets.nhle.com/logos/nhl/svg/EDM_dark.svg" alt="EDM" />
               </div>
-              <div class="games unknown">7</div>
+              <div class="games correct">7</div>
             </div>
           </td>
-          <td class="points">0</td>
-          <td class="rank">1</td>
+          <td class="points leader">5</td>
+          <td class="rank leader">1</td>
           <td class="possible_points">15</td>
         </tr>
         <tr>
@@ -2505,27 +2518,109 @@ window.onload = function() {
               <div class="img_container unknown">
                 <img src="https://assets.nhle.com/logos/nhl/svg/EDM_dark.svg" alt="EDM" />
               </div>
-              <div class="games unknown">6</div>
+              <div class="games incorrect">6</div>
             </div>
           </td>
           <td class="points">0</td>
-          <td class="rank">1</td>
-          <td class="possible_points">5</td>
+          <td class="rank">10</td>
+          <td class="possible_points">10</td>
         </tr>
         <tr>
-          <td class="person">Theodore</td>
+          <td class="person leader">Theodore</td>
           <td>
             <div class="pick">
               <div class="img_container unknown">
                 <img src="https://assets.nhle.com/logos/nhl/svg/EDM_dark.svg" alt="EDM" />
               </div>
-              <div class="games unknown">7</div>
+              <div class="games correct">7</div>
             </div>
           </td>
-          <td class="points">0</td>
-          <td class="rank">1</td>
+          <td class="points leader">5</td>
+          <td class="rank leader">1</td>
           <td class="possible_points">15</td>
         </tr>
+      </table>
+    </div>
+    <div>
+      <h2 href="projections">Final Projection</h2>
+      <table id="projectionTable" class="table table-striped containing_table table-hover fw-bold">
+        <thead>
+          <tr>
+            <th></th>
+            <th>
+              <div class="pick florida panthers">
+                <img src="https://assets.nhle.com/logos/nhl/svg/FLA_dark.svg" alt="FLA" />
+              </div>
+            </th>
+            <th>
+              <div class="pick edmonton oilers">
+                <img src="https://assets.nhle.com/logos/nhl/svg/EDM_dark.svg" alt="EDM" />
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>4</td>
+            <td class="">
+              <div>
+                <div style="float: left; width: 50%;">Winner(s): Glenda</div>
+                <div style="float: right; width: 50%;">Loser(s): Nickall</div>
+              </div>
+            </td>
+            <td class="">
+              <div>
+                <div style="float: left; width: 50%;">Winner(s): Glenda</div>
+                <div style="float: right; width: 50%;">Loser(s): Nickall</div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td class="">
+              <div>
+                <div style="float: left; width: 50%;">Winner(s): Glenda</div>
+                <div style="float: right; width: 50%;">Loser(s): Nickall</div>
+              </div>
+            </td>
+            <td class="">
+              <div>
+                <div style="float: left; width: 50%;">Winner(s): Glenda</div>
+                <div style="float: right; width: 50%;">Loser(s): Nickall</div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td class="">
+              <div>
+                <div style="float: left; width: 50%;">Winner(s): Nathan</div>
+                <div style="float: right; width: 50%;">Loser(s): Nickall</div>
+              </div>
+            </td>
+            <td class="">
+              <div>
+                <div style="float: left; width: 50%;">Winner(s): Glenda</div>
+                <div style="float: right; width: 50%;">Loser(s): Nickall</div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td class="">
+              <div>
+                <div style="float: left; width: 50%;">Winner(s): Glenda</div>
+                <div style="float: right; width: 50%;">Loser(s): Jake</div>
+              </div>
+            </td>
+            <td class="">
+              <div>
+                <div style="float: left; width: 50%;">Winner(s): Glenda</div>
+                <div style="float: right; width: 50%;">Loser(s): Nickall</div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </body>
