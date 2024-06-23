@@ -22,6 +22,19 @@ window.onload = function() {
             { targets: [0,1,2], className: 'dt-body-center dt-head-center' }
         ]
     });
+
+    $('#projectionTable').DataTable({
+        paging: false,
+        searching: false,
+        info: false,
+        order: [
+            [1, 'asc'],
+        ],
+        ordering: false,
+        columnDefs: [
+            { targets: [0,1,2], className: 'dt-body-center dt-head-center' }
+        ]
+    });
 }
 </script>
   </head>
@@ -167,7 +180,7 @@ window.onload = function() {
           </th>
           <th>Points</th>
           <th>Rank</th>
-          <th>Possible Points</th>
+          <th>Maximum Possible Points</th>
         </tr>
         <tr>
           <td class="person leader">Derrick</td>
@@ -561,7 +574,7 @@ window.onload = function() {
           </th>
           <th>Points</th>
           <th>Rank</th>
-          <th>Possible Points</th>
+          <th>Maximum Possible Points</th>
         </tr>
         <tr>
           <td class="person">Derrick</td>
@@ -781,7 +794,7 @@ window.onload = function() {
           </th>
           <th>Points</th>
           <th>Rank</th>
-          <th>Possible Points</th>
+          <th>Maximum Possible Points</th>
         </tr>
         <tr>
           <td class="person">Derrick</td>
@@ -914,7 +927,7 @@ window.onload = function() {
           </th>
           <th>Points</th>
           <th>Rank</th>
-          <th>Possible Points</th>
+          <th>Maximum Possible Points</th>
         </tr>
         <tr>
           <td class="person">Derrick</td>
@@ -986,6 +999,168 @@ window.onload = function() {
           <td class="rank">2</td>
           <td class="possible_points">0</td>
         </tr>
+      </table>
+    </div>
+    <div>
+      <h2 href="projections">Final Projection</h2>
+      <table id="projectionTable" class="table table-striped containing_table table-hover fw-bold">
+        <thead>
+          <tr>
+            <th></th>
+            <th>
+              <div class="pick boston bruins">
+                <img src="https://assets.nhle.com/logos/nhl/svg/BOS_20082009-20222023_dark.svg" alt="BOS" />
+              </div>
+            </th>
+            <th>
+              <div class="pick vancouver canucks">
+                <img src="https://assets.nhle.com/logos/nhl/svg/VAN_20072008-20182019_dark.svg" alt="VAN" />
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>4</td>
+            <td class="incorrect">
+              <div>
+                <table style="width: 100%">
+                  <tr>
+                    <td style="width: 50%">1st: Derrick (28 pts)</td>
+                    <td rowspan="3" style="width: 50%">Loser(s): Jaclyn (8 pts)</td>
+                  </tr>
+                  <tr>
+                    <td>2nd: Steph (22 pts)</td>
+                  </tr>
+                  <tr>
+                    <td>3rd: Marc (21 pts)</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+            <td class="incorrect">
+              <div>
+                <table style="width: 100%">
+                  <tr>
+                    <td style="width: 50%">1st: Derrick (32 pts)</td>
+                    <td rowspan="3" style="width: 50%">Loser(s): Jaclyn (12 pts)</td>
+                  </tr>
+                  <tr>
+                    <td>2nd: Steph (26 pts)</td>
+                  </tr>
+                  <tr>
+                    <td>3rd: Nickall (21 pts)</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td class="incorrect">
+              <div>
+                <table style="width: 100%">
+                  <tr>
+                    <td style="width: 50%">1st: Derrick (33 pts)</td>
+                    <td rowspan="3" style="width: 50%">Loser(s): Jaclyn (8 pts)</td>
+                  </tr>
+                  <tr>
+                    <td>2nd: Steph (22 pts)</td>
+                  </tr>
+                  <tr>
+                    <td>3rd: Marc (21 pts)</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+            <td class="incorrect">
+              <div>
+                <table style="width: 100%">
+                  <tr>
+                    <td style="width: 50%">1st: Derrick (43 pts)</td>
+                    <td rowspan="3" style="width: 50%">Loser(s): Jaclyn (12 pts)</td>
+                  </tr>
+                  <tr>
+                    <td>2nd: Steph (26 pts)</td>
+                  </tr>
+                  <tr>
+                    <td>3rd: Nickall (21 pts)</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td class="incorrect">
+              <div>
+                <table style="width: 100%">
+                  <tr>
+                    <td style="width: 50%">1st: Derrick (28 pts)</td>
+                    <td rowspan="3" style="width: 50%">Loser(s): Jaclyn (13 pts)</td>
+                  </tr>
+                  <tr>
+                    <td>2nd: Steph (27 pts)</td>
+                  </tr>
+                  <tr>
+                    <td>3rd: Nickall (22 pts)</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+            <td class="incorrect">
+              <div>
+                <table style="width: 100%">
+                  <tr>
+                    <td style="width: 50%">1st: Steph (37 pts)</td>
+                    <td rowspan="3" style="width: 50%">Loser(s): Marc (17 pts)</td>
+                  </tr>
+                  <tr>
+                    <td>2nd: Derrick (32 pts), Nickall (32 pts)</td>
+                  </tr>
+                  <tr>
+                    <td>3rd: </td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td class="correct">
+              <div>
+                <table style="width: 100%">
+                  <tr>
+                    <td style="width: 50%">1st: Marc (32 pts)</td>
+                    <td rowspan="3" style="width: 50%">Loser(s): Jaclyn (8 pts)</td>
+                  </tr>
+                  <tr>
+                    <td>2nd: Derrick (28 pts)</td>
+                  </tr>
+                  <tr>
+                    <td>3rd: Steph (22 pts)</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+            <td class="incorrect">
+              <div>
+                <table style="width: 100%">
+                  <tr>
+                    <td style="width: 50%">1st: Derrick (32 pts)</td>
+                    <td rowspan="3" style="width: 50%">Loser(s): Jaclyn (12 pts)</td>
+                  </tr>
+                  <tr>
+                    <td>2nd: Steph (26 pts)</td>
+                  </tr>
+                  <tr>
+                    <td>3rd: Marc (22 pts)</td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </body>
