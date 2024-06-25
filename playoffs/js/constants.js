@@ -26,6 +26,7 @@ export const TEAMS = {
     'COL': 'Colorado Avalanche',
     'DAL': 'Dallas Stars',
     'DET': 'Detroit Red Wings',
+    'FLA': 'Florida Panthers',
     'LAK': 'Los Angeles Kings',
     'LOCKOUT': 'LOCKOUT',
     'NJD': 'New Jersey Devils',
@@ -65,5 +66,5 @@ export const DATA = [
     { year: 2021, link: true, poolWinners: 'Stephanie', poolLosers: ['Kiersten', 'Robin'], cupWinner: 'TBL'},
     { year: 2022, link: true, poolWinners: 'Stephanie', poolLosers: 'Glenda', cupWinner: 'COL'},
     { year: 2023, link: true, poolWinners: 'Nathan', poolLosers: 'Jake', cupWinner: 'VGK'},
-    { year: 2024, link: true, poolWinners: '', poolLosers: '', cupWinner: ''}
+    { year: 2024, link: true, poolWinners: 'Glenda', poolLosers: 'Jake', cupWinner: 'FLA'}
 ];
