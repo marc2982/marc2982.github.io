@@ -115,8 +115,8 @@ export function renderRound(teams, round, table) {
         </thead>
         <tbody>
             ${$.map(round.pickResults, function (results, person) {
-        let leaderClass = round.summary.winners.includes(person) ? "class='leader'" : '';
         let summary = round.summary.summaries[person];
+        let leaderClass = round.summary.winners.includes(person) && summary.points > 0 ? "class='leader'" : '';
         return `<tr ${leaderClass}>
                         <th>${person}</th>
                         ${$.map(sortedSeries, function (series, _) {
