@@ -12,12 +12,10 @@
     <script type="module" src="./dist/additional.bundle.js"></script>
     <script type="module">
       import { Data } from 'https://cdn.skypack.dev/dataclass';
-      //import { renderPage } from './dist/additional.bundle.js';
       import { render } from './dist/main.bundle.js';
 
       window.onload = function() {
         console.log(`window.location.pathname ${window.location.pathname}`);
-        console.log(render);
         render(2025);
       }
     </script>
