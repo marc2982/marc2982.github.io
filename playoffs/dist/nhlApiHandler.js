@@ -11,8 +11,8 @@ export class NhlApiHandler {
     }
     async load() {
         console.log(`Calling API: ${this.url}`);
-        //const data = await $.get(this.url);
-        const data = await $.getJSON("../dist/2025.json");
+        const data = await $.get(this.url);
+        //const data = await $.getJSON("../dist/2025.json");
         for (const series of data.series) {
             if (!series.seriesUrl) {
                 continue; // series not fully set yet
