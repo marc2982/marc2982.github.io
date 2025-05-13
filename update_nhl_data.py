@@ -6,7 +6,7 @@ from datetime import datetime
 
 CURRENT_YEAR = datetime.now().year
 NHL_API_URL = f"https://api-web.nhle.com/v1/playoff-bracket/{CURRENT_YEAR}"
-OUTPUT_FILE = f"playoffs/data/{CURRENT_YEAR}.json"
+OUTPUT_FILE = f"./playoffs/data/{CURRENT_YEAR}/api.json"
 REPO_PATH = os.path.dirname(os.path.abspath(__file__))
 
 def fetch_data():
