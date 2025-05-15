@@ -547,7 +547,9 @@
             "topSeedWins": 1,
             "bottomSeedRank": 3,
             "bottomSeedRankAbbrev": "D3",
-            "bottomSeedWins": 3,
+            "bottomSeedWins": 4,
+            "winningTeamId": 22,
+            "losingTeamId": 54,
             "topSeedTeam": {
                 "id": 54,
                 "abbrev": "VGK",
@@ -596,6 +598,7 @@
             "bottomSeedWins": 0
         },
         {
+            "seriesUrl": "/schedule/playoff-series/2025/series-n/oilers-vs-tbd",
             "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/wcf-wordmark-en.png",
             "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/wcf-wordmark-fr.png",
             "seriesTitle": "Conference Finals",
@@ -604,8 +607,41 @@
             "playoffRound": 3,
             "topSeedRank": 0,
             "topSeedWins": 0,
-            "bottomSeedRank": 0,
-            "bottomSeedWins": 0
+            "bottomSeedRank": 3,
+            "bottomSeedRankAbbrev": "D3",
+            "bottomSeedWins": 0,
+            "topSeedTeam": {
+                "id": -1,
+                "abbrev": "TBD",
+                "name": {
+                    "default": "TBD"
+                },
+                "commonName": {
+                    "default": "TBD"
+                },
+                "placeNameWithPreposition": {
+                    "default": "TBD"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 22,
+                "abbrev": "EDM",
+                "name": {
+                    "default": "Edmonton Oilers",
+                    "fr": "Oilers d'Edmonton"
+                },
+                "commonName": {
+                    "default": "Oilers"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Edmonton",
+                    "fr": "d'Edmonton"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/EDM_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/EDM_dark.svg"
+            }
         },
         {
             "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/stanley_cup_final_primary.png",
