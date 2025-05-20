@@ -406,7 +406,9 @@
             "topSeedWins": 3,
             "bottomSeedRank": 3,
             "bottomSeedRankAbbrev": "D3",
-            "bottomSeedWins": 3,
+            "bottomSeedWins": 4,
+            "winningTeamId": 13,
+            "losingTeamId": 10,
             "topSeedTeam": {
                 "id": 10,
                 "abbrev": "TOR",
@@ -590,34 +592,22 @@
             }
         },
         {
-            "seriesUrl": "/schedule/playoff-series/2025/series-m/hurricanes-vs-tbd",
+            "seriesUrl": "/schedule/playoff-series/2025/series-m/panthers-vs-hurricanes",
             "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/ecf-wordmark-en.png",
             "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/ecf-wordmark-fr.png",
-            "seriesTitle": "Conference Finals",
-            "seriesAbbrev": "CF",
+            "seriesTitle": "Eastern Conference Finals",
+            "seriesAbbrev": "ECF",
             "seriesLetter": "M",
+            "conferenceAbbrev": "E",
+            "conferenceName": "Eastern",
             "playoffRound": 3,
-            "topSeedRank": 0,
+            "topSeedRank": 2,
+            "topSeedRankAbbrev": "D2",
             "topSeedWins": 0,
-            "bottomSeedRank": 2,
-            "bottomSeedRankAbbrev": "D2",
+            "bottomSeedRank": 3,
+            "bottomSeedRankAbbrev": "D3",
             "bottomSeedWins": 0,
             "topSeedTeam": {
-                "id": -1,
-                "abbrev": "TBD",
-                "name": {
-                    "default": "TBD"
-                },
-                "commonName": {
-                    "default": "TBD"
-                },
-                "placeNameWithPreposition": {
-                    "default": "TBD"
-                },
-                "logo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-light.svg",
-                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-dark.svg"
-            },
-            "bottomSeedTeam": {
                 "id": 12,
                 "abbrev": "CAR",
                 "name": {
@@ -633,6 +623,23 @@
                 },
                 "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
                 "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CAR_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 13,
+                "abbrev": "FLA",
+                "name": {
+                    "default": "Florida Panthers",
+                    "fr": "Panthers de la Floride"
+                },
+                "commonName": {
+                    "default": "Panthers"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Florida",
+                    "fr": "de la Floride"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/FLA_dark.svg"
             }
         },
         {
