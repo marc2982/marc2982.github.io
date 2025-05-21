@@ -6,7 +6,9 @@ import { Summarizer } from './summarizer';
 import { ProjectionCalculator } from './projectionCalculator';
 export async function loadData(year) {
     try {
-        const data = await $.getJSON('./overall.json');
+        const dataPath = `./data/${year}/overall.json`;
+        console.log(`Loading overall json file: ${dataPath}`);
+        const data = await $.getJSON(dataPath);
         return yearlySummaryFromJson(year, data);
     }
     catch (err) {
@@ -38,7 +40,7 @@ async function loadAndProcessCsvs(year) {
         const scoring = SCORING[roundNum - 1];
         const seriesLetters = ALL_SERIES[roundNum - 1];
         const serieses = seriesLetters.map(letter => api.getSeries(letter));
-        const picks = await picksImporter.readCsv('.', roundNum);
+        const picks = await picksImporter.readCsv(`./data/${year}`, roundNum);
         const pickResults = buildPickResults(scoring, api, picks);
         const summary = summarizer.summarizeRound(pickResults);
         rounds.push(Round.create({
@@ -131,17 +133,6 @@ function getPoints(scoring, teamStatus, gamesStatus) {
 function calculatePossiblePoints(pick, series, scoring, teamStatus, gamesStatus) {
     const possibleFromTeam = [PickStatus.CORRECT, PickStatus.UNKNOWN].includes(teamStatus) ? scoring.team : 0;
     const possibleFromGames = [PickStatus.CORRECT, PickStatus.UNKNOWN].includes(gamesStatus) ? scoring.games : 0;
-    const [currentLoserTeam, currentLoserWins, currentLeaderTeam, currentLeaderWins] = series.topSeedWins < series.bottomSeedWins
-        ? [series.bottomSeed, series.bottomSeedWins, series.topSeed, series.topSeedWins]
-        : [series.topSeed, series.topSeedWins, series.bottomSeed, series.bottomSeedWins];
-    const numGamesLeaderNeeds = 4 - currentLeaderWins;
-    const numGamesLoserNeeds = 4 - currentLoserWins;
-    const isLoserBonusPossible = (pick.team === currentLoserTeam &&
-        pick.games >= (numGamesLoserNeeds + currentLoserWins + currentLeaderWins));
-    const isLeaderBonusPossible = (pick.team === currentLeaderTeam &&
-        pick.games >= (numGamesLeaderNeeds + currentLeaderWins + currentLoserWins));
-    const isBonusPossible = isLoserBonusPossible || isLeaderBonusPossible;
-    return isBonusPossible
-        ? possibleFromTeam + possibleFromGames + scoring.bonus
-        : Math.max(possibleFromTeam, possibleFromGames);
+    const possibleFromBonus = possibleFromTeam > 0 && possibleFromGames > 0 ? scoring.bonus : 0;
+    return possibleFromTeam + possibleFromGames + possibleFromBonus;
 }
