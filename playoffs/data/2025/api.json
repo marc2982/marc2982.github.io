@@ -606,7 +606,7 @@
             "topSeedWins": 0,
             "bottomSeedRank": 3,
             "bottomSeedRankAbbrev": "D3",
-            "bottomSeedWins": 0,
+            "bottomSeedWins": 1,
             "topSeedTeam": {
                 "id": 12,
                 "abbrev": "CAR",
