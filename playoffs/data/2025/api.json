@@ -659,7 +659,9 @@
             "topSeedWins": 1,
             "bottomSeedRank": 3,
             "bottomSeedRankAbbrev": "D3",
-            "bottomSeedWins": 3,
+            "bottomSeedWins": 4,
+            "winningTeamId": 22,
+            "losingTeamId": 25,
             "topSeedTeam": {
                 "id": 25,
                 "abbrev": "DAL",
@@ -696,32 +698,35 @@
             }
         },
         {
-            "seriesUrl": "/schedule/playoff-series/2025/series-o/panthers-vs-tbd",
+            "seriesUrl": "/schedule/playoff-series/2025/series-o/panthers-vs-oilers",
             "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/stanley_cup_final_primary.png",
             "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/stanley_cup_final_primary_fr.png",
-            "seriesTitle": "Stanley Cup Finals",
+            "seriesTitle": "Stanley Cup Final",
             "seriesAbbrev": "SCF",
             "seriesLetter": "O",
             "playoffRound": 4,
-            "topSeedRank": 0,
+            "topSeedRank": 3,
+            "topSeedRankAbbrev": "D3",
             "topSeedWins": 0,
             "bottomSeedRank": 3,
             "bottomSeedRankAbbrev": "D3",
             "bottomSeedWins": 0,
             "topSeedTeam": {
-                "id": -1,
-                "abbrev": "TBD",
+                "id": 22,
+                "abbrev": "EDM",
                 "name": {
-                    "default": "TBD"
+                    "default": "Edmonton Oilers",
+                    "fr": "Oilers d'Edmonton"
                 },
                 "commonName": {
-                    "default": "TBD"
+                    "default": "Oilers"
                 },
                 "placeNameWithPreposition": {
-                    "default": "TBD"
+                    "default": "Edmonton",
+                    "fr": "d'Edmonton"
                 },
-                "logo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-light.svg",
-                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-dark.svg"
+                "logo": "https://assets.nhle.com/logos/nhl/svg/EDM_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/EDM_dark.svg"
             },
             "bottomSeedTeam": {
                 "id": 13,
