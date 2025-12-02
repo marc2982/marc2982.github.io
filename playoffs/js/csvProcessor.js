@@ -58,10 +58,12 @@ async function loadAndProcessCsvs(year) {
 			}),
 		);
 	}
+
 	const projections = projector.calculate(rounds);
 	console.log('Projections:', projections);
 	return summarizer.summarizeYear(rounds, projections);
 }
+
 export async function loadCsv(filename) {
 	try {
 		const data = await $.get(filename);
@@ -71,6 +73,7 @@ export async function loadCsv(filename) {
 		throw err;
 	}
 }
+
 function buildPickResults(scoring, api, picks) {
 	const pickResults = {};
 	for (const [person, picksBySeries] of Object.entries(picks)) {
@@ -97,15 +100,18 @@ function buildPickResults(scoring, api, picks) {
 	}
 	return pickResults;
 }
+
 function getPickStatus(pick, winner, predicate) {
 	if (!winner) {
 		return PickStatus.UNKNOWN;
 	}
 	return predicate(pick, winner) ? PickStatus.CORRECT : PickStatus.INCORRECT;
 }
+
 function getTeamStatus(pick, winner) {
 	return getPickStatus(pick, winner, (p, w) => p.team === w.team);
 }
+
 function getGamesStatus(pick, winner, series) {
 	// sometimes we can assign correctness early
 	if (winner === null) {
@@ -126,6 +132,7 @@ function getGamesStatus(pick, winner, series) {
 	}
 	return getPickStatus(pick, winner, (p, w) => p.games === w.games);
 }
+
 function getPoints(scoring, teamStatus, gamesStatus) {
 	const correctTeam = teamStatus === PickStatus.CORRECT;
 	const correctGames = gamesStatus === PickStatus.CORRECT;
@@ -135,6 +142,7 @@ function getPoints(scoring, teamStatus, gamesStatus) {
 	points += correctTeam && correctGames ? scoring.bonus : 0;
 	return points;
 }
+
 // this function should ONLY be called when there is no winner
 function calculatePossiblePoints(pick, series, scoring, teamStatus, gamesStatus) {
 	const possibleFromTeam = [PickStatus.CORRECT, PickStatus.UNKNOWN].includes(teamStatus) ? scoring.team : 0;

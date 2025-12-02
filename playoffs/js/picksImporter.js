@@ -1,10 +1,13 @@
 import { parse } from 'https://cdn.skypack.dev/@vanillaes/csv';
 import { Pick } from './models.js';
+
 const DEFAULT_ORDER = [['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'], ['I', 'J', 'K', 'L'], ['M', 'N'], ['O']];
+
 export class PicksImporter {
 	constructor(api) {
 		this.api = api;
 	}
+
 	async readCsv(folderName, round) {
 		const filePath = `${folderName}/round${round}.csv`;
 		try {
@@ -15,6 +18,7 @@ export class PicksImporter {
 			return {};
 		}
 	}
+
 	async readCsvFile(filePath) {
 		const response = await fetch(filePath);
 		if (!response.ok) {
@@ -26,6 +30,7 @@ export class PicksImporter {
 		rows.shift(); // Remove the first row (headers)
 		return rows;
 	}
+
 	readPicks(rows, round) {
 		const seriesOrder = this.getSeriesImportOrder(round);
 		const picks = {};
@@ -52,6 +57,7 @@ export class PicksImporter {
 		}
 		return picks;
 	}
+
 	standardizeName(name) {
 		const lowerName = name.toLowerCase();
 		switch (lowerName) {
@@ -66,10 +72,12 @@ export class PicksImporter {
 				return lowerName.charAt(0).toUpperCase() + lowerName.slice(1);
 		}
 	}
+
 	stripRank(teamName) {
 		const i = teamName.indexOf('(');
 		return i === -1 ? teamName : teamName.substring(0, i - 1);
 	}
+
 	getSeriesImportOrder(round) {
 		return DEFAULT_ORDER[round - 1];
 	}

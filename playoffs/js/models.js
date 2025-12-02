@@ -1,4 +1,5 @@
 import { Data } from 'https://cdn.skypack.dev/dataclass';
+
 export const ALL_SERIES = [['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'], ['I', 'J', 'K', 'L'], ['M', 'N'], ['O']];
 export const WINNER_MAP = {
 	I: ['A', 'B'],
@@ -9,6 +10,7 @@ export const WINNER_MAP = {
 	N: ['K', 'L'],
 	O: ['M', 'N'],
 };
+
 // enum
 export var PickStatus;
 (function (PickStatus) {
@@ -16,9 +18,11 @@ export var PickStatus;
 	PickStatus['INCORRECT'] = 'INCORRECT';
 	PickStatus['UNKNOWN'] = 'UNKNOWN';
 })(PickStatus || (PickStatus = {}));
+
 // dataclass library requires default values for some reason
 const DEFAULT_STRING = 'DEFAULT_STRING';
 const DEFAULT_NUMBER = -9999;
+
 export class Pick extends Data {
 	constructor() {
 		super(...arguments);
@@ -26,6 +30,7 @@ export class Pick extends Data {
 		this.games = DEFAULT_NUMBER;
 	}
 }
+
 export class PickResult extends Data {
 	constructor() {
 		super(...arguments);
@@ -37,6 +42,7 @@ export class PickResult extends Data {
 		this.earnedBonusPoints = false;
 	}
 }
+
 export class Series extends Data {
 	constructor() {
 		super(...arguments);
@@ -80,6 +86,7 @@ export class Series extends Data {
 		return `${this.getTopSeedShort()} - ${this.getBottomSeedShort()}`;
 	}
 }
+
 export class Team extends Data {
 	constructor() {
 		super(...arguments);
@@ -89,6 +96,7 @@ export class Team extends Data {
 		this.rank = DEFAULT_STRING;
 	}
 }
+
 export class Winner extends Data {
 	constructor() {
 		super(...arguments);
@@ -96,6 +104,7 @@ export class Winner extends Data {
 		this.games = DEFAULT_NUMBER;
 	}
 }
+
 export class ProjectionCell extends Data {
 	constructor() {
 		super(...arguments);
@@ -107,6 +116,7 @@ export class ProjectionCell extends Data {
 		this.isOver = undefined;
 	}
 }
+
 export class Scoring extends Data {
 	constructor() {
 		super(...arguments);
@@ -115,6 +125,7 @@ export class Scoring extends Data {
 		this.bonus = DEFAULT_NUMBER;
 	}
 }
+
 export class PersonPointsSummary extends Data {
 	constructor() {
 		super(...arguments);
@@ -127,6 +138,7 @@ export class PersonPointsSummary extends Data {
 		this.bonusEarned = DEFAULT_NUMBER;
 	}
 }
+
 export class RoundSummary extends Data {
 	constructor() {
 		super(...arguments);
@@ -135,6 +147,7 @@ export class RoundSummary extends Data {
 		this.losers = [];
 	}
 }
+
 export class Round extends Data {
 	constructor() {
 		super(...arguments);
@@ -145,6 +158,7 @@ export class Round extends Data {
 		this.summary = RoundSummary.create({});
 	}
 }
+
 export class TiebreakInfo extends Data {
 	constructor() {
 		super(...arguments);
@@ -152,6 +166,7 @@ export class TiebreakInfo extends Data {
 		this.winner = undefined;
 	}
 }
+
 export class YearlySummary extends Data {
 	constructor() {
 		super(...arguments);
@@ -165,6 +180,7 @@ export class YearlySummary extends Data {
 		this.teams = {};
 	}
 }
+
 export const SCORING = [
 	Scoring.create({ team: 1, games: 2, bonus: 3 }),
 	Scoring.create({ team: 2, games: 3, bonus: 4 }),

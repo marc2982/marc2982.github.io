@@ -12,7 +12,7 @@ export class DataLoader {
 
 	async load() {
 		try {
-			// Try to load from cached JSON file first
+			// try to load from cached JSON file first
 			console.log(`Attempting to load cached data from: ${this.cachedPath}`);
 			const data = await $.getJSON(this.cachedPath);
 			console.log(`✓ Loaded cached data for ${this.year}`);
@@ -21,7 +21,9 @@ export class DataLoader {
 			// If cached file doesn't exist, fetch from live API
 			console.log(`Cached file not found, fetching from live API: ${this.apiUrl}`);
 			try {
-				const data = await $.getJSON(this.apiUrl);
+				// Use a CORS proxy to bypass browser security restrictions
+				const corsProxy = 'https://corsproxy.io/?';
+				const data = await $.getJSON(corsProxy + encodeURIComponent(this.apiUrl));
 				console.log(`✓ Successfully fetched live data for ${this.year}`);
 				return data;
 			} catch (apiErr) {
