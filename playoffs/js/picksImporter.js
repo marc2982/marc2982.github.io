@@ -1,5 +1,5 @@
-import { parse } from '@vanillaes/csv';
-import { Pick } from './models';
+import { parse } from 'https://cdn.skypack.dev/@vanillaes/csv';
+import { Pick } from './models.js';
 const DEFAULT_ORDER = [['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'], ['I', 'J', 'K', 'L'], ['M', 'N'], ['O']];
 export class PicksImporter {
     constructor(api) {

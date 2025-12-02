@@ -1,4 +1,4 @@
-import { Series, Team, ALL_SERIES } from './models';
+import { Series, Team, ALL_SERIES } from './models.js';
 const NHL_API_URL = "https://api-web.nhle.com/v1/playoff-bracket/{0}"; // TODO
 const TOP = "top";
 const BOTTOM = "bottom";

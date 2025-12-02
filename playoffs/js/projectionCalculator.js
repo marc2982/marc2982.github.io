@@ -1,5 +1,5 @@
-import { ProjectionCell } from './models';
-import { excelRank } from './common';
+import { ProjectionCell } from './models.js';
+import { excelRank } from './common.js';
 export class ProjectionCalculator {
     constructor(nhlApiHandler) {
         this.api = nhlApiHandler;

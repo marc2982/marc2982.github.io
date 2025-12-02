@@ -1,9 +1,9 @@
-import { parse } from '@vanillaes/csv';
-import { Round, YearlySummary, SCORING, PickStatus, ALL_SERIES, PickResult, TiebreakInfo } from './models';
-import { NhlApiHandler } from './nhlApiHandler';
-import { PicksImporter } from './picksImporter';
-import { Summarizer } from './summarizer';
-import { ProjectionCalculator } from './projectionCalculator';
+import { parse } from 'https://cdn.skypack.dev/@vanillaes/csv';
+import { Round, YearlySummary, SCORING, PickStatus, ALL_SERIES, PickResult, TiebreakInfo } from './models.js';
+import { NhlApiHandler } from './nhlApiHandler.js';
+import { PicksImporter } from './picksImporter.js';
+import { Summarizer } from './summarizer.js';
+import { ProjectionCalculator } from './projectionCalculator.js';
 export async function loadData(year) {
     try {
         const dataPath = `./data/${year}/overall.json`;

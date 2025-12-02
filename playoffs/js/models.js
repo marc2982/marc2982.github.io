@@ -1,4 +1,4 @@
-import { Data } from 'dataclass';
+import { Data } from 'https://cdn.skypack.dev/dataclass';
 export const ALL_SERIES = [
     ["A", "B", "C", "D", "E", "F", "G", "H"],
     ["I", "J", "K", "L"],

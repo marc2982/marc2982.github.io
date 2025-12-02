@@ -1,5 +1,5 @@
-import { PickStatus, YearlySummary, RoundSummary, PersonPointsSummary, TiebreakInfo } from './models';
-import { excelRank } from './common';
+import { PickStatus, YearlySummary, RoundSummary, PersonPointsSummary, TiebreakInfo } from './models.js';
+import { excelRank } from './common.js';
 export class Summarizer {
     constructor(year, api) {
         this.year = year;
