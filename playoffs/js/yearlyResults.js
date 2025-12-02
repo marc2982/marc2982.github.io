@@ -18,7 +18,7 @@ export function yearlyResults(resultsTable) {
         let poolLosers = year.poolLosers instanceof Array ? year.poolLosers : [year.poolLosers];
 
         var row = tbody.insertRow(0); // insert in reverse order
-        var innerHtml = year.link ? "<a href=\"" + year.year + ".html\">" + year.year +" </a>" : year.year;
+        var innerHtml = year.link ? "<a href=\"year.html?year=" + year.year + "\">" + year.year +" </a>" : year.year;
         row.insertCell().outerHTML = "<td>" + innerHtml + "</td>";
         row.insertCell().outerHTML = "<td>" + poolWinners + "</td>";
         row.insertCell().outerHTML = "<td>" + poolLosers + "</td>";
