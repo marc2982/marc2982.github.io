@@ -1,5 +1,6 @@
-MARC,COL - 6,NJ - 6
-DAD,STL - 5,NJ - 6
-MOM,STL - 7,PIT - 6
-JACLYN,COL - 6,NJ - 5
-STEPHANIE,STL - 5,PIT - 6
+Timestamp,Your name,Team,Games,Team,Games
+,MARC,COL,6,NJ,6
+,DAD,STL,5,NJ,6
+,MOM,STL,7,PIT,6
+,JACLYN,COL,6,NJ,5
+,STEPHANIE,STL,5,PIT,6
