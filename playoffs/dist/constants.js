@@ -63,5 +63,6 @@ export const DATA = [
     { year: 2021, link: true, poolWinners: 'Stephanie', poolLosers: ['Kiersten', 'Robin'], cupWinner: 'TBL' },
     { year: 2022, link: true, poolWinners: 'Stephanie', poolLosers: 'Glenda', cupWinner: 'COL' },
     { year: 2023, link: true, poolWinners: 'Nathan', poolLosers: 'Jake', cupWinner: 'VGK' },
-    { year: 2024, link: true, poolWinners: '', poolLosers: '', cupWinner: '' }
+    { year: 2024, link: true, poolWinners: '', poolLosers: '', cupWinner: '' },
+    { year: 2025, link: true, poolWinners: '', poolLosers: '', cupWinner: '' },
 ];
