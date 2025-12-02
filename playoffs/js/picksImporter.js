@@ -73,7 +73,7 @@ export class PicksImporter {
 						games: parseInt(numGames, 10),
 					});
 				} catch (e) {
-					console.warn(`Skipping pick for ${person}: ${e.message}`);
+					throw new Error(`Skipping pick for ${person}: ${e.message}`);
 				}
 			}
 		}
