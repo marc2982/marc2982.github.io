@@ -1,19 +1,22 @@
 import { Series, Team, ALL_SERIES } from './models.js';
-const NHL_API_URL = 'https://api-web.nhle.com/v1/playoff-bracket/{0}'; // TODO
+import { DataLoader } from './dataLoader.js';
+
 const TOP = 'top';
 const BOTTOM = 'bottom';
+
 export class NhlApiHandler {
-	constructor(year) {
+	constructor(year, dataLoader = null) {
 		this.year = year;
-		this.url = NHL_API_URL.replace('{0}', year.toString());
+		this.dataLoader = dataLoader || new DataLoader(year);
 		this.teams = {};
 		this.series = [];
 	}
 
 	async load() {
-		console.log(`Calling API: ${this.url}`);
-		//const data = await $.get(this.url);
-		const data = await $.getJSON('./data/' + this.year + '/api.json');
+		// Use the injected DataLoader to fetch data
+		const data = await this.dataLoader.load();
+
+		// Process the data
 		for (const series of data.series) {
 			if (!series.seriesUrl) {
 				continue; // series not fully set yet
