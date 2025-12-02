@@ -1,0 +1,748 @@
+{
+    "bracketLogo": "https://assets.nhle.com/logos/playoffs/png/scp-horizontal-banner-en.png",
+    "bracketLogoFr": "https://assets.nhle.com/logos/playoffs/png/scp-horizontal-banner-fr.png",
+    "series": [
+        {
+            "seriesUrl": "/schedule/playoff-series/1999/series-a/penguins-vs-devils",
+            "seriesTitle": "Conference Quarterfinals",
+            "seriesAbbrev": "CQF",
+            "seriesLetter": "A",
+            "playoffRound": 1,
+            "topSeedRank": 1,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 3,
+            "bottomSeedRank": 8,
+            "bottomSeedRankAbbrev": "C8",
+            "bottomSeedWins": 4,
+            "winningTeamId": 5,
+            "losingTeamId": 1,
+            "topSeedTeam": {
+                "id": 1,
+                "abbrev": "NJD",
+                "name": {
+                    "default": "New Jersey Devils",
+                    "fr": "Devils du New Jersey"
+                },
+                "commonName": {
+                    "default": "Devils"
+                },
+                "placeNameWithPreposition": {
+                    "default": "New Jersey",
+                    "fr": "du New Jersey"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_19921993-19981999_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NJD_19921993-19981999_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 5,
+                "abbrev": "PIT",
+                "name": {
+                    "default": "Pittsburgh Penguins",
+                    "fr": "Penguins de Pittsburgh"
+                },
+                "commonName": {
+                    "default": "Penguins"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Pittsburgh",
+                    "fr": "de Pittsburgh"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/PIT_19921993-19981999_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/PIT_19921993-19981999_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/1999/series-b/sabres-vs-senators",
+            "seriesTitle": "Conference Quarterfinals",
+            "seriesAbbrev": "CQF",
+            "seriesLetter": "B",
+            "playoffRound": 1,
+            "topSeedRank": 2,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 0,
+            "bottomSeedRank": 7,
+            "bottomSeedRankAbbrev": "C7",
+            "bottomSeedWins": 4,
+            "winningTeamId": 7,
+            "losingTeamId": 9,
+            "topSeedTeam": {
+                "id": 9,
+                "abbrev": "OTT",
+                "name": {
+                    "default": "Ottawa Senators",
+                    "fr": "S\u00e9nateurs d'Ottawa"
+                },
+                "commonName": {
+                    "default": "Senators",
+                    "fr": "S\u00e9nateurs"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Ottawa",
+                    "fr": "d'Ottawa"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/OTT_19971998-20062007_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/OTT_19971998-20062007_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 7,
+                "abbrev": "BUF",
+                "name": {
+                    "default": "Buffalo Sabres",
+                    "fr": "Sabres de Buffalo"
+                },
+                "commonName": {
+                    "default": "Sabres"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Buffalo",
+                    "fr": "de Buffalo"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/BUF_19961997-19981999_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/BUF_19961997-19981999_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/1999/series-c/bruins-vs-hurricanes",
+            "seriesTitle": "Conference Quarterfinals",
+            "seriesAbbrev": "CQF",
+            "seriesLetter": "C",
+            "playoffRound": 1,
+            "topSeedRank": 3,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 2,
+            "bottomSeedRank": 6,
+            "bottomSeedRankAbbrev": "C6",
+            "bottomSeedWins": 4,
+            "winningTeamId": 6,
+            "losingTeamId": 12,
+            "topSeedTeam": {
+                "id": 12,
+                "abbrev": "CAR",
+                "name": {
+                    "default": "Carolina Hurricanes",
+                    "fr": "Hurricanes de la Caroline"
+                },
+                "commonName": {
+                    "default": "Hurricanes"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Carolina",
+                    "fr": "de la Caroline"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_19971998-19981999_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CAR_19971998-19981999_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 6,
+                "abbrev": "BOS",
+                "name": {
+                    "default": "Boston Bruins",
+                    "fr": "Bruins de Boston"
+                },
+                "commonName": {
+                    "default": "Bruins"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Boston",
+                    "fr": "de Boston"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/BOS_19951996-20062007_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/BOS_19951996-20062007_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/1999/series-d/flyers-vs-mapleleafs",
+            "seriesTitle": "Conference Quarterfinals",
+            "seriesAbbrev": "CQF",
+            "seriesLetter": "D",
+            "playoffRound": 1,
+            "topSeedRank": 4,
+            "topSeedRankAbbrev": "C4",
+            "topSeedWins": 4,
+            "bottomSeedRank": 5,
+            "bottomSeedRankAbbrev": "C5",
+            "bottomSeedWins": 2,
+            "winningTeamId": 10,
+            "losingTeamId": 4,
+            "topSeedTeam": {
+                "id": 10,
+                "abbrev": "TOR",
+                "name": {
+                    "default": "Toronto Maple Leafs",
+                    "fr": "Maple Leafs de Toronto"
+                },
+                "commonName": {
+                    "default": "Maple Leafs"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Toronto",
+                    "fr": "de Toronto"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_19871988-20152016_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TOR_19871988-20152016_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 4,
+                "abbrev": "PHI",
+                "name": {
+                    "default": "Philadelphia Flyers",
+                    "fr": "Flyers de Philadelphie"
+                },
+                "commonName": {
+                    "default": "Flyers"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Philadelphia",
+                    "fr": "de Philadelphie"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_19671968-19981999_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/PHI_19671968-19981999_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/1999/series-e/oilers-vs-stars",
+            "seriesTitle": "Conference Quarterfinals",
+            "seriesAbbrev": "CQF",
+            "seriesLetter": "E",
+            "playoffRound": 1,
+            "topSeedRank": 1,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 4,
+            "bottomSeedRank": 8,
+            "bottomSeedRankAbbrev": "C8",
+            "bottomSeedWins": 0,
+            "winningTeamId": 25,
+            "losingTeamId": 22,
+            "topSeedTeam": {
+                "id": 25,
+                "abbrev": "DAL",
+                "name": {
+                    "default": "Dallas Stars",
+                    "fr": "Stars de Dallas"
+                },
+                "commonName": {
+                    "default": "Stars"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Dallas",
+                    "fr": "de Dallas"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/DAL_19941995-20122013_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DAL_19941995-20122013_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 22,
+                "abbrev": "EDM",
+                "name": {
+                    "default": "Edmonton Oilers",
+                    "fr": "Oilers d'Edmonton"
+                },
+                "commonName": {
+                    "default": "Oilers"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Edmonton",
+                    "fr": "d'Edmonton"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/EDM_19971998-20102011_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/EDM_19971998-20102011_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/1999/series-f/avalanche-vs-sharks",
+            "seriesTitle": "Conference Quarterfinals",
+            "seriesAbbrev": "CQF",
+            "seriesLetter": "F",
+            "playoffRound": 1,
+            "topSeedRank": 7,
+            "topSeedRankAbbrev": "C7",
+            "topSeedWins": 2,
+            "bottomSeedRank": 2,
+            "bottomSeedRankAbbrev": "D1",
+            "bottomSeedWins": 4,
+            "winningTeamId": 21,
+            "losingTeamId": 28,
+            "topSeedTeam": {
+                "id": 28,
+                "abbrev": "SJS",
+                "name": {
+                    "default": "San Jose Sharks",
+                    "fr": "Sharks de San Jose"
+                },
+                "commonName": {
+                    "default": "Sharks"
+                },
+                "placeNameWithPreposition": {
+                    "default": "San Jose",
+                    "fr": "de San Jose"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_19981999-20062007_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/SJS_19981999-20062007_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 21,
+                "abbrev": "COL",
+                "name": {
+                    "default": "Colorado Avalanche",
+                    "fr": "Avalanche du Colorado"
+                },
+                "commonName": {
+                    "default": "Avalanche"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Colorado",
+                    "fr": "du Colorado"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/COL_19951996-19981999_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/COL_19951996-19981999_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/1999/series-g/ducks-vs-redwings",
+            "seriesTitle": "Conference Quarterfinals",
+            "seriesAbbrev": "CQF",
+            "seriesLetter": "G",
+            "playoffRound": 1,
+            "topSeedRank": 3,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 4,
+            "bottomSeedRank": 6,
+            "bottomSeedRankAbbrev": "C6",
+            "bottomSeedWins": 0,
+            "winningTeamId": 17,
+            "losingTeamId": 24,
+            "topSeedTeam": {
+                "id": 17,
+                "abbrev": "DET",
+                "name": {
+                    "default": "Detroit Red Wings",
+                    "fr": "Red Wings de Detroit"
+                },
+                "commonName": {
+                    "default": "Red Wings"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Detroit",
+                    "fr": "de Detroit"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DET_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 24,
+                "abbrev": "ANA",
+                "name": {
+                    "default": "Anaheim Ducks",
+                    "fr": "Ducks d'Anaheim"
+                },
+                "commonName": {
+                    "default": "Ducks"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Anaheim",
+                    "fr": "d'Anaheim"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_19961997-20052006_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/ANA_19961997-20052006_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/1999/series-h/blues-vs-coyotes",
+            "seriesTitle": "Conference Quarterfinals",
+            "seriesAbbrev": "CQF",
+            "seriesLetter": "H",
+            "playoffRound": 1,
+            "topSeedRank": 4,
+            "topSeedRankAbbrev": "C4",
+            "topSeedWins": 3,
+            "bottomSeedRank": 5,
+            "bottomSeedRankAbbrev": "C5",
+            "bottomSeedWins": 4,
+            "winningTeamId": 19,
+            "losingTeamId": 27,
+            "topSeedTeam": {
+                "id": 27,
+                "abbrev": "PHX",
+                "name": {
+                    "default": "Phoenix Coyotes",
+                    "fr": "Coyotes de Phoenix"
+                },
+                "commonName": {
+                    "default": "Coyotes"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Phoenix",
+                    "fr": "de Phoenix"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/PHX_19961997-19981999_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/PHX_19961997-19981999_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 19,
+                "abbrev": "STL",
+                "name": {
+                    "default": "St. Louis Blues",
+                    "fr": "Blues de St. Louis"
+                },
+                "commonName": {
+                    "default": "Blues"
+                },
+                "placeNameWithPreposition": {
+                    "default": "St. Louis",
+                    "fr": "de St. Louis"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/STL_19981999_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/STL_19981999_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/1999/series-i/penguins-vs-mapleleafs",
+            "seriesTitle": "Conference Semifinals",
+            "seriesAbbrev": "CSF",
+            "seriesLetter": "I",
+            "playoffRound": 2,
+            "topSeedRank": 4,
+            "topSeedRankAbbrev": "C4",
+            "topSeedWins": 4,
+            "bottomSeedRank": 8,
+            "bottomSeedRankAbbrev": "C8",
+            "bottomSeedWins": 2,
+            "winningTeamId": 10,
+            "losingTeamId": 5,
+            "topSeedTeam": {
+                "id": 10,
+                "abbrev": "TOR",
+                "name": {
+                    "default": "Toronto Maple Leafs",
+                    "fr": "Maple Leafs de Toronto"
+                },
+                "commonName": {
+                    "default": "Maple Leafs"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Toronto",
+                    "fr": "de Toronto"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_19871988-20152016_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TOR_19871988-20152016_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 5,
+                "abbrev": "PIT",
+                "name": {
+                    "default": "Pittsburgh Penguins",
+                    "fr": "Penguins de Pittsburgh"
+                },
+                "commonName": {
+                    "default": "Penguins"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Pittsburgh",
+                    "fr": "de Pittsburgh"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/PIT_19921993-19981999_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/PIT_19921993-19981999_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/1999/series-j/sabres-vs-bruins",
+            "seriesTitle": "Conference Semifinals",
+            "seriesAbbrev": "CSF",
+            "seriesLetter": "J",
+            "playoffRound": 2,
+            "topSeedRank": 6,
+            "topSeedRankAbbrev": "C6",
+            "topSeedWins": 2,
+            "bottomSeedRank": 7,
+            "bottomSeedRankAbbrev": "C7",
+            "bottomSeedWins": 4,
+            "winningTeamId": 7,
+            "losingTeamId": 6,
+            "topSeedTeam": {
+                "id": 6,
+                "abbrev": "BOS",
+                "name": {
+                    "default": "Boston Bruins",
+                    "fr": "Bruins de Boston"
+                },
+                "commonName": {
+                    "default": "Bruins"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Boston",
+                    "fr": "de Boston"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/BOS_19951996-20062007_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/BOS_19951996-20062007_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 7,
+                "abbrev": "BUF",
+                "name": {
+                    "default": "Buffalo Sabres",
+                    "fr": "Sabres de Buffalo"
+                },
+                "commonName": {
+                    "default": "Sabres"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Buffalo",
+                    "fr": "de Buffalo"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/BUF_19961997-19981999_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/BUF_19961997-19981999_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/1999/series-k/blues-vs-stars",
+            "seriesTitle": "Conference Semifinals",
+            "seriesAbbrev": "CSF",
+            "seriesLetter": "K",
+            "playoffRound": 2,
+            "topSeedRank": 1,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 4,
+            "bottomSeedRank": 5,
+            "bottomSeedRankAbbrev": "C5",
+            "bottomSeedWins": 2,
+            "winningTeamId": 25,
+            "losingTeamId": 19,
+            "topSeedTeam": {
+                "id": 25,
+                "abbrev": "DAL",
+                "name": {
+                    "default": "Dallas Stars",
+                    "fr": "Stars de Dallas"
+                },
+                "commonName": {
+                    "default": "Stars"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Dallas",
+                    "fr": "de Dallas"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/DAL_19941995-20122013_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DAL_19941995-20122013_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 19,
+                "abbrev": "STL",
+                "name": {
+                    "default": "St. Louis Blues",
+                    "fr": "Blues de St. Louis"
+                },
+                "commonName": {
+                    "default": "Blues"
+                },
+                "placeNameWithPreposition": {
+                    "default": "St. Louis",
+                    "fr": "de St. Louis"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/STL_19981999_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/STL_19981999_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/1999/series-l/redwings-vs-avalanche",
+            "seriesTitle": "Conference Semifinals",
+            "seriesAbbrev": "CSF",
+            "seriesLetter": "L",
+            "playoffRound": 2,
+            "topSeedRank": 2,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 4,
+            "bottomSeedRank": 3,
+            "bottomSeedRankAbbrev": "D1",
+            "bottomSeedWins": 2,
+            "winningTeamId": 21,
+            "losingTeamId": 17,
+            "topSeedTeam": {
+                "id": 21,
+                "abbrev": "COL",
+                "name": {
+                    "default": "Colorado Avalanche",
+                    "fr": "Avalanche du Colorado"
+                },
+                "commonName": {
+                    "default": "Avalanche"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Colorado",
+                    "fr": "du Colorado"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/COL_19951996-19981999_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/COL_19951996-19981999_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 17,
+                "abbrev": "DET",
+                "name": {
+                    "default": "Detroit Red Wings",
+                    "fr": "Red Wings de Detroit"
+                },
+                "commonName": {
+                    "default": "Red Wings"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Detroit",
+                    "fr": "de Detroit"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DET_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/1999/series-m/sabres-vs-mapleleafs",
+            "seriesTitle": "Eastern Conference Finals",
+            "seriesAbbrev": "ECF",
+            "seriesLetter": "M",
+            "conferenceAbbrev": "E",
+            "conferenceName": "Eastern",
+            "playoffRound": 3,
+            "topSeedRank": 4,
+            "topSeedRankAbbrev": "C4",
+            "topSeedWins": 1,
+            "bottomSeedRank": 7,
+            "bottomSeedRankAbbrev": "C7",
+            "bottomSeedWins": 4,
+            "winningTeamId": 7,
+            "losingTeamId": 10,
+            "topSeedTeam": {
+                "id": 10,
+                "abbrev": "TOR",
+                "name": {
+                    "default": "Toronto Maple Leafs",
+                    "fr": "Maple Leafs de Toronto"
+                },
+                "commonName": {
+                    "default": "Maple Leafs"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Toronto",
+                    "fr": "de Toronto"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_19871988-20152016_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TOR_19871988-20152016_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 7,
+                "abbrev": "BUF",
+                "name": {
+                    "default": "Buffalo Sabres",
+                    "fr": "Sabres de Buffalo"
+                },
+                "commonName": {
+                    "default": "Sabres"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Buffalo",
+                    "fr": "de Buffalo"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/BUF_19961997-19981999_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/BUF_19961997-19981999_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/1999/series-n/avalanche-vs-stars",
+            "seriesTitle": "Western Conference Finals",
+            "seriesAbbrev": "WCF",
+            "seriesLetter": "N",
+            "conferenceAbbrev": "W",
+            "conferenceName": "Western",
+            "playoffRound": 3,
+            "topSeedRank": 1,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 4,
+            "bottomSeedRank": 2,
+            "bottomSeedRankAbbrev": "D1",
+            "bottomSeedWins": 3,
+            "winningTeamId": 25,
+            "losingTeamId": 21,
+            "topSeedTeam": {
+                "id": 25,
+                "abbrev": "DAL",
+                "name": {
+                    "default": "Dallas Stars",
+                    "fr": "Stars de Dallas"
+                },
+                "commonName": {
+                    "default": "Stars"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Dallas",
+                    "fr": "de Dallas"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/DAL_19941995-20122013_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DAL_19941995-20122013_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 21,
+                "abbrev": "COL",
+                "name": {
+                    "default": "Colorado Avalanche",
+                    "fr": "Avalanche du Colorado"
+                },
+                "commonName": {
+                    "default": "Avalanche"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Colorado",
+                    "fr": "du Colorado"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/COL_19951996-19981999_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/COL_19951996-19981999_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/1999/series-o/sabres-vs-stars",
+            "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/sc-banner.png",
+            "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/sc-banner.png",
+            "seriesTitle": "Stanley Cup Final",
+            "seriesAbbrev": "SCF",
+            "seriesLetter": "O",
+            "playoffRound": 4,
+            "topSeedRank": 1,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 4,
+            "bottomSeedRank": 7,
+            "bottomSeedRankAbbrev": "C7",
+            "bottomSeedWins": 2,
+            "winningTeamId": 25,
+            "losingTeamId": 7,
+            "topSeedTeam": {
+                "id": 25,
+                "abbrev": "DAL",
+                "name": {
+                    "default": "Dallas Stars",
+                    "fr": "Stars de Dallas"
+                },
+                "commonName": {
+                    "default": "Stars"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Dallas",
+                    "fr": "de Dallas"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/DAL_19941995-20122013_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DAL_19941995-20122013_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 7,
+                "abbrev": "BUF",
+                "name": {
+                    "default": "Buffalo Sabres",
+                    "fr": "Sabres de Buffalo"
+                },
+                "commonName": {
+                    "default": "Sabres"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Buffalo",
+                    "fr": "de Buffalo"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/BUF_19961997-19981999_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/BUF_19961997-19981999_dark.svg"
+            }
+        }
+    ]
+}

@@ -1,0 +1,748 @@
+{
+    "bracketLogo": "https://assets.nhle.com/logos/playoffs/png/scp-horizontal-banner-en.png",
+    "bracketLogoFr": "https://assets.nhle.com/logos/playoffs/png/scp-horizontal-banner-fr.png",
+    "series": [
+        {
+            "seriesUrl": "/schedule/playoff-series/2004/series-a/islanders-vs-lightning",
+            "seriesTitle": "Conference Quarterfinals",
+            "seriesAbbrev": "CQF",
+            "seriesLetter": "A",
+            "playoffRound": 1,
+            "topSeedRank": 1,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 4,
+            "bottomSeedRank": 8,
+            "bottomSeedRankAbbrev": "C8",
+            "bottomSeedWins": 1,
+            "winningTeamId": 14,
+            "losingTeamId": 2,
+            "topSeedTeam": {
+                "id": 14,
+                "abbrev": "TBL",
+                "name": {
+                    "default": "Tampa Bay Lightning",
+                    "fr": "Lightning de Tampa Bay"
+                },
+                "commonName": {
+                    "default": "Lightning"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Tampa Bay",
+                    "fr": "de Tampa Bay"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/TBL_20012002-20062007_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TBL_20012002-20062007_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 2,
+                "abbrev": "NYI",
+                "name": {
+                    "default": "New York Islanders",
+                    "fr": "Islanders de New York"
+                },
+                "commonName": {
+                    "default": "Islanders"
+                },
+                "placeNameWithPreposition": {
+                    "default": "New York",
+                    "fr": "de New York"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/NYI_19971998-20092010_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NYI_19971998-20092010_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/2004/series-b/canadiens-vs-bruins",
+            "seriesTitle": "Conference Quarterfinals",
+            "seriesAbbrev": "CQF",
+            "seriesLetter": "B",
+            "playoffRound": 1,
+            "topSeedRank": 2,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 3,
+            "bottomSeedRank": 7,
+            "bottomSeedRankAbbrev": "C7",
+            "bottomSeedWins": 4,
+            "winningTeamId": 8,
+            "losingTeamId": 6,
+            "topSeedTeam": {
+                "id": 6,
+                "abbrev": "BOS",
+                "name": {
+                    "default": "Boston Bruins",
+                    "fr": "Bruins de Boston"
+                },
+                "commonName": {
+                    "default": "Bruins"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Boston",
+                    "fr": "de Boston"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/BOS_19951996-20062007_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/BOS_19951996-20062007_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 8,
+                "abbrev": "MTL",
+                "name": {
+                    "default": "Montr\u00e9al Canadiens",
+                    "fr": "Canadiens de Montr\u00e9al"
+                },
+                "commonName": {
+                    "default": "Canadiens"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Montr\u00e9al",
+                    "fr": "de Montr\u00e9al"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/MTL_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/2004/series-c/devils-vs-flyers",
+            "seriesTitle": "Conference Quarterfinals",
+            "seriesAbbrev": "CQF",
+            "seriesLetter": "C",
+            "playoffRound": 1,
+            "topSeedRank": 3,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 4,
+            "bottomSeedRank": 6,
+            "bottomSeedRankAbbrev": "C6",
+            "bottomSeedWins": 1,
+            "winningTeamId": 4,
+            "losingTeamId": 1,
+            "topSeedTeam": {
+                "id": 4,
+                "abbrev": "PHI",
+                "name": {
+                    "default": "Philadelphia Flyers",
+                    "fr": "Flyers de Philadelphie"
+                },
+                "commonName": {
+                    "default": "Flyers"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Philadelphia",
+                    "fr": "de Philadelphie"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_19992000-20222023_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/PHI_19992000-20222023_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 1,
+                "abbrev": "NJD",
+                "name": {
+                    "default": "New Jersey Devils",
+                    "fr": "Devils du New Jersey"
+                },
+                "commonName": {
+                    "default": "Devils"
+                },
+                "placeNameWithPreposition": {
+                    "default": "New Jersey",
+                    "fr": "du New Jersey"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NJD_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/2004/series-d/senators-vs-mapleleafs",
+            "seriesTitle": "Conference Quarterfinals",
+            "seriesAbbrev": "CQF",
+            "seriesLetter": "D",
+            "playoffRound": 1,
+            "topSeedRank": 4,
+            "topSeedRankAbbrev": "C4",
+            "topSeedWins": 4,
+            "bottomSeedRank": 5,
+            "bottomSeedRankAbbrev": "C5",
+            "bottomSeedWins": 3,
+            "winningTeamId": 10,
+            "losingTeamId": 9,
+            "topSeedTeam": {
+                "id": 10,
+                "abbrev": "TOR",
+                "name": {
+                    "default": "Toronto Maple Leafs",
+                    "fr": "Maple Leafs de Toronto"
+                },
+                "commonName": {
+                    "default": "Maple Leafs"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Toronto",
+                    "fr": "de Toronto"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_19871988-20152016_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TOR_19871988-20152016_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 9,
+                "abbrev": "OTT",
+                "name": {
+                    "default": "Ottawa Senators",
+                    "fr": "S\u00e9nateurs d'Ottawa"
+                },
+                "commonName": {
+                    "default": "Senators",
+                    "fr": "S\u00e9nateurs"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Ottawa",
+                    "fr": "d'Ottawa"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/OTT_19971998-20062007_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/OTT_19971998-20062007_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/2004/series-e/predators-vs-redwings",
+            "seriesTitle": "Conference Quarterfinals",
+            "seriesAbbrev": "CQF",
+            "seriesLetter": "E",
+            "playoffRound": 1,
+            "topSeedRank": 1,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 4,
+            "bottomSeedRank": 8,
+            "bottomSeedRankAbbrev": "C8",
+            "bottomSeedWins": 2,
+            "winningTeamId": 17,
+            "losingTeamId": 18,
+            "topSeedTeam": {
+                "id": 17,
+                "abbrev": "DET",
+                "name": {
+                    "default": "Detroit Red Wings",
+                    "fr": "Red Wings de Detroit"
+                },
+                "commonName": {
+                    "default": "Red Wings"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Detroit",
+                    "fr": "de Detroit"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DET_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 18,
+                "abbrev": "NSH",
+                "name": {
+                    "default": "Nashville Predators",
+                    "fr": "Predators de Nashville"
+                },
+                "commonName": {
+                    "default": "Predators"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Nashville",
+                    "fr": "de Nashville"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/NSH_19981999-20102011_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NSH_19981999-20102011_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/2004/series-f/blues-vs-sharks",
+            "seriesTitle": "Conference Quarterfinals",
+            "seriesAbbrev": "CQF",
+            "seriesLetter": "F",
+            "playoffRound": 1,
+            "topSeedRank": 2,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 4,
+            "bottomSeedRank": 7,
+            "bottomSeedRankAbbrev": "C7",
+            "bottomSeedWins": 1,
+            "winningTeamId": 28,
+            "losingTeamId": 19,
+            "topSeedTeam": {
+                "id": 28,
+                "abbrev": "SJS",
+                "name": {
+                    "default": "San Jose Sharks",
+                    "fr": "Sharks de San Jose"
+                },
+                "commonName": {
+                    "default": "Sharks"
+                },
+                "placeNameWithPreposition": {
+                    "default": "San Jose",
+                    "fr": "de San Jose"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_19981999-20062007_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/SJS_19981999-20062007_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 19,
+                "abbrev": "STL",
+                "name": {
+                    "default": "St. Louis Blues",
+                    "fr": "Blues de St. Louis"
+                },
+                "commonName": {
+                    "default": "Blues"
+                },
+                "placeNameWithPreposition": {
+                    "default": "St. Louis",
+                    "fr": "de St. Louis"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/STL_20002001-20072008_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/STL_20002001-20072008_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/2004/series-g/flames-vs-canucks",
+            "seriesTitle": "Conference Quarterfinals",
+            "seriesAbbrev": "CQF",
+            "seriesLetter": "G",
+            "playoffRound": 1,
+            "topSeedRank": 3,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 3,
+            "bottomSeedRank": 6,
+            "bottomSeedRankAbbrev": "C6",
+            "bottomSeedWins": 4,
+            "winningTeamId": 20,
+            "losingTeamId": 23,
+            "topSeedTeam": {
+                "id": 23,
+                "abbrev": "VAN",
+                "name": {
+                    "default": "Vancouver Canucks",
+                    "fr": "Canucks de Vancouver"
+                },
+                "commonName": {
+                    "default": "Canucks"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Vancouver",
+                    "fr": "de Vancouver"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/VAN_19971998-20062007_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/VAN_19971998-20062007_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 20,
+                "abbrev": "CGY",
+                "name": {
+                    "default": "Calgary Flames",
+                    "fr": "Flames de Calgary"
+                },
+                "commonName": {
+                    "default": "Flames"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Calgary",
+                    "fr": "de Calgary"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/CGY_19941995-20192020_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CGY_19941995-20192020_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/2004/series-h/stars-vs-avalanche",
+            "seriesTitle": "Conference Quarterfinals",
+            "seriesAbbrev": "CQF",
+            "seriesLetter": "H",
+            "playoffRound": 1,
+            "topSeedRank": 4,
+            "topSeedRankAbbrev": "C4",
+            "topSeedWins": 4,
+            "bottomSeedRank": 5,
+            "bottomSeedRankAbbrev": "C5",
+            "bottomSeedWins": 1,
+            "winningTeamId": 21,
+            "losingTeamId": 25,
+            "topSeedTeam": {
+                "id": 21,
+                "abbrev": "COL",
+                "name": {
+                    "default": "Colorado Avalanche",
+                    "fr": "Avalanche du Colorado"
+                },
+                "commonName": {
+                    "default": "Avalanche"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Colorado",
+                    "fr": "du Colorado"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/COL_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 25,
+                "abbrev": "DAL",
+                "name": {
+                    "default": "Dallas Stars",
+                    "fr": "Stars de Dallas"
+                },
+                "commonName": {
+                    "default": "Stars"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Dallas",
+                    "fr": "de Dallas"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/DAL_19941995-20122013_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DAL_19941995-20122013_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/2004/series-i/canadiens-vs-lightning",
+            "seriesTitle": "Conference Semifinals",
+            "seriesAbbrev": "CSF",
+            "seriesLetter": "I",
+            "playoffRound": 2,
+            "topSeedRank": 1,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 4,
+            "bottomSeedRank": 7,
+            "bottomSeedRankAbbrev": "C7",
+            "bottomSeedWins": 0,
+            "winningTeamId": 14,
+            "losingTeamId": 8,
+            "topSeedTeam": {
+                "id": 14,
+                "abbrev": "TBL",
+                "name": {
+                    "default": "Tampa Bay Lightning",
+                    "fr": "Lightning de Tampa Bay"
+                },
+                "commonName": {
+                    "default": "Lightning"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Tampa Bay",
+                    "fr": "de Tampa Bay"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/TBL_20012002-20062007_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TBL_20012002-20062007_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 8,
+                "abbrev": "MTL",
+                "name": {
+                    "default": "Montr\u00e9al Canadiens",
+                    "fr": "Canadiens de Montr\u00e9al"
+                },
+                "commonName": {
+                    "default": "Canadiens"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Montr\u00e9al",
+                    "fr": "de Montr\u00e9al"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/MTL_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/2004/series-j/mapleleafs-vs-flyers",
+            "seriesTitle": "Conference Semifinals",
+            "seriesAbbrev": "CSF",
+            "seriesLetter": "J",
+            "playoffRound": 2,
+            "topSeedRank": 3,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 4,
+            "bottomSeedRank": 4,
+            "bottomSeedRankAbbrev": "C4",
+            "bottomSeedWins": 2,
+            "winningTeamId": 4,
+            "losingTeamId": 10,
+            "topSeedTeam": {
+                "id": 4,
+                "abbrev": "PHI",
+                "name": {
+                    "default": "Philadelphia Flyers",
+                    "fr": "Flyers de Philadelphie"
+                },
+                "commonName": {
+                    "default": "Flyers"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Philadelphia",
+                    "fr": "de Philadelphie"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_19992000-20222023_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/PHI_19992000-20222023_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 10,
+                "abbrev": "TOR",
+                "name": {
+                    "default": "Toronto Maple Leafs",
+                    "fr": "Maple Leafs de Toronto"
+                },
+                "commonName": {
+                    "default": "Maple Leafs"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Toronto",
+                    "fr": "de Toronto"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_19871988-20152016_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TOR_19871988-20152016_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/2004/series-k/flames-vs-redwings",
+            "seriesTitle": "Conference Semifinals",
+            "seriesAbbrev": "CSF",
+            "seriesLetter": "K",
+            "playoffRound": 2,
+            "topSeedRank": 1,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 2,
+            "bottomSeedRank": 6,
+            "bottomSeedRankAbbrev": "C6",
+            "bottomSeedWins": 4,
+            "winningTeamId": 20,
+            "losingTeamId": 17,
+            "topSeedTeam": {
+                "id": 17,
+                "abbrev": "DET",
+                "name": {
+                    "default": "Detroit Red Wings",
+                    "fr": "Red Wings de Detroit"
+                },
+                "commonName": {
+                    "default": "Red Wings"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Detroit",
+                    "fr": "de Detroit"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DET_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 20,
+                "abbrev": "CGY",
+                "name": {
+                    "default": "Calgary Flames",
+                    "fr": "Flames de Calgary"
+                },
+                "commonName": {
+                    "default": "Flames"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Calgary",
+                    "fr": "de Calgary"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/CGY_19941995-20192020_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CGY_19941995-20192020_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/2004/series-l/avalanche-vs-sharks",
+            "seriesTitle": "Conference Semifinals",
+            "seriesAbbrev": "CSF",
+            "seriesLetter": "L",
+            "playoffRound": 2,
+            "topSeedRank": 2,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 4,
+            "bottomSeedRank": 4,
+            "bottomSeedRankAbbrev": "C4",
+            "bottomSeedWins": 2,
+            "winningTeamId": 28,
+            "losingTeamId": 21,
+            "topSeedTeam": {
+                "id": 28,
+                "abbrev": "SJS",
+                "name": {
+                    "default": "San Jose Sharks",
+                    "fr": "Sharks de San Jose"
+                },
+                "commonName": {
+                    "default": "Sharks"
+                },
+                "placeNameWithPreposition": {
+                    "default": "San Jose",
+                    "fr": "de San Jose"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_19981999-20062007_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/SJS_19981999-20062007_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 21,
+                "abbrev": "COL",
+                "name": {
+                    "default": "Colorado Avalanche",
+                    "fr": "Avalanche du Colorado"
+                },
+                "commonName": {
+                    "default": "Avalanche"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Colorado",
+                    "fr": "du Colorado"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/COL_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/2004/series-m/flyers-vs-lightning",
+            "seriesTitle": "Eastern Conference Finals",
+            "seriesAbbrev": "ECF",
+            "seriesLetter": "M",
+            "conferenceAbbrev": "E",
+            "conferenceName": "Eastern",
+            "playoffRound": 3,
+            "topSeedRank": 1,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 4,
+            "bottomSeedRank": 3,
+            "bottomSeedRankAbbrev": "D1",
+            "bottomSeedWins": 3,
+            "winningTeamId": 14,
+            "losingTeamId": 4,
+            "topSeedTeam": {
+                "id": 14,
+                "abbrev": "TBL",
+                "name": {
+                    "default": "Tampa Bay Lightning",
+                    "fr": "Lightning de Tampa Bay"
+                },
+                "commonName": {
+                    "default": "Lightning"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Tampa Bay",
+                    "fr": "de Tampa Bay"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/TBL_20012002-20062007_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TBL_20012002-20062007_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 4,
+                "abbrev": "PHI",
+                "name": {
+                    "default": "Philadelphia Flyers",
+                    "fr": "Flyers de Philadelphie"
+                },
+                "commonName": {
+                    "default": "Flyers"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Philadelphia",
+                    "fr": "de Philadelphie"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_19992000-20222023_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/PHI_19992000-20222023_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/2004/series-n/flames-vs-sharks",
+            "seriesTitle": "Western Conference Finals",
+            "seriesAbbrev": "WCF",
+            "seriesLetter": "N",
+            "conferenceAbbrev": "W",
+            "conferenceName": "Western",
+            "playoffRound": 3,
+            "topSeedRank": 2,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 2,
+            "bottomSeedRank": 6,
+            "bottomSeedRankAbbrev": "C6",
+            "bottomSeedWins": 4,
+            "winningTeamId": 20,
+            "losingTeamId": 28,
+            "topSeedTeam": {
+                "id": 28,
+                "abbrev": "SJS",
+                "name": {
+                    "default": "San Jose Sharks",
+                    "fr": "Sharks de San Jose"
+                },
+                "commonName": {
+                    "default": "Sharks"
+                },
+                "placeNameWithPreposition": {
+                    "default": "San Jose",
+                    "fr": "de San Jose"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_19981999-20062007_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/SJS_19981999-20062007_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 20,
+                "abbrev": "CGY",
+                "name": {
+                    "default": "Calgary Flames",
+                    "fr": "Flames de Calgary"
+                },
+                "commonName": {
+                    "default": "Flames"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Calgary",
+                    "fr": "de Calgary"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/CGY_19941995-20192020_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CGY_19941995-20192020_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/2004/series-o/flames-vs-lightning",
+            "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/sc-banner.png",
+            "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/sc-banner.png",
+            "seriesTitle": "Stanley Cup Final",
+            "seriesAbbrev": "SCF",
+            "seriesLetter": "O",
+            "playoffRound": 4,
+            "topSeedRank": 1,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 4,
+            "bottomSeedRank": 6,
+            "bottomSeedRankAbbrev": "C6",
+            "bottomSeedWins": 3,
+            "winningTeamId": 14,
+            "losingTeamId": 20,
+            "topSeedTeam": {
+                "id": 14,
+                "abbrev": "TBL",
+                "name": {
+                    "default": "Tampa Bay Lightning",
+                    "fr": "Lightning de Tampa Bay"
+                },
+                "commonName": {
+                    "default": "Lightning"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Tampa Bay",
+                    "fr": "de Tampa Bay"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/TBL_20012002-20062007_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TBL_20012002-20062007_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 20,
+                "abbrev": "CGY",
+                "name": {
+                    "default": "Calgary Flames",
+                    "fr": "Flames de Calgary"
+                },
+                "commonName": {
+                    "default": "Flames"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Calgary",
+                    "fr": "de Calgary"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/CGY_19941995-20192020_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CGY_19941995-20192020_dark.svg"
+            }
+        }
+    ]
+}

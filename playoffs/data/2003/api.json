@@ -1,0 +1,750 @@
+{
+    "bracketLogo": "https://assets.nhle.com/logos/playoffs/png/scp-horizontal-banner-en.png",
+    "bracketLogoFr": "https://assets.nhle.com/logos/playoffs/png/scp-horizontal-banner-fr.png",
+    "series": [
+        {
+            "seriesUrl": "/schedule/playoff-series/2003/series-a/islanders-vs-senators",
+            "seriesTitle": "Conference Quarterfinals",
+            "seriesAbbrev": "CQF",
+            "seriesLetter": "A",
+            "playoffRound": 1,
+            "topSeedRank": 1,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 4,
+            "bottomSeedRank": 8,
+            "bottomSeedRankAbbrev": "C8",
+            "bottomSeedWins": 1,
+            "winningTeamId": 9,
+            "losingTeamId": 2,
+            "topSeedTeam": {
+                "id": 9,
+                "abbrev": "OTT",
+                "name": {
+                    "default": "Ottawa Senators",
+                    "fr": "S\u00e9nateurs d'Ottawa"
+                },
+                "commonName": {
+                    "default": "Senators",
+                    "fr": "S\u00e9nateurs"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Ottawa",
+                    "fr": "d'Ottawa"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/OTT_19971998-20062007_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/OTT_19971998-20062007_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 2,
+                "abbrev": "NYI",
+                "name": {
+                    "default": "New York Islanders",
+                    "fr": "Islanders de New York"
+                },
+                "commonName": {
+                    "default": "Islanders"
+                },
+                "placeNameWithPreposition": {
+                    "default": "New York",
+                    "fr": "de New York"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/NYI_19971998-20092010_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NYI_19971998-20092010_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/2003/series-b/bruins-vs-devils",
+            "seriesTitle": "Conference Quarterfinals",
+            "seriesAbbrev": "CQF",
+            "seriesLetter": "B",
+            "playoffRound": 1,
+            "topSeedRank": 2,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 4,
+            "bottomSeedRank": 7,
+            "bottomSeedRankAbbrev": "C7",
+            "bottomSeedWins": 1,
+            "winningTeamId": 1,
+            "losingTeamId": 6,
+            "topSeedTeam": {
+                "id": 1,
+                "abbrev": "NJD",
+                "name": {
+                    "default": "New Jersey Devils",
+                    "fr": "Devils du New Jersey"
+                },
+                "commonName": {
+                    "default": "Devils"
+                },
+                "placeNameWithPreposition": {
+                    "default": "New Jersey",
+                    "fr": "du New Jersey"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NJD_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 6,
+                "abbrev": "BOS",
+                "name": {
+                    "default": "Boston Bruins",
+                    "fr": "Bruins de Boston"
+                },
+                "commonName": {
+                    "default": "Bruins"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Boston",
+                    "fr": "de Boston"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/BOS_19951996-20062007_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/BOS_19951996-20062007_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/2003/series-c/capitals-vs-lightning",
+            "seriesTitle": "Conference Quarterfinals",
+            "seriesAbbrev": "CQF",
+            "seriesLetter": "C",
+            "playoffRound": 1,
+            "topSeedRank": 3,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 4,
+            "bottomSeedRank": 6,
+            "bottomSeedRankAbbrev": "C6",
+            "bottomSeedWins": 2,
+            "winningTeamId": 14,
+            "losingTeamId": 15,
+            "topSeedTeam": {
+                "id": 14,
+                "abbrev": "TBL",
+                "name": {
+                    "default": "Tampa Bay Lightning",
+                    "fr": "Lightning de Tampa Bay"
+                },
+                "commonName": {
+                    "default": "Lightning"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Tampa Bay",
+                    "fr": "de Tampa Bay"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/TBL_20012002-20062007_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TBL_20012002-20062007_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 15,
+                "abbrev": "WSH",
+                "name": {
+                    "default": "Washington Capitals",
+                    "fr": "Capitals de Washington"
+                },
+                "commonName": {
+                    "default": "Capitals"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Washington",
+                    "fr": "de Washington"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_19951996-20062007_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/WSH_19981999-20062007_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/2003/series-d/mapleleafs-vs-flyers",
+            "seriesTitle": "Conference Quarterfinals",
+            "seriesAbbrev": "CQF",
+            "seriesLetter": "D",
+            "playoffRound": 1,
+            "topSeedRank": 4,
+            "topSeedRankAbbrev": "C4",
+            "topSeedWins": 4,
+            "bottomSeedRank": 5,
+            "bottomSeedRankAbbrev": "C5",
+            "bottomSeedWins": 3,
+            "winningTeamId": 4,
+            "losingTeamId": 10,
+            "topSeedTeam": {
+                "id": 4,
+                "abbrev": "PHI",
+                "name": {
+                    "default": "Philadelphia Flyers",
+                    "fr": "Flyers de Philadelphie"
+                },
+                "commonName": {
+                    "default": "Flyers"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Philadelphia",
+                    "fr": "de Philadelphie"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_19992000-20222023_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/PHI_19992000-20222023_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 10,
+                "abbrev": "TOR",
+                "name": {
+                    "default": "Toronto Maple Leafs",
+                    "fr": "Maple Leafs de Toronto"
+                },
+                "commonName": {
+                    "default": "Maple Leafs"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Toronto",
+                    "fr": "de Toronto"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_19871988-20152016_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TOR_19871988-20152016_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/2003/series-e/oilers-vs-stars",
+            "seriesTitle": "Conference Quarterfinals",
+            "seriesAbbrev": "CQF",
+            "seriesLetter": "E",
+            "playoffRound": 1,
+            "topSeedRank": 1,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 4,
+            "bottomSeedRank": 8,
+            "bottomSeedRankAbbrev": "C8",
+            "bottomSeedWins": 2,
+            "winningTeamId": 25,
+            "losingTeamId": 22,
+            "topSeedTeam": {
+                "id": 25,
+                "abbrev": "DAL",
+                "name": {
+                    "default": "Dallas Stars",
+                    "fr": "Stars de Dallas"
+                },
+                "commonName": {
+                    "default": "Stars"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Dallas",
+                    "fr": "de Dallas"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/DAL_19941995-20122013_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DAL_19941995-20122013_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 22,
+                "abbrev": "EDM",
+                "name": {
+                    "default": "Edmonton Oilers",
+                    "fr": "Oilers d'Edmonton"
+                },
+                "commonName": {
+                    "default": "Oilers"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Edmonton",
+                    "fr": "d'Edmonton"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/EDM_19971998-20102011_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/EDM_19971998-20102011_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/2003/series-f/ducks-vs-redwings",
+            "seriesTitle": "Conference Quarterfinals",
+            "seriesAbbrev": "CQF",
+            "seriesLetter": "F",
+            "playoffRound": 1,
+            "topSeedRank": 2,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 0,
+            "bottomSeedRank": 7,
+            "bottomSeedRankAbbrev": "C7",
+            "bottomSeedWins": 4,
+            "winningTeamId": 24,
+            "losingTeamId": 17,
+            "topSeedTeam": {
+                "id": 17,
+                "abbrev": "DET",
+                "name": {
+                    "default": "Detroit Red Wings",
+                    "fr": "Red Wings de Detroit"
+                },
+                "commonName": {
+                    "default": "Red Wings"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Detroit",
+                    "fr": "de Detroit"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DET_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 24,
+                "abbrev": "ANA",
+                "name": {
+                    "default": "Anaheim Ducks",
+                    "fr": "Ducks d'Anaheim"
+                },
+                "commonName": {
+                    "default": "Ducks"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Anaheim",
+                    "fr": "d'Anaheim"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_19961997-20052006_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/ANA_19961997-20052006_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/2003/series-g/wild-vs-avalanche",
+            "seriesTitle": "Conference Quarterfinals",
+            "seriesAbbrev": "CQF",
+            "seriesLetter": "G",
+            "playoffRound": 1,
+            "topSeedRank": 3,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 3,
+            "bottomSeedRank": 6,
+            "bottomSeedRankAbbrev": "C6",
+            "bottomSeedWins": 4,
+            "winningTeamId": 30,
+            "losingTeamId": 21,
+            "topSeedTeam": {
+                "id": 21,
+                "abbrev": "COL",
+                "name": {
+                    "default": "Colorado Avalanche",
+                    "fr": "Avalanche du Colorado"
+                },
+                "commonName": {
+                    "default": "Avalanche"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Colorado",
+                    "fr": "du Colorado"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/COL_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 30,
+                "abbrev": "MIN",
+                "name": {
+                    "default": "Minnesota Wild",
+                    "fr": "Wild du Minnesota"
+                },
+                "commonName": {
+                    "default": "Wild"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Minnesota",
+                    "fr": "du Minnesota"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/MIN_20002001-20122013_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/MIN_20002001-20122013_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/2003/series-h/blues-vs-canucks",
+            "seriesTitle": "Conference Quarterfinals",
+            "seriesAbbrev": "CQF",
+            "seriesLetter": "H",
+            "playoffRound": 1,
+            "topSeedRank": 4,
+            "topSeedRankAbbrev": "C4",
+            "topSeedWins": 4,
+            "bottomSeedRank": 5,
+            "bottomSeedRankAbbrev": "C5",
+            "bottomSeedWins": 3,
+            "winningTeamId": 23,
+            "losingTeamId": 19,
+            "topSeedTeam": {
+                "id": 23,
+                "abbrev": "VAN",
+                "name": {
+                    "default": "Vancouver Canucks",
+                    "fr": "Canucks de Vancouver"
+                },
+                "commonName": {
+                    "default": "Canucks"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Vancouver",
+                    "fr": "de Vancouver"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/VAN_19971998-20062007_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/VAN_19971998-20062007_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 19,
+                "abbrev": "STL",
+                "name": {
+                    "default": "St. Louis Blues",
+                    "fr": "Blues de St. Louis"
+                },
+                "commonName": {
+                    "default": "Blues"
+                },
+                "placeNameWithPreposition": {
+                    "default": "St. Louis",
+                    "fr": "de St. Louis"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/STL_20002001-20072008_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/STL_20002001-20072008_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/2003/series-i/flyers-vs-senators",
+            "seriesTitle": "Conference Semifinals",
+            "seriesAbbrev": "CSF",
+            "seriesLetter": "I",
+            "playoffRound": 2,
+            "topSeedRank": 1,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 4,
+            "bottomSeedRank": 4,
+            "bottomSeedRankAbbrev": "C4",
+            "bottomSeedWins": 2,
+            "winningTeamId": 9,
+            "losingTeamId": 4,
+            "topSeedTeam": {
+                "id": 9,
+                "abbrev": "OTT",
+                "name": {
+                    "default": "Ottawa Senators",
+                    "fr": "S\u00e9nateurs d'Ottawa"
+                },
+                "commonName": {
+                    "default": "Senators",
+                    "fr": "S\u00e9nateurs"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Ottawa",
+                    "fr": "d'Ottawa"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/OTT_19971998-20062007_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/OTT_19971998-20062007_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 4,
+                "abbrev": "PHI",
+                "name": {
+                    "default": "Philadelphia Flyers",
+                    "fr": "Flyers de Philadelphie"
+                },
+                "commonName": {
+                    "default": "Flyers"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Philadelphia",
+                    "fr": "de Philadelphie"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_19992000-20222023_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/PHI_19992000-20222023_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/2003/series-j/lightning-vs-devils",
+            "seriesTitle": "Conference Semifinals",
+            "seriesAbbrev": "CSF",
+            "seriesLetter": "J",
+            "playoffRound": 2,
+            "topSeedRank": 2,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 4,
+            "bottomSeedRank": 3,
+            "bottomSeedRankAbbrev": "D1",
+            "bottomSeedWins": 1,
+            "winningTeamId": 1,
+            "losingTeamId": 14,
+            "topSeedTeam": {
+                "id": 1,
+                "abbrev": "NJD",
+                "name": {
+                    "default": "New Jersey Devils",
+                    "fr": "Devils du New Jersey"
+                },
+                "commonName": {
+                    "default": "Devils"
+                },
+                "placeNameWithPreposition": {
+                    "default": "New Jersey",
+                    "fr": "du New Jersey"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NJD_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 14,
+                "abbrev": "TBL",
+                "name": {
+                    "default": "Tampa Bay Lightning",
+                    "fr": "Lightning de Tampa Bay"
+                },
+                "commonName": {
+                    "default": "Lightning"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Tampa Bay",
+                    "fr": "de Tampa Bay"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/TBL_20012002-20062007_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TBL_20012002-20062007_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/2003/series-k/ducks-vs-stars",
+            "seriesTitle": "Conference Semifinals",
+            "seriesAbbrev": "CSF",
+            "seriesLetter": "K",
+            "playoffRound": 2,
+            "topSeedRank": 1,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 2,
+            "bottomSeedRank": 7,
+            "bottomSeedRankAbbrev": "C7",
+            "bottomSeedWins": 4,
+            "winningTeamId": 24,
+            "losingTeamId": 25,
+            "topSeedTeam": {
+                "id": 25,
+                "abbrev": "DAL",
+                "name": {
+                    "default": "Dallas Stars",
+                    "fr": "Stars de Dallas"
+                },
+                "commonName": {
+                    "default": "Stars"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Dallas",
+                    "fr": "de Dallas"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/DAL_19941995-20122013_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DAL_19941995-20122013_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 24,
+                "abbrev": "ANA",
+                "name": {
+                    "default": "Anaheim Ducks",
+                    "fr": "Ducks d'Anaheim"
+                },
+                "commonName": {
+                    "default": "Ducks"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Anaheim",
+                    "fr": "d'Anaheim"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_19961997-20052006_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/ANA_19961997-20052006_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/2003/series-l/wild-vs-canucks",
+            "seriesTitle": "Conference Semifinals",
+            "seriesAbbrev": "CSF",
+            "seriesLetter": "L",
+            "playoffRound": 2,
+            "topSeedRank": 4,
+            "topSeedRankAbbrev": "C4",
+            "topSeedWins": 3,
+            "bottomSeedRank": 6,
+            "bottomSeedRankAbbrev": "C6",
+            "bottomSeedWins": 4,
+            "winningTeamId": 30,
+            "losingTeamId": 23,
+            "topSeedTeam": {
+                "id": 23,
+                "abbrev": "VAN",
+                "name": {
+                    "default": "Vancouver Canucks",
+                    "fr": "Canucks de Vancouver"
+                },
+                "commonName": {
+                    "default": "Canucks"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Vancouver",
+                    "fr": "de Vancouver"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/VAN_19971998-20062007_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/VAN_19971998-20062007_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 30,
+                "abbrev": "MIN",
+                "name": {
+                    "default": "Minnesota Wild",
+                    "fr": "Wild du Minnesota"
+                },
+                "commonName": {
+                    "default": "Wild"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Minnesota",
+                    "fr": "du Minnesota"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/MIN_20002001-20122013_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/MIN_20002001-20122013_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/2003/series-m/devils-vs-senators",
+            "seriesTitle": "Eastern Conference Finals",
+            "seriesAbbrev": "ECF",
+            "seriesLetter": "M",
+            "conferenceAbbrev": "E",
+            "conferenceName": "Eastern",
+            "playoffRound": 3,
+            "topSeedRank": 1,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 3,
+            "bottomSeedRank": 2,
+            "bottomSeedRankAbbrev": "D1",
+            "bottomSeedWins": 4,
+            "winningTeamId": 1,
+            "losingTeamId": 9,
+            "topSeedTeam": {
+                "id": 9,
+                "abbrev": "OTT",
+                "name": {
+                    "default": "Ottawa Senators",
+                    "fr": "S\u00e9nateurs d'Ottawa"
+                },
+                "commonName": {
+                    "default": "Senators",
+                    "fr": "S\u00e9nateurs"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Ottawa",
+                    "fr": "d'Ottawa"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/OTT_19971998-20062007_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/OTT_19971998-20062007_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 1,
+                "abbrev": "NJD",
+                "name": {
+                    "default": "New Jersey Devils",
+                    "fr": "Devils du New Jersey"
+                },
+                "commonName": {
+                    "default": "Devils"
+                },
+                "placeNameWithPreposition": {
+                    "default": "New Jersey",
+                    "fr": "du New Jersey"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NJD_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/2003/series-n/ducks-vs-wild",
+            "seriesTitle": "Western Conference Finals",
+            "seriesAbbrev": "WCF",
+            "seriesLetter": "N",
+            "conferenceAbbrev": "W",
+            "conferenceName": "Western",
+            "playoffRound": 3,
+            "topSeedRank": 6,
+            "topSeedRankAbbrev": "C6",
+            "topSeedWins": 0,
+            "bottomSeedRank": 7,
+            "bottomSeedRankAbbrev": "C7",
+            "bottomSeedWins": 4,
+            "winningTeamId": 24,
+            "losingTeamId": 30,
+            "topSeedTeam": {
+                "id": 30,
+                "abbrev": "MIN",
+                "name": {
+                    "default": "Minnesota Wild",
+                    "fr": "Wild du Minnesota"
+                },
+                "commonName": {
+                    "default": "Wild"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Minnesota",
+                    "fr": "du Minnesota"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/MIN_20002001-20122013_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/MIN_20002001-20122013_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 24,
+                "abbrev": "ANA",
+                "name": {
+                    "default": "Anaheim Ducks",
+                    "fr": "Ducks d'Anaheim"
+                },
+                "commonName": {
+                    "default": "Ducks"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Anaheim",
+                    "fr": "d'Anaheim"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_19961997-20052006_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/ANA_19961997-20052006_dark.svg"
+            }
+        },
+        {
+            "seriesUrl": "/schedule/playoff-series/2003/series-o/ducks-vs-devils",
+            "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/sc-banner.png",
+            "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/sc-banner.png",
+            "seriesTitle": "Stanley Cup Final",
+            "seriesAbbrev": "SCF",
+            "seriesLetter": "O",
+            "playoffRound": 4,
+            "topSeedRank": 2,
+            "topSeedRankAbbrev": "D1",
+            "topSeedWins": 4,
+            "bottomSeedRank": 7,
+            "bottomSeedRankAbbrev": "C7",
+            "bottomSeedWins": 3,
+            "winningTeamId": 1,
+            "losingTeamId": 24,
+            "topSeedTeam": {
+                "id": 1,
+                "abbrev": "NJD",
+                "name": {
+                    "default": "New Jersey Devils",
+                    "fr": "Devils du New Jersey"
+                },
+                "commonName": {
+                    "default": "Devils"
+                },
+                "placeNameWithPreposition": {
+                    "default": "New Jersey",
+                    "fr": "du New Jersey"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NJD_dark.svg"
+            },
+            "bottomSeedTeam": {
+                "id": 24,
+                "abbrev": "ANA",
+                "name": {
+                    "default": "Anaheim Ducks",
+                    "fr": "Ducks d'Anaheim"
+                },
+                "commonName": {
+                    "default": "Ducks"
+                },
+                "placeNameWithPreposition": {
+                    "default": "Anaheim",
+                    "fr": "d'Anaheim"
+                },
+                "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_19961997-20052006_light.svg",
+                "darkLogo": "https://assets.nhle.com/logos/nhl/svg/ANA_19961997-20052006_dark.svg"
+            }
+        }
+    ]
+}
