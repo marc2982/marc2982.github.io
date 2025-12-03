@@ -19,20 +19,20 @@
       const urlParams = new URLSearchParams(window.location.search);
       const year = parseInt(urlParams.get('year')) || currentYear;
       $(document).prop('title', `${year} Bryan Family Playoff Pool`);
-      $('#yearHeader').html(year);
+      $('#yearText').html(year);
       render(year);
     }
   </script>
 </head>
 
 <body>
-  <div id="backToIndex">
-    <a href="../index.html">
-      <strong>&larr; Back to all years</strong>
-    </a>
-  </div>
   <div>
-    <h1 id="yearHeader" class="text-center bg-secondary" style="--bs-bg-opacity: .2;"></h1>
+    <h1 id="yearHeader" class="text-center bg-secondary" style="--bs-bg-opacity: .2;">
+      <a href="../playoffs/index.html" id="backToIndex">
+        <strong>&larr; Back to all years</strong>
+      </a>
+      <span id="yearText"></span>
+    </h1>
   </div>
   <div id="loading" class="text-center mt-5">
     <div class="spinner-border" role="status">
