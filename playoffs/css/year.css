@@ -1,3 +1,15 @@
+/* Base styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+    overflow-x: hidden;
+}
+
 .containing_table {
     border-collapse: collapse;
     margin: 0px;
@@ -270,6 +282,11 @@ table.table.table-striped td {
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
+    /* Reduce body padding on mobile */
+    body {
+        padding: 5px;
+    }
+
     /* Reduce section padding on mobile */
     #summary,
     #round1,
@@ -277,14 +294,16 @@ table.table.table-striped td {
     #round3,
     #round4,
     #main-content > div:last-child {
-        padding: 15px;
-        margin: 15px 0;
+        padding: 10px;
+        margin: 10px 0;
+        width: 100%;
     }
 
     /* Make year header more compact */
     #yearHeader {
         padding: 15px 10px !important;
         font-size: 1.5rem !important;
+        width: 100%;
     }
 
     /* Adjust back button for mobile */
@@ -299,12 +318,14 @@ table.table.table-striped td {
         display: block;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
+        width: 100%;
     }
 
     /* Reduce tiebreaker padding */
     #tiebreaker {
         padding: 12px 15px;
-        margin: 15px 0;
+        margin: 10px 0;
+        width: 100%;
     }
 
     /* Smaller explanation boxes */
