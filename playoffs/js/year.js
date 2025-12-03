@@ -8,6 +8,10 @@ export function renderPage(data) {
 		renderRound(data.teams, round, $(tableName));
 	});
 	renderProjections(data, $('#projectionsTable'));
+
+	// Hide loading spinner and show content after all rendering is complete
+	$('#loading').hide();
+	$('#main-content').fadeIn();
 }
 
 export function renderTiebreaker(data, div) {
