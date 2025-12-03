@@ -84,7 +84,8 @@ table.table.table-striped td {
 }
 
 .leader,
-.leader td {
+.leader td,
+.leader th {
     background-color: yellow !important;
 }
 
