@@ -267,3 +267,49 @@ table.table.table-striped td {
     flex: 1;
     text-align: center;
 }
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    /* Reduce section padding on mobile */
+    #summary,
+    #round1,
+    #round2,
+    #round3,
+    #round4,
+    #main-content > div:last-child {
+        padding: 15px;
+        margin: 15px 0;
+    }
+
+    /* Make year header more compact */
+    #yearHeader {
+        padding: 15px 10px !important;
+        font-size: 1.5rem !important;
+    }
+
+    /* Adjust back button for mobile */
+    #backToIndex {
+        left: 10px;
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+
+    /* Make tables scrollable on mobile */
+    .containing_table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Reduce tiebreaker padding */
+    #tiebreaker {
+        padding: 12px 15px;
+        margin: 15px 0;
+    }
+
+    /* Smaller explanation boxes */
+    .explanation {
+        padding: 10px 12px;
+        margin-bottom: 12px;
+    }
+}
