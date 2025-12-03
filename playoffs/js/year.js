@@ -15,15 +15,8 @@ export function renderPage(data) {
 }
 
 export function renderTiebreaker(data, div) {
-	var _a, _b, _c;
-	if (
-		((_c =
-			(_b = (_a = data.tiebreakInfo) === null || _a === void 0 ? void 0 : _a.leaders) === null || _b === void 0
-				? void 0
-				: _b.length) !== null && _c !== void 0
-			? _c
-			: 0) > 1
-	) {
+	const leaderCount = data.tiebreakInfo?.leaders?.length ?? 0;
+	if (leaderCount > 1) {
 		div.show();
 	} else {
 		div.hide();
@@ -59,11 +52,7 @@ export function renderSummary(data, table) {
         </thead>
         <tbody>
             ${$.map(data.personSummaries, function (summary, person) {
-				var _a;
-				let leaderClass =
-					person === ((_a = data.tiebreakInfo) === null || _a === void 0 ? void 0 : _a.winner)
-						? "class='leader'"
-						: '';
+				let leaderClass = person === data.tiebreakInfo?.winner ? "class='leader'" : '';
 				return `<tr ${leaderClass}>
                         <th>${person}</th>
                         ${$.map(data.rounds, function (round) {
@@ -144,12 +133,11 @@ export function renderRound(teams, round, table) {
 				return `<tr ${leaderClass}>
                         <th>${person}</th>
                         ${$.map(sortedSeries, function (series, _) {
-							var _a, _b, _c;
 							let seriesResult = results[series.letter];
 							let pick = seriesResult.pick;
-							let team = (_a = teams[pick.team]) === null || _a === void 0 ? void 0 : _a.short;
-							let teamLogo = (_b = teams[pick.team]) === null || _b === void 0 ? void 0 : _b.logo;
-							let teamName = (_c = teams[pick.team]) === null || _c === void 0 ? void 0 : _c.name;
+							let team = teams[pick.team]?.short;
+							let teamLogo = teams[pick.team]?.logo;
+							let teamName = teams[pick.team]?.name;
 							return `<td>
                                 <div class="pick">
                                     <div class="img_container ${seriesResult.teamStatus.toLowerCase()}">
