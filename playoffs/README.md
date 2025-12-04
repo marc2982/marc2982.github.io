@@ -59,6 +59,33 @@ This provides the best of both worlds: automatic updates during playoffs and bla
 5. Generate index
 6. Commit
 
+## Advanced Stats Ideas
+
+### Performance Stats Tab
+
+-   **Average Points Per Year** - Who consistently performs well?
+-   **Best/Worst Year** - Highest and lowest point totals for each person
+-   **Streak Tracking** - Longest winning/losing streaks
+-   **Podium Finishes** - Top 3 finishes count (not just wins)
+-   **Comeback King** - Most improved from Round 1 to Round 4
+-   **Early Leader** - Who leads after Round 1 most often?
+-   **Consistency Score** - Standard deviation of yearly finishes
+
+### Pick Analysis Tab
+
+-   **Team Loyalty** - Which teams do people pick most?
+-   **Upset Picks** - Who picks the most underdogs?
+-   **Bonus Master** - Who earns the most bonus points?
+-   **Games Prediction Accuracy** - Who's best at predicting series length?
+-   **Cup Winner Picks** - Who picks the Stanley Cup winner most often?
+
+### Head-to-Head Tab
+
+-   **Rivalry Matrix** - Win/loss record against each other person
+-   **Closest Finishes** - Years with smallest point differentials
+-   **Tiebreaker Record** - Win rate in tiebreaker situations
+-   **Direct Comparison** - Select two people to compare stats
+
 ## Future Enhancements
 
 ### Tiebreaker UI Improvement

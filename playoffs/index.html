@@ -25,20 +25,53 @@
     </script>
 </head>
 <body>
-    <div id="container" style="display: grid; grid-template-rows: auto auto; grid-template-columns: auto auto; width: auto; justify-content: center; text-align: center;">
-        <div style="grid-column: 1 / span 2;">
-            <h2>Bryan Family Playoff Pools</h2>
-        </div>
-        <div class="table_div">
-            <h2>Results</h2>
-            <table id="yearlyResults" class="stripe">
-            </table>
-        </div>
-        <div class="table_div">
-            <h2>Stats</h2>
-            <table id="winsLosses" class="stripe">
-            </table>
-        </div>
-    </div>
+	<div id="container">
+		<h1 id="pageHeader">Bryan Family Playoff Pools</h1>
+		
+		<!-- Tab Navigation -->
+		<div class="tab-nav">
+			<button class="tab-button active" data-tab="results">Results</button>
+			<button class="tab-button" data-tab="stats">Stats</button>
+		</div>
+
+		<!-- Tab Content -->
+		<div id="results" class="tab-content active">
+			<div class="section-card">
+				<h2>Yearly Results</h2>
+				<table id="yearlyResults" class="stripe"></table>
+			</div>
+		</div>
+
+		<div id="stats" class="tab-content">
+			<div class="section-card">
+				<h2>Win/Loss Statistics</h2>
+				<table id="winsLosses" class="stripe"></table>
+			</div>
+		</div>
+	</div>
+
+	<script type="module">
+		import { yearlyResults } from './js/yearlyResults.js';
+		import { winsLosses } from './js/winsLosses.js';
+
+		window.onload = async function() {
+			// Load data
+			await yearlyResults($('#yearlyResults'));
+			await winsLosses($('#winsLosses'));
+
+			// Tab switching
+			$('.tab-button').on('click', function() {
+				const tabName = $(this).data('tab');
+				
+				// Update active tab button
+				$('.tab-button').removeClass('active');
+				$(this).addClass('active');
+				
+				// Update active tab content
+				$('.tab-content').removeClass('active');
+				$('#' + tabName).addClass('active');
+			});
+		}
+	</script>
 </body>
 </html>
