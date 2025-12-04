@@ -12,7 +12,8 @@ export async function pickAnalysis(container) {
 		stats[person] = {
 			name: person,
 			teamPicks: {}, // { teamCode: count }
-			totalBonusPoints: 0,
+			bonusEarned: 0,
+			bonusPossible: 0,
 			gamesCorrect: 0,
 			gamesTotalPicks: 0,
 			teamsCorrect: 0,
@@ -29,14 +30,16 @@ export async function pickAnalysis(container) {
 
 			// Process each round
 			summary.rounds?.forEach((round) => {
-				// Get bonus points from round summaries
+				// Get bonus from round summaries
 				Object.entries(round.summary?.summaries || {}).forEach(([person, personSummary]) => {
 					if (!stats[person]) return;
 
-					// Add bonus points earned this round
-					if (personSummary.bonusEarned) {
-						const bonusValue = round.scoring?.bonus || 3; // Default to 3 if not specified
-						stats[person].totalBonusPoints += personSummary.bonusEarned * bonusValue;
+					// Track bonus opportunities and earned
+					if (personSummary.bonusEarned !== undefined) {
+						stats[person].bonusPossible++;
+						if (personSummary.bonusEarned > 0) {
+							stats[person].bonusEarned++;
+						}
 					}
 				});
 
@@ -99,6 +102,7 @@ export async function pickAnalysis(container) {
 	// Build tables
 	buildTeamLoyaltyTable(container, activeStats);
 	buildPickAccuracyTable(container, activeStats);
+	buildCupWinnerTable(container, activeStats);
 }
 
 function buildTeamLoyaltyTable(container, stats) {
@@ -164,38 +168,30 @@ function buildPickAccuracyTable(container, stats) {
 	const $thead = $('<thead></thead>');
 	const $headerRow = $('<tr></tr>');
 	$headerRow.append('<th>Person</th>');
-	$headerRow.append('<th>Team Predictions</th>');
+	$headerRow.append('<th>Total Series Picked</th>');
 	$headerRow.append('<th>Team %</th>');
-	$headerRow.append('<th>Games Predictions</th>');
 	$headerRow.append('<th>Games %</th>');
-	$headerRow.append('<th>Cup Winner Picks</th>');
-	$headerRow.append('<th>Cup Winner %</th>');
+	$headerRow.append('<th>Times Bonus Earned</th>');
 	$thead.append($headerRow);
 	$table.append($thead);
 
 	// Body
 	const $tbody = $('<tbody></tbody>');
 	stats.forEach((s) => {
-		const teamsText = s.teamsTotalPicks > 0 ? `${s.teamsCorrect}/${s.teamsTotalPicks}` : '-';
 		const teamsPercent =
 			s.teamsTotalPicks > 0 ? ((s.teamsCorrect / s.teamsTotalPicks) * 100).toFixed(1) + '%' : '-';
 
-		const gamesText = s.gamesTotalPicks > 0 ? `${s.gamesCorrect}/${s.gamesTotalPicks}` : '-';
 		const gamesPercent =
 			s.gamesTotalPicks > 0 ? ((s.gamesCorrect / s.gamesTotalPicks) * 100).toFixed(1) + '%' : '-';
 
-		const cupWinnerText = s.cupWinnerPicks > 0 ? `${s.cupWinnerCorrect}/${s.cupWinnerPicks}` : '-';
-		const cupWinnerPercent =
-			s.cupWinnerPicks > 0 ? ((s.cupWinnerCorrect / s.cupWinnerPicks) * 100).toFixed(1) + '%' : '-';
+		const bonusDisplay = s.bonusPossible > 0 ? `${s.bonusEarned}/${s.bonusPossible}` : '-';
 
 		const $row = $('<tr></tr>');
 		$row.append(`<td>${s.name}</td>`);
-		$row.append(`<td>${teamsText}</td>`);
+		$row.append(`<td>${s.teamsTotalPicks}</td>`);
 		$row.append(`<td>${teamsPercent}</td>`);
-		$row.append(`<td>${gamesText}</td>`);
 		$row.append(`<td>${gamesPercent}</td>`);
-		$row.append(`<td>${cupWinnerText}</td>`);
-		$row.append(`<td>${cupWinnerPercent}</td>`);
+		$row.append(`<td>${bonusDisplay}</td>`);
 		$tbody.append($row);
 	});
 	$table.append($tbody);
@@ -209,5 +205,47 @@ function buildPickAccuracyTable(container, stats) {
 		paging: false,
 		searching: false,
 		order: [[1, 'desc']],
+	});
+}
+
+function buildCupWinnerTable(container, stats) {
+	const $section = $('<div class="section-card"><h2>Cup Winner Predictions</h2></div>');
+
+	const $table = $('<table class="stripe"></table>');
+
+	// Header
+	const $thead = $('<thead></thead>');
+	const $headerRow = $('<tr></tr>');
+	$headerRow.append('<th>Person</th>');
+	$headerRow.append('<th>Correct Picks</th>');
+	$headerRow.append('<th>Total Picks</th>');
+	$headerRow.append('<th>Success Rate</th>');
+	$thead.append($headerRow);
+	$table.append($thead);
+
+	// Body
+	const $tbody = $('<tbody></tbody>');
+	stats.forEach((s) => {
+		const cupPercent =
+			s.cupWinnerPicks > 0 ? ((s.cupWinnerCorrect / s.cupWinnerPicks) * 100).toFixed(1) + '%' : '-';
+
+		const $row = $('<tr></tr>');
+		$row.append(`<td>${s.name}</td>`);
+		$row.append(`<td>${s.cupWinnerCorrect}</td>`);
+		$row.append(`<td>${s.cupWinnerPicks}</td>`);
+		$row.append(`<td>${cupPercent}</td>`);
+		$tbody.append($row);
+	});
+	$table.append($tbody);
+
+	$section.append($table);
+	container.append($section);
+
+	// Initialize DataTable
+	$table.DataTable({
+		info: false,
+		paging: false,
+		searching: false,
+		order: [[3, 'desc']],
 	});
 }
