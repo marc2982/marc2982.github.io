@@ -8,7 +8,7 @@ export class DataLoader {
 	constructor(year) {
 		this.year = year;
 		this.apiUrl = `https://api-web.nhle.com/v1/playoff-bracket/${year}`;
-		this.cachedPath = `./data/${year}/api.json`;
+		this.cachedPath = `./data/summaries/${year}.json`;
 	}
 
 	async load() {
