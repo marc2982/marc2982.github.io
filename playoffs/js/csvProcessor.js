@@ -39,7 +39,7 @@ async function loadAndProcessCsvs(year) {
 	await api.load();
 
 	const picksImporter = new PicksImporter(api);
-	const summarizer = new Summarizer(year, api);
+	const summarizer = new Summarizer(year, api.getTeams());
 	const projector = new ProjectionCalculator(api);
 	const rounds = [];
 
