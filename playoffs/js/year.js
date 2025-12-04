@@ -1,4 +1,4 @@
-const extraStatsColumns = { targets: [-1, -2, -3, -4], width: '5%' };
+import { prepareSummaryViewModel, prepareRoundViewModel, prepareProjectionsViewModel } from './yearViewModel.js';
 
 export function renderPage(data) {
 	renderTiebreaker(data, $('#tiebreaker'));
@@ -23,25 +23,66 @@ export function renderTiebreaker(data, div) {
 	}
 }
 
-function getProjectionsClass(cell) {
-	if (!cell.isPossible) {
-		return 'incorrect';
-	} else if (cell.isOver) {
-		return 'correct';
-	} else {
-		return '';
-	}
-}
-
 export function renderSummary(data, table) {
+	const viewModel = prepareSummaryViewModel(data);
+
 	$(table).html(`
         <thead>
             <tr>
                 <th>&nbsp;</th>
-                <th>Round 1</th>
-                <th>Round 2</th>
-                <th>Round 3</th>
-                <th>Round 4</th>
+                ${viewModel.headers.map((h) => `<th>${h}</th>`).join('')}
+            </tr>
+        </thead>
+        <tbody>
+            ${viewModel.rows
+				.map(
+					(row) => `
+                <tr ${row.isLeader ? "class='leader'" : ''}>
+                    <th>${row.person}</th>
+                    ${row.roundPoints.map((pts) => `<td>${pts}</td>`).join('')}
+                    <td>${row.totalPoints}</td>
+                    <td>${row.rank}</td>
+                    <td>${row.possiblePoints}</td>
+                    <td>${row.gamesCorrect}</td>
+                    <td>${row.teamsCorrect}</td>
+                    <td>${row.bonusEarned}</td>
+                </tr>
+            `,
+				)
+				.join('')}
+        </tbody>
+    `);
+
+	$(table).DataTable(viewModel.dataTableConfig);
+}
+
+export function renderRound(teams, round, table) {
+	const viewModel = prepareRoundViewModel(teams, round);
+	if (!viewModel) {
+		console.log('No pick results for round ' + round.number);
+		return;
+	}
+
+	$(table).html(`
+        <thead>
+            <tr>
+                <th>&nbsp;</th>
+                ${viewModel.series
+					.map(
+						(s) => `
+                    <th>
+                        <div class="matchup-header">
+                            <div class="team-top ${s.topSeedIsWinner ? 'winner' : ''}">${s.topSeed} (${
+							s.topSeedWins
+						})</div>
+                            <div class="team-bottom ${s.bottomSeedIsWinner ? 'winner' : ''}">${s.bottomSeed} (${
+							s.bottomSeedWins
+						})</div>
+                        </div>
+                    </th>
+                `,
+					)
+					.join('')}
                 <th>Total Points</th>
                 <th>Rank</th>
                 <th>Maximum Possible Points</th>
@@ -51,223 +92,107 @@ export function renderSummary(data, table) {
             </tr>
         </thead>
         <tbody>
-            ${$.map(data.personSummaries, function (summary, person) {
-				let leaderClass = person === data.tiebreakInfo?.winner ? "class='leader'" : '';
-				return `<tr ${leaderClass}>
-                        <th>${person}</th>
-                        ${$.map(data.rounds, function (round) {
-							let summaries = round.summary.summaries;
-							return `<td>${person in summaries ? summaries[person].points : 0}</td>`;
-						})}
-                        <td>${summary.points}</td>
-                        <td>${summary.rank}</td>
-                        <td>${summary.possiblePoints}</td>
-                        <td>${summary.gamesCorrect}</td>
-                        <td>${summary.teamsCorrect}</td>
-                        <td>${summary.bonusEarned}</td>
-                    </tr>`;
-			}).join('')}
-        </tbody>
-    `);
-	$(table).DataTable({
-		paging: false,
-		searching: false,
-		info: false,
-		order: [
-			[5, 'desc'],
-			[8, 'desc'],
-			[9, 'desc'],
-		],
-		ordering: true,
-		autoWidth: false,
-		columnDefs: [
-			{ targets: [5, 6], className: 'dt-body-center dt-head-center points' },
-			extraStatsColumns,
-			{ targets: '*', className: 'dt-body-center dt-head-center' },
-		],
-	});
-}
-
-export function renderRound(teams, round, table) {
-	var sortedSeries = round.serieses.sort((a, b) => (a.letter > b.letter ? 1 : -1));
-	if (!round.pickResults) {
-		console.log('No pick results for round ' + round.number);
-		return;
-	}
-	$(table).html(`
-        <thead>
-            <tr>
-                <th>&nbsp;</th>
-                ${$.map(round.serieses, function (series) {
-					const winningSeedClass = 'winning_seed';
-					let topSeedClass = series.topSeedWins == 4 ? winningSeedClass : '';
-					let bottomSeedClass = series.bottomSeedWins == 4 ? winningSeedClass : '';
-					return `<th>
-                            <span>Series ${series.letter}: </span>
-                            <br />
-                            ${
-								series.topSeed
-									? `<span class='${topSeedClass}'>${series.topSeed} ${series.topSeedWins}</span>`
-									: `<span>?</span>`
-							}
-                            <br />
-                            ${
-								series.bottomSeed
-									? `<span class='${bottomSeedClass}'>${series.bottomSeed} ${series.bottomSeedWins}</span>`
-									: `<span>?</span>`
-							}
-                        </th>`;
-				})}
-                <th>Points</th>
-                <th>Rank</th>
-                <th>Maximum Possible Points</th>
-                <th>Num Games Correct</th>
-                <th>Num Teams Correct</th>
-                <th>Num Bonuses Earned</th>
-            </tr>
-        </thead>
-        <tbody>
-            ${$.map(round.pickResults, function (results, person) {
-				let summary = round.summary.summaries[person];
-				let leaderClass = round.summary.winners.includes(person) && summary.points > 0 ? "class='leader'" : '';
-				return `<tr ${leaderClass}>
-                        <th>${person}</th>
-                        ${$.map(sortedSeries, function (series, _) {
-							let seriesResult = results[series.letter];
-							let pick = seriesResult.pick;
-							let team = teams[pick.team]?.short;
-							let teamLogo = teams[pick.team]?.logo;
-							let teamName = teams[pick.team]?.name;
-							return `<td>
-                                <div class="pick">
-                                    <div class="img_container ${seriesResult.teamStatus.toLowerCase()}">
-                                        ${teams[team] ? `<img src="${teamLogo}" alt="${teamName}" />` : '&nbsp;'}
-                                    </div>
-                                    <div class="games ${seriesResult.gamesStatus.toLowerCase()}">${pick.games}</div>
+            ${viewModel.picks
+				.map(
+					(p) => `
+                <tr ${p.isLeader ? "class='leader'" : ''}>
+                    <th>${p.person}</th>
+                    ${p.seriesPicks
+						.map(
+							(pick) => `
+                        <td>
+                            <div class="pick">
+                                <div class="img_container ${pick.teamStatus}">
+                                    ${
+										pick.teamShort
+											? `<img src="${pick.teamLogo}" alt="${pick.teamName}" />`
+											: '&nbsp;'
+									}
                                 </div>
-                                </td>`;
-						})}
-                        <td>${summary.points}</td>
-                        <td>${summary.rank}</td>
-                        <td>${summary.possiblePoints}</td>
-                        <td>${summary.gamesCorrect}</td>
-                        <td>${summary.teamsCorrect}</td>
-                        <td>${summary.bonusEarned}</td>
-                    </tr>`;
-			}).join('')}
+                                <div class="games ${pick.gamesStatus}">${pick.games}</div>
+                            </div>
+                        </td>
+                    `,
+						)
+						.join('')}
+                    <td>${p.points}</td>
+                    <td>${p.rank}</td>
+                    <td>${p.possiblePoints}</td>
+                    <td>${p.gamesCorrect}</td>
+                    <td>${p.teamsCorrect}</td>
+                    <td>${p.bonusEarned}</td>
+                </tr>
+            `,
+				)
+				.join('')}
         </tbody>
     `);
-	let pointsColumns = { targets: [], className: '' };
-	let orderable = { orderable: true, targets: [] };
-	switch (round.number) {
-		case 1:
-			pointsColumns = { targets: [9, 10], className: 'dt-body-center dt-head-center points' };
-			orderable = { orderable: false, targets: [1, 2, 3, 4, 5, 6, 7, 8] };
-			break;
-		case 2:
-			pointsColumns = { targets: [5, 6], className: 'dt-body-center dt-head-center points' };
-			orderable = { orderable: false, targets: [1, 2, 3, 4] };
-			break;
-		case 3:
-			pointsColumns = { targets: [3, 4], className: 'dt-body-center dt-head-center points' };
-			orderable = { orderable: false, targets: [1, 2] };
-			break;
-		case 4:
-			pointsColumns = { targets: [2, 3], className: 'dt-body-center dt-head-center points' };
-			orderable = { orderable: false, targets: [1] };
-			break;
-	}
-	$(table).DataTable({
-		paging: false,
-		searching: false,
-		info: false,
-		order: [[0, 'asc']], // sort rounds by name
-		ordering: true,
-		autoWidth: false,
-		columnDefs: [
-			pointsColumns,
-			orderable,
-			extraStatsColumns,
-			{ targets: '*', className: 'dt-body-center dt-head-center' },
-		],
-	});
-}
 
-function renderProjectionCell(cell) {
-	return `<div>
-        <table style="width: 100%">
-            <tbody>
-                <tr>
-                    <td style="width: 50%">1st: ${cell.first.join()}</td>
-                    <td style="width: 50%" rowspan=3>Loser(s): ${cell.losers.join()}</td>
-                </tr>
-                <tr>
-                    <td>2nd: ${cell.second.join()}</td>
-                </tr>
-                <tr>
-                    <td>3rd: ${cell.third.join()}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>`;
+	$(table).DataTable(viewModel.dataTableConfig);
 }
 
 export function renderProjections(data, table) {
-	console.log('Rendering projections');
-	console.log(data.projections);
-	if (!data.projections || !data.projections[4]) {
-		console.log('No projections data');
-		$(table).html('<p>No projections data</p>');
+	const viewModel = prepareProjectionsViewModel(data);
+
+	if (!viewModel.hasData) {
+		console.log(viewModel.message);
+		$(table).html(`<p align=center>${viewModel.message}</p>`);
 		return;
 	}
-	let sortedGames = Object.keys(data.projections)
-		.map((key) => Number(key))
-		.sort((a, b) => a - b); // sort 4 -> 7
-	let teams = Object.keys(data.projections[4] || {}).sort(); // sort teams alphabetically
-	if (teams.length === 0 || teams[0] === '' || teams[1] === '') {
-		$(table).html('<p align=center>Awaiting Stanley Cup Final matchup.</p>');
-		return;
-	}
+
 	$(table).html(`
         <thead>
             <tr>
                 <th>&nbsp;</th>
-                ${$.map(teams, function (team) {
-					return `<th>
-                            <div class="pick">
-                                ${
-									data.teams[team]
-										? `<img src="${data.teams[team].logo}" alt="${data.teams[team].name}" />`
-										: '&nbsp;'
-								}
-                            </div>
-                        </th>`;
-				})}
+                ${viewModel.teams
+					.map(
+						(team) => `
+                    <th>
+                        <div class="pick">
+                            ${team.logo ? `<img src="${team.logo}" alt="${team.name}" />` : '&nbsp;'}
+                        </div>
+                    </th>
+                `,
+					)
+					.join('')}
             </tr>
         </thead>
         <tbody>
-            ${$.map(sortedGames, function (game) {
-				return `<tr>
-                        <td>${game}</td>
-                        ${$.map(data.projections[game], function (cell, team) {
-							let tdClass = getProjectionsClass(cell);
-							let renderedCell = renderProjectionCell(cell);
-							return `<td class="${tdClass}">${renderedCell}</td>`;
-						})}
-                    </tr>`;
-			}).join('')}
+            ${viewModel.gameScenarios
+				.map(
+					(scenario) => `
+                <tr>
+                    <td>${scenario.games}</td>
+                    ${scenario.cells
+						.map(
+							(cell) => `
+                        <td class="${cell.cssClass}">
+                            <div>
+                                <table style="width: 100%">
+                                    <tbody>
+                                        <tr>
+                                            <td style="width: 50%">1st: ${cell.first.join()}</td>
+                                            <td style="width: 50%" rowspan=3>Loser(s): ${cell.losers.join()}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2nd: ${cell.second.join()}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3rd: ${cell.third.join()}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    `,
+						)
+						.join('')}
+                </tr>
+            `,
+				)
+				.join('')}
         </tbody>
     `);
-	$(table).DataTable({
-		paging: false,
-		searching: false,
-		info: false,
-		order: [[1, 'asc']],
-		ordering: false,
-		autoWidth: false,
-		columnDefs: [
-			{ targets: [1, 2], type: 'html' },
-			{ targets: '*', className: 'dt-body-center dt-head-center' },
-		],
-	});
+
+	$(table).DataTable(viewModel.dataTableConfig);
 }
