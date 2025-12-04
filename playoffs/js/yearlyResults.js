@@ -1,35 +1,51 @@
-import { DATA, TEAMS } from './constants.js';
+import { TEAMS } from './constants.js';
+import { fetchJson } from './httpUtils.js';
 
-export function yearlyResults(resultsTable) {
-    let thead = document.createElement('thead');
-    resultsTable.append(thead);
+export async function yearlyResults(resultsTable) {
+	// Load yearly index
+	const yearlyIndex = await fetchJson('./data/summaries/yearly_index.json');
 
-    let headerRow = thead.insertRow();
-    headerRow.insertCell().outerHTML = "<th>Year</th>";
-    headerRow.insertCell().outerHTML = "<th>Pool Winner(s)</th>";
-    headerRow.insertCell().outerHTML = "<th>Pool Loser(s)</th>";
-    headerRow.insertCell().outerHTML = "<th>Cup Winner</th>";
+	// Convert to array and sort by year descending
+	const years = Object.entries(yearlyIndex)
+		.map(([year, data]) => ({ year: parseInt(year), ...data }))
+		.sort((a, b) => b.year - a.year);
 
-    let tbody = document.createElement('tbody');
-    resultsTable.append(tbody);
+	let thead = document.createElement('thead');
+	resultsTable.append(thead);
 
-    DATA.forEach( year => {
-        let poolWinners = year.poolWinners instanceof Array ? year.poolWinners : [year.poolWinners];
-        let poolLosers = year.poolLosers instanceof Array ? year.poolLosers : [year.poolLosers];
+	let headerRow = thead.insertRow();
+	headerRow.insertCell().outerHTML = '<th>Year</th>';
+	headerRow.insertCell().outerHTML = '<th>Pool Winner(s)</th>';
+	headerRow.insertCell().outerHTML = '<th>Pool Loser(s)</th>';
+	headerRow.insertCell().outerHTML = '<th>Cup Winner</th>';
 
-        var row = tbody.insertRow(0); // insert in reverse order
-        var innerHtml = year.link ? "<a href=\"year.html?year=" + year.year + "\">" + year.year +" </a>" : year.year;
-        row.insertCell().outerHTML = "<td>" + innerHtml + "</td>";
-        row.insertCell().outerHTML = "<td>" + poolWinners + "</td>";
-        row.insertCell().outerHTML = "<td>" + poolLosers + "</td>";
-        row.insertCell().outerHTML = "<td>" + TEAMS[year.cupWinner] + "</td>";
-    });
+	let tbody = document.createElement('tbody');
+	resultsTable.append(tbody);
 
-    resultsTable.DataTable({
-        info: false,
-        order: [[1, 'desc']],
-        ordering: false,
-        paging: false,
-        searching: false,
-    });
+	years.forEach((yearData) => {
+		const poolWinner = yearData.poolWinner || '-';
+		const poolLoser = yearData.poolLoser || '-';
+		const cupWinner = yearData.cupWinner || '';
+
+		const poolWinners = Array.isArray(poolWinner) ? poolWinner : [poolWinner];
+		const poolLosers = Array.isArray(poolLoser) ? poolLoser : [poolLoser];
+
+		var row = tbody.insertRow();
+		const hasLink = yearData.year >= 1997 && yearData.year !== 2005 && yearData.year !== 2013;
+		var innerHtml = hasLink
+			? '<a href="year.html?year=' + yearData.year + '">' + yearData.year + ' </a>'
+			: yearData.year;
+		row.insertCell().outerHTML = '<td>' + innerHtml + '</td>';
+		row.insertCell().outerHTML = '<td>' + poolWinners.join(', ') + '</td>';
+		row.insertCell().outerHTML = '<td>' + poolLosers.join(', ') + '</td>';
+		row.insertCell().outerHTML = '<td>' + (TEAMS[cupWinner] || cupWinner) + '</td>';
+	});
+
+	resultsTable.DataTable({
+		info: false,
+		order: [[1, 'desc']],
+		ordering: false,
+		paging: false,
+		searching: false,
+	});
 }

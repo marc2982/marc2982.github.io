@@ -15,12 +15,12 @@
         import { yearlyResults } from './js/yearlyResults.js';
         import { winsLosses } from './js/winsLosses.js';
 
-        window.onload = function() {
+        window.onload = async function() {
             let yearlyResultsTable = $('#yearlyResults');
             let winsLossesTable = $('#winsLosses');
 
-            let winners, losers = yearlyResults(yearlyResultsTable);
-            winsLosses(winsLossesTable, winners, losers);
+            await yearlyResults(yearlyResultsTable);
+            await winsLosses(winsLossesTable);
         }
     </script>
 </head>

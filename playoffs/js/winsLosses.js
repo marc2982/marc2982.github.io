@@ -1,47 +1,59 @@
-import { DATA, PEOPLE } from './constants.js';
+import { PEOPLE } from './constants.js';
+import { fetchJson } from './httpUtils.js';
 
-export function winsLosses(winsLossesTable) {
-    let thead = document.createElement('thead');
-    winsLossesTable.append(thead);
+export async function winsLosses(winsLossesTable) {
+	// Load yearly index
+	const yearlyIndex = await fetchJson('./data/summaries/yearly_index.json');
 
-    let headerRow = thead.insertRow();
-    headerRow.insertCell().outerHTML = "<th>Person</th>";
-    headerRow.insertCell().outerHTML = "<th># Wins</th>";
-    headerRow.insertCell().outerHTML = "<th># Losers</th>";
+	// Convert to array
+	const years = Object.values(yearlyIndex);
 
-    let tbody = document.createElement('tbody');
-    winsLossesTable.append(tbody);
+	let thead = document.createElement('thead');
+	winsLossesTable.append(thead);
 
-    let winners = {};
-    let losers = {};
+	let headerRow = thead.insertRow();
+	headerRow.insertCell().outerHTML = '<th>Person</th>';
+	headerRow.insertCell().outerHTML = '<th># Wins</th>';
+	headerRow.insertCell().outerHTML = '<th># Losers</th>';
 
-    DATA.forEach( year => {
-        let poolWinners = year.poolWinners instanceof Array ? year.poolWinners : [year.poolWinners];
-        let poolLosers = year.poolLosers instanceof Array ? year.poolLosers : [year.poolLosers];
+	let tbody = document.createElement('tbody');
+	winsLossesTable.append(tbody);
 
-        poolWinners.forEach( winner => {
-            let name = winner.replace("*", "");
-            winners[name] = (winners[name] ?? 0) + 1;
-        });
+	let winners = {};
+	let losers = {};
 
-        poolLosers.forEach( loser => {
-            let name = loser.replace("*", "");
-            losers[name] = (losers[name] ?? 0) + 1;
-        });
-    });
+	years.forEach((yearData) => {
+		const poolWinner = yearData.poolWinner;
+		const poolLoser = yearData.poolLoser;
 
-    PEOPLE.forEach( person => {
-        var row = tbody.insertRow(); // insert in reverse order
-        row.insertCell().outerHTML = "<td>" + person + "</td>";
-        row.insertCell().outerHTML = "<td>" + (winners[person] ?? 0) + "</td>";
-        row.insertCell().outerHTML = "<td>" + (losers[person] ?? 0) + "</td>";
-    });
+		const poolWinners = Array.isArray(poolWinner) ? poolWinner : [poolWinner];
+		const poolLosers = Array.isArray(poolLoser) ? poolLoser : [poolLoser];
 
-    winsLossesTable.DataTable({
-        info: false,
-        order: [[1, 'desc']],
-        paging: false,
-        searching: false,
-        // stripeClasses: ['stripe-1', 'stripe-2']
-    });
+		poolWinners.forEach((winner) => {
+			if (!winner || winner === '-') return;
+			let name = winner.replace('*', '');
+			winners[name] = (winners[name] ?? 0) + 1;
+		});
+
+		poolLosers.forEach((loser) => {
+			if (!loser || loser === '-') return;
+			let name = loser.replace('*', '');
+			losers[name] = (losers[name] ?? 0) + 1;
+		});
+	});
+
+	PEOPLE.forEach((person) => {
+		var row = tbody.insertRow(); // insert in reverse order
+		row.insertCell().outerHTML = '<td>' + person + '</td>';
+		row.insertCell().outerHTML = '<td>' + (winners[person] ?? 0) + '</td>';
+		row.insertCell().outerHTML = '<td>' + (losers[person] ?? 0) + '</td>';
+	});
+
+	winsLossesTable.DataTable({
+		info: false,
+		order: [[1, 'desc']],
+		paging: false,
+		searching: false,
+		// stripeClasses: ['stripe-1', 'stripe-2']
+	});
 }

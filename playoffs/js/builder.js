@@ -1,9 +1,9 @@
 import { loadAndProcessCsvs } from './main.js';
 import { fetchJson } from './httpUtils.js';
+import JSZip from 'https://cdn.skypack.dev/jszip';
 
 export async function loadAvailableYears() {
 	try {
-		// Load years from manifest file
 		const years = await fetchJson('./data/years.json');
 		return years; // Already sorted in descending order
 	} catch (error) {
@@ -38,7 +38,7 @@ export async function buildYearlyIndex() {
 	// Load each year's summary from summaries directory
 	for (const year of years) {
 		try {
-			const summary = await fetchJson(`./data/summaries/${year}.json`);
+			const summary = await fetchJson(`./data/summaries/${year}.json`, true); // bust cache
 
 			// Extract minimal data for index
 			index[year] = {
@@ -87,4 +87,108 @@ function downloadFile(filename, content) {
 	a.click();
 	document.body.removeChild(a);
 	URL.revokeObjectURL(url);
+}
+
+// UI Functions
+export async function initializeBuilder() {
+	const years = await loadAvailableYears();
+	const $select = $('#yearSelect');
+	if (years.length > 0) {
+		$select.html(years.map((year) => `<option value="${year}">${year}</option>`).join(''));
+	} else {
+		$select.html('<option value="">No years found</option>');
+	}
+}
+
+export async function handleBuildYear() {
+	const year = $('#yearSelect').val();
+	if (!year) {
+		showStatus('Please select a year', 'error');
+		return;
+	}
+
+	showStatus(`Building ${year}...`, 'info');
+	setButtonsEnabled(false);
+
+	try {
+		await buildYearSummary(year);
+		showStatus(`✅ ${year}.json built successfully! Check your downloads folder.`, 'success');
+	} catch (error) {
+		showStatus(`❌ Error building ${year}: ${error.message}`, 'error');
+		console.error(error);
+	} finally {
+		setButtonsEnabled(true);
+	}
+}
+
+export async function handleBuildAllYears() {
+	showStatus('Building all years...', 'info');
+	setButtonsEnabled(false);
+
+	const years = await loadAvailableYears();
+	const jsonFiles = {};
+	let successCount = 0;
+	let failCount = 0;
+
+	for (const year of years) {
+		try {
+			showStatus(`Building ${year}... (${successCount + failCount + 1}/${years.length})`, 'info');
+
+			const dataPath = `./data/archive/${year}`;
+			const summary = await loadAndProcessCsvs(year, dataPath);
+			const json = JSON.stringify(summary, null, 2);
+
+			jsonFiles[`${year}.json`] = json;
+			successCount++;
+		} catch (error) {
+			console.error(`Failed to build ${year}:`, error);
+			failCount++;
+		}
+	}
+
+	// Create ZIP file
+	showStatus('Creating ZIP file...', 'info');
+	const zip = new JSZip();
+
+	for (const [filename, content] of Object.entries(jsonFiles)) {
+		zip.file(filename, content);
+	}
+
+	const blob = await zip.generateAsync({ type: 'blob' });
+	const url = URL.createObjectURL(blob);
+	const $a = $('<a>')
+		.attr({
+			href: url,
+			download: 'yearly-summaries.zip',
+		})
+		.appendTo('body');
+	$a[0].click();
+	$a.remove();
+	URL.revokeObjectURL(url);
+
+	showStatus(`✅ Built ${successCount} years. ${failCount} failed. Downloaded yearly-summaries.zip`, 'success');
+	setButtonsEnabled(true);
+}
+
+export async function handleBuildIndex() {
+	showStatus('Generating yearly index...', 'info');
+	setButtonsEnabled(false);
+
+	try {
+		await buildYearlyIndex();
+		showStatus('✅ yearly_index.json generated successfully! Check your downloads folder.', 'success');
+	} catch (error) {
+		showStatus(`❌ Error generating index: ${error.message}`, 'error');
+		console.error(error);
+	} finally {
+		setButtonsEnabled(true);
+	}
+}
+
+function showStatus(message, type) {
+	$('#status').text(message).attr('class', type).show();
+}
+
+function setButtonsEnabled(enabled) {
+	$('#buildYearBtn, #buildAllBtn, #buildIndexBtn').prop('disabled', !enabled);
 }
