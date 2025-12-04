@@ -4,6 +4,7 @@ import { NhlApiHandler } from './nhlApiHandler.js';
 import { PicksImporter } from './picksImporter.js';
 import { Summarizer } from './summarizer.js';
 import { ProjectionCalculator } from './projectionCalculator.js';
+import { fetchText } from './httpUtils.js';
 
 export async function loadData(year) {
 	try {
@@ -66,7 +67,7 @@ async function loadAndProcessCsvs(year) {
 
 export async function loadCsv(filename) {
 	try {
-		const data = await $.get(filename);
+		const data = await fetchText(filename);
 		return parse(data);
 	} catch (err) {
 		console.error(`Failed to load CSV file ${filename}:`, err);

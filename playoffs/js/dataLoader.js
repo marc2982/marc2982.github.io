@@ -1,3 +1,5 @@
+import { fetchJson } from './httpUtils.js';
+
 /**
  * DataLoader handles fetching playoff bracket data from either cached JSON files or the live NHL API.
  * It automatically falls back to the API if the cached file doesn't exist.
@@ -6,15 +8,14 @@ export class DataLoader {
 	constructor(year) {
 		this.year = year;
 		this.apiUrl = `https://api-web.nhle.com/v1/playoff-bracket/${year}`;
-		// append timestamp to prevent caching
-		this.cachedPath = `./data/${year}/api.json` + '?timestamp=' + new Date().getTime();
+		this.cachedPath = `./data/${year}/api.json`;
 	}
 
 	async load() {
 		try {
 			// try to load from cached JSON file first
 			console.log(`Attempting to load cached data from: ${this.cachedPath}`);
-			const data = await $.getJSON(this.cachedPath);
+			const data = await fetchJson(this.cachedPath, true); // bust cache
 			console.log(`✓ Loaded cached data for ${this.year}`);
 			return data;
 		} catch (err) {
@@ -23,7 +24,7 @@ export class DataLoader {
 			try {
 				// Use a CORS proxy to bypass browser security restrictions
 				const corsProxy = 'https://corsproxy.io/?';
-				const data = await $.getJSON(corsProxy + encodeURIComponent(this.apiUrl));
+				const data = await fetchJson(corsProxy + encodeURIComponent(this.apiUrl));
 				console.log(`✓ Successfully fetched live data for ${this.year}`);
 				return data;
 			} catch (apiErr) {
