@@ -40,6 +40,14 @@ export async function buildYearlyIndex() {
 		try {
 			const summary = await fetchJson(`./data/summaries/${year}.json`, true); // bust cache
 
+			// Extract points
+			const points = {};
+			if (summary.personSummaries) {
+				for (const [person, data] of Object.entries(summary.personSummaries)) {
+					points[person] = data.points;
+				}
+			}
+
 			// Extract minimal data for index
 			index[year] = {
 				year: parseInt(year),
@@ -47,6 +55,7 @@ export async function buildYearlyIndex() {
 				poolLoser: summary.losers?.[0] || null,
 				cupWinner: getCupWinner(summary),
 				tiebreaker: summary.tiebreakInfo?.winner ? summary.tiebreakInfo : null,
+				points: points,
 			};
 		} catch (error) {
 			console.warn(`Skipping ${year} (not found in summaries):`, error.message);

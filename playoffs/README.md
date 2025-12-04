@@ -111,4 +111,4 @@ This provides the best of both worlds: automatic updates during playoffs and bla
 
 ## Notes
 
-note to self: manually created 1996, 2005, and 2013 summaries, and added \* to Marc and Nathan
+manually created 1996, 2005, and 2013 summaries, and added \* to Marc and Nathan, 2018 shows WSH as winner

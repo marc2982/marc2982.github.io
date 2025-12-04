@@ -68,6 +68,8 @@ export class PicksImporter {
 			case 'mom':
 			case 'chris':
 				return 'Chrissy';
+			case 'steph':
+				return 'Stephanie';
 			case 'm.c.b.':
 				return 'Marc';
 			default:

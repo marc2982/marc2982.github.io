@@ -332,7 +332,7 @@
             "earnedBonusPoints": false
           }
         },
-        "Steph": {
+        "Stephanie": {
           "E": {
             "pick": {
               "team": "COL",
@@ -547,8 +547,8 @@
             "gamesCorrect": 4,
             "bonusEarned": 0
           },
-          "Steph": {
-            "person": "Steph",
+          "Stephanie": {
+            "person": "Stephanie",
             "points": 24,
             "possiblePoints": 24,
             "rank": 1,
@@ -567,7 +567,7 @@
           }
         },
         "winners": [
-          "Steph"
+          "Stephanie"
         ],
         "losers": [
           "Derrick"
@@ -745,7 +745,7 @@
             "earnedBonusPoints": false
           }
         },
-        "Steph": {
+        "Stephanie": {
           "K": {
             "pick": {
               "team": "DET",
@@ -872,8 +872,8 @@
             "gamesCorrect": 1,
             "bonusEarned": 0
           },
-          "Steph": {
-            "person": "Steph",
+          "Stephanie": {
+            "person": "Stephanie",
             "points": 8,
             "possiblePoints": 8,
             "rank": 4,
@@ -990,7 +990,7 @@
             "earnedBonusPoints": false
           }
         },
-        "Steph": {
+        "Stephanie": {
           "N": {
             "pick": {
               "team": "CHI",
@@ -1073,8 +1073,8 @@
             "gamesCorrect": 1,
             "bonusEarned": 0
           },
-          "Steph": {
-            "person": "Steph",
+          "Stephanie": {
+            "person": "Stephanie",
             "points": 3,
             "possiblePoints": 3,
             "rank": 2,
@@ -1152,7 +1152,7 @@
             "earnedBonusPoints": false
           }
         },
-        "Steph": {
+        "Stephanie": {
           "O": {
             "pick": {
               "team": "PHI",
@@ -1213,8 +1213,8 @@
             "gamesCorrect": 1,
             "bonusEarned": 0
           },
-          "Steph": {
-            "person": "Steph",
+          "Stephanie": {
+            "person": "Stephanie",
             "points": 5,
             "possiblePoints": 5,
             "rank": 4,
@@ -1271,8 +1271,8 @@
       "gamesCorrect": 7,
       "bonusEarned": 0
     },
-    "Steph": {
-      "person": "Steph",
+    "Stephanie": {
+      "person": "Stephanie",
       "points": 40,
       "possiblePoints": 40,
       "rank": 3,
@@ -1309,7 +1309,7 @@
           "Jaclyn (38 pts)"
         ],
         "second": [
-          "Steph (35 pts)",
+          "Stephanie (35 pts)",
           "Nickall (35 pts)"
         ],
         "third": [],
@@ -1321,7 +1321,7 @@
       },
       "PHI": {
         "first": [
-          "Steph (39 pts)"
+          "Stephanie (39 pts)"
         ],
         "second": [
           "Jaclyn (34 pts)"
@@ -1345,7 +1345,7 @@
           "Jaclyn (38 pts)"
         ],
         "third": [
-          "Steph (35 pts)",
+          "Stephanie (35 pts)",
           "Nickall (35 pts)"
         ],
         "losers": [
@@ -1356,7 +1356,7 @@
       },
       "PHI": {
         "first": [
-          "Steph (39 pts)"
+          "Stephanie (39 pts)"
         ],
         "second": [
           "Derrick (34 pts)",
@@ -1379,7 +1379,7 @@
           "Nickall (46 pts)"
         ],
         "third": [
-          "Steph (40 pts)"
+          "Stephanie (40 pts)"
         ],
         "losers": [
           "Derrick (33 pts)"
@@ -1389,7 +1389,7 @@
       },
       "PHI": {
         "first": [
-          "Steph (50 pts)"
+          "Stephanie (50 pts)"
         ],
         "second": [
           "Jaclyn (39 pts)"
@@ -1410,7 +1410,7 @@
           "Jaclyn (38 pts)"
         ],
         "second": [
-          "Steph (35 pts)",
+          "Stephanie (35 pts)",
           "Nickall (35 pts)"
         ],
         "third": [],
@@ -1422,7 +1422,7 @@
       },
       "PHI": {
         "first": [
-          "Steph (39 pts)"
+          "Stephanie (39 pts)"
         ],
         "second": [
           "Jaclyn (34 pts)"

@@ -3,8 +3,9 @@
     "year": 1996,
     "poolWinner": "Derrick",
     "poolLoser": null,
-    "cupWinner": "COL",
-    "tiebreaker": null
+    "cupWinner": null,
+    "tiebreaker": null,
+    "points": {}
   },
   "1997": {
     "year": 1997,
@@ -16,6 +17,13 @@
         "Jaclyn"
       ],
       "winner": "Jaclyn"
+    },
+    "points": {
+      "Marc": 16,
+      "Jaclyn": 61,
+      "Derrick": 52,
+      "Chrissy": 41,
+      "Stephanie": 25
     }
   },
   "1998": {
@@ -28,6 +36,13 @@
         "Jaclyn"
       ],
       "winner": "Jaclyn"
+    },
+    "points": {
+      "Marc": 34,
+      "Derrick": 31,
+      "Chrissy": 23,
+      "Jaclyn": 42,
+      "Stephanie": 27
     }
   },
   "1999": {
@@ -40,6 +55,13 @@
         "Derrick"
       ],
       "winner": "Derrick"
+    },
+    "points": {
+      "Marc": 33,
+      "Derrick": 39,
+      "Chrissy": 26,
+      "Jaclyn": 35,
+      "Stephanie": 17
     }
   },
   "2000": {
@@ -52,6 +74,13 @@
         "Derrick"
       ],
       "winner": "Derrick"
+    },
+    "points": {
+      "Marc": 39,
+      "Derrick": 53,
+      "Chrissy": 17,
+      "Jaclyn": 40,
+      "Stephanie": 45
     }
   },
   "2001": {
@@ -64,6 +93,13 @@
         "Chrissy"
       ],
       "winner": "Chrissy"
+    },
+    "points": {
+      "Marc": 23,
+      "Derrick": 18,
+      "Chrissy": 47,
+      "Jaclyn": 33,
+      "Stephanie": 30
     }
   },
   "2002": {
@@ -76,6 +112,13 @@
         "Chrissy"
       ],
       "winner": "Chrissy"
+    },
+    "points": {
+      "Marc": 44,
+      "Derrick": 34,
+      "Chrissy": 51,
+      "Jaclyn": 36,
+      "Stephanie": 29
     }
   },
   "2003": {
@@ -88,6 +131,13 @@
         "Marc"
       ],
       "winner": "Marc"
+    },
+    "points": {
+      "Marc": 34,
+      "Derrick": 20,
+      "Chrissy": 28,
+      "Jaclyn": 21,
+      "Stephanie": 24
     }
   },
   "2004": {
@@ -100,6 +150,13 @@
         "Derrick"
       ],
       "winner": "Derrick"
+    },
+    "points": {
+      "Marc": 32,
+      "Derrick": 50,
+      "Chrissy": 47,
+      "Jaclyn": 35,
+      "Stephanie": 27
     }
   },
   "2005": {
@@ -107,7 +164,8 @@
     "poolWinner": null,
     "poolLoser": null,
     "cupWinner": null,
-    "tiebreaker": null
+    "tiebreaker": null,
+    "points": {}
   },
   "2006": {
     "year": 2006,
@@ -119,11 +177,18 @@
         "Derrick"
       ],
       "winner": "Derrick"
+    },
+    "points": {
+      "Marc": 42,
+      "Derrick": 45,
+      "Chrissy": 24,
+      "Jaclyn": 23,
+      "Stephanie": 21
     }
   },
   "2007": {
     "year": 2007,
-    "poolWinner": "Marc*",
+    "poolWinner": "Marc",
     "poolLoser": "Chrissy",
     "cupWinner": "ANA",
     "tiebreaker": {
@@ -131,6 +196,13 @@
         "Marc"
       ],
       "winner": "Marc"
+    },
+    "points": {
+      "Marc": 42,
+      "Derrick": 39,
+      "Chrissy": 23,
+      "Jaclyn": 38,
+      "Stephanie": 28
     }
   },
   "2008": {
@@ -143,6 +215,14 @@
         "Chrissy"
       ],
       "winner": "Chrissy"
+    },
+    "points": {
+      "Marc": 30,
+      "Derrick": 20,
+      "Chrissy": 47,
+      "Jaclyn": 44,
+      "Stephanie": 20,
+      "Nickall": 35
     }
   },
   "2009": {
@@ -155,6 +235,14 @@
         "Marc"
       ],
       "winner": "Marc"
+    },
+    "points": {
+      "Marc": 51,
+      "Derrick": 32,
+      "Chrissy": 31,
+      "Jaclyn": 31,
+      "Stephanie": 32,
+      "Nickall": 23
     }
   },
   "2010": {
@@ -167,6 +255,13 @@
         "Jaclyn"
       ],
       "winner": "Jaclyn"
+    },
+    "points": {
+      "Marc": 37,
+      "Derrick": 33,
+      "Jaclyn": 49,
+      "Stephanie": 40,
+      "Nickall": 46
     }
   },
   "2011": {
@@ -179,26 +274,43 @@
         "Marc"
       ],
       "winner": "Marc"
+    },
+    "points": {
+      "Marc": 32,
+      "Derrick": 28,
+      "Jaclyn": 8,
+      "Stephanie": 22,
+      "Nickall": 17
     }
   },
   "2012": {
     "year": 2012,
-    "poolWinner": "Nathan**",
-    "poolLoser": "Steph",
+    "poolWinner": "Nathan",
+    "poolLoser": "Stephanie",
     "cupWinner": "LAK",
     "tiebreaker": {
       "leaders": [
         "Nathan"
       ],
       "winner": "Nathan"
+    },
+    "points": {
+      "Derrick": 37,
+      "Jaclyn": 27,
+      "Marc": 41,
+      "Nathan": 50,
+      "Nickall": 27,
+      "Ryan": 40,
+      "Stephanie": 24
     }
   },
   "2013": {
     "year": 2013,
     "poolWinner": "Derrick",
     "poolLoser": "Ryan",
-    "cupWinner": "CHI",
-    "tiebreaker": null
+    "cupWinner": null,
+    "tiebreaker": null,
+    "points": {}
   },
   "2014": {
     "year": 2014,
@@ -210,6 +322,16 @@
         "Nathan"
       ],
       "winner": "Nathan"
+    },
+    "points": {
+      "Derrick": 28,
+      "Jamie": 36,
+      "Jaclyn": 41,
+      "Marc": 39,
+      "Nathan": 55,
+      "Nickall": 25,
+      "Ryan": 54,
+      "Stephanie": 49
     }
   },
   "2015": {
@@ -222,6 +344,19 @@
         "Nathan"
       ],
       "winner": "Nathan"
+    },
+    "points": {
+      "Benedict": 27,
+      "Derrick": 39,
+      "Glenda": 20,
+      "Jaclyn": 31,
+      "Jake": 32,
+      "Jamie": 31,
+      "Marc": 38,
+      "Nathan": 50,
+      "Nickall": 28,
+      "Ryan": 31,
+      "Stephanie": 25
     }
   },
   "2016": {
@@ -234,6 +369,20 @@
         "Stephanie"
       ],
       "winner": "Stephanie"
+    },
+    "points": {
+      "Benedict": 35,
+      "Derrick": 21,
+      "Glenda": 31,
+      "Jaclyn": 43,
+      "Jake": 28,
+      "Jamie": 27,
+      "Marc": 36,
+      "Nathan": 40,
+      "Nickall": 51,
+      "Robin": 45,
+      "Ryan": 41,
+      "Stephanie": 63
     }
   },
   "2017": {
@@ -247,18 +396,48 @@
         "Marc"
       ],
       "winner": "Glenda"
+    },
+    "points": {
+      "Benedict": 33,
+      "Derrick": 50,
+      "Glenda": 55,
+      "Jaclyn": 50,
+      "Jake": 21,
+      "Jamie": 28,
+      "Kiersten": 39,
+      "Marc": 55,
+      "Nathan": 47,
+      "Nickall": 21,
+      "Robin": 32,
+      "Ryan": 37,
+      "Stephanie": 37
     }
   },
   "2018": {
     "year": 2018,
     "poolWinner": "Ryan",
     "poolLoser": "Robin",
-    "cupWinner": "WAS",
+    "cupWinner": "WSH",
     "tiebreaker": {
       "leaders": [
         "Ryan"
       ],
       "winner": "Ryan"
+    },
+    "points": {
+      "Benedict": 28,
+      "Derrick": 42,
+      "Glenda": 48,
+      "Jaclyn": 23,
+      "Jake": 33,
+      "Jamie": 21,
+      "Kiersten": 18,
+      "Marc": 41,
+      "Nathan": 31,
+      "Nickall": 33,
+      "Robin": 12,
+      "Ryan": 59,
+      "Stephanie": 28
     }
   },
   "2019": {
@@ -271,6 +450,22 @@
         "Nathan"
       ],
       "winner": "Nathan"
+    },
+    "points": {
+      "Stephanie": 19,
+      "Jaclyn": 24,
+      "Jake": 18,
+      "Robin": 26,
+      "Ryan": 18,
+      "Nathan": 66,
+      "Derrick": 28,
+      "Glenda": 26,
+      "Kiersten": 25,
+      "Benedict": 35,
+      "Marc": 16,
+      "Theodore": 19,
+      "Jamie": 35,
+      "Nickall": 24
     }
   },
   "2020": {
@@ -283,6 +478,22 @@
         "Nathan"
       ],
       "winner": "Nathan"
+    },
+    "points": {
+      "Nathan": 54,
+      "Nickall": 30,
+      "Stephanie": 19,
+      "Jaclyn": 34,
+      "Theodore": 14,
+      "Derrick": 37,
+      "Jake": 31,
+      "Jamie": 30,
+      "Benedict": 41,
+      "Robin": 12,
+      "Ryan": 20,
+      "Glenda": 40,
+      "Marc": 30,
+      "Kiersten": 27
     }
   },
   "2021": {
@@ -295,6 +506,22 @@
         "Stephanie"
       ],
       "winner": "Stephanie"
+    },
+    "points": {
+      "Stephanie": 58,
+      "Marc": 44,
+      "Theodore": 28,
+      "Jamie": 32,
+      "Benedict": 18,
+      "Derrick": 33,
+      "Jake": 29,
+      "Kiersten": 16,
+      "Robin": 16,
+      "Jaclyn": 33,
+      "Nathan": 24,
+      "Ryan": 36,
+      "Glenda": 33,
+      "Nickall": 39
     }
   },
   "2022": {
@@ -307,6 +534,22 @@
         "Stephanie"
       ],
       "winner": "Stephanie"
+    },
+    "points": {
+      "Stephanie": 54,
+      "Nathan": 24,
+      "Marc": 40,
+      "Derrick": 32,
+      "Glenda": 22,
+      "Jaclyn": 48,
+      "Theodore": 26,
+      "Robin": 33,
+      "Jake": 30,
+      "Ryan": 30,
+      "Jamie": 38,
+      "Benedict": 42,
+      "Nickall": 39,
+      "Kiersten": 42
     }
   },
   "2023": {
@@ -319,6 +562,23 @@
         "Nathan"
       ],
       "winner": "Nathan"
+    },
+    "points": {
+      "Marc": 24,
+      "Nathan": 57,
+      "Stephanie": 38,
+      "Sophie": 25,
+      "Theodore": 41,
+      "Jamie": 31,
+      "Derrick": 25,
+      "Benedict": 49,
+      "Glenda": 48,
+      "Jaclyn": 43,
+      "Kiersten": 26,
+      "Jake": 18,
+      "Ryan": 41,
+      "Robin": 33,
+      "Nickall": 37
     }
   },
   "2024": {
@@ -331,6 +591,23 @@
         "Glenda"
       ],
       "winner": "Glenda"
+    },
+    "points": {
+      "Marc": 43,
+      "Jamie": 40,
+      "Nathan": 58,
+      "Jaclyn": 34,
+      "Glenda": 63,
+      "Derrick": 48,
+      "Benedict": 40,
+      "Kiersten": 45,
+      "Ryan": 37,
+      "Jake": 32,
+      "Robin": 36,
+      "Theodore": 37,
+      "Sophie": 36,
+      "Stephanie": 41,
+      "Nickall": 36
     }
   },
   "2025": {
@@ -343,6 +620,23 @@
         "Glenda"
       ],
       "winner": "Glenda"
+    },
+    "points": {
+      "Jamie": 26,
+      "Marc": 41,
+      "Benedict": 51,
+      "Theodore": 40,
+      "Sophie": 44,
+      "Stephanie": 38,
+      "Nathan": 40,
+      "Kiersten": 39,
+      "Glenda": 66,
+      "Jaclyn": 41,
+      "Jake": 52,
+      "Robin": 25,
+      "Derrick": 47,
+      "Ryan": 27,
+      "Nickall": 16
     }
   }
 }

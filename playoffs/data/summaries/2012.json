@@ -602,7 +602,7 @@
             "earnedBonusPoints": false
           }
         },
-        "Steph": {
+        "Stephanie": {
           "E": {
             "pick": {
               "team": "VAN",
@@ -754,8 +754,8 @@
             "gamesCorrect": 5,
             "bonusEarned": 0
           },
-          "Steph": {
-            "person": "Steph",
+          "Stephanie": {
+            "person": "Stephanie",
             "points": 6,
             "possiblePoints": 6,
             "rank": 4,
@@ -1082,7 +1082,7 @@
             "earnedBonusPoints": false
           }
         },
-        "Steph": {
+        "Stephanie": {
           "K": {
             "pick": {
               "team": "LAK",
@@ -1190,8 +1190,8 @@
             "gamesCorrect": 0,
             "bonusEarned": 0
           },
-          "Steph": {
-            "person": "Steph",
+          "Stephanie": {
+            "person": "Stephanie",
             "points": 7,
             "possiblePoints": 7,
             "rank": 2,
@@ -1372,7 +1372,7 @@
             "earnedBonusPoints": false
           }
         },
-        "Steph": {
+        "Stephanie": {
           "N": {
             "pick": {
               "team": "LAK",
@@ -1458,8 +1458,8 @@
             "gamesCorrect": 1,
             "bonusEarned": 0
           },
-          "Steph": {
-            "person": "Steph",
+          "Stephanie": {
+            "person": "Stephanie",
             "points": 7,
             "possiblePoints": 7,
             "rank": 4,
@@ -1476,7 +1476,7 @@
           "Jaclyn",
           "Marc",
           "Nickall",
-          "Steph"
+          "Stephanie"
         ]
       }
     },
@@ -1570,7 +1570,7 @@
             "earnedBonusPoints": false
           }
         },
-        "Steph": {
+        "Stephanie": {
           "O": {
             "pick": {
               "team": "LAK",
@@ -1645,8 +1645,8 @@
             "gamesCorrect": 0,
             "bonusEarned": 0
           },
-          "Steph": {
-            "person": "Steph",
+          "Stephanie": {
+            "person": "Stephanie",
             "points": 4,
             "possiblePoints": 4,
             "rank": 4,
@@ -1663,7 +1663,7 @@
           "Marc",
           "Nickall",
           "Ryan",
-          "Steph"
+          "Stephanie"
         ]
       }
     }
@@ -1723,8 +1723,8 @@
       "gamesCorrect": 6,
       "bonusEarned": 0
     },
-    "Steph": {
-      "person": "Steph",
+    "Stephanie": {
+      "person": "Stephanie",
       "points": 24,
       "possiblePoints": 24,
       "rank": 7,
@@ -1737,7 +1737,7 @@
     "Nathan"
   ],
   "losers": [
-    "Steph"
+    "Stephanie"
   ],
   "tiebreakInfo": {
     "leaders": [
@@ -1841,7 +1841,7 @@
           "Ryan (40 pts)"
         ],
         "losers": [
-          "Steph (24 pts)"
+          "Stephanie (24 pts)"
         ],
         "isPossible": true,
         "isOver": true

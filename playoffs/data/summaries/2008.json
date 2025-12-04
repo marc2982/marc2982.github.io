@@ -422,7 +422,7 @@
             "earnedBonusPoints": false
           }
         },
-        "Steph": {
+        "Stephanie": {
           "E": {
             "pick": {
               "team": "DET",
@@ -646,8 +646,8 @@
             "gamesCorrect": 3,
             "bonusEarned": 0
           },
-          "Steph": {
-            "person": "Steph",
+          "Stephanie": {
+            "person": "Stephanie",
             "points": 7,
             "possiblePoints": 7,
             "rank": 6,
@@ -669,7 +669,7 @@
           "Chrissy"
         ],
         "losers": [
-          "Steph"
+          "Stephanie"
         ]
       }
     },
@@ -890,7 +890,7 @@
             "earnedBonusPoints": false
           }
         },
-        "Steph": {
+        "Stephanie": {
           "K": {
             "pick": {
               "team": "DET",
@@ -1026,8 +1026,8 @@
             "gamesCorrect": 1,
             "bonusEarned": 0
           },
-          "Steph": {
-            "person": "Steph",
+          "Stephanie": {
+            "person": "Stephanie",
             "points": 7,
             "possiblePoints": 7,
             "rank": 4,
@@ -1169,7 +1169,7 @@
             "earnedBonusPoints": false
           }
         },
-        "Steph": {
+        "Stephanie": {
           "N": {
             "pick": {
               "team": "DET",
@@ -1261,8 +1261,8 @@
             "gamesCorrect": 1,
             "bonusEarned": 0
           },
-          "Steph": {
-            "person": "Steph",
+          "Stephanie": {
+            "person": "Stephanie",
             "points": 6,
             "possiblePoints": 6,
             "rank": 2,
@@ -1352,7 +1352,7 @@
             "earnedBonusPoints": false
           }
         },
-        "Steph": {
+        "Stephanie": {
           "O": {
             "pick": {
               "team": "PIT",
@@ -1422,8 +1422,8 @@
             "gamesCorrect": 1,
             "bonusEarned": 0
           },
-          "Steph": {
-            "person": "Steph",
+          "Stephanie": {
+            "person": "Stephanie",
             "points": 0,
             "possiblePoints": 0,
             "rank": 5,
@@ -1448,7 +1448,7 @@
         ],
         "losers": [
           "Marc",
-          "Steph"
+          "Stephanie"
         ]
       }
     }
@@ -1490,8 +1490,8 @@
       "gamesCorrect": 6,
       "bonusEarned": 0
     },
-    "Steph": {
-      "person": "Steph",
+    "Stephanie": {
+      "person": "Stephanie",
       "points": 20,
       "possiblePoints": 20,
       "rank": 5,
@@ -1514,7 +1514,7 @@
   ],
   "losers": [
     "Derrick",
-    "Steph"
+    "Stephanie"
   ],
   "tiebreakInfo": {
     "leaders": [
@@ -1584,7 +1584,7 @@
           "Jaclyn (43 pts)"
         ],
         "third": [
-          "Steph (35 pts)"
+          "Stephanie (35 pts)"
         ],
         "losers": [
           "Derrick (19 pts)"
@@ -1606,7 +1606,7 @@
         ],
         "losers": [
           "Derrick (20 pts)",
-          "Steph (20 pts)"
+          "Stephanie (20 pts)"
         ],
         "isPossible": true,
         "isOver": true
@@ -1622,7 +1622,7 @@
           "Chrissy (43 pts)"
         ],
         "losers": [
-          "Steph (24 pts)"
+          "Stephanie (24 pts)"
         ],
         "isPossible": false,
         "isOver": true

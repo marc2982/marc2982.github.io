@@ -332,7 +332,7 @@
             "earnedBonusPoints": false
           }
         },
-        "Steph": {
+        "Stephanie": {
           "E": {
             "pick": {
               "team": "VAN",
@@ -547,8 +547,8 @@
             "gamesCorrect": 0,
             "bonusEarned": 0
           },
-          "Steph": {
-            "person": "Steph",
+          "Stephanie": {
+            "person": "Stephanie",
             "points": 3,
             "possiblePoints": 3,
             "rank": 5,
@@ -570,7 +570,7 @@
           "Derrick"
         ],
         "losers": [
-          "Steph"
+          "Stephanie"
         ]
       }
     },
@@ -745,7 +745,7 @@
             "earnedBonusPoints": false
           }
         },
-        "Steph": {
+        "Stephanie": {
           "K": {
             "pick": {
               "team": "VAN",
@@ -872,8 +872,8 @@
             "gamesCorrect": 0,
             "bonusEarned": 0
           },
-          "Steph": {
-            "person": "Steph",
+          "Stephanie": {
+            "person": "Stephanie",
             "points": 7,
             "possiblePoints": 7,
             "rank": 2,
@@ -990,7 +990,7 @@
             "earnedBonusPoints": false
           }
         },
-        "Steph": {
+        "Stephanie": {
           "N": {
             "pick": {
               "team": "VAN",
@@ -1073,8 +1073,8 @@
             "gamesCorrect": 0,
             "bonusEarned": 0
           },
-          "Steph": {
-            "person": "Steph",
+          "Stephanie": {
+            "person": "Stephanie",
             "points": 12,
             "possiblePoints": 12,
             "rank": 1,
@@ -1093,7 +1093,7 @@
           }
         },
         "winners": [
-          "Steph"
+          "Stephanie"
         ],
         "losers": [
           "Jaclyn"
@@ -1151,7 +1151,7 @@
             "earnedBonusPoints": false
           }
         },
-        "Steph": {
+        "Stephanie": {
           "O": {
             "pick": {
               "team": "VAN",
@@ -1212,8 +1212,8 @@
             "gamesCorrect": 0,
             "bonusEarned": 0
           },
-          "Steph": {
-            "person": "Steph",
+          "Stephanie": {
+            "person": "Stephanie",
             "points": 0,
             "possiblePoints": 0,
             "rank": 2,
@@ -1237,7 +1237,7 @@
         "losers": [
           "Derrick",
           "Jaclyn",
-          "Steph",
+          "Stephanie",
           "Nickall"
         ]
       }
@@ -1271,8 +1271,8 @@
       "gamesCorrect": 0,
       "bonusEarned": 0
     },
-    "Steph": {
-      "person": "Steph",
+    "Stephanie": {
+      "person": "Stephanie",
       "points": 22,
       "possiblePoints": 22,
       "rank": 3,
@@ -1309,7 +1309,7 @@
           "Derrick (32 pts)"
         ],
         "second": [
-          "Steph (26 pts)"
+          "Stephanie (26 pts)"
         ],
         "third": [
           "Nickall (21 pts)"
@@ -1325,7 +1325,7 @@
           "Derrick (28 pts)"
         ],
         "second": [
-          "Steph (22 pts)"
+          "Stephanie (22 pts)"
         ],
         "third": [
           "Marc (21 pts)"
@@ -1343,7 +1343,7 @@
           "Derrick (43 pts)"
         ],
         "second": [
-          "Steph (26 pts)"
+          "Stephanie (26 pts)"
         ],
         "third": [
           "Nickall (21 pts)"
@@ -1359,7 +1359,7 @@
           "Derrick (33 pts)"
         ],
         "second": [
-          "Steph (22 pts)"
+          "Stephanie (22 pts)"
         ],
         "third": [
           "Marc (21 pts)"
@@ -1374,7 +1374,7 @@
     "6": {
       "VAN": {
         "first": [
-          "Steph (37 pts)"
+          "Stephanie (37 pts)"
         ],
         "second": [
           "Derrick (32 pts)",
@@ -1392,7 +1392,7 @@
           "Derrick (28 pts)"
         ],
         "second": [
-          "Steph (27 pts)"
+          "Stephanie (27 pts)"
         ],
         "third": [
           "Nickall (22 pts)"
@@ -1410,7 +1410,7 @@
           "Derrick (32 pts)"
         ],
         "second": [
-          "Steph (26 pts)"
+          "Stephanie (26 pts)"
         ],
         "third": [
           "Marc (22 pts)"
@@ -1429,7 +1429,7 @@
           "Derrick (28 pts)"
         ],
         "third": [
-          "Steph (22 pts)"
+          "Stephanie (22 pts)"
         ],
         "losers": [
           "Jaclyn (8 pts)"
