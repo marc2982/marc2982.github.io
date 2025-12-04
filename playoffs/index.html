@@ -32,6 +32,7 @@
 		<div class="tab-nav">
 			<button class="tab-button active" data-tab="results">Results</button>
 			<button class="tab-button" data-tab="performance">Performance</button>
+			<button class="tab-button" data-tab="picks">Pick Analysis</button>
 		</div>
 
 		<!-- Tab Content -->
@@ -45,16 +46,22 @@
 		<div id="performance" class="tab-content">
 			<!-- Performance stats will be dynamically inserted here -->
 		</div>
+
+		<div id="picks" class="tab-content">
+			<!-- Pick analysis will be dynamically inserted here -->
+		</div>
 	</div>
 
 	<script type="module">
 		import { yearlyResults } from './js/yearlyResults.js';
 		import { performanceStats } from './js/performanceStats.js';
+		import { pickAnalysis } from './js/pickAnalysis.js';
 
 		window.onload = async function() {
 			// Load data
 			await yearlyResults($('#yearlyResults'));
 			await performanceStats($('#performance'));
+			await pickAnalysis($('#picks'));
 
 			// Tab switching
 			$('.tab-button').on('click', function() {

@@ -26,6 +26,7 @@ export const TEAMS = {
 	COL: 'Colorado Avalanche',
 	DAL: 'Dallas Stars',
 	DET: 'Detroit Red Wings',
+	EDM: 'Edmonton Oilers',
 	FLA: 'Florida Panthers',
 	LAK: 'Los Angeles Kings',
 	LOCKOUT: 'LOCKOUT',
