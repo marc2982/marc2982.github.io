@@ -1,7 +1,5 @@
 import { parse } from 'https://cdn.skypack.dev/@vanillaes/csv';
-import { Pick } from './models.js';
-
-const DEFAULT_ORDER = [['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'], ['I', 'J', 'K', 'L'], ['M', 'N'], ['O']];
+import { Pick, ALL_SERIES } from './models.js';
 
 export class PicksImporter {
 	constructor(api) {
@@ -101,6 +99,6 @@ export class PicksImporter {
 	}
 
 	getSeriesImportOrder(round) {
-		return DEFAULT_ORDER[round - 1];
+		return ALL_SERIES[round - 1];
 	}
 }
