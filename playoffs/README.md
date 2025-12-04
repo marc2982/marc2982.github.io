@@ -108,7 +108,3 @@ This provides the best of both worlds: automatic updates during playoffs and bla
 -   Google Forms → CSV automation
 -   Real-time updates during playoffs
 -   Advanced stats page using full JSON data
-
-## Notes
-
-manually created 1996, 2005, and 2013 summaries, and added \* to Marc and Nathan, 2018 shows WSH as winner
