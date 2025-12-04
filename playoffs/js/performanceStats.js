@@ -28,8 +28,8 @@ export async function performanceStats(tableElement) {
 			// Skip if person not in PEOPLE list (legacy or removed people)
 			if (!stats[person]) return;
 
-			// Skip if points is null/undefined (didn't participate)
-			if (points === undefined || points === null) return;
+			// Skip if points is null/undefined (didn't participate) or 0 (placeholder/missing data)
+			if (points === undefined || points === null || points === 0) return;
 
 			stats[person].totalPoints += points;
 			stats[person].yearsParticipated++;

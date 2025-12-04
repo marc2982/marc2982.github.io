@@ -3,9 +3,15 @@
     "year": 1996,
     "poolWinner": "Derrick",
     "poolLoser": null,
-    "cupWinner": null,
+    "cupWinner": "COL",
     "tiebreaker": null,
-    "points": {}
+    "points": {
+      "Derrick": 0,
+      "Marc": 0,
+      "Stephanie": 0,
+      "Jaclyn": 0,
+      "Chrissy": 0
+    }
   },
   "1997": {
     "year": 1997,
@@ -163,7 +169,7 @@
     "year": 2005,
     "poolWinner": null,
     "poolLoser": null,
-    "cupWinner": null,
+    "cupWinner": "LOCKOUT",
     "tiebreaker": null,
     "points": {}
   },
@@ -308,9 +314,17 @@
     "year": 2013,
     "poolWinner": "Derrick",
     "poolLoser": "Ryan",
-    "cupWinner": null,
+    "cupWinner": "CHI",
     "tiebreaker": null,
-    "points": {}
+    "points": {
+      "Derrick": 0,
+      "Ryan": 0,
+      "Jaclyn": 0,
+      "Marc": 0,
+      "Nathan": 0,
+      "Nickall": 0,
+      "Stephanie": 0
+    }
   },
   "2014": {
     "year": 2014,

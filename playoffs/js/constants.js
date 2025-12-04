@@ -35,4 +35,5 @@ export const TEAMS = {
 	TBL: 'Tampa Bay Lightning',
 	VGK: 'Vegas Golden Knights',
 	WAS: 'Washington Capitals',
+	WSH: 'Washington Capitals', // NHL API uses WSH instead of WAS
 };

@@ -69,7 +69,12 @@ export async function buildYearlyIndex() {
 }
 
 function getCupWinner(summary) {
-	// Get the Stanley Cup winner from the final round
+	// First check if cupWinner is directly on the summary (for manual summaries)
+	if (summary.cupWinner) {
+		return summary.cupWinner;
+	}
+
+	// Otherwise, get the Stanley Cup winner from the final round
 	const finalRound = summary.rounds?.find((r) => r.number === 4);
 	if (!finalRound) return null;
 
