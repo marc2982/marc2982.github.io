@@ -1,0 +1,1547 @@
+{
+  "year": "2003",
+  "rounds": [
+    {
+      "number": 1,
+      "serieses": [
+        {
+          "letter": "A",
+          "topSeed": "OTT",
+          "bottomSeed": "NYI",
+          "topSeedWins": 4,
+          "bottomSeedWins": 1
+        },
+        {
+          "letter": "B",
+          "topSeed": "NJD",
+          "bottomSeed": "BOS",
+          "topSeedWins": 4,
+          "bottomSeedWins": 1
+        },
+        {
+          "letter": "C",
+          "topSeed": "TBL",
+          "bottomSeed": "WSH",
+          "topSeedWins": 4,
+          "bottomSeedWins": 2
+        },
+        {
+          "letter": "D",
+          "topSeed": "PHI",
+          "bottomSeed": "TOR",
+          "topSeedWins": 4,
+          "bottomSeedWins": 3
+        },
+        {
+          "letter": "E",
+          "topSeed": "DAL",
+          "bottomSeed": "EDM",
+          "topSeedWins": 4,
+          "bottomSeedWins": 2
+        },
+        {
+          "letter": "F",
+          "topSeed": "DET",
+          "bottomSeed": "ANA",
+          "topSeedWins": 0,
+          "bottomSeedWins": 4
+        },
+        {
+          "letter": "G",
+          "topSeed": "COL",
+          "bottomSeed": "MIN",
+          "topSeedWins": 3,
+          "bottomSeedWins": 4
+        },
+        {
+          "letter": "H",
+          "topSeed": "VAN",
+          "bottomSeed": "STL",
+          "topSeedWins": 4,
+          "bottomSeedWins": 3
+        }
+      ],
+      "pickResults": {
+        "Marc": {
+          "E": {
+            "pick": {
+              "team": "EDM",
+              "games": 7
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          },
+          "F": {
+            "pick": {
+              "team": "DET",
+              "games": 6
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          },
+          "G": {
+            "pick": {
+              "team": "COL",
+              "games": 6
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          },
+          "H": {
+            "pick": {
+              "team": "VAN",
+              "games": 7
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "CORRECT",
+            "points": 6,
+            "possiblePoints": 6,
+            "earnedBonusPoints": false
+          },
+          "A": {
+            "pick": {
+              "team": "NYI",
+              "games": 6
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          },
+          "B": {
+            "pick": {
+              "team": "NJD",
+              "games": 5
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "CORRECT",
+            "points": 6,
+            "possiblePoints": 6,
+            "earnedBonusPoints": false
+          },
+          "C": {
+            "pick": {
+              "team": "TBL",
+              "games": 6
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "CORRECT",
+            "points": 6,
+            "possiblePoints": 6,
+            "earnedBonusPoints": false
+          },
+          "D": {
+            "pick": {
+              "team": "PHI",
+              "games": 6
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 1,
+            "possiblePoints": 1,
+            "earnedBonusPoints": false
+          }
+        },
+        "Derrick": {
+          "E": {
+            "pick": {
+              "team": "EDM",
+              "games": 6
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "CORRECT",
+            "points": 2,
+            "possiblePoints": 2,
+            "earnedBonusPoints": false
+          },
+          "F": {
+            "pick": {
+              "team": "DET",
+              "games": 5
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          },
+          "G": {
+            "pick": {
+              "team": "COL",
+              "games": 6
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          },
+          "H": {
+            "pick": {
+              "team": "VAN",
+              "games": 6
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 1,
+            "possiblePoints": 1,
+            "earnedBonusPoints": false
+          },
+          "A": {
+            "pick": {
+              "team": "OTT",
+              "games": 4
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 1,
+            "possiblePoints": 1,
+            "earnedBonusPoints": false
+          },
+          "B": {
+            "pick": {
+              "team": "NJD",
+              "games": 6
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 1,
+            "possiblePoints": 1,
+            "earnedBonusPoints": false
+          },
+          "C": {
+            "pick": {
+              "team": "TBL",
+              "games": 6
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "CORRECT",
+            "points": 6,
+            "possiblePoints": 6,
+            "earnedBonusPoints": false
+          },
+          "D": {
+            "pick": {
+              "team": "PHI",
+              "games": 6
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 1,
+            "possiblePoints": 1,
+            "earnedBonusPoints": false
+          }
+        },
+        "Chrissy": {
+          "E": {
+            "pick": {
+              "team": "DAL",
+              "games": 6
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "CORRECT",
+            "points": 6,
+            "possiblePoints": 6,
+            "earnedBonusPoints": false
+          },
+          "F": {
+            "pick": {
+              "team": "DET",
+              "games": 5
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          },
+          "G": {
+            "pick": {
+              "team": "MIN",
+              "games": 6
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 1,
+            "possiblePoints": 1,
+            "earnedBonusPoints": false
+          },
+          "H": {
+            "pick": {
+              "team": "VAN",
+              "games": 7
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "CORRECT",
+            "points": 6,
+            "possiblePoints": 6,
+            "earnedBonusPoints": false
+          },
+          "A": {
+            "pick": {
+              "team": "OTT",
+              "games": 5
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "CORRECT",
+            "points": 6,
+            "possiblePoints": 6,
+            "earnedBonusPoints": false
+          },
+          "B": {
+            "pick": {
+              "team": "NJD",
+              "games": 6
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 1,
+            "possiblePoints": 1,
+            "earnedBonusPoints": false
+          },
+          "C": {
+            "pick": {
+              "team": "WSH",
+              "games": 7
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          },
+          "D": {
+            "pick": {
+              "team": "TOR",
+              "games": 7
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "CORRECT",
+            "points": 2,
+            "possiblePoints": 2,
+            "earnedBonusPoints": false
+          }
+        },
+        "Jaclyn": {
+          "E": {
+            "pick": {
+              "team": "EDM",
+              "games": 5
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          },
+          "F": {
+            "pick": {
+              "team": "DET",
+              "games": 4
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "CORRECT",
+            "points": 2,
+            "possiblePoints": 2,
+            "earnedBonusPoints": false
+          },
+          "G": {
+            "pick": {
+              "team": "COL",
+              "games": 5
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          },
+          "H": {
+            "pick": {
+              "team": "STL",
+              "games": 5
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          },
+          "A": {
+            "pick": {
+              "team": "OTT",
+              "games": 5
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "CORRECT",
+            "points": 6,
+            "possiblePoints": 6,
+            "earnedBonusPoints": false
+          },
+          "B": {
+            "pick": {
+              "team": "BOS",
+              "games": 6
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          },
+          "C": {
+            "pick": {
+              "team": "WSH",
+              "games": 5
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          },
+          "D": {
+            "pick": {
+              "team": "PHI",
+              "games": 5
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 1,
+            "possiblePoints": 1,
+            "earnedBonusPoints": false
+          }
+        },
+        "Stephanie": {
+          "E": {
+            "pick": {
+              "team": "DAL",
+              "games": 5
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 1,
+            "possiblePoints": 1,
+            "earnedBonusPoints": false
+          },
+          "F": {
+            "pick": {
+              "team": "DET",
+              "games": 6
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          },
+          "G": {
+            "pick": {
+              "team": "COL",
+              "games": 5
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          },
+          "H": {
+            "pick": {
+              "team": "STL",
+              "games": 5
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          },
+          "A": {
+            "pick": {
+              "team": "OTT",
+              "games": 7
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 1,
+            "possiblePoints": 1,
+            "earnedBonusPoints": false
+          },
+          "B": {
+            "pick": {
+              "team": "NJD",
+              "games": 6
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 1,
+            "possiblePoints": 1,
+            "earnedBonusPoints": false
+          },
+          "C": {
+            "pick": {
+              "team": "TBL",
+              "games": 6
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "CORRECT",
+            "points": 6,
+            "possiblePoints": 6,
+            "earnedBonusPoints": false
+          },
+          "D": {
+            "pick": {
+              "team": "PHI",
+              "games": 7
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "CORRECT",
+            "points": 6,
+            "possiblePoints": 6,
+            "earnedBonusPoints": false
+          }
+        }
+      },
+      "scoring": {
+        "team": 1,
+        "games": 2,
+        "bonus": 3
+      },
+      "summary": {
+        "summaries": {
+          "Marc": {
+            "person": "Marc",
+            "points": 19,
+            "possiblePoints": 19,
+            "rank": 2,
+            "teamsCorrect": 4,
+            "gamesCorrect": 3,
+            "bonusEarned": 0
+          },
+          "Derrick": {
+            "person": "Derrick",
+            "points": 12,
+            "possiblePoints": 12,
+            "rank": 4,
+            "teamsCorrect": 5,
+            "gamesCorrect": 2,
+            "bonusEarned": 0
+          },
+          "Chrissy": {
+            "person": "Chrissy",
+            "points": 22,
+            "possiblePoints": 22,
+            "rank": 1,
+            "teamsCorrect": 5,
+            "gamesCorrect": 4,
+            "bonusEarned": 0
+          },
+          "Jaclyn": {
+            "person": "Jaclyn",
+            "points": 9,
+            "possiblePoints": 9,
+            "rank": 5,
+            "teamsCorrect": 2,
+            "gamesCorrect": 2,
+            "bonusEarned": 0
+          },
+          "Stephanie": {
+            "person": "Stephanie",
+            "points": 15,
+            "possiblePoints": 15,
+            "rank": 3,
+            "teamsCorrect": 5,
+            "gamesCorrect": 2,
+            "bonusEarned": 0
+          }
+        },
+        "winners": [
+          "Chrissy"
+        ],
+        "losers": [
+          "Jaclyn"
+        ]
+      }
+    },
+    {
+      "number": 2,
+      "serieses": [
+        {
+          "letter": "I",
+          "topSeed": "OTT",
+          "bottomSeed": "PHI",
+          "topSeedWins": 4,
+          "bottomSeedWins": 2
+        },
+        {
+          "letter": "J",
+          "topSeed": "NJD",
+          "bottomSeed": "TBL",
+          "topSeedWins": 4,
+          "bottomSeedWins": 1
+        },
+        {
+          "letter": "K",
+          "topSeed": "DAL",
+          "bottomSeed": "ANA",
+          "topSeedWins": 2,
+          "bottomSeedWins": 4
+        },
+        {
+          "letter": "L",
+          "topSeed": "VAN",
+          "bottomSeed": "MIN",
+          "topSeedWins": 3,
+          "bottomSeedWins": 4
+        }
+      ],
+      "pickResults": {
+        "Marc": {
+          "K": {
+            "pick": {
+              "team": "DAL",
+              "games": 6
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "CORRECT",
+            "points": 3,
+            "possiblePoints": 3,
+            "earnedBonusPoints": false
+          },
+          "L": {
+            "pick": {
+              "team": "VAN",
+              "games": 7
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "CORRECT",
+            "points": 3,
+            "possiblePoints": 3,
+            "earnedBonusPoints": false
+          },
+          "I": {
+            "pick": {
+              "team": "OTT",
+              "games": 6
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "CORRECT",
+            "points": 9,
+            "possiblePoints": 9,
+            "earnedBonusPoints": false
+          },
+          "J": {
+            "pick": {
+              "team": "TBL",
+              "games": 7
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          }
+        },
+        "Derrick": {
+          "K": {
+            "pick": {
+              "team": "DAL",
+              "games": 6
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "CORRECT",
+            "points": 3,
+            "possiblePoints": 3,
+            "earnedBonusPoints": false
+          },
+          "L": {
+            "pick": {
+              "team": "VAN",
+              "games": 6
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          },
+          "I": {
+            "pick": {
+              "team": "OTT",
+              "games": 5
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 2,
+            "possiblePoints": 2,
+            "earnedBonusPoints": false
+          },
+          "J": {
+            "pick": {
+              "team": "TBL",
+              "games": 6
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          }
+        },
+        "Chrissy": {
+          "K": {
+            "pick": {
+              "team": "ANA",
+              "games": 7
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 2,
+            "possiblePoints": 2,
+            "earnedBonusPoints": false
+          },
+          "L": {
+            "pick": {
+              "team": "VAN",
+              "games": 6
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          },
+          "I": {
+            "pick": {
+              "team": "OTT",
+              "games": 5
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 2,
+            "possiblePoints": 2,
+            "earnedBonusPoints": false
+          },
+          "J": {
+            "pick": {
+              "team": "NJD",
+              "games": 7
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 2,
+            "possiblePoints": 2,
+            "earnedBonusPoints": false
+          }
+        },
+        "Jaclyn": {
+          "K": {
+            "pick": {
+              "team": "ANA",
+              "games": 4
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 2,
+            "possiblePoints": 2,
+            "earnedBonusPoints": false
+          },
+          "L": {
+            "pick": {
+              "team": "MIN",
+              "games": 5
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 2,
+            "possiblePoints": 2,
+            "earnedBonusPoints": false
+          },
+          "I": {
+            "pick": {
+              "team": "PHI",
+              "games": 4
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          },
+          "J": {
+            "pick": {
+              "team": "NJD",
+              "games": 4
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 2,
+            "possiblePoints": 2,
+            "earnedBonusPoints": false
+          }
+        },
+        "Stephanie": {
+          "K": {
+            "pick": {
+              "team": "DAL",
+              "games": 5
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          },
+          "L": {
+            "pick": {
+              "team": "VAN",
+              "games": 6
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          },
+          "I": {
+            "pick": {
+              "team": "PHI",
+              "games": 6
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "CORRECT",
+            "points": 3,
+            "possiblePoints": 3,
+            "earnedBonusPoints": false
+          },
+          "J": {
+            "pick": {
+              "team": "TBL",
+              "games": 5
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "CORRECT",
+            "points": 3,
+            "possiblePoints": 3,
+            "earnedBonusPoints": false
+          }
+        }
+      },
+      "scoring": {
+        "team": 2,
+        "games": 3,
+        "bonus": 4
+      },
+      "summary": {
+        "summaries": {
+          "Marc": {
+            "person": "Marc",
+            "points": 15,
+            "possiblePoints": 15,
+            "rank": 1,
+            "teamsCorrect": 1,
+            "gamesCorrect": 3,
+            "bonusEarned": 0
+          },
+          "Derrick": {
+            "person": "Derrick",
+            "points": 5,
+            "possiblePoints": 5,
+            "rank": 5,
+            "teamsCorrect": 1,
+            "gamesCorrect": 1,
+            "bonusEarned": 0
+          },
+          "Chrissy": {
+            "person": "Chrissy",
+            "points": 6,
+            "possiblePoints": 6,
+            "rank": 2,
+            "teamsCorrect": 3,
+            "gamesCorrect": 0,
+            "bonusEarned": 0
+          },
+          "Jaclyn": {
+            "person": "Jaclyn",
+            "points": 6,
+            "possiblePoints": 6,
+            "rank": 2,
+            "teamsCorrect": 3,
+            "gamesCorrect": 0,
+            "bonusEarned": 0
+          },
+          "Stephanie": {
+            "person": "Stephanie",
+            "points": 6,
+            "possiblePoints": 6,
+            "rank": 2,
+            "teamsCorrect": 0,
+            "gamesCorrect": 2,
+            "bonusEarned": 0
+          }
+        },
+        "winners": [
+          "Marc"
+        ],
+        "losers": [
+          "Derrick"
+        ]
+      }
+    },
+    {
+      "number": 3,
+      "serieses": [
+        {
+          "letter": "M",
+          "topSeed": "OTT",
+          "bottomSeed": "NJD",
+          "topSeedWins": 3,
+          "bottomSeedWins": 4
+        },
+        {
+          "letter": "N",
+          "topSeed": "MIN",
+          "bottomSeed": "ANA",
+          "topSeedWins": 0,
+          "bottomSeedWins": 4
+        }
+      ],
+      "pickResults": {
+        "Marc": {
+          "N": {
+            "pick": {
+              "team": "MIN",
+              "games": 7
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          },
+          "M": {
+            "pick": {
+              "team": "OTT",
+              "games": 6
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          }
+        },
+        "Derrick": {
+          "N": {
+            "pick": {
+              "team": "ANA",
+              "games": 6
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 3,
+            "possiblePoints": 3,
+            "earnedBonusPoints": false
+          },
+          "M": {
+            "pick": {
+              "team": "OTT",
+              "games": 5
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          }
+        },
+        "Chrissy": {
+          "N": {
+            "pick": {
+              "team": "MIN",
+              "games": 7
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          },
+          "M": {
+            "pick": {
+              "team": "OTT",
+              "games": 5
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          }
+        },
+        "Jaclyn": {
+          "N": {
+            "pick": {
+              "team": "ANA",
+              "games": 5
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 3,
+            "possiblePoints": 3,
+            "earnedBonusPoints": false
+          },
+          "M": {
+            "pick": {
+              "team": "NJD",
+              "games": 4
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 3,
+            "possiblePoints": 3,
+            "earnedBonusPoints": false
+          }
+        },
+        "Stephanie": {
+          "N": {
+            "pick": {
+              "team": "ANA",
+              "games": 5
+            },
+            "teamStatus": "CORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 3,
+            "possiblePoints": 3,
+            "earnedBonusPoints": false
+          },
+          "M": {
+            "pick": {
+              "team": "OTT",
+              "games": 6
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          }
+        }
+      },
+      "scoring": {
+        "team": 3,
+        "games": 4,
+        "bonus": 5
+      },
+      "summary": {
+        "summaries": {
+          "Marc": {
+            "person": "Marc",
+            "points": 0,
+            "possiblePoints": 0,
+            "rank": 4,
+            "teamsCorrect": 0,
+            "gamesCorrect": 0,
+            "bonusEarned": 0
+          },
+          "Derrick": {
+            "person": "Derrick",
+            "points": 3,
+            "possiblePoints": 3,
+            "rank": 2,
+            "teamsCorrect": 1,
+            "gamesCorrect": 0,
+            "bonusEarned": 0
+          },
+          "Chrissy": {
+            "person": "Chrissy",
+            "points": 0,
+            "possiblePoints": 0,
+            "rank": 4,
+            "teamsCorrect": 0,
+            "gamesCorrect": 0,
+            "bonusEarned": 0
+          },
+          "Jaclyn": {
+            "person": "Jaclyn",
+            "points": 6,
+            "possiblePoints": 6,
+            "rank": 1,
+            "teamsCorrect": 2,
+            "gamesCorrect": 0,
+            "bonusEarned": 0
+          },
+          "Stephanie": {
+            "person": "Stephanie",
+            "points": 3,
+            "possiblePoints": 3,
+            "rank": 2,
+            "teamsCorrect": 1,
+            "gamesCorrect": 0,
+            "bonusEarned": 0
+          }
+        },
+        "winners": [
+          "Jaclyn"
+        ],
+        "losers": [
+          "Marc",
+          "Chrissy"
+        ]
+      }
+    },
+    {
+      "number": 4,
+      "serieses": [
+        {
+          "letter": "O",
+          "topSeed": "NJD",
+          "bottomSeed": "ANA",
+          "topSeedWins": 4,
+          "bottomSeedWins": 3
+        }
+      ],
+      "pickResults": {
+        "Marc": {
+          "O": {
+            "pick": {
+              "team": "ANA",
+              "games": 6
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          }
+        },
+        "Derrick": {
+          "O": {
+            "pick": {
+              "team": "ANA",
+              "games": 6
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          }
+        },
+        "Chrissy": {
+          "O": {
+            "pick": {
+              "team": "ANA",
+              "games": 4
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          }
+        },
+        "Jaclyn": {
+          "O": {
+            "pick": {
+              "team": "ANA",
+              "games": 4
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          }
+        },
+        "Stephanie": {
+          "O": {
+            "pick": {
+              "team": "ANA",
+              "games": 5
+            },
+            "teamStatus": "INCORRECT",
+            "gamesStatus": "INCORRECT",
+            "points": 0,
+            "possiblePoints": 0,
+            "earnedBonusPoints": false
+          }
+        }
+      },
+      "scoring": {
+        "team": 4,
+        "games": 5,
+        "bonus": 6
+      },
+      "summary": {
+        "summaries": {
+          "Marc": {
+            "person": "Marc",
+            "points": 0,
+            "possiblePoints": 0,
+            "rank": 1,
+            "teamsCorrect": 0,
+            "gamesCorrect": 0,
+            "bonusEarned": 0
+          },
+          "Derrick": {
+            "person": "Derrick",
+            "points": 0,
+            "possiblePoints": 0,
+            "rank": 1,
+            "teamsCorrect": 0,
+            "gamesCorrect": 0,
+            "bonusEarned": 0
+          },
+          "Chrissy": {
+            "person": "Chrissy",
+            "points": 0,
+            "possiblePoints": 0,
+            "rank": 1,
+            "teamsCorrect": 0,
+            "gamesCorrect": 0,
+            "bonusEarned": 0
+          },
+          "Jaclyn": {
+            "person": "Jaclyn",
+            "points": 0,
+            "possiblePoints": 0,
+            "rank": 1,
+            "teamsCorrect": 0,
+            "gamesCorrect": 0,
+            "bonusEarned": 0
+          },
+          "Stephanie": {
+            "person": "Stephanie",
+            "points": 0,
+            "possiblePoints": 0,
+            "rank": 1,
+            "teamsCorrect": 0,
+            "gamesCorrect": 0,
+            "bonusEarned": 0
+          }
+        },
+        "winners": [
+          "Marc",
+          "Derrick",
+          "Chrissy",
+          "Jaclyn",
+          "Stephanie"
+        ],
+        "losers": [
+          "Marc",
+          "Derrick",
+          "Chrissy",
+          "Jaclyn",
+          "Stephanie"
+        ]
+      }
+    }
+  ],
+  "personSummaries": {
+    "Marc": {
+      "person": "Marc",
+      "points": 34,
+      "possiblePoints": 34,
+      "rank": 1,
+      "teamsCorrect": 5,
+      "gamesCorrect": 6,
+      "bonusEarned": 0
+    },
+    "Derrick": {
+      "person": "Derrick",
+      "points": 20,
+      "possiblePoints": 20,
+      "rank": 5,
+      "teamsCorrect": 7,
+      "gamesCorrect": 3,
+      "bonusEarned": 0
+    },
+    "Chrissy": {
+      "person": "Chrissy",
+      "points": 28,
+      "possiblePoints": 28,
+      "rank": 2,
+      "teamsCorrect": 8,
+      "gamesCorrect": 4,
+      "bonusEarned": 0
+    },
+    "Jaclyn": {
+      "person": "Jaclyn",
+      "points": 21,
+      "possiblePoints": 21,
+      "rank": 4,
+      "teamsCorrect": 7,
+      "gamesCorrect": 2,
+      "bonusEarned": 0
+    },
+    "Stephanie": {
+      "person": "Stephanie",
+      "points": 24,
+      "possiblePoints": 24,
+      "rank": 3,
+      "teamsCorrect": 6,
+      "gamesCorrect": 4,
+      "bonusEarned": 0
+    }
+  },
+  "winners": [
+    "Marc"
+  ],
+  "losers": [
+    "Derrick"
+  ],
+  "tiebreakInfo": {
+    "leaders": [
+      "Marc"
+    ],
+    "winner": "Marc"
+  },
+  "projections": {
+    "4": {
+      "NJD": {
+        "first": [
+          "Marc (34 pts)"
+        ],
+        "second": [
+          "Chrissy (33 pts)"
+        ],
+        "third": [
+          "Jaclyn (26 pts)"
+        ],
+        "losers": [
+          "Derrick (20 pts)"
+        ],
+        "isPossible": false,
+        "isOver": true
+      },
+      "ANA": {
+        "first": [
+          "Chrissy (43 pts)"
+        ],
+        "second": [
+          "Marc (38 pts)"
+        ],
+        "third": [
+          "Jaclyn (36 pts)"
+        ],
+        "losers": [
+          "Derrick (24 pts)"
+        ],
+        "isPossible": false,
+        "isOver": true
+      }
+    },
+    "5": {
+      "NJD": {
+        "first": [
+          "Marc (34 pts)"
+        ],
+        "second": [
+          "Stephanie (29 pts)"
+        ],
+        "third": [
+          "Chrissy (28 pts)"
+        ],
+        "losers": [
+          "Derrick (20 pts)"
+        ],
+        "isPossible": false,
+        "isOver": true
+      },
+      "ANA": {
+        "first": [
+          "Stephanie (39 pts)"
+        ],
+        "second": [
+          "Marc (38 pts)"
+        ],
+        "third": [
+          "Chrissy (32 pts)"
+        ],
+        "losers": [
+          "Derrick (24 pts)"
+        ],
+        "isPossible": false,
+        "isOver": true
+      }
+    },
+    "6": {
+      "NJD": {
+        "first": [
+          "Marc (39 pts)"
+        ],
+        "second": [
+          "Chrissy (28 pts)"
+        ],
+        "third": [
+          "Derrick (25 pts)"
+        ],
+        "losers": [
+          "Jaclyn (21 pts)"
+        ],
+        "isPossible": false,
+        "isOver": true
+      },
+      "ANA": {
+        "first": [
+          "Marc (49 pts)"
+        ],
+        "second": [
+          "Derrick (35 pts)"
+        ],
+        "third": [
+          "Chrissy (32 pts)"
+        ],
+        "losers": [
+          "Jaclyn (25 pts)"
+        ],
+        "isPossible": false,
+        "isOver": true
+      }
+    },
+    "7": {
+      "NJD": {
+        "first": [
+          "Marc (34 pts)"
+        ],
+        "second": [
+          "Chrissy (28 pts)"
+        ],
+        "third": [
+          "Stephanie (24 pts)"
+        ],
+        "losers": [
+          "Derrick (20 pts)"
+        ],
+        "isPossible": true,
+        "isOver": true
+      },
+      "ANA": {
+        "first": [
+          "Marc (38 pts)"
+        ],
+        "second": [
+          "Chrissy (32 pts)"
+        ],
+        "third": [
+          "Stephanie (28 pts)"
+        ],
+        "losers": [
+          "Derrick (24 pts)"
+        ],
+        "isPossible": false,
+        "isOver": true
+      }
+    }
+  },
+  "teams": {
+    "OTT": {
+      "name": "Ottawa Senators",
+      "short": "OTT",
+      "logo": "https://assets.nhle.com/logos/nhl/svg/OTT_19971998-20062007_light.svg",
+      "rank": "D1"
+    },
+    "NYI": {
+      "name": "New York Islanders",
+      "short": "NYI",
+      "logo": "https://assets.nhle.com/logos/nhl/svg/NYI_19971998-20092010_light.svg",
+      "rank": "C8"
+    },
+    "NJD": {
+      "name": "New Jersey Devils",
+      "short": "NJD",
+      "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg",
+      "rank": "D1"
+    },
+    "BOS": {
+      "name": "Boston Bruins",
+      "short": "BOS",
+      "logo": "https://assets.nhle.com/logos/nhl/svg/BOS_19951996-20062007_light.svg",
+      "rank": "C7"
+    },
+    "TBL": {
+      "name": "Tampa Bay Lightning",
+      "short": "TBL",
+      "logo": "https://assets.nhle.com/logos/nhl/svg/TBL_20012002-20062007_light.svg",
+      "rank": "D1"
+    },
+    "WSH": {
+      "name": "Washington Capitals",
+      "short": "WSH",
+      "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_19951996-20062007_light.svg",
+      "rank": "C6"
+    },
+    "PHI": {
+      "name": "Philadelphia Flyers",
+      "short": "PHI",
+      "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_19992000-20222023_light.svg",
+      "rank": "C4"
+    },
+    "TOR": {
+      "name": "Toronto Maple Leafs",
+      "short": "TOR",
+      "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_19871988-20152016_light.svg",
+      "rank": "C5"
+    },
+    "DAL": {
+      "name": "Dallas Stars",
+      "short": "DAL",
+      "logo": "https://assets.nhle.com/logos/nhl/svg/DAL_19941995-20122013_light.svg",
+      "rank": "D1"
+    },
+    "EDM": {
+      "name": "Edmonton Oilers",
+      "short": "EDM",
+      "logo": "https://assets.nhle.com/logos/nhl/svg/EDM_19971998-20102011_light.svg",
+      "rank": "C8"
+    },
+    "DET": {
+      "name": "Detroit Red Wings",
+      "short": "DET",
+      "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg",
+      "rank": "D1"
+    },
+    "ANA": {
+      "name": "Anaheim Ducks",
+      "short": "ANA",
+      "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_19961997-20052006_light.svg",
+      "rank": "C7"
+    },
+    "COL": {
+      "name": "Colorado Avalanche",
+      "short": "COL",
+      "logo": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg",
+      "rank": "D1"
+    },
+    "MIN": {
+      "name": "Minnesota Wild",
+      "short": "MIN",
+      "logo": "https://assets.nhle.com/logos/nhl/svg/MIN_20002001-20122013_light.svg",
+      "rank": "C6"
+    },
+    "VAN": {
+      "name": "Vancouver Canucks",
+      "short": "VAN",
+      "logo": "https://assets.nhle.com/logos/nhl/svg/VAN_19971998-20062007_light.svg",
+      "rank": "C4"
+    },
+    "STL": {
+      "name": "St. Louis Blues",
+      "short": "STL",
+      "logo": "https://assets.nhle.com/logos/nhl/svg/STL_20002001-20072008_light.svg",
+      "rank": "C5"
+    }
+  }
+}
