@@ -5,6 +5,7 @@ import { PicksImporter } from './picksImporter.js';
 import { Summarizer } from './summarizer.js';
 import { ProjectionCalculator } from './projectionCalculator.js';
 import { fetchText } from './httpUtils.js';
+import { DataLoader } from './dataLoader.js';
 
 export async function loadData(year) {
 	try {
@@ -33,7 +34,8 @@ function yearlySummaryFromJson(year, json) {
 }
 
 async function loadAndProcessCsvs(year) {
-	const api = new NhlApiHandler(year);
+	const dataLoader = new DataLoader(year);
+	const api = new NhlApiHandler(year, dataLoader);
 	await api.load();
 
 	const picksImporter = new PicksImporter(api);

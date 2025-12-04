@@ -5,9 +5,9 @@ const TOP = 'top';
 const BOTTOM = 'bottom';
 
 export class NhlApiHandler {
-	constructor(year, dataLoader = null) {
+	constructor(year, dataLoader) {
 		this.year = year;
-		this.dataLoader = dataLoader || new DataLoader(year);
+		this.dataLoader = dataLoader;
 		this.teams = {};
 		this.series = [];
 	}
