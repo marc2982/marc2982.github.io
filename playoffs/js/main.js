@@ -38,7 +38,7 @@ function yearlySummaryFromJson(year, json) {
 	});
 }
 
-async function loadAndProcessCsvs(year) {
+export async function loadAndProcessCsvs(year, dataPath = `./data/archive/${year}`) {
 	const dataLoader = new DataLoader(year);
 	const api = new NhlApiHandler(year, dataLoader);
 	await api.load();
@@ -56,7 +56,7 @@ async function loadAndProcessCsvs(year) {
 		const scoring = SCORING[roundNum - 1];
 		const seriesLetters = ALL_SERIES[roundNum - 1];
 		const serieses = seriesLetters.map((letter) => seriesRepo.getSeries(letter));
-		const picks = await picksImporter.readCsv(`./data/${year}`, roundNum);
+		const picks = await picksImporter.readCsv(dataPath, roundNum);
 		const pickResults = calculator.buildPickResults(scoring, seriesRepo, picks);
 		const summary = summarizer.summarizeRound(pickResults);
 		rounds.push(
