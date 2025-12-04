@@ -31,7 +31,6 @@
 		<!-- Tab Navigation -->
 		<div class="tab-nav">
 			<button class="tab-button active" data-tab="results">Results</button>
-			<button class="tab-button" data-tab="winloss">Win/Loss</button>
 			<button class="tab-button" data-tab="performance">Performance</button>
 		</div>
 
@@ -43,31 +42,19 @@
 			</div>
 		</div>
 
-		<div id="winloss" class="tab-content">
-			<div class="section-card">
-				<h2>Win/Loss Statistics</h2>
-				<table id="winsLosses" class="stripe"></table>
-			</div>
-		</div>
-
 		<div id="performance" class="tab-content">
-			<div class="section-card">
-				<h2>Performance Statistics</h2>
-				<table id="performanceStats" class="stripe"></table>
-			</div>
+			<!-- Performance stats will be dynamically inserted here -->
 		</div>
 	</div>
 
 	<script type="module">
 		import { yearlyResults } from './js/yearlyResults.js';
-		import { winsLosses } from './js/winsLosses.js';
 		import { performanceStats } from './js/performanceStats.js';
 
 		window.onload = async function() {
 			// Load data
 			await yearlyResults($('#yearlyResults'));
-			await winsLosses($('#winsLosses'));
-			await performanceStats($('#performanceStats'));
+			await performanceStats($('#performance'));
 
 			// Tab switching
 			$('.tab-button').on('click', function() {
