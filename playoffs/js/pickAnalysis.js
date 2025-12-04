@@ -30,19 +30,6 @@ export async function pickAnalysis(container) {
 
 			// Process each round
 			summary.rounds?.forEach((round) => {
-				// Get bonus from round summaries
-				Object.entries(round.summary?.summaries || {}).forEach(([person, personSummary]) => {
-					if (!stats[person]) return;
-
-					// Track bonus opportunities and earned
-					if (personSummary.bonusEarned !== undefined) {
-						stats[person].bonusPossible++;
-						if (personSummary.bonusEarned > 0) {
-							stats[person].bonusEarned++;
-						}
-					}
-				});
-
 				// Process pick results for each person
 				Object.entries(round.pickResults || {}).forEach(([person, seriesResults]) => {
 					if (!stats[person]) return;
@@ -61,6 +48,18 @@ export async function pickAnalysis(container) {
 							if (result.teamStatus === 'CORRECT') {
 								stats[person].teamsCorrect++;
 							}
+						}
+
+						// Track bonus points
+						// earnedBonusPoints field is unreliable in data, so we check if both team and games are correct
+						// Standard scoring: Team (1) + Games (2) + Bonus (3) = 6 points
+						if (result.teamStatus === 'CORRECT' && result.gamesStatus === 'CORRECT') {
+							stats[person].bonusEarned++;
+						}
+
+						// Bonus is possible for any series where a pick was made
+						if (result.pick.team && result.pick.games) {
+							stats[person].bonusPossible++;
 						}
 
 						// Track games prediction accuracy
@@ -184,14 +183,14 @@ function buildPickAccuracyTable(container, stats) {
 		const gamesPercent =
 			s.gamesTotalPicks > 0 ? ((s.gamesCorrect / s.gamesTotalPicks) * 100).toFixed(1) + '%' : '-';
 
-		const bonusDisplay = s.bonusPossible > 0 ? `${s.bonusEarned}/${s.bonusPossible}` : '-';
+		const bonusPercent = s.bonusPossible > 0 ? ((s.bonusEarned / s.bonusPossible) * 100).toFixed(1) + '%' : '-';
 
 		const $row = $('<tr></tr>');
 		$row.append(`<td>${s.name}</td>`);
 		$row.append(`<td>${s.teamsTotalPicks}</td>`);
 		$row.append(`<td>${teamsPercent}</td>`);
 		$row.append(`<td>${gamesPercent}</td>`);
-		$row.append(`<td>${bonusDisplay}</td>`);
+		$row.append(`<td>${bonusPercent}</td>`);
 		$tbody.append($row);
 	});
 	$table.append($tbody);
