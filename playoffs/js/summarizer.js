@@ -2,9 +2,9 @@ import { PickStatus, YearlySummary, RoundSummary, PersonPointsSummary, TiebreakI
 import { excelRank } from './common.js';
 
 export class Summarizer {
-	constructor(year, teams) {
+	constructor(year, teamRepo) {
 		this.year = year;
-		this.teams = teams;
+		this.teams = teamRepo.getAllTeams();
 	}
 	summarizeYear(rounds, projections) {
 		const points = {};

@@ -1,5 +1,6 @@
 import { Series, Team, ALL_SERIES } from './models.js';
 import { DataLoader } from './dataLoader.js';
+import { SeriesRepository, TeamRepository } from './repositories.js';
 
 const TOP = 'top';
 const BOTTOM = 'bottom';
@@ -61,6 +62,10 @@ export class NhlApiHandler {
 		return this.teams;
 	}
 
+	getSeriesList() {
+		return this.series;
+	}
+
 	buildTeam(series, topOrBottom) {
 		const seed = series[`${topOrBottom}SeedTeam`];
 		const short = seed.abbrev;
@@ -76,6 +81,17 @@ export class NhlApiHandler {
 		});
 		this.teams[team.short] = team;
 		return team;
+	}
+}
+
+export class NhlTeamRepository extends TeamRepository {
+	constructor(teams) {
+		super();
+		this.teams = teams;
+	}
+
+	getAllTeams() {
+		return this.teams;
 	}
 
 	// teamPickStr matches the full name of the team in picks.csv
@@ -111,6 +127,13 @@ export class NhlApiHandler {
 		}
 		return foundTeam;
 	}
+}
+
+export class NhlSeriesRepository extends SeriesRepository {
+	constructor(series) {
+		super();
+		this.series = series;
+	}
 
 	getSeries(letter) {
 		const foundSeries = this.series.find((series) => series.letter === letter);
@@ -128,31 +151,7 @@ export class NhlApiHandler {
 		}
 	}
 
-	*seriesIter(round) {
-		const order = ALL_SERIES[round - 1];
-		for (const letter of order) {
-			yield this.getSeries(letter);
-		}
-	}
-
 	getScfSeries() {
 		return this.getSeries(ALL_SERIES[ALL_SERIES.length - 1][0]);
-	}
-
-	getScfTeams() {
-		const teams = [];
-		for (const letter of ALL_SERIES[2]) {
-			// round 3 winners
-			const series = this.getSeriesOrNone(letter);
-			if (!series) {
-				continue;
-			}
-			const winner = series.getWinner();
-			if (!winner) {
-				continue;
-			}
-			teams.push(winner.team);
-		}
-		return teams;
 	}
 }

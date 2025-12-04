@@ -1,11 +1,11 @@
 import { PickResult, PickStatus } from './models.js';
 
 export class PickResultCalculator {
-	buildPickResults(scoring, api, picks) {
+	buildPickResults(scoring, seriesRepo, picks) {
 		const pickResults = {};
 		for (const [person, picksBySeries] of Object.entries(picks)) {
 			for (const [seriesLetter, pick] of Object.entries(picksBySeries)) {
-				const series = api.getSeries(seriesLetter);
+				const series = seriesRepo.getSeries(seriesLetter);
 				const winner = series.getWinner();
 				const teamStatus = this.getTeamStatus(pick, winner);
 				const gamesStatus = this.getGamesStatus(pick, winner, series);

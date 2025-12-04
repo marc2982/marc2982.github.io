@@ -1,44 +1,26 @@
-import { parse } from 'https://cdn.skypack.dev/@vanillaes/csv';
 import { Pick, ALL_SERIES } from './models.js';
+import { loadCsv } from './csvProcessor.js';
 
 export class PicksImporter {
-	constructor(api) {
-		this.api = api;
+	constructor(seriesRepo, teamRepo) {
+		this.seriesRepo = seriesRepo;
+		this.teamRepo = teamRepo;
 	}
 
-	async readCsv(folderName, round) {
-		const filePath = `${folderName}/round${round}.csv` + '?timestamp=' + new Date().getTime();
-		try {
-			const csvData = await this.readCsvFile(filePath);
-			return this.readPicks(csvData, round);
-		} catch (error) {
-			console.error(`Error reading CSV for round ${round}:`, error);
-			return {};
-		}
-	}
-
-	async readCsvFile(filePath) {
-		const response = await fetch(filePath);
-		if (!response.ok) {
-			console.log(`Failed to load CSV file: ${filePath}`);
-			return [];
-		}
-		const csvText = await response.text();
-		const rows = parse(csvText);
-		rows.shift();
-		return rows;
-	}
-
-	readPicks(rows, round) {
+	async readCsv(dataDir, round) {
+		const filename = `${dataDir}/round${round}.csv`;
+		const data = await loadCsv(filename);
 		const picks = {};
 		// Get all series for this round to look up against
-		const seriesInRound = Array.from(this.api.seriesIter(round));
+		const seriesLetters = ALL_SERIES[round - 1];
+		const seriesInRound = seriesLetters.map((letter) => this.seriesRepo.getSeries(letter));
 
 		// timestamp is first column, ignored
 		const nameIndex = 1;
 		const picksStartIndex = 2;
 
-		for (const row of rows) {
+		// skip header
+		for (const row of data.slice(1)) {
 			const person = this.standardizeName(row[nameIndex]);
 			const colIter = row.slice(picksStartIndex).values();
 
@@ -49,7 +31,7 @@ export class PicksImporter {
 				if (!teamName || !numGames) continue;
 
 				try {
-					const team = this.api.getTeam(teamName);
+					const team = this.teamRepo.getTeam(teamName); // Keep this for series lookup, or modify parsePick to return team object
 					// Find which series this team belongs to
 					const series = seriesInRound.find((s) => s.topSeed === team.short || s.bottomSeed === team.short);
 

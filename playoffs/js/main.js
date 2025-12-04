@@ -1,7 +1,7 @@
 import { renderPage } from './year.js';
 import { Round, YearlySummary, SCORING, ALL_SERIES, TiebreakInfo } from './models.js';
 import { DataLoader } from './dataLoader.js';
-import { NhlApiHandler } from './nhlApiHandler.js';
+import { NhlApiHandler, NhlSeriesRepository, NhlTeamRepository } from './nhlApiHandler.js';
 import { PicksImporter } from './picksImporter.js';
 import { PickResultCalculator } from './pickResultCalculator.js';
 import { Summarizer } from './summarizer.js';
@@ -43,18 +43,21 @@ async function loadAndProcessCsvs(year) {
 	const api = new NhlApiHandler(year, dataLoader);
 	await api.load();
 
-	const picksImporter = new PicksImporter(api);
+	const seriesRepo = new NhlSeriesRepository(api.getSeriesList());
+	const teamRepo = new NhlTeamRepository(api.getTeams());
+
+	const picksImporter = new PicksImporter(seriesRepo, teamRepo);
 	const calculator = new PickResultCalculator();
-	const summarizer = new Summarizer(year, api.getTeams());
-	const projector = new ProjectionCalculator(api);
+	const summarizer = new Summarizer(year, teamRepo);
+	const projector = new ProjectionCalculator(seriesRepo, teamRepo);
 	const rounds = [];
 
 	for (let roundNum = 1; roundNum <= 4; roundNum++) {
 		const scoring = SCORING[roundNum - 1];
 		const seriesLetters = ALL_SERIES[roundNum - 1];
-		const serieses = seriesLetters.map((letter) => api.getSeries(letter));
+		const serieses = seriesLetters.map((letter) => seriesRepo.getSeries(letter));
 		const picks = await picksImporter.readCsv(`./data/${year}`, roundNum);
-		const pickResults = calculator.buildPickResults(scoring, api, picks);
+		const pickResults = calculator.buildPickResults(scoring, seriesRepo, picks);
 		const summary = summarizer.summarizeRound(pickResults);
 		rounds.push(
 			Round.create({
@@ -68,6 +71,5 @@ async function loadAndProcessCsvs(year) {
 	}
 
 	const projections = projector.calculate(rounds);
-	console.log('Projections:', projections);
 	return summarizer.summarizeYear(rounds, projections);
 }

@@ -1,6 +1,12 @@
 import { Data } from 'https://cdn.skypack.dev/dataclass';
 
-export const ALL_SERIES = [['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'], ['I', 'J', 'K', 'L'], ['M', 'N'], ['O']];
+// prettier-ignore
+export const ALL_SERIES = [
+	['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
+	['I', 'J', 'K', 'L'],
+	['M', 'N'], 
+	['O']
+];
 export const WINNER_MAP = {
 	I: ['A', 'B'],
 	J: ['C', 'D'],
