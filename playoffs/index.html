@@ -34,6 +34,7 @@
 			<button class="tab-button active" data-tab="results">Results</button>
 			<button class="tab-button" data-tab="performance">Performance</button>
 			<button class="tab-button" data-tab="picks">Pick Analysis</button>
+			<button class="tab-button" data-tab="rounds">Round Analysis</button>
 			<button class="tab-button" data-tab="teams">Team Analysis</button>
 			<button class="tab-button" data-tab="h2h">Head-to-Head</button>
 		</div>
@@ -54,6 +55,10 @@
 			<!-- Pick analysis will be dynamically inserted here -->
 		</div>
 
+		<div id="rounds" class="tab-content">
+			<!-- Round analysis will be dynamically inserted here -->
+		</div>
+
 		<div id="teams" class="tab-content">
 			<!-- Team analysis will be dynamically inserted here -->
 		</div>
@@ -67,6 +72,7 @@
 		import { yearlyResults } from './js/yearlyResults.js';
 		import { performanceStats } from './js/performanceStats.js';
 		import { pickAnalysis } from './js/pickAnalysis.js';
+		import { roundAnalysis } from './js/roundAnalysis.js';
 		import { teamAnalysis } from './js/teamAnalysis.js';
 		import { headToHead } from './js/headToHead.js';
 
@@ -75,6 +81,7 @@
 			await yearlyResults($('#yearlyResults'));
 			await performanceStats($('#performance'));
 			await pickAnalysis($('#picks'));
+			await roundAnalysis($('#rounds'));
 			await teamAnalysis($('#teams'));
 			await headToHead($('#h2h'));
 

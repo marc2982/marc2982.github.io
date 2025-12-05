@@ -94,21 +94,6 @@ This provides the best of both worlds: automatic updates during playoffs and bla
 -   **Participation Consistency** - Years active vs inactive
 -   **Score Distribution** - Histogram of point totals across all years
 
-#### Team Analysis Tab
-
--   **Most Picked Teams** - Overall popularity rankings
--   **Most Successful Picks** - Which teams deliver when picked?
--   **Biggest Busts** - Teams that disappoint pickers most often
--   **Sleeper Teams** - Underdogs that pay off
--   **Conference Success Rates** - East vs West picking accuracy
-
-#### Round Analysis Tab
-
--   **Round Difficulty** - Which rounds are hardest to predict?
--   **Sweep Prediction** - Accuracy on 4-game series
--   **Game 7 Prediction** - Accuracy on 7-game series
--   **Bonus Point Efficiency** - By round breakdown
-
 ## Future Enhancements
 
 ### Tiebreaker UI Improvement
