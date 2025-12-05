@@ -70,7 +70,7 @@ function renderComparison(container, p1, p2, years) {
 	const tiebreakerRecord = calculateTiebreakerRecord(p1, p2, years);
 
 	let html = `
-		<p style="color: #6c757d; margin-bottom: 15px; font-style: italic;">
+		<p class="helper-text">
 			Comparing career stats and direct matchups between ${p1} and ${p2}.
 		</p>
 		<table class="stripe" style="width: 100%; margin-top: 20px;">
@@ -138,7 +138,7 @@ function renderComparison(container, p1, p2, years) {
 			closestFinishes.length > 0
 				? `
 			<h3 style="margin-top: 30px;">Closest Finishes</h3>
-			<p style="color: #6c757d; font-style: italic; margin-bottom: 10px;">
+			<p class="helper-text">
 				Years where ${p1} and ${p2} had the smallest point differentials.
 			</p>
 			<table class="stripe" style="width: 100%;">
@@ -323,9 +323,7 @@ function buildCompetitionMargins(years) {
 
 	const $section = $('<div class="section-card" style="margin-top: 20px;"><h2>Competition Margins</h2></div>');
 
-	$section.append(
-		'<p style="color: #6c757d; font-style: italic; margin-bottom: 15px;">Biggest and smallest gaps between 1st and 2nd place finishers.</p>',
-	);
+	$section.append('<p class="table-explanation">Biggest and smallest gaps between 1st and 2nd place finishers.</p>');
 
 	// Biggest Margins
 	$section.append('<h3>Biggest Blowouts</h3>');

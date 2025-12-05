@@ -118,6 +118,14 @@ export async function performanceStats(container) {
 
 function buildAchievementsTable(container, stats) {
 	const $section = $('<div class="section-card"><h2>Achievements & Streaks</h2></div>');
+
+	const $explanation = $(
+		'<p class="table-explanation">' +
+			'Career accomplishments including wins, losses, podium finishes (top 3), and consecutive year streaks.' +
+			'</p>',
+	);
+	$section.append($explanation);
+
 	const $table = $('<table class="stripe"></table>');
 
 	// Header
@@ -160,6 +168,12 @@ function buildAchievementsTable(container, stats) {
 
 function buildOverallPerformanceTable(container, stats) {
 	const $section = $('<div class="section-card"><h2>Overall Performance</h2></div>');
+
+	const $explanation = $(
+		'<p class="table-explanation">' + 'Summary of scoring statistics across all years of participation.' + '</p>',
+	);
+	$section.append($explanation);
+
 	const $table = $('<table class="stripe"></table>');
 
 	// Header
@@ -203,10 +217,8 @@ function buildAdvancedMetricsTable(container, stats) {
 
 	// Add explanatory text
 	const $explanation = $(
-		'<p style="color: #6c757d; font-size: 14px; margin-bottom: 15px;">' +
+		'<p class="table-explanation">' +
 			'<strong>Consistency Score:</strong> Lower is better - measures how much your yearly scores vary (standard deviation). ' +
-			'</p>' +
-			'<p style="color: #6c757d; font-size: 14px; margin-bottom: 15px;">' +
 			'<strong>Win Rate:</strong> Percentage of years you finished in 1st place.' +
 			'</p>',
 	);

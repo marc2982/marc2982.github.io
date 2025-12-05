@@ -128,9 +128,7 @@ function buildTeamLoyaltyTable(container, stats) {
 	const $section = $('<div class="section-card"><h2>Team Loyalty</h2></div>');
 
 	const $explanation = $(
-		'<p style="color: #6c757d; font-size: 14px; margin-bottom: 15px;">' +
-			"Shows each person's most frequently picked team across all years." +
-			'</p>',
+		'<p class="table-explanation">' + "Shows each person's most frequently picked team across all years." + '</p>',
 	);
 	$section.append($explanation);
 
@@ -181,6 +179,13 @@ function buildTeamLoyaltyTable(container, stats) {
 function buildPickAccuracyTable(container, stats) {
 	const $section = $('<div class="section-card"><h2>Pick Accuracy</h2></div>');
 
+	const $explanation = $(
+		'<p class="table-explanation">' +
+			'Shows prediction accuracy for team winners, series length, and bonus points earned.' +
+			'</p>',
+	);
+	$section.append($explanation);
+
 	const $table = $('<table class="stripe"></table>');
 
 	// Header
@@ -230,6 +235,13 @@ function buildPickAccuracyTable(container, stats) {
 function buildCupWinnerTable(container, stats) {
 	const $section = $('<div class="section-card"><h2>Cup Winner Predictions</h2></div>');
 
+	const $explanation = $(
+		'<p class="table-explanation">' +
+			'Shows how often each person correctly predicted the Stanley Cup winner.' +
+			'</p>',
+	);
+	$section.append($explanation);
+
 	const $table = $('<table class="stripe"></table>');
 
 	// Header
@@ -273,7 +285,7 @@ function buildUpsetPicksTable(container, stats) {
 	const $section = $('<div class="section-card"><h2>Upset Picks</h2></div>');
 
 	const $explanation = $(
-		'<p style="color: #6c757d; font-size: 14px; margin-bottom: 15px;">' +
+		'<p class="table-explanation">' +
 			'Shows who picks the most underdogs (lower seeds) and their success rate.' +
 			'</p>',
 	);
@@ -284,7 +296,6 @@ function buildUpsetPicksTable(container, stats) {
 	const $headerRow = $('<tr></tr>');
 	$headerRow.append('<th>Person</th>');
 	$headerRow.append('<th>Upset Picks</th>');
-	$headerRow.append('<th>Upset Picked %</th>');
 	$headerRow.append('<th>Correct Upsets</th>');
 	$headerRow.append('<th>Success Rate</th>');
 	$thead.append($headerRow);
@@ -292,16 +303,12 @@ function buildUpsetPicksTable(container, stats) {
 	// Body
 	const $tbody = $('<tbody></tbody>');
 	stats.forEach((s) => {
-		const upsetPickedPercent =
-			s.teamsTotalPicks > 0 ? ((s.upsetPicks / s.teamsTotalPicks) * 100).toFixed(1) + '%' : '-';
-		const upsetSuccessPercent =
-			s.upsetPicks > 0 ? ((s.upsetPicksCorrect / s.upsetPicks) * 100).toFixed(1) + '%' : '-';
+		const upsetPercent = s.upsetPicks > 0 ? ((s.upsetPicksCorrect / s.upsetPicks) * 100).toFixed(1) + '%' : '-';
 		const $row = $('<tr></tr>');
 		$row.append(`<td>${s.name}</td>`);
 		$row.append(`<td>${s.upsetPicks}</td>`);
-		$row.append(`<td>${upsetPickedPercent}</td>`);
 		$row.append(`<td>${s.upsetPicksCorrect}</td>`);
-		$row.append(`<td>${upsetSuccessPercent}</td>`);
+		$row.append(`<td>${upsetPercent}</td>`);
 		$tbody.append($row);
 	});
 	$table.append($tbody);
