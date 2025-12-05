@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make Picks | NHL Playoffs Pool</title>
+    <link href="css/picks.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏒 Make Your Picks</h1>
+            <p class="subtitle">NHL Playoffs 2025</p>
+        </header>
+
+        <div class="intro-card">
+            <h3>How it works</h3>
+            <p>1. Enter your name and the league passcode.<br>
+            2. Click on the team you think will win each series.<br>
+            3. Select how many games you think the series will go (4, 5, 6, or 7).<br>
+            4. Click Submit to send your picks!</p>
+        </div>
+
+        <div class="user-info">
+            <div class="form-group">
+                <label for="username">Your Name</label>
+                <select id="username" required>
+                    <option value="" disabled selected>Select your name...</option>
+                    <!-- Populated by JS -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="passcode">League Passcode</label>
+                <input type="text" id="passcode" placeholder="Enter the league code..." required>
+            </div>
+        </div>
+
+        <div id="matchups-container">
+            <!-- Matchups will be injected here by JS -->
+            <div class="loading" style="text-align: center; padding: 40px;">
+                Loading matchups...
+            </div>
+        </div>
+
+        <div class="submit-section">
+            <button id="submit-picks" class="submit-btn" disabled>Submit Picks</button>
+            <div id="status-message"></div>
+        </div>
+    </div>
+
+    <!-- Load Logic -->
+    <script type="module" src="js/picks.js"></script>
+</body>
+</html>

@@ -92,7 +92,6 @@ This provides the best of both worlds: automatic updates during playoffs and bla
 -   **Hot Streaks** - Current form (last 3-5 years performance)
 -   **Playoff Format Impact** - Performance before/after format changes
 -   **Participation Consistency** - Years active vs inactive
--   **Score Distribution** - Histogram of point totals across all years
 
 ## Future Enhancements
 

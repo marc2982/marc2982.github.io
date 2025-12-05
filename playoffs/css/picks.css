@@ -1,0 +1,278 @@
+:root {
+    --primary-color: #0033a0; /* NHL Blue-ish */
+    --accent-color: #ce1126; /* NHL Red-ish */
+    --bg-color: #f5f7fa;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --border-radius: 12px;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #1a1a1a;
+}
+
+p.subtitle {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.intro-card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+    border-left: 5px solid var(--accent-color);
+}
+
+/* User Info Section */
+.user-info {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+/* Form Inputs */
+input[type="text"],
+select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    color: #333;
+    transition: all 0.2s;
+    box-sizing: border-box;
+    appearance: none; /* Remove default arrow for custom styling if desired, but keeping default for simplicity/accessibility often better */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23333%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 0.65rem auto;
+}
+
+input[type="text"] {
+    /* Reset background image for text inputs */
+    background-image: none;
+}
+
+input[type="text"]:focus,
+select:focus {
+    border-color: var(--primary-color);
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 51, 160, 0.1);
+}
+
+/* Matchup Cards */
+.matchup {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+.matchup:hover {
+    transform: translateY(-2px);
+}
+
+.matchup-header {
+    background: #eee;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #555;
+    display: flex;
+    justify-content: space-between;
+}
+
+.teams {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.team {
+    flex: 1;
+    text-align: center;
+    padding: 15px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.team:hover {
+    background-color: #f9f9f9;
+}
+
+.team.selected {
+    border-color: var(--primary-color);
+    background-color: rgba(0, 51, 160, 0.05);
+}
+
+.team-logo {
+    width: 60px;
+    height: 60px;
+    background-color: #ddd; /* Placeholder */
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+.team img {
+    width: 100%;
+    height: auto;
+}
+
+.team-name {
+    font-weight: bold;
+    display: block;
+}
+
+.team-seed {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.vs {
+    font-weight: bold;
+    color: #ccc;
+    font-size: 1.2rem;
+    margin: 0 15px;
+}
+
+/* Prediction Options (Games) */
+.prediction-options {
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
+    background-color: #fafafa;
+    display: none; /* Hidden until team selected */
+    text-align: center;
+}
+
+.prediction-options.active {
+    display: block;
+    animation: fadeIn 0.3s;
+}
+
+.games-select {
+    display: inline-flex;
+    gap: 10px;
+    margin-left: 10px;
+}
+
+.game-option {
+    padding: 5px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.game-option:hover {
+    background-color: #e0e0e0;
+}
+
+.game-option.selected {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Submit Section */
+.submit-section {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+.submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 51, 160, 0.3);
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.submit-btn:hover {
+    background-color: #002270;
+    transform: translateY(-2px);
+}
+
+.submit-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Status Messages */
+#status-message {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    display: none;
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
