@@ -1,0 +1,40 @@
+/* Table styling for playoffs stats */
+
+/* Center-aligned table cells */
+.centered-cell {
+	text-align: center;
+}
+
+/* Helper text styling */
+.helper-text {
+	color: #6c757d;
+	font-style: italic;
+	margin-bottom: 15px;
+}
+
+/* Section headers in tables */
+.table-section-header {
+	text-align: center;
+	font-weight: bold;
+	background-color: #f8f9fa;
+}
+
+/* Emphasized table cells (larger font for important stats) */
+.emphasized-cell {
+	font-size: 1.2em;
+}
+
+/* Metric label cells (middle column in comparison tables) */
+.metric-label {
+	text-align: center;
+	color: #6c757d;
+}
+
+/* Section spacing */
+.section-card {
+	margin-top: 20px;
+}
+
+.section-card h3 {
+	margin-top: 30px;
+}

@@ -3,6 +3,7 @@
     <title>Bryan Family Playoff Pools</title>
     <link href="css/index.css" rel="stylesheet" />
     <link href="css/teams.css" rel="stylesheet" />
+    <link href="css/tables.css" rel="stylesheet" />
 
     <script src="js/yearlyResults.js" type="module"></script>
     <script src="js/winsLosses.js" type="module"></script>
@@ -33,6 +34,7 @@
 			<button class="tab-button active" data-tab="results">Results</button>
 			<button class="tab-button" data-tab="performance">Performance</button>
 			<button class="tab-button" data-tab="picks">Pick Analysis</button>
+			<button class="tab-button" data-tab="h2h">Head-to-Head</button>
 		</div>
 
 		<!-- Tab Content -->
@@ -50,18 +52,24 @@
 		<div id="picks" class="tab-content">
 			<!-- Pick analysis will be dynamically inserted here -->
 		</div>
+
+		<div id="h2h" class="tab-content">
+			<!-- Head-to-Head stats will be dynamically inserted here -->
+		</div>
 	</div>
 
 	<script type="module">
 		import { yearlyResults } from './js/yearlyResults.js';
 		import { performanceStats } from './js/performanceStats.js';
 		import { pickAnalysis } from './js/pickAnalysis.js';
+		import { headToHead } from './js/headToHead.js';
 
 		window.onload = async function() {
 			// Load data
 			await yearlyResults($('#yearlyResults'));
 			await performanceStats($('#performance'));
 			await pickAnalysis($('#picks'));
+			await headToHead($('#h2h'));
 
 			// Tab switching
 			$('.tab-button').on('click', function() {
