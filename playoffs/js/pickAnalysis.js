@@ -20,6 +20,8 @@ export async function pickAnalysis(container) {
 			teamsTotalPicks: 0,
 			cupWinnerCorrect: 0,
 			cupWinnerPicks: 0,
+			upsetPicks: 0,
+			upsetPicksCorrect: 0,
 		};
 	});
 
@@ -70,6 +72,23 @@ export async function pickAnalysis(container) {
 							}
 						}
 					});
+
+					// Track upset picks (picking the underdog/bottomSeed)
+					Object.entries(seriesResults).forEach(([seriesLetter, result]) => {
+						if (!result.pick?.team) return;
+
+						// Find the series data to check seeding
+						const seriesData = round.serieses.find((s) => s.letter === seriesLetter);
+						if (seriesData) {
+							const pickedUnderdog = result.pick.team === seriesData.bottomSeed;
+							if (pickedUnderdog) {
+								stats[person].upsetPicks++;
+								if (result.teamStatus === 'CORRECT') {
+									stats[person].upsetPicksCorrect++;
+								}
+							}
+						}
+					});
 				});
 			});
 
@@ -102,6 +121,7 @@ export async function pickAnalysis(container) {
 	buildTeamLoyaltyTable(container, activeStats);
 	buildPickAccuracyTable(container, activeStats);
 	buildCupWinnerTable(container, activeStats);
+	buildUpsetPicksTable(container, activeStats);
 }
 
 function buildTeamLoyaltyTable(container, stats) {
@@ -246,5 +266,52 @@ function buildCupWinnerTable(container, stats) {
 		paging: false,
 		searching: false,
 		order: [[3, 'desc']],
+	});
+}
+
+function buildUpsetPicksTable(container, stats) {
+	const $section = $('<div class="section-card"><h2>Upset Picks</h2></div>');
+
+	const $explanation = $(
+		'<p style="color: #6c757d; font-size: 14px; margin-bottom: 15px;">' +
+			'Shows who picks the most underdogs (lower seeds) and their success rate.' +
+			'</p>',
+	);
+	$section.append($explanation);
+	const $table = $('<table class="stripe"></table>');
+	// Header
+	const $thead = $('<thead></thead>');
+	const $headerRow = $('<tr></tr>');
+	$headerRow.append('<th>Person</th>');
+	$headerRow.append('<th>Upset Picks</th>');
+	$headerRow.append('<th>Upset Picked %</th>');
+	$headerRow.append('<th>Correct Upsets</th>');
+	$headerRow.append('<th>Success Rate</th>');
+	$thead.append($headerRow);
+	$table.append($thead);
+	// Body
+	const $tbody = $('<tbody></tbody>');
+	stats.forEach((s) => {
+		const upsetPickedPercent =
+			s.teamsTotalPicks > 0 ? ((s.upsetPicks / s.teamsTotalPicks) * 100).toFixed(1) + '%' : '-';
+		const upsetSuccessPercent =
+			s.upsetPicks > 0 ? ((s.upsetPicksCorrect / s.upsetPicks) * 100).toFixed(1) + '%' : '-';
+		const $row = $('<tr></tr>');
+		$row.append(`<td>${s.name}</td>`);
+		$row.append(`<td>${s.upsetPicks}</td>`);
+		$row.append(`<td>${upsetPickedPercent}</td>`);
+		$row.append(`<td>${s.upsetPicksCorrect}</td>`);
+		$row.append(`<td>${upsetSuccessPercent}</td>`);
+		$tbody.append($row);
+	});
+	$table.append($tbody);
+	$section.append($table);
+	container.append($section);
+	// Initialize DataTable
+	$table.DataTable({
+		info: false,
+		paging: false,
+		searching: false,
+		order: [[1, 'desc']],
 	});
 }
