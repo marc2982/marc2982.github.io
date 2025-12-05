@@ -63,28 +63,51 @@ This provides the best of both worlds: automatic updates during playoffs and bla
 
 ### Performance Stats Tab
 
--   **Average Points Per Year** - Who consistently performs well?
--   **Best/Worst Year** - Highest and lowest point totals for each person
--   **Streak Tracking** - Longest winning/losing streaks
--   **Podium Finishes** - Top 3 finishes count (not just wins)
 -   **Comeback King** - Most improved from Round 1 to Round 4
--   **Early Leader** - Who leads after Round 1 most often?
--   **Consistency Score** - Standard deviation of yearly finishes
+-   **Biggest Collapse** - Biggest drop from Round 1 to Round 4
+-   **Round-by-Round Performance** - Average points per round breakdown
+-   **Clutch Performance** - Performance in elimination games/series
+-   **Year-over-Year Trends** - Improvement/decline patterns over time
 
 ### Pick Analysis Tab
 
--   **Team Loyalty** - Which teams do people pick most?
--   **Upset Picks** - Who picks the most underdogs?
--   **Bonus Master** - Who earns the most bonus points?
--   **Games Prediction Accuracy** - Who's best at predicting series length?
--   **Cup Winner Picks** - Who picks the Stanley Cup winner most often?
+-   **Favorite vs Underdog Ratio** - Breakdown of picks by seed differential
+-   **Conference Bias** - Do people favor Eastern or Western Conference teams?
+-   **Home Ice Advantage Belief** - How often do people pick the home team?
+-   **Recency Bias** - Do people pick teams that won recently?
+-   **Round-Specific Accuracy** - Which rounds are people best/worst at predicting?
+-   **Team-Specific Success** - Accuracy when picking specific franchises
 
 ### Head-to-Head Tab
 
--   **Rivalry Matrix** - Win/loss record against each other person
--   **Closest Finishes** - Years with smallest point differentials
--   **Tiebreaker Record** - Win rate in tiebreaker situations
--   **Direct Comparison** - Select two people to compare stats
+-   **Rivalry Matrix** - Win/loss record against each other person (full grid)
+-   **Dominance Score** - Who has the best overall head-to-head record?
+-   **Nemesis Tracker** - Who is each person's worst matchup?
+-   **Point Differential Trends** - How margins between people change over time
+
+### New Tab Ideas
+
+#### Trends & Patterns Tab
+
+-   **Hot Streaks** - Current form (last 3-5 years performance)
+-   **Playoff Format Impact** - Performance before/after format changes
+-   **Participation Consistency** - Years active vs inactive
+-   **Score Distribution** - Histogram of point totals across all years
+
+#### Team Analysis Tab
+
+-   **Most Picked Teams** - Overall popularity rankings
+-   **Most Successful Picks** - Which teams deliver when picked?
+-   **Biggest Busts** - Teams that disappoint pickers most often
+-   **Sleeper Teams** - Underdogs that pay off
+-   **Conference Success Rates** - East vs West picking accuracy
+
+#### Round Analysis Tab
+
+-   **Round Difficulty** - Which rounds are hardest to predict?
+-   **Sweep Prediction** - Accuracy on 4-game series
+-   **Game 7 Prediction** - Accuracy on 7-game series
+-   **Bonus Point Efficiency** - By round breakdown
 
 ## Future Enhancements
 
