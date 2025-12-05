@@ -114,6 +114,7 @@ export async function performanceStats(container) {
 	buildAchievementsTable(container, activeStats);
 	buildOverallPerformanceTable(container, activeStats);
 	buildScoreDistributionChart(container, activeStats);
+	buildScoreHistoryChart(container, years);
 	buildAdvancedMetricsTable(container, activeStats);
 }
 
@@ -252,6 +253,112 @@ function buildScoreDistributionChart(container, stats) {
 					},
 					ticks: {
 						stepSize: 1,
+					},
+				},
+			},
+		},
+	});
+}
+
+function buildScoreHistoryChart(container, years) {
+	const $section = $('<div class="section-card"><h2>Score History</h2></div>');
+	const $explanation = $(
+		'<p class="table-explanation">' +
+			'Line graph of point totals over time. Click on names in the legend to toggle lines on/off. ' +
+			'</p>',
+	);
+	$section.append($explanation);
+
+	// Container for Chart.js
+	const $canvasContainer = $('<div style="position: relative; height:500px; width:100%"></div>');
+	const $canvas = $('<canvas></canvas>');
+	$canvasContainer.append($canvas);
+	$section.append($canvasContainer);
+	container.append($section);
+
+	const labels = years.map((y) => y.year);
+	const datasets = [];
+
+	// Get all unique people who have ever participated
+	const allPeople = new Set();
+	years.forEach((y) => {
+		if (y.points) {
+			Object.keys(y.points).forEach((p) => allPeople.add(p));
+		}
+	});
+
+	Array.from(allPeople)
+		.sort()
+		.forEach((person) => {
+			const data = years.map((y) => {
+				if (y.points && y.points[person] !== undefined && y.points[person] > 0) {
+					return y.points[person];
+				}
+				return null; // Gap in data
+			});
+
+			// Only add if they have at least one data point
+			if (data.some((d) => d !== null)) {
+				const color = PERSON_COLORS[person] || '#999999';
+				datasets.push({
+					label: person,
+					data: data,
+					borderColor: color,
+					backgroundColor: color,
+					borderWidth: 2,
+					tension: 0.1, // Smooth lines slightly
+					pointRadius: 4,
+					pointHoverRadius: 6,
+					fill: false,
+					spanGaps: false, // Don't connect lines across gaps
+				});
+			}
+		});
+
+	new Chart($canvas[0], {
+		type: 'line',
+		data: {
+			labels: labels,
+			datasets: datasets,
+		},
+		options: {
+			responsive: true,
+			maintainAspectRatio: false,
+			interaction: {
+				mode: 'nearest',
+				axis: 'x',
+				intersect: false,
+			},
+			plugins: {
+				legend: {
+					display: true,
+					position: 'bottom',
+					labels: {
+						boxWidth: 12,
+						font: {
+							size: 10,
+						},
+						usePointStyle: true,
+					},
+				},
+				tooltip: {
+					callbacks: {
+						title: (items) => `Year: ${items[0].label}`,
+					},
+				},
+			},
+			scales: {
+				y: {
+					beginAtZero: true,
+					title: {
+						display: true,
+						text: 'Points',
+					},
+				},
+				x: {
+					title: {
+						display: true,
+						text: 'Year',
 					},
 				},
 			},
