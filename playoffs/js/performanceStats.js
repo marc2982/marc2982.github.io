@@ -113,7 +113,150 @@ export async function performanceStats(container) {
 	// Build tables in order: Achievements first, then Overall, then Advanced
 	buildAchievementsTable(container, activeStats);
 	buildOverallPerformanceTable(container, activeStats);
+	buildScoreDistributionChart(container, activeStats);
 	buildAdvancedMetricsTable(container, activeStats);
+}
+
+const PERSON_COLORS = {
+	Benedict: '#FF6B6B',
+	Chrissy: '#4ECDC4',
+	Derrick: '#45B7D1',
+	Glenda: '#96CEB4',
+	Jaclyn: '#FFEEAD',
+	Jake: '#FFD93D',
+	Jamie: '#FF9F1C',
+	Kiersten: '#E056FD',
+	Marc: '#686DE0',
+	Nathan: '#30336B',
+	Nickall: '#22A6B3',
+	Robin: '#BE2EDD',
+	Ryan: '#F0932B',
+	Sophie: '#EB4D4B',
+	Stephanie: '#6AB04C',
+	Theodore: '#7ED6DF',
+};
+
+function buildScoreDistributionChart(container, stats) {
+	const $section = $('<div class="section-card"><h2>Score Distribution</h2></div>');
+	const $explanation = $(
+		'<p class="table-explanation">' +
+			'Histogram of point totals across all years. Each color represents a different person. Hover to see the breakdown.' +
+			'</p>',
+	);
+	$section.append($explanation);
+
+	// Container for Chart.js
+	const $canvasContainer = $('<div style="position: relative; height:500px; width:100%"></div>');
+	const $canvas = $('<canvas></canvas>');
+	$canvasContainer.append($canvas);
+	$section.append($canvasContainer);
+	container.append($section);
+
+	// 1. Gather all scores to determine global range
+	let allScores = [];
+	stats.forEach((p) => {
+		allScores = allScores.concat(p.yearlyScores);
+	});
+
+	if (allScores.length === 0) return;
+
+	// 2. Determine bins
+	const minScore = Math.min(...allScores);
+	const maxScore = Math.max(...allScores);
+	const binSize = 10;
+
+	const startBin = Math.floor(minScore / binSize) * binSize;
+	const endBin = Math.ceil(maxScore / binSize) * binSize;
+
+	const labels = [];
+	for (let i = startBin; i < endBin; i += binSize) {
+		labels.push(`${i}-${i + binSize}`);
+	}
+
+	// 3. Populate datasets (one per person)
+	const datasets = [];
+
+	stats.forEach((personStats) => {
+		// Initialize this person's bins with 0s
+		const personBins = new Array(labels.length).fill(0);
+
+		personStats.yearlyScores.forEach((score) => {
+			let binIndex = Math.floor((score - startBin) / binSize);
+			if (binIndex >= personBins.length) binIndex = personBins.length - 1;
+			if (binIndex < 0) binIndex = 0;
+			personBins[binIndex]++;
+		});
+
+		// Only add dataset if they have data
+		if (personBins.some((v) => v > 0)) {
+			datasets.push({
+				label: personStats.name,
+				data: personBins,
+				backgroundColor: PERSON_COLORS[personStats.name] || '#999999',
+				borderColor: 'rgba(255,255,255,0.5)', // Subtle border to separate stacks
+				borderWidth: 1,
+			});
+		}
+	});
+
+	// 4. Render Chart
+	new Chart($canvas[0], {
+		type: 'bar',
+		data: {
+			labels: labels,
+			datasets: datasets,
+		},
+		options: {
+			responsive: true,
+			maintainAspectRatio: false,
+			plugins: {
+				legend: {
+					display: true, // Show legend so users can identify colors
+					position: 'bottom',
+					labels: {
+						boxWidth: 12,
+						font: {
+							size: 10,
+						},
+					},
+				},
+				tooltip: {
+					mode: 'index', // Shows all items in the stack
+					intersect: false,
+					itemSort: (a, b) => b.raw - a.raw, // Sort tooltip by count descending
+					callbacks: {
+						title: (items) => `Score Range: ${items[0].label}`,
+						label: (item) => {
+							if (item.raw > 0) {
+								return `${item.dataset.label}: ${item.raw}`;
+							}
+							return null; // Hide from tooltip if 0
+						},
+					},
+				},
+			},
+			scales: {
+				x: {
+					stacked: true,
+					title: {
+						display: true,
+						text: 'Points Scored',
+					},
+				},
+				y: {
+					stacked: true,
+					beginAtZero: true,
+					title: {
+						display: true,
+						text: 'Frequency',
+					},
+					ticks: {
+						stepSize: 1,
+					},
+				},
+			},
+		},
+	});
 }
 
 function buildAchievementsTable(container, stats) {
