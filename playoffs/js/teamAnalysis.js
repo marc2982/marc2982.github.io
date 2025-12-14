@@ -82,7 +82,6 @@ export async function teamAnalysis(container) {
 	buildMostPickedTable(container, teamStatsArray);
 	buildMostSuccessfulTable(container, teamStatsArray);
 	buildBiggestBustsTable(container, teamStatsArray);
-	buildSleeperTeamsTable(container, teamStatsArray);
 	buildConferenceSuccessTable(container, conferenceStats);
 }
 
@@ -167,35 +166,6 @@ function buildBiggestBustsTable(container, stats) {
 
 	// Initialize DataTable
 	initDataTable($table, { order: [[2, 'asc']] });
-}
-
-function buildSleeperTeamsTable(container, stats) {
-	const $section = createSection(
-		container,
-		'Sleeper Teams',
-		'Underdogs that pay off - teams picked infrequently but with high success rates (5-15 picks).',
-	);
-
-	const { $table, $tbody } = createTable(['Rank', 'Team', 'Win Rate', 'Record', 'Times Picked']);
-	$section.append($table);
-
-	// Body - High win rate but low pick count (5-15 picks)
-	const sorted = [...stats]
-		.filter((t) => t.timesPicked >= 5 && t.timesPicked <= 15)
-		.sort((a, b) => b.winRate - a.winRate)
-		.slice(0, 15);
-	sorted.forEach((team, index) => {
-		const $row = $('<tr></tr>');
-		$row.append(`<td>${index + 1}</td>`);
-		$row.append(`<td>${team.name}</td>`);
-		$row.append(`<td style="font-weight: bold; color: green;">${team.winRate.toFixed(1)}%</td>`);
-		$row.append(`<td>${team.timesWon}-${team.timesLost}</td>`);
-		$row.append(`<td>${team.timesPicked}</td>`);
-		$tbody.append($row);
-	});
-
-	// Initialize DataTable
-	initDataTable($table, { order: [[2, 'desc']] });
 }
 
 function buildConferenceSuccessTable(container, conferenceStats) {
