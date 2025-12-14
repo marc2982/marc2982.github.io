@@ -22,6 +22,15 @@ export async function pickAnalysis(container) {
 			cupWinnerPicks: 0,
 			upsetPicks: 0,
 			upsetPicksCorrect: 0,
+			// New Stats
+			totalGamesPredicted: 0,
+			gamesPredictionsCount: 0, // Denominator for avg
+			sweepsPredicted: 0,
+			game7sPredicted: 0,
+			perfectPicks: 0,
+			favoritesPicked: 0,
+			underdogsPicked: 0,
+			underdogsPicked: 0,
 		};
 	});
 
@@ -75,14 +84,32 @@ export async function pickAnalysis(container) {
 					if (!result.pick?.team) return;
 
 					// Find the series data to check seeding
+					// Find the series data to check seeding
 					const seriesData = round.serieses.find((s) => s.letter === seriesLetter);
 					if (seriesData) {
-						const pickedUnderdog = result.pick.team === seriesData.bottomSeed;
-						if (pickedUnderdog) {
+						// Upset / Seed Bias Stats
+						if (result.pick.team === seriesData.bottomSeed) {
+							stats[person].underdogsPicked++;
 							stats[person].upsetPicks++;
 							if (result.teamStatus === 'CORRECT') {
 								stats[person].upsetPicksCorrect++;
 							}
+						} else if (result.pick.team === seriesData.topSeed) {
+							stats[person].favoritesPicked++;
+						}
+					}
+
+					// Prediction Style & Perfect Series Stats
+					if (result.pick.games) {
+						stats[person].totalGamesPredicted += result.pick.games;
+						stats[person].gamesPredictionsCount++;
+
+						if (result.pick.games === 4) stats[person].sweepsPredicted++;
+						if (result.pick.games === 7) stats[person].game7sPredicted++;
+
+						// Perfect Pick: Team Correct AND Games Correct
+						if (result.teamStatus === 'CORRECT' && result.gamesStatus === 'CORRECT') {
+							stats[person].perfectPicks++;
 						}
 					}
 				});
@@ -114,8 +141,122 @@ export async function pickAnalysis(container) {
 	// Build tables
 	buildTeamLoyaltyTable(container, activeStats);
 	buildPickAccuracyTable(container, activeStats);
+	buildPerfectPicksTable(container, activeStats);
+	buildPredictionStyleTable(container, activeStats);
+	buildSeedBiasTable(container, activeStats);
 	buildCupWinnerTable(container, activeStats);
 	buildUpsetPicksTable(container, activeStats);
+}
+
+function buildPredictionStyleTable(container, stats) {
+	const $section = createSection(
+		container,
+		'Prediction Style',
+		'<strong>Optimist vs Pessimist:</strong> Breakdown of game predictions. ' +
+			'<strong>Avg Games:</strong> Average length of series predicted. ' +
+			'<strong>Sweeps:</strong> 4-game predictions. <strong>Game 7s:</strong> 7-game predictions.',
+	);
+
+	const { $table, $tbody } = createTable(['Person', 'Avg Games', 'Sweeps', 'Game 7s']);
+	$section.append($table);
+
+	stats.forEach((s) => {
+		const avgGames =
+			s.gamesPredictionsCount > 0 ? (s.totalGamesPredicted / s.gamesPredictionsCount).toFixed(2) : '-';
+
+		const $row = $('<tr></tr>');
+		$row.append(`<td>${s.name}</td>`);
+		$row.append(`<td>${avgGames}</td>`);
+		$row.append(`<td>${s.sweepsPredicted}</td>`);
+		$row.append(`<td>${s.game7sPredicted}</td>`);
+		$tbody.append($row);
+	});
+
+	initDataTable($table, { order: [[1, 'asc']] }); // Sort by shortest series (Optimists?)
+}
+
+function buildPerfectPicksTable(container, stats) {
+	const $section = createSection(
+		container,
+		'The Perfect Series (The Oracle)',
+		'Total "Perfect Picks": Correctly predicting both the winning team AND the exact number of games.',
+	);
+
+	const { $table, $tbody } = createTable(['Person', 'Perfect Picks', 'Total Picks', 'Rate']);
+	$section.append($table);
+
+	stats.forEach((s) => {
+		const rate =
+			s.gamesPredictionsCount > 0 ? ((s.perfectPicks / s.gamesPredictionsCount) * 100).toFixed(1) + '%' : '-';
+
+		const $row = $('<tr></tr>');
+		$row.append(`<td>${s.name}</td>`);
+		$row.append(`<td>${s.perfectPicks}</td>`);
+		$row.append(`<td>${s.gamesPredictionsCount}</td>`);
+		$row.append(`<td>${rate}</td>`);
+		$tbody.append($row);
+	});
+
+	initDataTable($table, { order: [[1, 'desc']] });
+}
+
+function buildSeedBiasTable(container, stats) {
+	const $section = createSection(
+		container,
+		'Seed Bias',
+		'Tendency to pick Favorites (Higher Seed) vs Underdogs (Lower Seed).',
+	);
+
+	const { $table, $tbody } = createTable(['Person', 'Favorites Picked', 'Underdogs Picked', 'Underdog %']);
+	$section.append($table);
+
+	stats.forEach((s) => {
+		const total = s.favoritesPicked + s.underdogsPicked;
+		const underdogRate = total > 0 ? ((s.underdogsPicked / total) * 100).toFixed(1) + '%' : '-';
+
+		const $row = $('<tr></tr>');
+		$row.append(`<td>${s.name}</td>`);
+		$row.append(`<td>${s.favoritesPicked}</td>`);
+		$row.append(`<td>${s.underdogsPicked}</td>`);
+		$row.append(`<td>${underdogRate}</td>`);
+		$tbody.append($row);
+	});
+
+	initDataTable($table, { order: [[3, 'desc']] });
+}
+
+function buildChampionsCurseTable(container, stats) {
+	const $section = createSection(
+		container,
+		"Champion's Curse",
+		'When their predicted Stanley Cup Winner loses, in which round do they get eliminated?',
+	);
+
+	const { $table, $tbody } = createTable([
+		'Person',
+		'Missed Cup Picks',
+		'Round 1 Exit',
+		'Round 2 Exit',
+		'Conf Finals Exit',
+		'Finals Loss',
+	]);
+	$section.append($table);
+
+	stats.forEach((s) => {
+		const missedPicks = (s.cupWinnerPicks || 0) - (s.cupWinnerCorrect || 0);
+		if (missedPicks <= 0) return; // Skip if they're perfect or no picks
+
+		const $row = $('<tr></tr>');
+		$row.append(`<td>${s.name}</td>`);
+		$row.append(`<td>${missedPicks}</td>`);
+		$row.append(`<td>${s.cupPickExits[1]}</td>`);
+		$row.append(`<td>${s.cupPickExits[2]}</td>`);
+		$row.append(`<td>${s.cupPickExits[3]}</td>`);
+		$row.append(`<td>${s.cupPickExits[4]}</td>`);
+		$tbody.append($row);
+	});
+
+	initDataTable($table, { order: [[1, 'desc']] });
 }
 
 function buildTeamLoyaltyTable(container, stats) {

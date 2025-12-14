@@ -27,6 +27,10 @@ export async function performanceStats(container) {
 			longestLoseStreak: 0,
 			timesLedRound1: 0,
 			yearlyScores: [],
+			silverMedals: 0,
+			bronzeMedals: 0,
+			closestLossMargin: Infinity,
+			closestLossCount: 0,
 		};
 	});
 
@@ -66,6 +70,29 @@ export async function performanceStats(container) {
 			const rank = participants.findIndex(([p]) => p === person);
 			if (rank >= 0 && rank < 3) {
 				stats[person].podiumFinishes++;
+			}
+
+			// Silver Medal (Rank 1 -> 2nd place)
+			if (rank === 1) {
+				stats[person].silverMedals++;
+
+				// Closest Loss (Only for 2nd place finishes)
+				// Winner is at index 0
+				const winnerScore = participants[0][1];
+				const myScore = points;
+				const diff = winnerScore - myScore;
+
+				if (diff < stats[person].closestLossMargin) {
+					stats[person].closestLossMargin = diff;
+					stats[person].closestLossCount = 1;
+				} else if (diff === stats[person].closestLossMargin) {
+					stats[person].closestLossCount++;
+				}
+			}
+
+			// Bronze Medal (Rank 2 -> 3rd place)
+			if (rank === 2) {
+				stats[person].bronzeMedals++;
 			}
 		});
 
@@ -115,7 +142,41 @@ export async function performanceStats(container) {
 	buildOverallPerformanceTable(container, activeStats);
 	buildScoreDistributionChart(container, activeStats);
 	buildScoreHistoryChart(container, years);
+	buildHeartbreakTable(container, activeStats);
 	buildAdvancedMetricsTable(container, activeStats);
+}
+
+function buildHeartbreakTable(container, stats) {
+	const $section = createSection(
+		container,
+		'Heartbreak Index (Agony of Defeat)',
+		'<strong>Silver/Bronze Medals:</strong> 2nd and 3rd place finishes. <strong>Closest Loss:</strong> Smallest point margin between you and the winner (2nd place finishes only).',
+	);
+
+	const { $table, $tbody } = createTable(['Person', 'Silver Medals', 'Bronze Medals', 'Closest Loss']);
+	$section.append($table);
+
+	stats.forEach((s) => {
+		let closestLossDisplay = '-';
+		let closestLossValue = 9999; // For sorting
+
+		if (s.closestLossMargin !== Infinity) {
+			closestLossValue = s.closestLossMargin;
+			closestLossDisplay = `${s.closestLossMargin} pts`;
+			if (s.closestLossCount > 1) {
+				closestLossDisplay += ` (${s.closestLossCount}x)`;
+			}
+		}
+
+		const $row = $('<tr></tr>');
+		$row.append(`<td>${s.name}</td>`);
+		$row.append(`<td>${s.silverMedals}</td>`);
+		$row.append(`<td>${s.bronzeMedals}</td>`);
+		$row.append(`<td data-order="${closestLossValue}">${closestLossDisplay}</td>`);
+		$tbody.append($row);
+	});
+
+	initDataTable($table, { order: [[1, 'desc']] });
 }
 
 const PERSON_COLORS = {
