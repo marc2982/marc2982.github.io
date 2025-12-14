@@ -43,6 +43,7 @@ export async function performanceStats(container) {
 			.filter(([person, points]) => points > 0)
 			.sort((a, b) => b[1] - a[1]);
 
+		// Process points
 		Object.entries(yearData.points).forEach(([person, points]) => {
 			if (!stats[person]) return;
 			if (points === undefined || points === null || points === 0) return;
@@ -66,32 +67,30 @@ export async function performanceStats(container) {
 			if (rank >= 0 && rank < 3) {
 				stats[person].podiumFinishes++;
 			}
+		});
 
-			// Win/Loss tracking
-			const isWinner = winners.includes(person);
-			const isLoser = losers.includes(person);
+		// Process Wins/Losses (Independent of points for years with missing data)
+		// Reset standard flags
+		Object.values(stats).forEach((s) => {
+			const isWinner = winners.includes(s.name);
+			const isLoser = losers.includes(s.name);
 
 			if (isWinner) {
-				stats[person].wins++;
-				stats[person].currentWinStreak++;
-				stats[person].currentLoseStreak = 0;
-				stats[person].longestWinStreak = Math.max(
-					stats[person].longestWinStreak,
-					stats[person].currentWinStreak,
-				);
+				// Only increment if not already counted (though we iterate years once so it should be fine)
+				s.wins++;
+				s.currentWinStreak++;
+				s.currentLoseStreak = 0;
+				s.longestWinStreak = Math.max(s.longestWinStreak, s.currentWinStreak);
 			} else {
-				stats[person].currentWinStreak = 0;
+				s.currentWinStreak = 0;
 			}
 
 			if (isLoser) {
-				stats[person].losses++;
-				stats[person].currentLoseStreak++;
-				stats[person].longestLoseStreak = Math.max(
-					stats[person].longestLoseStreak,
-					stats[person].currentLoseStreak,
-				);
+				s.losses++;
+				s.currentLoseStreak++;
+				s.longestLoseStreak = Math.max(s.longestLoseStreak, s.currentLoseStreak);
 			} else {
-				stats[person].currentLoseStreak = 0;
+				s.currentLoseStreak = 0;
 			}
 		});
 	});
