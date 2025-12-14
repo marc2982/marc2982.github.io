@@ -1,13 +1,14 @@
 import { PEOPLE } from './constants.js';
-import { fetchJson } from './httpUtils.js';
+import { loadYearlyIndex } from './common.js';
+import { createSection } from './tableUtils.js';
 
 export async function headToHead(container) {
 	// Load yearly index for stats
-	const yearlyIndex = await fetchJson('./data/summaries/yearly_index.json');
+	const yearlyIndex = await loadYearlyIndex();
 	const years = Object.values(yearlyIndex).sort((a, b) => a.year - b.year);
 
 	// Build UI
-	const $section = $('<div class="section-card"><h2>Head-to-Head Comparison</h2></div>');
+	const $section = createSection(container, 'Head-to-Head Comparison');
 
 	// Controls
 	const $controls = $('<div style="display: flex; gap: 20px; margin-bottom: 20px; align-items: center;"></div>');

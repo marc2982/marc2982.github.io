@@ -1,10 +1,10 @@
 import { TEAMS } from './constants.js';
-import { fetchJson } from './httpUtils.js';
+import { loadAllYearsDetailed } from './common.js';
+import { createSection, createTable, initDataTable } from './tableUtils.js';
 
 export async function teamAnalysis(container) {
-	// Load yearly index to get list of years
-	const yearlyIndex = await fetchJson('./data/summaries/yearly_index.json');
-	const yearList = Object.keys(yearlyIndex).filter((y) => parseInt(y) > 0);
+	// Load all years data
+	const { results } = await loadAllYearsDetailed();
 
 	// Initialize team stats
 	const teamStats = {};
@@ -26,56 +26,50 @@ export async function teamAnalysis(container) {
 		Western: { picked: 0, correct: 0 },
 	};
 
-	// Load each year's full summary
-	for (const year of yearList) {
-		try {
-			const summary = await fetchJson(`./data/summaries/${year}.json`);
+	// Process each year's full summary
+	results.forEach(({ summary }) => {
+		// Process each round
+		summary.rounds?.forEach((round) => {
+			// Process each series
+			round.serieses?.forEach((series) => {
+				const winner = series.winner;
 
-			// Process each round
-			summary.rounds?.forEach((round) => {
-				// Process each series
-				round.serieses?.forEach((series) => {
-					const winner = series.winner;
+				// Process pick results for each person
+				Object.entries(round.pickResults || {}).forEach(([person, seriesResults]) => {
+					const result = seriesResults[series.letter];
+					if (!result?.pick?.team) return;
 
-					// Process pick results for each person
-					Object.entries(round.pickResults || {}).forEach(([person, seriesResults]) => {
-						const result = seriesResults[series.letter];
-						if (!result?.pick?.team) return;
+					const pickedTeam = result.pick.team;
+					if (!teamStats[pickedTeam]) return;
 
-						const pickedTeam = result.pick.team;
-						if (!teamStats[pickedTeam]) return;
+					// Track picks
+					teamStats[pickedTeam].timesPicked++;
 
-						// Track picks
-						teamStats[pickedTeam].timesPicked++;
-
-						// Track conference
-						const conf = teamStats[pickedTeam].conference;
-						if (conf) {
-							conferenceStats[conf].picked++;
-							if (result.teamStatus === 'CORRECT') {
-								conferenceStats[conf].correct++;
-							}
-						}
-
-						// Track wins/losses
+					// Track conference
+					const conf = teamStats[pickedTeam].conference;
+					if (conf) {
+						conferenceStats[conf].picked++;
 						if (result.teamStatus === 'CORRECT') {
-							teamStats[pickedTeam].timesWon++;
-							// Award points: 1 for team + 2 for games (if correct) + 3 for bonus (if both correct)
-							let points = 1;
-							if (result.gamesStatus === 'CORRECT') {
-								points += 2 + 3; // games + bonus
-							}
-							teamStats[pickedTeam].totalPoints += points;
-						} else if (result.teamStatus === 'INCORRECT') {
-							teamStats[pickedTeam].timesLost++;
+							conferenceStats[conf].correct++;
 						}
-					});
+					}
+
+					// Track wins/losses
+					if (result.teamStatus === 'CORRECT') {
+						teamStats[pickedTeam].timesWon++;
+						// Award points: 1 for team + 2 for games (if correct) + 3 for bonus (if both correct)
+						let points = 1;
+						if (result.gamesStatus === 'CORRECT') {
+							points += 2 + 3; // games + bonus
+						}
+						teamStats[pickedTeam].totalPoints += points;
+					} else if (result.teamStatus === 'INCORRECT') {
+						teamStats[pickedTeam].timesLost++;
+					}
 				});
 			});
-		} catch (error) {
-			console.warn(`Failed to load ${year}.json:`, error);
-		}
-	}
+		});
+	});
 
 	// Calculate derived stats
 	const teamStatsArray = Object.values(teamStats).filter((t) => t.timesPicked > 0);
@@ -93,30 +87,17 @@ export async function teamAnalysis(container) {
 }
 
 function buildMostPickedTable(container, stats) {
-	const $section = $('<div class="section-card"><h2>Most Picked Teams</h2></div>');
-
-	const $explanation = $(
-		'<p class="table-explanation">' +
-			'Teams that pool participants pick most frequently across all years and rounds.' +
-			'</p>',
+	const $section = createSection(
+		container,
+		'Most Picked Teams',
+		'Teams that pool participants pick most frequently across all years and rounds.',
 	);
-	$section.append($explanation);
 
-	const $table = $('<table class="stripe"></table>');
-
-	// Header
-	const $thead = $('<thead></thead>');
-	const $headerRow = $('<tr></tr>');
-	$headerRow.append('<th>Rank</th>');
-	$headerRow.append('<th>Team</th>');
-	$headerRow.append('<th>Times Picked</th>');
-	$headerRow.append('<th>Win Rate</th>');
-	$thead.append($headerRow);
-	$table.append($thead);
+	const { $table, $tbody } = createTable(['Rank', 'Team', 'Times Picked', 'Win Rate']);
+	$section.append($table);
 
 	// Body - Sort by times picked
 	const sorted = [...stats].sort((a, b) => b.timesPicked - a.timesPicked).slice(0, 15);
-	const $tbody = $('<tbody></tbody>');
 	sorted.forEach((team, index) => {
 		const $row = $('<tr></tr>');
 		$row.append(`<td>${index + 1}</td>`);
@@ -125,49 +106,26 @@ function buildMostPickedTable(container, stats) {
 		$row.append(`<td>${team.winRate.toFixed(1)}%</td>`);
 		$tbody.append($row);
 	});
-	$table.append($tbody);
-
-	$section.append($table);
-	container.append($section);
 
 	// Initialize DataTable
-	$table.DataTable({
-		info: false,
-		paging: false,
-		searching: false,
-		order: [[2, 'desc']],
-	});
+	initDataTable($table, { order: [[2, 'desc']] });
 }
 
 function buildMostSuccessfulTable(container, stats) {
-	const $section = $('<div class="section-card"><h2>Most Successful Picks</h2></div>');
-
-	const $explanation = $(
-		'<p class="table-explanation">' +
-			'Teams with the highest win rate when picked (minimum 5 picks to qualify).' +
-			'</p>',
+	const $section = createSection(
+		container,
+		'Most Successful Picks',
+		'Teams with the highest win rate when picked (minimum 5 picks to qualify).',
 	);
-	$section.append($explanation);
 
-	const $table = $('<table class="stripe"></table>');
-
-	// Header
-	const $thead = $('<thead></thead>');
-	const $headerRow = $('<tr></tr>');
-	$headerRow.append('<th>Rank</th>');
-	$headerRow.append('<th>Team</th>');
-	$headerRow.append('<th>Win Rate</th>');
-	$headerRow.append('<th>Record</th>');
-	$headerRow.append('<th>Avg Points</th>');
-	$thead.append($headerRow);
-	$table.append($thead);
+	const { $table, $tbody } = createTable(['Rank', 'Team', 'Win Rate', 'Record', 'Avg Points']);
+	$section.append($table);
 
 	// Body - Sort by win rate (min 5 picks)
 	const sorted = [...stats]
 		.filter((t) => t.timesPicked >= 5)
 		.sort((a, b) => b.winRate - a.winRate)
 		.slice(0, 15);
-	const $tbody = $('<tbody></tbody>');
 	sorted.forEach((team, index) => {
 		const $row = $('<tr></tr>');
 		$row.append(`<td>${index + 1}</td>`);
@@ -177,49 +135,26 @@ function buildMostSuccessfulTable(container, stats) {
 		$row.append(`<td>${team.avgPoints.toFixed(1)}</td>`);
 		$tbody.append($row);
 	});
-	$table.append($tbody);
-
-	$section.append($table);
-	container.append($section);
 
 	// Initialize DataTable
-	$table.DataTable({
-		info: false,
-		paging: false,
-		searching: false,
-		order: [[2, 'desc']],
-	});
+	initDataTable($table, { order: [[2, 'desc']] });
 }
 
 function buildBiggestBustsTable(container, stats) {
-	const $section = $('<div class="section-card"><h2>Biggest Busts</h2></div>');
-
-	const $explanation = $(
-		'<p class="table-explanation">' +
-			'Teams with the lowest win rate when picked (minimum 5 picks to qualify).' +
-			'</p>',
+	const $section = createSection(
+		container,
+		'Biggest Busts',
+		'Teams with the lowest win rate when picked (minimum 5 picks to qualify).',
 	);
-	$section.append($explanation);
 
-	const $table = $('<table class="stripe"></table>');
-
-	// Header
-	const $thead = $('<thead></thead>');
-	const $headerRow = $('<tr></tr>');
-	$headerRow.append('<th>Rank</th>');
-	$headerRow.append('<th>Team</th>');
-	$headerRow.append('<th>Win Rate</th>');
-	$headerRow.append('<th>Record</th>');
-	$headerRow.append('<th>Times Picked</th>');
-	$thead.append($headerRow);
-	$table.append($thead);
+	const { $table, $tbody } = createTable(['Rank', 'Team', 'Win Rate', 'Record', 'Times Picked']);
+	$section.append($table);
 
 	// Body - Sort by win rate ascending (min 5 picks)
 	const sorted = [...stats]
 		.filter((t) => t.timesPicked >= 5)
 		.sort((a, b) => a.winRate - b.winRate)
 		.slice(0, 15);
-	const $tbody = $('<tbody></tbody>');
 	sorted.forEach((team, index) => {
 		const $row = $('<tr></tr>');
 		$row.append(`<td>${index + 1}</td>`);
@@ -229,49 +164,26 @@ function buildBiggestBustsTable(container, stats) {
 		$row.append(`<td>${team.timesPicked}</td>`);
 		$tbody.append($row);
 	});
-	$table.append($tbody);
-
-	$section.append($table);
-	container.append($section);
 
 	// Initialize DataTable
-	$table.DataTable({
-		info: false,
-		paging: false,
-		searching: false,
-		order: [[2, 'asc']],
-	});
+	initDataTable($table, { order: [[2, 'asc']] });
 }
 
 function buildSleeperTeamsTable(container, stats) {
-	const $section = $('<div class="section-card"><h2>Sleeper Teams</h2></div>');
-
-	const $explanation = $(
-		'<p class="table-explanation">' +
-			'Underdogs that pay off - teams picked infrequently but with high success rates (5-15 picks).' +
-			'</p>',
+	const $section = createSection(
+		container,
+		'Sleeper Teams',
+		'Underdogs that pay off - teams picked infrequently but with high success rates (5-15 picks).',
 	);
-	$section.append($explanation);
 
-	const $table = $('<table class="stripe"></table>');
-
-	// Header
-	const $thead = $('<thead></thead>');
-	const $headerRow = $('<tr></tr>');
-	$headerRow.append('<th>Rank</th>');
-	$headerRow.append('<th>Team</th>');
-	$headerRow.append('<th>Win Rate</th>');
-	$headerRow.append('<th>Record</th>');
-	$headerRow.append('<th>Times Picked</th>');
-	$thead.append($headerRow);
-	$table.append($thead);
+	const { $table, $tbody } = createTable(['Rank', 'Team', 'Win Rate', 'Record', 'Times Picked']);
+	$section.append($table);
 
 	// Body - High win rate but low pick count (5-15 picks)
 	const sorted = [...stats]
 		.filter((t) => t.timesPicked >= 5 && t.timesPicked <= 15)
 		.sort((a, b) => b.winRate - a.winRate)
 		.slice(0, 15);
-	const $tbody = $('<tbody></tbody>');
 	sorted.forEach((team, index) => {
 		const $row = $('<tr></tr>');
 		$row.append(`<td>${index + 1}</td>`);
@@ -281,44 +193,21 @@ function buildSleeperTeamsTable(container, stats) {
 		$row.append(`<td>${team.timesPicked}</td>`);
 		$tbody.append($row);
 	});
-	$table.append($tbody);
-
-	$section.append($table);
-	container.append($section);
 
 	// Initialize DataTable
-	$table.DataTable({
-		info: false,
-		paging: false,
-		searching: false,
-		order: [[2, 'desc']],
-	});
+	initDataTable($table, { order: [[2, 'desc']] });
 }
 
 function buildConferenceSuccessTable(container, conferenceStats) {
-	const $section = $('<div class="section-card"><h2>Conference Success Rates</h2></div>');
-
-	const $explanation = $(
-		'<p class="table-explanation">' +
-			'Comparison of picking accuracy between Eastern and Western Conference teams.' +
-			'</p>',
+	const $section = createSection(
+		container,
+		'Conference Success Rates',
+		'Comparison of picking accuracy between Eastern and Western Conference teams.',
 	);
-	$section.append($explanation);
 
-	const $table = $('<table class="stripe"></table>');
+	const { $table, $tbody } = createTable(['Conference', 'Times Picked', 'Correct Picks', 'Success Rate']);
+	$section.append($table);
 
-	// Header
-	const $thead = $('<thead></thead>');
-	const $headerRow = $('<tr></tr>');
-	$headerRow.append('<th>Conference</th>');
-	$headerRow.append('<th>Times Picked</th>');
-	$headerRow.append('<th>Correct Picks</th>');
-	$headerRow.append('<th>Success Rate</th>');
-	$thead.append($headerRow);
-	$table.append($thead);
-
-	// Body
-	const $tbody = $('<tbody></tbody>');
 	['Eastern', 'Western'].forEach((conf) => {
 		const stats = conferenceStats[conf];
 		const successRate = stats.picked > 0 ? ((stats.correct / stats.picked) * 100).toFixed(1) : '0.0';
@@ -329,18 +218,9 @@ function buildConferenceSuccessTable(container, conferenceStats) {
 		$row.append(`<td style="font-weight: bold;">${successRate}%</td>`);
 		$tbody.append($row);
 	});
-	$table.append($tbody);
-
-	$section.append($table);
-	container.append($section);
 
 	// Initialize DataTable
-	$table.DataTable({
-		info: false,
-		paging: false,
-		searching: false,
-		order: [[3, 'desc']],
-	});
+	initDataTable($table, { order: [[3, 'desc']] });
 }
 
 // Helper function to determine conference

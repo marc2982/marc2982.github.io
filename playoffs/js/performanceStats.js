@@ -1,9 +1,10 @@
 import { PEOPLE } from './constants.js';
-import { fetchJson } from './httpUtils.js';
+import { loadYearlyIndex } from './common.js';
+import { createSection, createTable, initDataTable } from './tableUtils.js';
 
 export async function performanceStats(container) {
 	// Load yearly index
-	const yearlyIndex = await fetchJson('./data/summaries/yearly_index.json');
+	const yearlyIndex = await loadYearlyIndex();
 	const years = Object.values(yearlyIndex).sort((a, b) => a.year - b.year);
 
 	// Initialize stats object for each person
@@ -138,13 +139,11 @@ const PERSON_COLORS = {
 };
 
 function buildScoreDistributionChart(container, stats) {
-	const $section = $('<div class="section-card"><h2>Score Distribution</h2></div>');
-	const $explanation = $(
-		'<p class="table-explanation">' +
-			'Histogram of point totals across all years. Each color represents a different person. Hover to see the breakdown.' +
-			'</p>',
+	const $section = createSection(
+		container,
+		'Score Distribution',
+		'Histogram of point totals across all years. Each color represents a different person. Hover to see the breakdown.',
 	);
-	$section.append($explanation);
 
 	// Container for Chart.js
 	const $canvasContainer = $('<div style="position: relative; height:500px; width:100%"></div>');
@@ -261,13 +260,11 @@ function buildScoreDistributionChart(container, stats) {
 }
 
 function buildScoreHistoryChart(container, years) {
-	const $section = $('<div class="section-card"><h2>Score History</h2></div>');
-	const $explanation = $(
-		'<p class="table-explanation">' +
-			'Line graph of point totals over time. Click on names in the legend to toggle lines on/off. ' +
-			'</p>',
+	const $section = createSection(
+		container,
+		'Score History',
+		'Line graph of point totals over time. Click on names in the legend to toggle lines on/off.',
 	);
-	$section.append($explanation);
 
 	// Container for Chart.js
 	const $canvasContainer = $('<div style="position: relative; height:500px; width:100%"></div>');
@@ -367,31 +364,22 @@ function buildScoreHistoryChart(container, years) {
 }
 
 function buildAchievementsTable(container, stats) {
-	const $section = $('<div class="section-card"><h2>Achievements & Streaks</h2></div>');
-
-	const $explanation = $(
-		'<p class="table-explanation">' +
-			'Career accomplishments including wins, losses, podium finishes (top 3), and consecutive year streaks.' +
-			'</p>',
+	const $section = createSection(
+		container,
+		'Achievements & Streaks',
+		'Career accomplishments including wins, losses, podium finishes (top 3), and consecutive year streaks.',
 	);
-	$section.append($explanation);
 
-	const $table = $('<table class="stripe"></table>');
+	const { $table, $tbody } = createTable([
+		'Person',
+		'Total Wins',
+		'Total Losses',
+		'Podium Finishes',
+		'Longest Win Streak',
+		'Longest Losing Streak',
+	]);
+	$section.append($table);
 
-	// Header
-	const $thead = $('<thead></thead>');
-	const $headerRow = $('<tr></tr>');
-	$headerRow.append('<th>Person</th>');
-	$headerRow.append('<th>Total Wins</th>');
-	$headerRow.append('<th>Total Losses</th>');
-	$headerRow.append('<th>Podium Finishes</th>');
-	$headerRow.append('<th>Longest Win Streak</th>');
-	$headerRow.append('<th>Longest Losing Streak</th>');
-	$thead.append($headerRow);
-	$table.append($thead);
-
-	// Body
-	const $tbody = $('<tbody></tbody>');
 	stats.forEach((s) => {
 		const $row = $('<tr></tr>');
 		$row.append(`<td>${s.name}</td>`);
@@ -402,43 +390,21 @@ function buildAchievementsTable(container, stats) {
 		$row.append(`<td>${s.longestLoseStreak || '-'}</td>`);
 		$tbody.append($row);
 	});
-	$table.append($tbody);
-
-	$section.append($table);
-	container.append($section);
 
 	// Initialize DataTable
-	$table.DataTable({
-		info: false,
-		paging: false,
-		searching: false,
-		order: [[1, 'desc']],
-	});
+	initDataTable($table, { order: [[1, 'desc']] });
 }
 
 function buildOverallPerformanceTable(container, stats) {
-	const $section = $('<div class="section-card"><h2>Overall Performance</h2></div>');
-
-	const $explanation = $(
-		'<p class="table-explanation">' + 'Summary of scoring statistics across all years of participation.' + '</p>',
+	const $section = createSection(
+		container,
+		'Overall Performance',
+		'Summary of scoring statistics across all years of participation.',
 	);
-	$section.append($explanation);
 
-	const $table = $('<table class="stripe"></table>');
+	const { $table, $tbody } = createTable(['Person', 'Avg Points', 'Best Score', 'Worst Score', 'Years Played']);
+	$section.append($table);
 
-	// Header
-	const $thead = $('<thead></thead>');
-	const $headerRow = $('<tr></tr>');
-	$headerRow.append('<th>Person</th>');
-	$headerRow.append('<th>Avg Points</th>');
-	$headerRow.append('<th>Best Score</th>');
-	$headerRow.append('<th>Worst Score</th>');
-	$headerRow.append('<th>Years Played</th>');
-	$thead.append($headerRow);
-	$table.append($thead);
-
-	// Body
-	const $tbody = $('<tbody></tbody>');
 	stats.forEach((s) => {
 		const $row = $('<tr></tr>');
 		$row.append(`<td>${s.name}</td>`);
@@ -448,45 +414,22 @@ function buildOverallPerformanceTable(container, stats) {
 		$row.append(`<td>${s.yearsParticipated}</td>`);
 		$tbody.append($row);
 	});
-	$table.append($tbody);
-
-	$section.append($table);
-	container.append($section);
 
 	// Initialize DataTable
-	$table.DataTable({
-		info: false,
-		paging: false,
-		searching: false,
-		order: [[1, 'desc']],
-	});
+	initDataTable($table, { order: [[1, 'desc']] });
 }
 
 function buildAdvancedMetricsTable(container, stats) {
-	const $section = $('<div class="section-card"><h2>Advanced Metrics</h2></div>');
-
-	// Add explanatory text
-	const $explanation = $(
-		'<p class="table-explanation">' +
-			'<strong>Consistency Score:</strong> Lower is better - measures how much your yearly scores vary (standard deviation). ' +
-			'<strong>Win Rate:</strong> Percentage of years you finished in 1st place.' +
-			'</p>',
+	const $section = createSection(
+		container,
+		'Advanced Metrics',
+		'<strong>Consistency Score:</strong> Lower is better - measures how much your yearly scores vary (standard deviation). ' +
+			'<strong>Win Rate:</strong> Percentage of years you finished in 1st place.',
 	);
-	$section.append($explanation);
 
-	const $table = $('<table class="stripe"></table>');
+	const { $table, $tbody } = createTable(['Person', 'Consistency Score', 'Win Rate']);
+	$section.append($table);
 
-	// Header
-	const $thead = $('<thead></thead>');
-	const $headerRow = $('<tr></tr>');
-	$headerRow.append('<th>Person</th>');
-	$headerRow.append('<th>Consistency Score</th>');
-	$headerRow.append('<th>Win Rate</th>');
-	$thead.append($headerRow);
-	$table.append($thead);
-
-	// Body
-	const $tbody = $('<tbody></tbody>');
 	stats.forEach((s) => {
 		const winRate = s.yearsParticipated > 0 ? ((s.wins / s.yearsParticipated) * 100).toFixed(1) : '0.0';
 		const $row = $('<tr></tr>');
@@ -495,16 +438,7 @@ function buildAdvancedMetricsTable(container, stats) {
 		$row.append(`<td>${winRate}%</td>`);
 		$tbody.append($row);
 	});
-	$table.append($tbody);
-
-	$section.append($table);
-	container.append($section);
 
 	// Initialize DataTable
-	$table.DataTable({
-		info: false,
-		paging: false,
-		searching: false,
-		order: [[2, 'desc']],
-	});
+	initDataTable($table, { order: [[2, 'desc']] });
 }
