@@ -40,3 +40,8 @@ export function initDataTable($table, options = {}) {
 	};
 	$table.DataTable({ ...defaultOptions, ...options });
 }
+
+export function getPercent(numerator, denominator) {
+	if (denominator === 0) return '-';
+	return ((numerator / denominator) * 100).toFixed(1) + '%';
+}

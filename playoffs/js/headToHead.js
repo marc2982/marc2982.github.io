@@ -6,6 +6,7 @@ export async function headToHead(container) {
 	// Load yearly index for stats
 	const yearlyIndex = await loadYearlyIndex();
 	const years = Object.values(yearlyIndex).sort((a, b) => a.year - b.year);
+	container.empty();
 
 	// Build UI
 	const $section = createSection(container, 'Head-to-Head Comparison');

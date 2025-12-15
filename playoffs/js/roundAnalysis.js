@@ -1,10 +1,12 @@
 import { PEOPLE } from './constants.js';
-import { fetchJson } from './httpUtils.js';
+import { loadAllYearsDetailed } from './common.js';
+import { getPercent } from './tableUtils.js'; // Assuming getPercent might be moved there or just keep local if not
 
 export async function roundAnalysis(container) {
-	// Load yearly index to get list of years
-	const yearlyIndex = await fetchJson('./data/summaries/yearly_index.json');
-	const yearList = Object.keys(yearlyIndex).filter((y) => parseInt(y) > 0); // Filter out placeholder years
+	// Load all years data
+	const { results } = await loadAllYearsDetailed();
+
+	container.empty();
 
 	// Initialize stats
 	const stats = {};
@@ -28,74 +30,68 @@ export async function roundAnalysis(container) {
 		};
 	});
 
-	// Load each year's full summary
-	for (const year of yearList) {
-		try {
-			const summary = await fetchJson(`./data/summaries/${year}.json`);
+	// Process each year's full summary
+	results.forEach(({ summary }) => {
+		// Process each round
+		summary.rounds?.forEach((round) => {
+			const roundNum = round.number;
 
-			// Process each round
-			summary.rounds?.forEach((round) => {
-				const roundNum = round.number;
+			// Process pick results for each person
+			Object.entries(round.pickResults || {}).forEach(([person, seriesResults]) => {
+				if (!stats[person]) return;
 
-				// Process pick results for each person
-				Object.entries(round.pickResults || {}).forEach(([person, seriesResults]) => {
-					if (!stats[person]) return;
+				// Process each series pick
+				Object.values(seriesResults).forEach((result) => {
+					if (!result.pick?.team) return;
 
-					// Process each series pick
-					Object.values(seriesResults).forEach((result) => {
-						if (!result.pick?.team) return;
+					// Round Difficulty Stats
+					stats[person].roundStats[roundNum].total++;
+					if (result.teamStatus === 'CORRECT') {
+						stats[person].roundStats[roundNum].correct++;
+					}
 
-						// Round Difficulty Stats
-						stats[person].roundStats[roundNum].total++;
-						if (result.teamStatus === 'CORRECT') {
-							stats[person].roundStats[roundNum].correct++;
+					// Bonus Point Efficiency
+					if (result.pick.games) {
+						stats[person].bonusStats[roundNum].possible++;
+						if (result.teamStatus === 'CORRECT' && result.gamesStatus === 'CORRECT') {
+							stats[person].bonusStats[roundNum].earned++;
 						}
+					}
 
-						// Bonus Point Efficiency
-						if (result.pick.games) {
-							stats[person].bonusStats[roundNum].possible++;
-							if (result.teamStatus === 'CORRECT' && result.gamesStatus === 'CORRECT') {
-								stats[person].bonusStats[roundNum].earned++;
-							}
+					// Sweep & Game 7 Stats
+					// We need to know the actual result of the series to know if it was a sweep or game 7
+				});
+
+				// Re-iterate to find series data for Sweep/Game 7 stats
+				// This is slightly inefficient but cleaner to read.
+				// Ideally we'd map series letter to series data first.
+				Object.entries(seriesResults).forEach(([seriesLetter, result]) => {
+					if (!result.pick?.team) return;
+
+					const seriesData = round.serieses.find((s) => s.letter === seriesLetter);
+					if (!seriesData) return;
+
+					// Check if the ACTUAL series was a sweep or game 7
+					// "Sweep Prediction - Accuracy on 4-game series" -> When user picks 4 games.
+
+					if (result.pick.games === 4) {
+						stats[person].sweepStats.total++;
+						// A "correct" sweep prediction means they got the winner AND the games right
+						if (result.teamStatus === 'CORRECT' && result.gamesStatus === 'CORRECT') {
+							stats[person].sweepStats.correct++;
 						}
+					}
 
-						// Sweep & Game 7 Stats
-						// We need to know the actual result of the series to know if it was a sweep or game 7
-					});
-
-					// Re-iterate to find series data for Sweep/Game 7 stats
-					// This is slightly inefficient but cleaner to read.
-					// Ideally we'd map series letter to series data first.
-					Object.entries(seriesResults).forEach(([seriesLetter, result]) => {
-						if (!result.pick?.team) return;
-
-						const seriesData = round.serieses.find((s) => s.letter === seriesLetter);
-						if (!seriesData) return;
-
-						// Check if the ACTUAL series was a sweep or game 7
-						// "Sweep Prediction - Accuracy on 4-game series" -> When user picks 4 games.
-
-						if (result.pick.games === 4) {
-							stats[person].sweepStats.total++;
-							// A "correct" sweep prediction means they got the winner AND the games right
-							if (result.teamStatus === 'CORRECT' && result.gamesStatus === 'CORRECT') {
-								stats[person].sweepStats.correct++;
-							}
+					if (result.pick.games === 7) {
+						stats[person].game7Stats.total++;
+						if (result.teamStatus === 'CORRECT' && result.gamesStatus === 'CORRECT') {
+							stats[person].game7Stats.correct++;
 						}
-
-						if (result.pick.games === 7) {
-							stats[person].game7Stats.total++;
-							if (result.teamStatus === 'CORRECT' && result.gamesStatus === 'CORRECT') {
-								stats[person].game7Stats.correct++;
-							}
-						}
-					});
+					}
 				});
 			});
-		} catch (error) {
-			console.warn(`Failed to load ${year}.json:`, error);
-		}
-	}
+		});
+	});
 
 	// Filter to active participants
 	const activeStats = Object.values(stats).filter(
@@ -245,9 +241,4 @@ function buildGame7PredictionTable(container, stats) {
 	container.append($section);
 
 	$table.DataTable({ info: false, paging: false, searching: false, order: [[3, 'desc']] });
-}
-
-function getPercent(numerator, denominator) {
-	if (denominator === 0) return '-';
-	return ((numerator / denominator) * 100).toFixed(1) + '%';
 }

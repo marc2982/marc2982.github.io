@@ -6,6 +6,7 @@ export async function performanceStats(container) {
 	// Load yearly index
 	const yearlyIndex = await loadYearlyIndex();
 	const years = Object.values(yearlyIndex).sort((a, b) => a.year - b.year);
+	container.empty();
 
 	// Initialize stats object for each person
 	const stats = {};

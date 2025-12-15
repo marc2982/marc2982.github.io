@@ -6,6 +6,8 @@ export async function pickAnalysis(container) {
 	// Load all years data
 	const { results, yearlyIndex } = await loadAllYearsDetailed();
 
+	container.empty();
+
 	// Initialize stats
 	const stats = {};
 	PEOPLE.forEach((person) => {
@@ -22,7 +24,7 @@ export async function pickAnalysis(container) {
 			cupWinnerPicks: 0,
 			upsetPicks: 0,
 			upsetPicksCorrect: 0,
-			cupPickExits: { 1: 0, 2: 0, 3: 0, 4: 0 },
+			upsetPicksCorrect: 0,
 			// New Stats
 			totalGamesPredicted: 0,
 			totalGamesActual: 0,

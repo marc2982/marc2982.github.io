@@ -5,6 +5,7 @@ import { createSection, createTable, initDataTable } from './tableUtils.js';
 export async function teamAnalysis(container) {
 	// Load all years data
 	const { results } = await loadAllYearsDetailed();
+	container.empty();
 
 	// Initialize team stats
 	const teamStats = {};

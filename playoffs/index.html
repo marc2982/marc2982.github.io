@@ -13,18 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" rel="stylesheet" />
 
-    <script type="module">
-        import { yearlyResults } from './js/yearlyResults.js';
-        import { winsLosses } from './js/winsLosses.js';
 
-        window.onload = async function() {
-            let yearlyResultsTable = $('#yearlyResults');
-            let winsLossesTable = $('#winsLosses');
-
-            await yearlyResults(yearlyResultsTable);
-            await winsLosses(winsLossesTable);
-        }
-    </script>
 </head>
 <body>
 	<div id="container">
@@ -49,58 +38,68 @@
 				<h2>Yearly Results</h2>
 				<table id="yearlyResults" class="stripe"></table>
 			</div>
+			<div class="section-card">
+				<h2>Wins & Losses</h2>
+				<table id="winsLosses" class="stripe"></table>
+			</div>
 		</div>
 
 		<div id="performance" class="tab-content">
-			<!-- Performance stats will be dynamically inserted here -->
+			<div class="loading-spinner" style="text-align:center; padding: 20px; font-style: italic; color: #666;">Loading performance stats...</div>
 		</div>
 
 		<div id="picks" class="tab-content">
-			<!-- Pick analysis will be dynamically inserted here -->
+			<div class="loading-spinner" style="text-align:center; padding: 20px; font-style: italic; color: #666;">Loading pick analysis...</div>
 		</div>
 
 		<div id="rounds" class="tab-content">
-			<!-- Round analysis will be dynamically inserted here -->
+			<div class="loading-spinner" style="text-align:center; padding: 20px; font-style: italic; color: #666;">Loading round analysis...</div>
 		</div>
 
 		<div id="teams" class="tab-content">
-			<!-- Team analysis will be dynamically inserted here -->
+			<div class="loading-spinner" style="text-align:center; padding: 20px; font-style: italic; color: #666;">Loading team analysis...</div>
 		</div>
 
 		<div id="h2h" class="tab-content">
-			<!-- Head-to-Head stats will be dynamically inserted here -->
+			<div class="loading-spinner" style="text-align:center; padding: 20px; font-style: italic; color: #666;">Loading head-to-head stats...</div>
 		</div>
 	</div>
 
 	<script type="module">
 		import { yearlyResults } from './js/yearlyResults.js';
+		import { winsLosses } from './js/winsLosses.js';
 		import { performanceStats } from './js/performanceStats.js';
 		import { pickAnalysis } from './js/pickAnalysis.js';
 		import { roundAnalysis } from './js/roundAnalysis.js';
 		import { teamAnalysis } from './js/teamAnalysis.js';
 		import { headToHead } from './js/headToHead.js';
 
-		window.onload = async function() {
-			// Load data
-			await yearlyResults($('#yearlyResults'));
-			await performanceStats($('#performance'));
-			await pickAnalysis($('#picks'));
-			await roundAnalysis($('#rounds'));
-			await teamAnalysis($('#teams'));
-			await headToHead($('#h2h'));
+		// Initialize tabs immediately
+		$('.tab-button').on('click', function() {
+			const tabName = $(this).data('tab');
 
-			// Tab switching
-			$('.tab-button').on('click', function() {
-				const tabName = $(this).data('tab');
-				
-				// Update active tab button
-				$('.tab-button').removeClass('active');
-				$(this).addClass('active');
-				
-				// Update active tab content
-				$('.tab-content').removeClass('active');
-				$('#' + tabName).addClass('active');
-			});
+			// Update active tab button
+			$('.tab-button').removeClass('active');
+			$(this).addClass('active');
+
+			// Update active tab content
+			$('.tab-content').removeClass('active');
+			$('#' + tabName).addClass('active');
+		});
+
+		window.onload = async function() {
+			// Trigger all data loads in parallel
+			// The functions clear their containers when data is ready.
+			// Until then, the spinners defined in HTML remain visible.
+			Promise.all([
+				yearlyResults($('#yearlyResults')),
+				winsLosses($('#winsLosses')),
+				performanceStats($('#performance')),
+				pickAnalysis($('#picks')),
+				roundAnalysis($('#rounds')),
+				teamAnalysis($('#teams')),
+				headToHead($('#h2h'))
+			]).catch(err => console.error("Error loading analytics:", err));
 		}
 	</script>
 </body>
