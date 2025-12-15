@@ -148,17 +148,6 @@ export async function pickAnalysis(container) {
 					stats[person].cupWinnerPicks++;
 					if (scfPick.pick.team === cupWinner) {
 						stats[person].cupWinnerCorrect++;
-					} else {
-						// Champion's Curse: Track when the pick exited
-						// Need to find which round the picked team exited
-						// This is expensive to calculate perfectly without round-by-round results easily available
-						// Simplified: If they picked the wrong team, just increment a counter for now
-						// For accurate "Round Exit", we'd need to trace the team through the tree.
-						// Leaving the detailed "Round Exit" logic for a future enhancement or if requested.
-						// For now, code assumes cupPickExits is populated elsewhere or unused.
-						// *Self-Correction*: I see the buildChampionsCurseTable uses cupPickExits.
-						// The previous code had it but it wasn't populated in the snippet I saw.
-						// I'll add a "best effort" check or just initialize it to 0s to prevent crashes.
 					}
 				}
 			});
@@ -177,7 +166,6 @@ export async function pickAnalysis(container) {
 	buildPredictionStyleTable(container, activeStats);
 	buildPickAccuracyTable(container, activeStats);
 	buildPerfectPicksTable(container, activeStats);
-	// buildChampionsCurseTable(container, activeStats); // Disabled for now as complexity didn't fit in snippet
 	buildSeedBiasTable(container, activeStats);
 	buildCupWinnerTable(container, activeStats);
 	buildUpsetPicksTable(container, activeStats);
@@ -345,40 +333,6 @@ function buildSeedBiasTable(container, stats) {
 	});
 
 	initDataTable($table, { order: [[3, 'desc']] });
-}
-
-function buildChampionsCurseTable(container, stats) {
-	const $section = createSection(
-		container,
-		"Champion's Curse",
-		'When their predicted Stanley Cup Winner loses, in which round do they get eliminated?',
-	);
-
-	const { $table, $tbody } = createTable([
-		'Person',
-		'Missed Cup Picks',
-		'Round 1 Exit',
-		'Round 2 Exit',
-		'Conf Finals Exit',
-		'Finals Loss',
-	]);
-	$section.append($table);
-
-	stats.forEach((s) => {
-		const missedPicks = (s.cupWinnerPicks || 0) - (s.cupWinnerCorrect || 0);
-		if (missedPicks <= 0) return; // Skip if they're perfect or no picks
-
-		const $row = $('<tr></tr>');
-		$row.append(`<td>${s.name}</td>`);
-		$row.append(`<td>${missedPicks}</td>`);
-		$row.append(`<td>${s.cupPickExits[1]}</td>`);
-		$row.append(`<td>${s.cupPickExits[2]}</td>`);
-		$row.append(`<td>${s.cupPickExits[3]}</td>`);
-		$row.append(`<td>${s.cupPickExits[4]}</td>`);
-		$tbody.append($row);
-	});
-
-	initDataTable($table, { order: [[1, 'desc']] });
 }
 
 function buildTeamLoyaltyTable(container, stats) {

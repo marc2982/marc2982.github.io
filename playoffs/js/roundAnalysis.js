@@ -61,8 +61,6 @@ export async function roundAnalysis(container) {
 
 						// Sweep & Game 7 Stats
 						// We need to know the actual result of the series to know if it was a sweep or game 7
-						// The 'result' object here is the person's pick result, not the series result.
-						// We need to find the series data.
 					});
 
 					// Re-iterate to find series data for Sweep/Game 7 stats
@@ -75,18 +73,11 @@ export async function roundAnalysis(container) {
 						if (!seriesData) return;
 
 						// Check if the ACTUAL series was a sweep or game 7
-						// Wait, the requirement says "Accuracy on 4-game series" and "Accuracy on 7-game series"
-						// This usually means "When the person PREDICTS a sweep, how often are they right?"
-						// OR "When the series IS a sweep, how often did they pick the winner?"
-						// Let's assume "Prediction Accuracy".
 						// "Sweep Prediction - Accuracy on 4-game series" -> When user picks 4 games.
 
 						if (result.pick.games === 4) {
 							stats[person].sweepStats.total++;
-							// A "correct" sweep prediction means they got the winner AND the games right?
-							// Or just the winner? Usually "Sweep Prediction" implies predicting the sweep itself.
-							// Let's go with: They predicted a sweep (Winner in 4).
-							// Did the series end in a sweep by that team?
+							// A "correct" sweep prediction means they got the winner AND the games right
 							if (result.teamStatus === 'CORRECT' && result.gamesStatus === 'CORRECT') {
 								stats[person].sweepStats.correct++;
 							}

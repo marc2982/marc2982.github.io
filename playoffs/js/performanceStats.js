@@ -25,7 +25,6 @@ export async function performanceStats(container) {
 			longestWinStreak: 0,
 			currentLoseStreak: 0,
 			longestLoseStreak: 0,
-			timesLedRound1: 0,
 			yearlyScores: [],
 			silverMedals: 0,
 			bronzeMedals: 0,
