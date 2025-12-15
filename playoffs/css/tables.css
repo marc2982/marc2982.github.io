@@ -45,3 +45,31 @@
 .section-card h3 {
 	margin-top: 30px;
 }
+
+/* Utility Classes for Dynamic Styling */
+.text-bold {
+	font-weight: bold;
+}
+.text-success {
+	color: green;
+}
+.text-danger {
+	color: red;
+}
+.text-primary {
+	color: blue;
+}
+.bg-light {
+	background-color: #f8f9fa;
+}
+
+/* Semantic Stat Classes */
+.stat-win {
+	color: green;
+	font-weight: bold;
+}
+.stat-loss {
+	color: red;
+	font-weight: bold;
+}
+

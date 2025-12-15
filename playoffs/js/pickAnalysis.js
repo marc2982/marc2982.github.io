@@ -1,5 +1,5 @@
 import { PEOPLE, TEAMS } from './constants.js';
-import { loadAllYearsDetailed } from './common.js';
+import { loadAllYearsDetailed, isPerfectPick, isBonusEarned } from './common.js';
 import { createSection, createTable, initDataTable } from './tableUtils.js';
 
 export async function pickAnalysis(container) {
@@ -77,7 +77,7 @@ export async function pickAnalysis(container) {
 					// Track bonus points
 					// earnedBonusPoints field is unreliable in data, so we check if both team and games are correct
 					// Standard scoring: Team (1) + Games (2) + Bonus (3) = 6 points
-					if (result.teamStatus === 'CORRECT' && result.gamesStatus === 'CORRECT') {
+					if (isBonusEarned(result)) {
 						stats[person].bonusEarned++;
 					}
 
@@ -129,7 +129,7 @@ export async function pickAnalysis(container) {
 						if (result.pick.games === 7) stats[person].game7sPredicted++;
 
 						// Perfect Pick: Team Correct AND Games Correct
-						if (result.teamStatus === 'CORRECT' && result.gamesStatus === 'CORRECT') {
+						if (isPerfectPick(result)) {
 							stats[person].perfectPicks++;
 						}
 					}
@@ -245,7 +245,7 @@ function buildEstimatorTable(container, stats) {
 		const diff = (predAvg - actualAvg).toFixed(2);
 
 		const displayDiff = diff > 0 ? `+${diff}` : diff;
-		const color = diff > 0 ? 'red' : diff < 0 ? 'blue' : 'black';
+		const colorClass = diff > 0 ? 'text-danger' : diff < 0 ? 'text-primary' : '';
 
 		if (s.gamesPredictionsCount === 0) return;
 
@@ -253,7 +253,7 @@ function buildEstimatorTable(container, stats) {
 		$row.append(`<td>${s.name}</td>`);
 		$row.append(`<td>${predAvg}</td>`);
 		$row.append(`<td>${actualAvg}</td>`);
-		$row.append(`<td style="color: ${color}; font-weight: bold;">${displayDiff}</td>`);
+		$row.append(`<td class="text-bold ${colorClass}">${displayDiff}</td>`);
 		$tbody.append($row);
 	});
 
