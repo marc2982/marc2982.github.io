@@ -34,6 +34,24 @@ function doPost(e) {
 		const timestamp = new Date();
 		const timestampStr = Utilities.formatDate(timestamp, 'GMT', 'M/d/yyyy H:mm:ss');
 
+		// 3. Security 1: Check for Duplicates in the backup sheet
+		// This prevents low-effort spamming or accidental double-clicks.
+		try {
+			const ss = SpreadsheetApp.getActiveSpreadsheet();
+			let sheet = ss.getSheetByName(SHEET_NAME);
+			if (sheet) {
+				const existingData = sheet.getDataRange().getValues();
+				for (let i = 1; i < existingData.length; i++) {
+					// Column B is Name (index 1)
+					if (existingData[i][1] === name) {
+						return respond({ result: 'error', error: `Duplicate: ${name} has already submitted!` });
+					}
+				}
+			}
+		} catch (e) {
+			console.warn('Duplicate check skipped (sheet error)', e);
+		}
+
 		// Format CSV row (Timestamp, Name, Team, Games, Team, Games...)
 		let csvRow = [timestampStr, name];
 		data.picks.forEach((p) => {

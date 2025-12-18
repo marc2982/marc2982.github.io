@@ -101,7 +101,7 @@
 					font-weight: 600;
 					cursor: pointer;
 					margin-bottom: 15px;
-				">🧪 Run Full Roundtrip Test</button>
+				">Run Full Roundtrip Test</button>
 				<div id="integration-results"></div>
 			</div>
 		</div>
@@ -164,7 +164,7 @@
 
 					try {
 						// We'll prompt for passcode if it's generic, or just use a default
-						const passcode = prompt('Enter your GAS Passcode (default is cup2025):', 'cup2025');
+						const passcode = prompt('Enter your GAS Passcode');
 						if (!passcode) {
 							btn.disabled = false;
 							btn.textContent = '🧪 Run Full Roundtrip Test';
@@ -189,7 +189,7 @@
 						`;
 					} finally {
 						btn.disabled = false;
-						btn.textContent = '🧪 Run Full Roundtrip Test';
+						btn.textContent = 'Run Full Roundtrip Test';
 					}
 				};
 			}
