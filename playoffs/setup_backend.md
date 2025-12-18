@@ -1,94 +1,51 @@
-# Google Sheets Backend Setup
+# Playoffs Backend Setup (GitHub Integrated)
 
-To enable automatic submissions, we need a simple script to receive the data and save it to a Google Sheet.
+To enable fully automatic pick collection, we use a Google Apps Script that receives data and commits it directly to your GitHub repository.
 
-## Step 1: Create the Sheet
+## Step 1: Create a GitHub Token
 
-1. Go to [sheets.google.com](https://sheets.google.com/create) and create a new blank spreadsheet.
-2. Name it **"NHL Playoffs Picks"**.
-3. Rename "Sheet1" to **"Picks"**.
-4. Add the following headers to the first row (A1:R1):
-   `Timestamp`, `Name`, `Series 1 Winner`, `Games`, `Series 2 Winner`, `Games`, `Series 3 Winner`, `Games`, `Series 4 Winner`, `Games`, `Series 5 Winner`, `Games`, `Series 6 Winner`, `Games`, `Series 7 Winner`, `Games`, `Series 8 Winner`, `Games`
+Since the script will write to your repository, it needs a **Personal Access Token (PAT)**.
 
-## Step 2: Add the Script
+1.  Go to your GitHub [Fine-grained personal access tokens](https://github.com/settings/tokens?type=beta) settings.
+2.  Click **Generate new token**.
+3.  Name it `Playoff Picks Middleware`.
+4.  **Repository access**: Select `Only select repositories` and choose `marc2982.github.io`.
+5.  **Permissions**: Under **Repository permissions**, find **Contents** and select **Read and write**.
+6.  Click **Generate token**. **COPY IT IMMEDIATELY** (you won't see it again).
 
-1. In your Google Sheet, click **Extensions** > **Apps Script**.
-2. Delete any code in the editor (`myFunction`...) and paste this **exact** code:
+## Step 2: Create the Apps Script
 
-```javascript
-// CONFIGURATION
-const SHEET_NAME = 'Picks';
-const PASSCODE = 'cup2025'; // CHANGE THIS TO YOUR SECRET CODE!
+1.  Go to [script.google.com](https://script.google.com).
+2.  Click **New Project**. Name it `Playoffs Backend`.
+3.  Copy the code from [playoffs/backend/Code.gs](file:///c:/Users/marc2/Documents/Workspace/marc2982.github.io/playoffs/backend/Code.gs) and paste it into the editor (replacing `myFunction`).
+4.  **Important**: Change the `PASSCODE` and `GITHUB_REPO_OWNER` variables if necessary (see top of script).
+5.  Click the **Save** icon.
 
-function doPost(e) {
-	const lock = LockService.getScriptLock();
-	lock.tryLock(10000);
+## Step 3: Set the Token
 
-	try {
-		const doc = SpreadsheetApp.getActiveSpreadsheet();
-		const sheet = doc.getSheetByName(SHEET_NAME);
+1.  In the Apps Script editor, click the **Settings** gear icon (left sidebar).
+2.  Scroll down to **Script Properties**.
+3.  Click **Add script property**.
+    -   Property: `GITHUB_TOKEN`
+    -   Value: (Paste your GitHub Token from Step 1)
+4.  Click **Save script properties**.
 
-		// Parse data
-		const data = JSON.parse(e.postData.contents);
+## Step 4: Deploy
 
-		// SECURITY 1: Check Passcode
-		if (!data.passcode || data.passcode.toLowerCase() !== PASSCODE) {
-			return ContentService.createTextOutput(
-				JSON.stringify({ result: 'error', error: 'Invalid Passcode' }),
-			).setMimeType(ContentService.MimeType.JSON);
-		}
+1.  Click **Deploy** (top right) > **New deployment**.
+2.  Click **Select type** (gear) > **Web app**.
+3.  **Execute as**: `Me`.
+4.  **Who has access**: `Anyone`.
+5.  Click **Deploy**.
+6.  Authorize the script (Advanced > Go to ... > Allow).
+7.  **COPY** the "Web App URL".
 
-		// SECURITY 2: Check for Duplicates
-		// We check Column B (Name) to see if this person already submitted
-		const existingData = sheet.getDataRange().getValues();
-		// Start loop at 1 to skip header
-		for (let i = 1; i < existingData.length; i++) {
-			if (existingData[i][1] === data.name) {
-				return ContentService.createTextOutput(
-					JSON.stringify({ result: 'error', error: 'Duplicate: ' + data.name + ' has already submitted!' }),
-				).setMimeType(ContentService.MimeType.JSON);
-			}
-		}
+## Step 5: Connect to Site
 
-		// Create the row
-		const timestamp = new Date();
+1.  Open `playoffs/js/config.js` in your local project.
+2.  Paste the URL into the `GOOGLE_SCRIPT_URL` variable.
 
-		let row = [timestamp, data.name];
+---
 
-		data.picks.forEach((pick) => {
-			row.push(pick.winner);
-			row.push(pick.games);
-		});
-
-		sheet.appendRow(row);
-
-		return ContentService.createTextOutput(JSON.stringify({ result: 'success', row: row.length })).setMimeType(
-			ContentService.MimeType.JSON,
-		);
-	} catch (e) {
-		return ContentService.createTextOutput(JSON.stringify({ result: 'error', error: e.toString() })).setMimeType(
-			ContentService.MimeType.JSON,
-		);
-	} finally {
-		lock.releaseLock();
-	}
-}
-```
-
-3. Click the **Save** icon (disk). Name the project "Playoffs Backend".
-
-## Step 3: Deploy
-
-1. Click the blue **Deploy** button (top right) > **New deployment**.
-2. Click the specific **"Select type"** gear icon > **Web app**.
-3. Description: `v1`.
-4. **Execute as**: `Me` (your email).
-5. **Who has access**: `Anyone` (IMPORTANT: This allows your site visitors to submit).
-6. Click **Deploy**.
-7. Authorize the script (Click "Review permissions", choose your account, click "Advanced" > "Go to Playoffs Backend (unsafe)" > "Allow").
-8. **COPY** the "Web App URL".
-
-## Step 4: Connect to Site
-
-1. Open `playoffs/js/config.js` in your project.
-2. Paste the URL into the `GOOGLE_SCRIPT_URL` variable.
+> [!NOTE]
+> Once deployed, all submissions will automatically update the CSV files in `playoffs/data/archive/2025/`. This will trigger a GitHub Pages rebuild, making the new picks visible on the site within a few minutes.

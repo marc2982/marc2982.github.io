@@ -11,6 +11,7 @@ const CURRENT_YEAR = (function () {
 	// If it's September (month 8) or later, we're looking ahead to next year's playoffs
 	return now.getMonth() >= 8 ? year + 1 : year;
 })();
+let activeRound = 1;
 
 $(document).ready(async function () {
 	await init();
@@ -58,6 +59,7 @@ async function init() {
 			});
 
 			const targetRoundLetters = ALL_SERIES[maxRoundIdx];
+			activeRound = maxRoundIdx + 1;
 			const targetRoundSeries = activeSeries.filter((s) => seriesToRound[s.letter] === maxRoundIdx);
 
 			// Fetch schedules for active series in this round + the lead series for unlocking logic
@@ -296,6 +298,8 @@ async function handleSubmit() {
 	const payload = {
 		name: name,
 		passcode: passcode,
+		year: CURRENT_YEAR,
+		round: activeRound,
 		picks: picks,
 	};
 

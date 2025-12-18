@@ -132,3 +132,43 @@ export async function runTests() {
 
 	return results;
 }
+
+/**
+ * INTEGRATION TEST: Performs a real POST to the GAS Web App
+ */
+export async function runIntegrationTest(url, passcode) {
+	if (!url || url.includes('YOUR_GOOGLE_SCRIPT_URL_HERE')) {
+		throw new Error('Google Script URL not configured in config.js');
+	}
+
+	const testUser = `TestBot_${Math.floor(Date.now() / 1000)}`;
+	const payload = {
+		passcode: passcode,
+		name: testUser,
+		year: 2025,
+		round: 1,
+		picks: [
+			{ winner: 'FLA', games: 4 },
+			{ winner: 'EDM', games: 7 },
+		],
+	};
+
+	try {
+		const response = await fetch(url, {
+			method: 'POST',
+			body: JSON.stringify(payload),
+		});
+
+		// GAS web app returns a response that might be tricky with CORS
+		// but if we are on localhost:8000 it might work if GAS is set to 'Anyone'
+		const result = await response.json();
+
+		if (result.result !== 'success') {
+			throw new Error(result.error || 'Unknown error from GAS');
+		}
+
+		return { user: testUser, result: 'SUCCESS', details: 'Record successfully added to GitHub.' };
+	} catch (e) {
+		throw new Error(`Integration failed: ${e.message}. (Ensure Web App is deployed and URL is correct)`);
+	}
+}
