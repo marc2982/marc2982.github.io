@@ -1,4 +1,4 @@
-import { Series, Team, ALL_SERIES } from './models.js';
+import { Series, Team, ALL_SERIES, WINNER_MAP } from './models.js';
 import { DataLoader } from './dataLoader.js';
 import { SeriesRepository, TeamRepository } from './repositories.js';
 
@@ -83,6 +83,35 @@ export class NhlApiHandler {
 
 	getSeriesList() {
 		return this.series;
+	}
+
+	getPossibleWinners(seriesLetter) {
+		const series = this.series.find((s) => s.letter === seriesLetter);
+		if (!series) return [];
+
+		// If series is over, there is only one possible winner
+		if (series.isOver()) {
+			return [series.getWinner().team];
+		}
+
+		// If seeds are set, both are possible winners
+		if (
+			series.topSeed &&
+			series.topSeed !== 'undefined' &&
+			series.bottomSeed &&
+			series.bottomSeed !== 'undefined'
+		) {
+			return [series.topSeed, series.bottomSeed];
+		}
+
+		// Otherwise, recurse to parents
+		const parents = WINNER_MAP[seriesLetter];
+		if (!parents) return [];
+
+		const left = this.getPossibleWinners(parents[0]);
+		const right = this.getPossibleWinners(parents[1]);
+		// Distinct teams
+		return [...new Set([...left, ...right])];
 	}
 
 	buildTeam(series, topOrBottom) {

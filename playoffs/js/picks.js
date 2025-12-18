@@ -1,7 +1,7 @@
 import { GOOGLE_SCRIPT_URL, DEBUG_MODE } from './config.js';
 import { DataLoader } from './dataLoader.js';
 import { NhlApiHandler } from './nhlApiHandler.js';
-import { ALL_SERIES, Series } from './models.js';
+import { ALL_SERIES, Series, WINNER_MAP } from './models.js';
 import { PEOPLE } from './constants.js';
 
 // Determine year (auto-detect based on current date)
@@ -134,58 +134,36 @@ function renderMatchups(seriesList, teamsObjects, targetRoundIdx) {
 	targetSeries.forEach((s) => {
 		const isParticipantSet = s.topSeed && s.topSeed !== 'undefined' && s.bottomSeed && s.bottomSeed !== 'undefined';
 
-		if (!isParticipantSet) {
-			// Skip for now, Phase 2 will handle contingency cards
-			return;
+		if (isParticipantSet) {
+			const topTeam = teamsObjects[s.topSeed] || { logo: '', rank: 'Top' };
+			const botTeam = teamsObjects[s.bottomSeed] || { logo: '', rank: 'Bot' };
+
+			const hasStarted = s.isLocked() || s.topSeedWins > 0 || s.bottomSeedWins > 0;
+			if (!hasStarted) allLocked = false;
+
+			container.append(renderMatchupCard(s, s.topSeed, topTeam, s.bottomSeed, botTeam));
+		} else {
+			// Phase 2: Contingency Matchups
+			const parents = WINNER_MAP[s.letter];
+			if (parents) {
+				const leftOptions = apiHandler.getPossibleWinners(parents[0]);
+				const rightOptions = apiHandler.getPossibleWinners(parents[1]);
+
+				leftOptions.forEach((leftTeamShort) => {
+					rightOptions.forEach((rightTeamShort) => {
+						const leftTeam = teamsObjects[leftTeamShort] || { logo: '', rank: '?' };
+						const rightTeam = teamsObjects[rightTeamShort] || { logo: '', rank: '?' };
+						container.append(
+							renderMatchupCard(s, leftTeamShort, leftTeam, rightTeamShort, rightTeam, true),
+						);
+					});
+				});
+
+				// Check if any could have started (though TBD usually means not started)
+				const hasStarted = s.isLocked() || s.topSeedWins > 0 || s.bottomSeedWins > 0;
+				if (!hasStarted) allLocked = false;
+			}
 		}
-
-		// Look up full team objects for logos/ranks
-		const topTeam = teamsObjects[s.topSeed] || { logo: '', rank: 'Top' };
-		const botTeam = teamsObjects[s.bottomSeed] || { logo: '', rank: 'Bot' };
-
-		// SMART LOCKING: Check if individual series started
-		// Also check wins as fallback
-		const hasStarted = s.isLocked() || s.topSeedWins > 0 || s.bottomSeedWins > 0;
-		if (!hasStarted) allLocked = false;
-
-		const disabledClass = hasStarted ? 'style="pointer-events: none; opacity: 0.7;"' : '';
-		const lockBadge = hasStarted ? '<div class="lock-badge">🔒 Locked</div>' : '';
-
-		const html = `
-            <div class="matchup ${hasStarted ? 'locked' : ''}" data-series="${s.letter}" ${disabledClass}>
-                <div class="matchup-header">
-                    <span>${s.getShortDesc()}</span>
-                    <span>Series ${s.letter} ${lockBadge}</span>
-                </div>
-                <div class="teams">
-                    <div class="team" data-team="${s.topSeed}">
-                        <div class="team-logo">
-                            <img src="${topTeam.logo}" alt="${s.topSeed}" onerror="this.style.display='none'">
-                        </div>
-                        <span class="team-name">${s.topSeed}</span>
-                        <span class="team-seed">${topTeam.rank}</span>
-                    </div>
-                    <div class="vs">VS</div>
-                    <div class="team" data-team="${s.bottomSeed}">
-                        <div class="team-logo">
-                             <img src="${botTeam.logo}" alt="${s.bottomSeed}" onerror="this.style.display='none'">
-                        </div>
-                        <span class="team-name">${s.bottomSeed}</span>
-                        <span class="team-seed">${botTeam.rank}</span>
-                    </div>
-                </div>
-                <div class="prediction-options">
-                    <p>In how many games?</p>
-                    <div class="games-select">
-                        <div class="game-option" data-games="4">4</div>
-                        <div class="game-option" data-games="5">5</div>
-                        <div class="game-option" data-games="6">6</div>
-                        <div class="game-option" data-games="7">7</div>
-                    </div>
-                </div>
-            </div>
-        `;
-		container.append(html);
 	});
 
 	if (allLocked) {
@@ -194,6 +172,55 @@ function renderMatchups(seriesList, teamsObjects, targetRoundIdx) {
 		$('#submit-picks').prop('disabled', false).text('Submit Picks');
 		attachEventHandlers();
 	}
+}
+
+function renderMatchupCard(series, topTeamShort, topTeam, bottomTeamShort, bottomTeam, isContingency = false) {
+	const hasStarted = series.isLocked() || series.topSeedWins > 0 || series.bottomSeedWins > 0;
+	const disabledClass = hasStarted ? 'style="pointer-events: none; opacity: 0.7;"' : '';
+	const lockBadge = hasStarted ? '<div class="lock-badge">🔒 Locked</div>' : '';
+	const contingencyBadge = isContingency
+		? '<div class="contingency-badge" style="background: #e2f3ff; font-size: 0.7em; padding: 2px 5px; border-radius: 4px; color: #004085; display: inline-block; margin-left:8px;">Projected</div>'
+		: '';
+
+	const desc = isContingency ? `${topTeamShort} vs ${bottomTeamShort}` : series.getShortDesc();
+
+	return `
+        <div class="matchup ${hasStarted ? 'locked' : ''} ${isContingency ? 'contingency' : ''}" 
+             data-series="${series.letter}" 
+             data-contingency="${isContingency}"
+             ${disabledClass}>
+            <div class="matchup-header">
+                <span>${desc} ${contingencyBadge}</span>
+                <span>${isContingency ? 'Draft ' : ''}Series ${series.letter} ${lockBadge}</span>
+            </div>
+            <div class="teams">
+                <div class="team" data-team="${topTeamShort}">
+                    <div class="team-logo">
+                        <img src="${topTeam.logo}" alt="${topTeamShort}" onerror="this.style.display='none'">
+                    </div>
+                    <span class="team-name">${topTeamShort}</span>
+                    <span class="team-seed">${topTeam.rank}</span>
+                </div>
+                <div class="vs">VS</div>
+                <div class="team" data-team="${bottomTeamShort}">
+                    <div class="team-logo">
+                         <img src="${bottomTeam.logo}" alt="${bottomTeamShort}" onerror="this.style.display='none'">
+                    </div>
+                    <span class="team-name">${bottomTeamShort}</span>
+                    <span class="team-seed">${bottomTeam.rank}</span>
+                </div>
+            </div>
+            <div class="prediction-options">
+                <p>In how many games?</p>
+                <div class="games-select">
+                    <div class="game-option" data-games="4">4</div>
+                    <div class="game-option" data-games="5">5</div>
+                    <div class="game-option" data-games="6">6</div>
+                    <div class="game-option" data-games="7">7</div>
+                </div>
+            </div>
+        </div>
+    `;
 }
 
 function attachEventHandlers() {
