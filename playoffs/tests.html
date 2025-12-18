@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Playoff Picks - Logic Tests</title>
+		<style>
+			body {
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+					'Open Sans', 'Helvetica Neue', sans-serif;
+				padding: 40px;
+				background: #f8f9fa;
+				color: #333;
+				line-height: 1.5;
+			}
+			.container {
+				max-width: 800px;
+				margin: 0 auto;
+			}
+			.test-group {
+				margin-bottom: 30px;
+				background: white;
+				padding: 24px;
+				border-radius: 12px;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+			}
+			.test-item {
+				padding: 12px 0;
+				border-bottom: 1px solid #f0f0f0;
+			}
+			.test-item:last-child {
+				border-bottom: none;
+			}
+			.test-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			.PASS {
+				color: #2ecc71;
+				font-weight: 700;
+				background: #eafaf1;
+				padding: 4px 12px;
+				border-radius: 20px;
+				font-size: 0.85em;
+			}
+			.FAIL {
+				color: #e74c3c;
+				font-weight: 700;
+				background: #fdedec;
+				padding: 4px 12px;
+				border-radius: 20px;
+				font-size: 0.85em;
+			}
+			.error-msg {
+				color: #e74c3c;
+				font-size: 0.9em;
+				margin-top: 8px;
+				padding: 8px;
+				background: #fff5f5;
+				border-left: 3px solid #e74c3c;
+			}
+			h1 {
+				font-weight: 800;
+				margin-bottom: 40px;
+				text-align: center;
+				color: #2c3e50;
+			}
+			h2 {
+				margin-top: 0;
+				color: #34495e;
+				font-size: 1.25em;
+				border-bottom: 2px solid #3498db;
+				padding-bottom: 10px;
+				margin-bottom: 15px;
+			}
+			.summary {
+				text-align: center;
+				margin-bottom: 30px;
+				font-weight: 600;
+				font-size: 1.1em;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>🏒 Playoff Picks Logic Tests</h1>
+			<div id="summary" class="summary"></div>
+			<div id="results">Running tests...</div>
+		</div>
+
+		<script type="module">
+			import { runTests } from './js/tests/logic.test.js';
+
+			async function init() {
+				const results = await runTests();
+				const container = document.getElementById('results');
+				const summaryDiv = document.getElementById('summary');
+				container.innerHTML = '';
+
+				const passed = results.filter((r) => r.status === 'PASS').length;
+				const total = results.length;
+				summaryDiv.innerHTML = `<span style="color: ${passed === total ? '#2ecc71' : '#e74c3c'}">${passed} / ${total} Tests Passed</span>`;
+
+				const groups = {};
+				results.forEach((r) => {
+					if (!groups[r.group]) groups[r.group] = [];
+					groups[r.group].push(r);
+				});
+
+				for (const groupName in groups) {
+					const groupDiv = document.createElement('div');
+					groupDiv.className = 'test-group';
+					groupDiv.innerHTML = `<h2>${groupName}</h2>`;
+
+					groups[groupName].forEach((r) => {
+						const itemDiv = document.createElement('div');
+						itemDiv.className = 'test-item';
+
+						const headerDiv = document.createElement('div');
+						headerDiv.className = 'test-header';
+						headerDiv.innerHTML = `
+                        <span>${r.name}</span>
+                        <span class="${r.status}">${r.status}</span>
+                    `;
+						itemDiv.appendChild(headerDiv);
+
+						if (r.error) {
+							const errDiv = document.createElement('div');
+							errDiv.className = 'error-msg';
+							errDiv.textContent = `Error: ${r.error}`;
+							itemDiv.appendChild(errDiv);
+						}
+						groupDiv.appendChild(itemDiv);
+					});
+					container.appendChild(groupDiv);
+				}
+			}
+
+			init();
+		</script>
+	</body>
+</html>
