@@ -17,6 +17,10 @@ export class NhlApiHandler {
 		// Use the injected DataLoader to fetch data
 		const data = await this.dataLoader.load();
 
+		if (!data || !data.series) {
+			throw new Error('PLAYOFFS_NOT_STARTED');
+		}
+
 		// Process the data
 		for (const series of data.series) {
 			if (!series.seriesUrl) {
@@ -56,6 +60,21 @@ export class NhlApiHandler {
 				);
 			}
 		}
+	}
+
+	async fetchSchedules(seriesLetters) {
+		const promises = seriesLetters.map(async (letter) => {
+			const index = this.series.findIndex((s) => s.letter === letter);
+			if (index !== -1) {
+				const series = this.series[index];
+				const schedule = await this.dataLoader.fetchSeriesSchedule(this.year, letter);
+				if (schedule && schedule.games && schedule.games.length > 0) {
+					// Series objects are immutable (dataclass), so we must create a copy
+					this.series[index] = series.copy({ startTimeUTC: schedule.games[0].startTimeUTC });
+				}
+			}
+		});
+		await Promise.all(promises);
 	}
 
 	getTeams() {

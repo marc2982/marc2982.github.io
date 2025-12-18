@@ -1,18 +1,20 @@
 import { GOOGLE_SCRIPT_URL, DEBUG_MODE } from './config.js';
 import { DataLoader } from './dataLoader.js';
 import { NhlApiHandler } from './nhlApiHandler.js';
-import { ALL_SERIES } from './models.js';
+import { ALL_SERIES, Series } from './models.js';
+import { PEOPLE } from './constants.js';
 
-// Determine year (auto-detect or default)
-const CURRENT_YEAR = 2025; // Could be dynamic, but manual update is safer for playoffs
+// Determine year (auto-detect based on current date)
+const CURRENT_YEAR = (function () {
+	const now = new Date();
+	const year = now.getFullYear();
+	// If it's September (month 8) or later, we're looking ahead to next year's playoffs
+	return now.getMonth() >= 8 ? year + 1 : year;
+})();
 
 $(document).ready(async function () {
 	await init();
 });
-
-import { PEOPLE } from './constants.js';
-
-// ... existing imports ...
 
 async function init() {
 	// Populate Names
@@ -26,71 +28,134 @@ async function init() {
 
 	try {
 		await apiHandler.load();
-		const teams = apiHandler.getTeams(); // Get team data including logos
+		const teams = apiHandler.getTeams();
 		const seriesList = apiHandler.getSeriesList();
-		renderMatchups(seriesList, teams);
+
+		// Check if playoffs are complete (SCF is over)
+		const scf = seriesList.find((s) => s.letter === 'O');
+		const isComplete = scf && scf.isOver();
+
+		if (isComplete) {
+			$('#matchups-container').html(`<div class="info">${getSeasonStr(true)}</div>`);
+			return;
+		}
+
+		// Determine target round
+		const activeSeries = seriesList.filter(
+			(s) => s.topSeed && s.topSeed !== 'undefined' && s.bottomSeed && s.bottomSeed !== 'undefined',
+		);
+
+		if (activeSeries.length > 0) {
+			const seriesToRound = {};
+			ALL_SERIES.forEach((roundLetters, roundIdx) => {
+				roundLetters.forEach((letter) => (seriesToRound[letter] = roundIdx));
+			});
+
+			let maxRoundIdx = -1;
+			activeSeries.forEach((s) => {
+				const rIdx = seriesToRound[s.letter];
+				if (rIdx > maxRoundIdx) maxRoundIdx = rIdx;
+			});
+
+			const targetRoundLetters = ALL_SERIES[maxRoundIdx];
+			const targetRoundSeries = activeSeries.filter((s) => seriesToRound[s.letter] === maxRoundIdx);
+
+			// Fetch schedules for active series in this round + the lead series for unlocking logic
+			const leadSeriesLetter = targetRoundLetters[0];
+			const lettersToFetch = [...new Set([...targetRoundSeries.map((s) => s.letter), leadSeriesLetter])];
+			await apiHandler.fetchSchedules(lettersToFetch);
+
+			renderMatchups(seriesList, teams, maxRoundIdx);
+		} else {
+			// Bracket not set yet
+			$('#matchups-container').html(`<div class="info">${getSeasonStr(false)}</div>`);
+		}
 	} catch (e) {
 		console.error('Failed to load data', e);
-		$('#matchups-container').html(`<div class="error">Failed to load playoff data. Please try again later.</div>`);
+		if (e.message === 'PLAYOFFS_NOT_STARTED') {
+			$('#matchups-container').html(`<div class="info">${getSeasonStr(false)}</div>`);
+		} else {
+			$('#matchups-container').html(
+				`<div class="error">Failed to load playoff data, please let Marc know!</div>`,
+			);
+		}
 	}
 
 	$('#submit-picks').on('click', handleSubmit);
 }
 
-function renderMatchups(seriesList, teamsObjects) {
+function getSeasonStr(isNextSeason) {
+	const startYear = isNextSeason ? CURRENT_YEAR : CURRENT_YEAR - 1;
+	return `${startYear}-${startYear + 1} playoffs haven't started yet.`;
+}
+
+function renderMatchups(seriesList, teamsObjects, targetRoundIdx) {
 	const container = $('#matchups-container');
 	container.empty();
 
-	// 1. Filter for active series
-	const activeSeries = seriesList.filter(
-		(s) => s.topSeed && s.topSeed !== 'undefined' && s.bottomSeed && s.bottomSeed !== 'undefined',
-	);
-
-	if (activeSeries.length === 0) {
+	if (targetRoundIdx === -1) {
 		container.html('<div class="info">No active matchups found. The bracket might not be set yet.</div>');
 		return;
 	}
 
-	// 2. Group by Round
 	const seriesToRound = {};
 	ALL_SERIES.forEach((roundLetters, roundIdx) => {
 		roundLetters.forEach((letter) => (seriesToRound[letter] = roundIdx));
 	});
 
-	let maxRoundIdx = -1;
-	activeSeries.forEach((s) => {
-		const rIdx = seriesToRound[s.letter];
-		if (rIdx > maxRoundIdx) maxRoundIdx = rIdx;
-	});
+	const targetSeries = seriesList.filter((s) => seriesToRound[s.letter] === targetRoundIdx);
 
-	const targetSeries = activeSeries.filter((s) => seriesToRound[s.letter] === maxRoundIdx);
+	// 1. Check if Round is Open (3 days before Lead Series)
+	const leadSeriesLetter = ALL_SERIES[targetRoundIdx][0];
+	const leadSeries = seriesList.find((s) => s.letter === leadSeriesLetter);
 
-	// RESTRICTION: Check if round has started (any wins recorded)
-	const hasRoundStarted = targetSeries.some((s) => s.topSeedWins > 0 || s.bottomSeedWins > 0);
+	// Strictly require startTimeUTC. If missing, it's either TBD or a projection (not open yet).
+	const isRoundOpen = !!(leadSeries && leadSeries.startTimeUTC && Series.isRoundOpen(leadSeries.startTimeUTC));
 
-	if (hasRoundStarted) {
-		container.append(`
-            <div class="intro-card" style="background-color: #fff3cd; color: #856404; border-color: #ffeeba;">
-                <h3>⚠️ Picks Closed</h3>
-                <p>This round has already started (games have been done). Submissions are currently disabled.</p>
-            </div>
-        `);
+	if (!isRoundOpen) {
+		if (leadSeries && leadSeries.startTimeUTC) {
+			const unlockDate = new Date(new Date(leadSeries.startTimeUTC).getTime() - 3 * 24 * 60 * 60 * 1000);
+			container.html(`
+                <div class="intro-card" style="background-color: #e2f3ff; color: #004085; border-color: #b8daff;">
+                    <h3>🔒 Picks Not Open Yet</h3>
+                    <p>Picks for this round will open on <b>${unlockDate.toLocaleDateString()} at ${unlockDate.toLocaleTimeString()}</b> (3 days before the first game).</p>
+                </div>
+            `);
+		} else {
+			// No schedule at all = Case for projections or very early season
+			container.html(`<div class="info">${getSeasonStr(false)}</div>`);
+		}
+		$('#submit-picks').prop('disabled', true).text('Locked');
+		return;
 	}
 
-	// 3. Render Cards
+	// 2. Render Cards
+	let allLocked = true;
 	targetSeries.forEach((s) => {
+		const isParticipantSet = s.topSeed && s.topSeed !== 'undefined' && s.bottomSeed && s.bottomSeed !== 'undefined';
+
+		if (!isParticipantSet) {
+			// Skip for now, Phase 2 will handle contingency cards
+			return;
+		}
+
 		// Look up full team objects for logos/ranks
 		const topTeam = teamsObjects[s.topSeed] || { logo: '', rank: 'Top' };
 		const botTeam = teamsObjects[s.bottomSeed] || { logo: '', rank: 'Bot' };
 
-		// Disable interaction if round started
-		const disabledClass = hasRoundStarted ? 'style="pointer-events: none; opacity: 0.7;"' : '';
+		// SMART LOCKING: Check if individual series started
+		// Also check wins as fallback
+		const hasStarted = s.isLocked() || s.topSeedWins > 0 || s.bottomSeedWins > 0;
+		if (!hasStarted) allLocked = false;
+
+		const disabledClass = hasStarted ? 'style="pointer-events: none; opacity: 0.7;"' : '';
+		const lockBadge = hasStarted ? '<div class="lock-badge">🔒 Locked</div>' : '';
 
 		const html = `
-            <div class="matchup" data-series="${s.letter}" ${disabledClass}>
+            <div class="matchup ${hasStarted ? 'locked' : ''}" data-series="${s.letter}" ${disabledClass}>
                 <div class="matchup-header">
                     <span>${s.getShortDesc()}</span>
-                    <span>Series ${s.letter}</span>
+                    <span>Series ${s.letter} ${lockBadge}</span>
                 </div>
                 <div class="teams">
                     <div class="team" data-team="${s.topSeed}">
@@ -123,10 +188,10 @@ function renderMatchups(seriesList, teamsObjects) {
 		container.append(html);
 	});
 
-	// Disable interaction if round started
-	if (hasRoundStarted) {
-		$('#submit-picks').prop('disabled', true).text('Picks Closed');
+	if (allLocked) {
+		$('#submit-picks').prop('disabled', true).text('Round Locked');
 	} else {
+		$('#submit-picks').prop('disabled', false).text('Submit Picks');
 		attachEventHandlers();
 	}
 }

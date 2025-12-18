@@ -15,21 +15,31 @@ export class DataLoader {
 		try {
 			// try to load from cached JSON file first
 			console.log(`Attempting to load cached data from: ${this.cachedPath}`);
-			const data = await fetchJson(this.cachedPath, true); // bust cache
-			console.log(`✓ Loaded cached data for ${this.year}`);
-			return data;
+			return await fetchJson(this.cachedPath, true); // bust cache
 		} catch (err) {
 			// If cached file doesn't exist, fetch from live API
 			console.log(`Cached file not found, fetching from live API: ${this.apiUrl}`);
-			try {
-				// Use a CORS proxy to bypass browser security restrictions
-				const corsProxy = 'https://corsproxy.io/?';
-				const data = await fetchJson(corsProxy + encodeURIComponent(this.apiUrl));
-				console.log(`✓ Successfully fetched live data for ${this.year}`);
-				return data;
-			} catch (apiErr) {
-				throw new Error(`Failed to load data from both cache and API afor ${this.year}`, apiErr);
-			}
+			return await this._fetchApi(this.apiUrl);
+		}
+	}
+
+	async fetchSeriesSchedule(year, seriesLetter) {
+		const season = `${year - 1}${year}`;
+		const url = `https://api-web.nhle.com/v1/schedule/playoff-series/${season}/${seriesLetter}`;
+		console.log(`Fetching series schedule for ${seriesLetter}: ${url}`);
+		return await this._fetchApi(url);
+	}
+
+	/**
+	 * Internal helper to fetch from the NHL API using a CORS proxy.
+	 */
+	async _fetchApi(url) {
+		try {
+			const corsProxy = 'https://corsproxy.io/?';
+			return await fetchJson(corsProxy + encodeURIComponent(url));
+		} catch (err) {
+			console.error(`API fetch failed for ${url}:`, err);
+			return null;
 		}
 	}
 }

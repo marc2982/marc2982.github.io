@@ -57,6 +57,7 @@ export class Series extends Data {
 		this.bottomSeed = undefined;
 		this.topSeedWins = DEFAULT_NUMBER;
 		this.bottomSeedWins = DEFAULT_NUMBER;
+		this.startTimeUTC = undefined;
 	}
 	getShortDesc() {
 		return `${this.topSeed} vs ${this.bottomSeed}`;
@@ -90,6 +91,16 @@ export class Series extends Data {
 	}
 	getSeriesSummary() {
 		return `${this.getTopSeedShort()} - ${this.getBottomSeedShort()}`;
+	}
+	isLocked(now = new Date()) {
+		if (!this.startTimeUTC) return false;
+		return now >= new Date(this.startTimeUTC);
+	}
+	static isRoundOpen(leadStartTimeUTC, now = new Date()) {
+		if (!leadStartTimeUTC) return false;
+		const leadTime = new Date(leadStartTimeUTC);
+		const unlockTime = new Date(leadTime.getTime() - 3 * 24 * 60 * 60 * 1000); // 3 days before
+		return now >= unlockTime;
 	}
 }
 
