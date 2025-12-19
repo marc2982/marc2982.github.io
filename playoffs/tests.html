@@ -92,6 +92,9 @@
 					This test will send real data to your Google Apps Script. 
 					<strong>Warning:</strong> This will create a REAL commit to your GitHub repository if successful.
 				</p>
+				<p style="font-size: 0.8em; color: #856404; background: #fff3cd; padding: 10px; border-radius: 4px; margin-bottom: 15px">
+					💡 <strong>Tip:</strong> If you updated <code>Code.gs</code>, you MUST use "Manage Deployments" &gt; "Edit" &gt; "New Version" in Google Apps Script for changes to take effect.
+				</p>
 				<button id="run-integration" style="
 					background: #3498db;
 					color: white;
@@ -156,6 +159,7 @@
 
 				// Integration Test Handler
 				document.getElementById('run-integration').onclick = async () => {
+					console.log('Testing URL:', GOOGLE_SCRIPT_URL);
 					const btn = document.getElementById('run-integration');
 					const resDiv = document.getElementById('integration-results');
 					btn.disabled = true;

@@ -13,12 +13,23 @@ Since the script will write to your repository, it needs a **Personal Access Tok
 5.  **Permissions**: Under **Repository permissions**, find **Contents** and select **Read and write**.
 6.  Click **Generate token**. **COPY IT IMMEDIATELY** (you won't see it again).
 
+## Step 1.5: Create a Google Drive Folder
+
+1.  Go to your [Google Drive](https://drive.google.com).
+2.  Create a new folder named `Hockey Draft`.
+    -   The script will automatically create yearly files (e.g., `2025 Bryan Family Hockey Draft Picks`) inside this folder.
+    -   Each year will have rounds as separate tabs (`round1`, `round2`, etc.).
+
 ## Step 2: Create the Apps Script
 
 1.  Go to [script.google.com](https://script.google.com).
 2.  Click **New Project**. Name it `Playoffs Backend`.
 3.  Copy the code from [playoffs/backend/Code.gs](file:///c:/Users/marc2/Documents/Workspace/marc2982.github.io/playoffs/backend/Code.gs) and paste it into the editor (replacing `myFunction`).
-4.  **Important**: Change the `PASSCODE` and `GITHUB_REPO_OWNER` variables if necessary (see top of script).
+4.  **Important**: Update the variables at the top of the script:
+    -   `PASSCODE`: Must match `picks.js`.
+    -   `GITHUB_REPO_OWNER`: Your GitHub username.
+    -   `GITHUB_BRANCH`: The branch name on GitHub (usually `main`). Check your repo if unsure!
+    -   `DRIVE_FOLDER_NAME`: Keep as `'Hockey Draft'` (or change if you renamed your folder).
 5.  Click the **Save** icon.
 
 ## Step 3: Set the Token
@@ -48,4 +59,8 @@ Since the script will write to your repository, it needs a **Personal Access Tok
 ---
 
 > [!NOTE]
-> Once deployed, all submissions will automatically update the CSV files in `playoffs/data/archive/2025/`. This will trigger a GitHub Pages rebuild, making the new picks visible on the site within a few minutes.
+> Once deployed, the script is fully autonomous! It will automatically:
+>
+> 1.  Create a new tab in your Google Sheet for each year.
+> 2.  Create any missing folders or CSV files in your GitHub repository.
+> 3.  Trigger a GitHub Pages rebuild with every new submission.
