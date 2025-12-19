@@ -1,5 +1,6 @@
 import { Series, ALL_SERIES, WINNER_MAP } from '../models.js';
 import { NhlApiHandler } from '../nhlApiHandler.js';
+import { GOOGLE_SCRIPT_URL } from '../config.js';
 
 export async function runTests() {
 	const results = [];

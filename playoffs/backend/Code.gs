@@ -10,6 +10,7 @@
 const PASSCODE = 'cup2025'; // Must match picks.js passcode
 const GITHUB_REPO_OWNER = 'marc2982';
 const GITHUB_REPO_NAME = 'marc2982.github.io';
+const GITHUB_BRANCH = 'rewrite'; // Set this to your active branch (e.g., 'main' or 'rewrite')
 const SHEET_NAME = 'Picks';
 
 // Ensure you set GITHUB_TOKEN in Script Properties (Settings > Script Properties)
@@ -23,12 +24,16 @@ function doPost(e) {
 		const data = JSON.parse(e.postData.contents);
 
 		// 1. Security Check
-		if (!data.passcode || data.passcode.toLowerCase() !== PASSCODE) {
+		const receivedPass = (data.passcode || '').toString().trim();
+		const expectedPass = PASSCODE.trim();
+
+		if (receivedPass !== expectedPass) {
+			console.warn(`Invalid Passcode attempt. Received: "${receivedPass}"`);
 			return respond({ result: 'error', error: 'Invalid Passcode' });
 		}
 
 		// 2. Prepare Data
-		const year = data.year || 2025;
+		const year = data.year || 2026;
 		const roundNum = data.round || 1;
 		const name = data.name;
 		const timestamp = new Date();
@@ -126,6 +131,7 @@ function updateGitHubFile(path, newRow, message) {
 		message: message,
 		content: Utilities.base64Encode(updatedContent, Utilities.Charset.UTF_8),
 		sha: sha, // Required for updates, null for creates
+		branch: GITHUB_BRANCH,
 	};
 
 	const options = {
@@ -135,7 +141,12 @@ function updateGitHubFile(path, newRow, message) {
 		contentType: 'application/json',
 	};
 
-	UrlFetchApp.fetch(url, options);
+	const githubResponse = UrlFetchApp.fetch(url, options);
+	console.log(`GitHub Response (${path}): ${githubResponse.getResponseCode()}`);
+	if (githubResponse.getResponseCode() !== 200 && githubResponse.getResponseCode() !== 201) {
+		console.error('GitHub Commit Failed:', githubResponse.getContentText());
+		throw new Error('Failed to commit to GitHub: ' + githubResponse.getContentText());
+	}
 }
 
 function respond(obj) {
