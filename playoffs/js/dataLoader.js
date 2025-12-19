@@ -5,10 +5,10 @@ import { fetchJson } from './httpUtils.js';
  * It automatically falls back to the API if the cached file doesn't exist.
  */
 export class DataLoader {
-	constructor(year) {
+	constructor(year, basePath = './data/archive/') {
 		this.year = year;
 		this.apiUrl = `https://api-web.nhle.com/v1/playoff-bracket/${year}`;
-		this.cachedPath = `./data/archive/${year}/api.json`;
+		this.cachedPath = `${basePath}${year}/api.json`;
 	}
 
 	async load() {

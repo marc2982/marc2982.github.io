@@ -19,8 +19,19 @@
     window.onload = function () {
       const urlParams = new URLSearchParams(window.location.search);
       const year = parseInt(urlParams.get('year')) || currentYear;
-      $(document).prop('title', `${year} Bryan Family Playoff Pool`);
+      const branch = urlParams.get('branch');
+
+      $(document).prop('title', `${year} Bryan Family Playoff Pool${branch ? ' (Preview)' : ''}`);
       $('#yearText').html(year);
+
+      if (branch) {
+        $('#yearHeader').append(`
+          <span class="badge bg-warning text-dark ms-2" style="font-size: 0.5em; vertical-align: middle;" title="Viewing data from branch: ${branch}">
+            Preview: ${branch}
+          </span>
+        `);
+      }
+
       render(year);
     }
   </script>

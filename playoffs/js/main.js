@@ -29,6 +29,16 @@ export async function render(year) {
 
 async function loadData(year) {
 	try {
+		// TODO: useful for testing, probably should remove this later
+		const urlParams = new URLSearchParams(window.location.search);
+		const branch = urlParams.get('branch');
+
+		if (branch) {
+			console.log(`Branch parameter found: ${branch}. Fetching data from GitHub raw...`);
+			const rawPath = `https://raw.githubusercontent.com/marc2982/marc2982.github.io/${branch}/playoffs/data/archive/${year}`;
+			return await loadAndProcessCsvs(year, rawPath, branch);
+		}
+
 		const dataPath = `./data/summaries/${year}.json`;
 		console.log(`Loading summary JSON file: ${dataPath}`);
 		const data = await fetchJson(dataPath);
@@ -118,8 +128,12 @@ function yearlySummaryFromJson(year, json) {
 	});
 }
 
-export async function loadAndProcessCsvs(year, dataPath = `./data/archive/${year}`) {
-	const dataLoader = new DataLoader(year);
+export async function loadAndProcessCsvs(year, dataPath = `./data/archive/${year}`, branch = null) {
+	const archiveBasePath = branch
+		? `https://raw.githubusercontent.com/marc2982/marc2982.github.io/${branch}/playoffs/data/archive/`
+		: `./data/archive/`;
+
+	const dataLoader = new DataLoader(year, archiveBasePath);
 	const api = new NhlApiHandler(year, dataLoader);
 	await api.load();
 
