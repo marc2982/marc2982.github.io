@@ -1,4 +1,4 @@
-import { Data } from 'https://cdn.skypack.dev/dataclass';
+// Removed dataclass library. Uses pure vanilla JS classes now.
 
 // prettier-ignore
 export const ALL_SERIES = [
@@ -25,40 +25,25 @@ export var PickStatus;
 	PickStatus['UNKNOWN'] = 'UNKNOWN';
 })(PickStatus || (PickStatus = {}));
 
-// dataclass library requires default values for some reason
-const DEFAULT_STRING = 'DEFAULT_STRING';
-const DEFAULT_NUMBER = -9999;
-
-export class Pick extends Data {
-	constructor() {
-		super(...arguments);
-		this.team = DEFAULT_STRING;
-		this.games = DEFAULT_NUMBER;
+class BaseModel {
+	static create(data = {}) {
+		const instance = new this();
+		Object.assign(instance, data);
+		return instance;
 	}
 }
 
-export class PickResult extends Data {
-	constructor() {
-		super(...arguments);
-		this.pick = Pick.create({});
-		this.teamStatus = PickStatus.UNKNOWN;
-		this.gamesStatus = PickStatus.UNKNOWN;
-		this.points = DEFAULT_NUMBER;
-		this.possiblePoints = DEFAULT_NUMBER;
-		this.earnedBonusPoints = false;
+export class Pick extends BaseModel {}
+
+export class PickResult extends BaseModel {
+	static create(data = {}) {
+		const instance = super.create(data);
+		if (data.pick) instance.pick = Pick.create(data.pick);
+		return instance;
 	}
 }
 
-export class Series extends Data {
-	constructor() {
-		super(...arguments);
-		this.letter = DEFAULT_STRING;
-		this.topSeed = undefined;
-		this.bottomSeed = undefined;
-		this.topSeedWins = DEFAULT_NUMBER;
-		this.bottomSeedWins = DEFAULT_NUMBER;
-		this.startTimeUTC = undefined;
-	}
+export class Series extends BaseModel {
 	getShortDesc() {
 		return `${this.topSeed} vs ${this.bottomSeed}`;
 	}
@@ -72,7 +57,7 @@ export class Series extends Data {
 		return !!this.bottomSeed && this.bottomSeedWins === 4;
 	}
 	totalGames() {
-		return this.topSeedWins + this.bottomSeedWins;
+		return (this.topSeedWins || 0) + (this.bottomSeedWins || 0);
 	}
 	getWinner() {
 		if (this.isTopSeedWinner()) {
@@ -104,97 +89,34 @@ export class Series extends Data {
 	}
 }
 
-export class Team extends Data {
-	constructor() {
-		super(...arguments);
-		this.name = DEFAULT_STRING;
-		this.short = DEFAULT_STRING;
-		this.logo = DEFAULT_STRING;
-		this.rank = DEFAULT_STRING;
+export class Team extends BaseModel {}
+
+export class Winner extends BaseModel {}
+
+export class ProjectionCell extends BaseModel {}
+
+export class Scoring extends BaseModel {}
+
+export class PersonPointsSummary extends BaseModel {}
+
+export class RoundSummary extends BaseModel {}
+
+export class Round extends BaseModel {
+	static create(data = {}) {
+		const instance = super.create(data);
+		if (data.scoring) instance.scoring = Scoring.create(data.scoring);
+		if (data.summary) instance.summary = RoundSummary.create(data.summary);
+		return instance;
 	}
 }
 
-export class Winner extends Data {
-	constructor() {
-		super(...arguments);
-		this.team = DEFAULT_STRING;
-		this.games = DEFAULT_NUMBER;
-	}
-}
+export class TiebreakInfo extends BaseModel {}
 
-export class ProjectionCell extends Data {
-	constructor() {
-		super(...arguments);
-		this.first = [];
-		this.second = [];
-		this.third = [];
-		this.losers = [];
-		this.isPossible = undefined;
-		this.isOver = undefined;
-	}
-}
-
-export class Scoring extends Data {
-	constructor() {
-		super(...arguments);
-		this.team = DEFAULT_NUMBER;
-		this.games = DEFAULT_NUMBER;
-		this.bonus = DEFAULT_NUMBER;
-	}
-}
-
-export class PersonPointsSummary extends Data {
-	constructor() {
-		super(...arguments);
-		this.person = DEFAULT_STRING;
-		this.points = DEFAULT_NUMBER;
-		this.possiblePoints = DEFAULT_NUMBER;
-		this.rank = DEFAULT_NUMBER;
-		this.teamsCorrect = DEFAULT_NUMBER;
-		this.gamesCorrect = DEFAULT_NUMBER;
-		this.bonusEarned = DEFAULT_NUMBER;
-	}
-}
-
-export class RoundSummary extends Data {
-	constructor() {
-		super(...arguments);
-		this.summaries = {};
-		this.winners = [];
-		this.losers = [];
-	}
-}
-
-export class Round extends Data {
-	constructor() {
-		super(...arguments);
-		this.number = DEFAULT_NUMBER;
-		this.serieses = [];
-		this.pickResults = {};
-		this.scoring = Scoring.create({});
-		this.summary = RoundSummary.create({});
-	}
-}
-
-export class TiebreakInfo extends Data {
-	constructor() {
-		super(...arguments);
-		this.leaders = [];
-		this.winner = undefined;
-	}
-}
-
-export class YearlySummary extends Data {
-	constructor() {
-		super(...arguments);
-		this.year = DEFAULT_NUMBER;
-		this.rounds = [];
-		this.personSummaries = {};
-		this.winners = [];
-		this.losers = [];
-		this.tiebreakInfo = TiebreakInfo.create({});
-		this.projections = {};
-		this.teams = {};
+export class YearlySummary extends BaseModel {
+	static create(data = {}) {
+		const instance = super.create(data);
+		if (data.tiebreakInfo) instance.tiebreakInfo = TiebreakInfo.create(data.tiebreakInfo);
+		return instance;
 	}
 }
 
