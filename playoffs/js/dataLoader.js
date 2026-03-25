@@ -1,44 +1,33 @@
 import { fetchJson } from './httpUtils.js';
 
 /**
- * DataLoader handles fetching playoff bracket data from either cached JSON files or the live NHL API.
- * It automatically falls back to the API if the cached file doesn't exist.
+ * DataLoader handles fetching playoff bracket data from local cached files.
+ * Thanks to the GitHub Action, these files are always fresh.
  */
 export class DataLoader {
 	constructor(year, basePath = './data/archive/') {
 		this.year = year;
-		this.apiUrl = `https://api-web.nhle.com/v1/playoff-bracket/${year}`;
 		this.cachedPath = `${basePath}${year}/api.json`;
+		this.basePath = basePath;
 	}
 
 	async load() {
 		try {
-			// try to load from cached JSON file first
 			console.log(`Attempting to load cached data from: ${this.cachedPath}`);
 			return await fetchJson(this.cachedPath, true); // bust cache
 		} catch (err) {
-			// If cached file doesn't exist, fetch from live API
-			console.log(`Cached file not found, fetching from live API: ${this.apiUrl}`);
-			return await this._fetchApi(this.apiUrl);
+			console.error(`Cached file not found: ${this.cachedPath}. Is the GitHub Action running?`, err);
+			return null;
 		}
 	}
 
 	async fetchSeriesSchedule(year, seriesLetter) {
-		const season = `${year - 1}${year}`;
-		const url = `https://api-web.nhle.com/v1/schedule/playoff-series/${season}/${seriesLetter}`;
-		console.log(`Fetching series schedule for ${seriesLetter}: ${url}`);
-		return await this._fetchApi(url);
-	}
-
-	/**
-	 * Internal helper to fetch from the NHL API using a CORS proxy.
-	 */
-	async _fetchApi(url) {
+		const schedulePath = `${this.basePath}${year}/schedule_${seriesLetter}.json`;
+		console.log(`Fetching cached series schedule for ${seriesLetter}: ${schedulePath}`);
 		try {
-			const corsProxy = 'https://corsproxy.io/?';
-			return await fetchJson(corsProxy + encodeURIComponent(url));
+			return await fetchJson(schedulePath, true); // bust cache
 		} catch (err) {
-			console.error(`API fetch failed for ${url}:`, err);
+			console.log(`No schedule found for ${seriesLetter} yet at ${schedulePath}`);
 			return null;
 		}
 	}
