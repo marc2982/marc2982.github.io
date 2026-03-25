@@ -1,0 +1,52 @@
+# Agent Readme (Architecture Guide for LLMs)
+
+Welcome, fellow AI! If you are analyzing this codebase to add features, fix bugs, or answer user questions, this guide will save you from going down the wrong path. 
+
+**Read this document before making architectural changes or assuming how the backend works.**
+
+## Core Architecture Overview
+
+This is a **static web application** hosted on GitHub Pages, predicting NHL Playoff outcomes. 
+There is **no Node.js server, no Express backend, and no traditional database.**
+
+It relies entirely on:
+1. Vanilla Javascript (ES6 Modules) & jQuery & DataTables on the frontend.
+2. Local static files (`.csv` and `.json`) for data storage.
+3. The live NHL API (via a CORS proxy) for real-time game results.
+4. A Google Apps Script "Middleware" for ingesting user forms and committing them directly to GitHub.
+
+### Data Flow for "Current Year" (Live Playoffs)
+1. User submits a form on the frontend (`picks.html`).
+2. The form posts to the Google Apps Script (`backend/Code.gs`).
+3. The Apps Script validates the passcode and uses the GitHub API to write the submission directly into a CSV file in the repository (e.g. `data/archive/2025/round1.csv`).
+4. This commit triggers a GitHub Pages rebuild.
+5. When a user visits the site, `js/dataLoader.js` detects it's the current year (because no `{year}.json` summary exists). 
+6. The app dynamically fetches the CSVs, fetches live NHL API score data, and uses `PickResultCalculator` to compute scores on the client side on-the-fly.
+
+### Data Flow for "Past Years" (Historical)
+Calculating hundreds of picks from CSVs + NHL API on the fly for old years is slow and unnecessary. 
+1. Once the playoffs are over, the admin goes to `builder.html`.
+2. They click "Build Year". This runs the calculation logic one last time and serializes the entire final state into a `{year}.json` file.
+3. This JSON file is saved to `data/summaries/`.
+4. From then on, the main site just loads the pre-computed JSON instantly.
+
+## Key Directories
+
+- `js/`: Contains all frontend logic using ES modules.
+  - `models.js`: Core domain models (Team, Pick, PickResult, TiebreakInfo, etc).
+  - `nhlApiHandler.js`: Interacts with the NHL API to get series schedules, results, and team info.
+  - `pickResultCalculator.js` & `projectionCalculator.js`: The heavy lifters for calculating scores and predicting outcomes.
+  - `main.js`: The entry point that decides whether to load from JSON (past year) or dynamically from CSV (current year).
+- `data/`:
+  - `archive/{year}/`: Raw CSVs of user picks, plus a cached `api.json` if available.
+  - `summaries/`: Pre-computed JSON files for past years.
+- `backend/`:
+  - `Code.gs`: The Google Apps Script that acts as the only "server" in this architecture.
+
+## Important Gotchas for LLMs
+
+- **Do NOT try to run `node app.js` or `npm start`.** There is no node server. This is a static site. The `package.json` exists primarily for testing and potential future tooling (like Prettier/ESLint), not for running a server.
+- **Do NOT add server-side dependencies.**
+- **CORS Issues:** The site uses `corsproxy.io` to fetch NHL API data because the official API blocks browser requests from GitHub pages. If the API fails, check `js/dataLoader.js`.
+- **Styling:** CSS is kept in `css/`. Much of it has been recently refactored to use classes rather than inline styles. Check `css/tables.css` and `css/styles.css` before adding inline styles to JS.
+- **Testing:** The user uses `tests.html` to run in-browser tests utilizing a custom simple testing framework, and Jest tests run via `npm test` in the terminal for specific JS modules.

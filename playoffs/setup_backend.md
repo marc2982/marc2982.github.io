@@ -9,7 +9,7 @@ Since the script will write to your repository, it needs a **Personal Access Tok
 1.  Go to your GitHub [Fine-grained personal access tokens](https://github.com/settings/tokens?type=beta) settings.
 2.  Click **Generate new token**.
 3.  Name it `Playoff Picks Middleware`.
-4.  **Repository access**: Select `Only select repositories` and choose `marc2982.github.io`.
+4.  **Repository access**: Select `Only select repositories` and choose `<your-username>.github.io`.
 5.  **Permissions**: Under **Repository permissions**, find **Contents** and select **Read and write**.
 6.  Click **Generate token**. **COPY IT IMMEDIATELY** (you won't see it again).
 
@@ -17,19 +17,19 @@ Since the script will write to your repository, it needs a **Personal Access Tok
 
 1.  Go to your [Google Drive](https://drive.google.com).
 2.  Create a new folder named `Hockey Draft`.
-    -   The script will automatically create yearly files (e.g., `2025 Bryan Family Hockey Draft Picks`) inside this folder.
-    -   Each year will have rounds as separate tabs (`round1`, `round2`, etc.).
+    - The script will automatically create yearly files (e.g., `2025 Bryan Family Hockey Draft Picks`) inside this folder.
+    - Each year will have rounds as separate tabs (`round1`, `round2`, etc.).
 
 ## Step 2: Create the Apps Script
 
 1.  Go to [script.google.com](https://script.google.com).
 2.  Click **New Project**. Name it `Playoffs Backend`.
-3.  Copy the code from [playoffs/backend/Code.gs](file:///c:/Users/marc2/Documents/Workspace/marc2982.github.io/playoffs/backend/Code.gs) and paste it into the editor (replacing `myFunction`).
+3.  Copy the code from `playoffs/backend/Code.gs` and paste it into the editor (replacing `myFunction`).
 4.  **Important**: Update the variables at the top of the script:
-    -   `PASSCODE`: Must match `picks.js`.
-    -   `GITHUB_REPO_OWNER`: Your GitHub username.
-    -   `GITHUB_BRANCH`: The branch name on GitHub (usually `main`). Check your repo if unsure!
-    -   `DRIVE_FOLDER_NAME`: Keep as `'Hockey Draft'` (or change if you renamed your folder).
+    - `PASSCODE`: Must match `picks.js`.
+    - `GITHUB_REPO_OWNER`: Your GitHub username.
+    - `GITHUB_BRANCH`: The branch name on GitHub (usually `main`). Check your repo if unsure!
+    - `DRIVE_FOLDER_NAME`: Keep as `'Hockey Draft'` (or change if you renamed your folder).
 5.  Click the **Save** icon.
 
 ## Step 3: Set the Token
@@ -37,8 +37,8 @@ Since the script will write to your repository, it needs a **Personal Access Tok
 1.  In the Apps Script editor, click the **Settings** gear icon (left sidebar).
 2.  Scroll down to **Script Properties**.
 3.  Click **Add script property**.
-    -   Property: `GITHUB_TOKEN`
-    -   Value: (Paste your GitHub Token from Step 1)
+    - Property: `GITHUB_TOKEN`
+    - Value: (Paste your GitHub Token from Step 1)
 4.  Click **Save script properties**.
 
 ## Step 4: Deploy
