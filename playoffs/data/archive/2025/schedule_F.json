@@ -1,0 +1,814 @@
+{
+  "round": 1,
+  "roundAbbrev": "R1",
+  "roundLabel": "1st-round",
+  "seriesLetter": "F",
+  "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/stanley_cup_playoffs_secondary_wordmark_dark.png",
+  "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/stanley_cup_playoffs_secondary_wordmark_fr_dark.png",
+  "neededToWin": 4,
+  "length": 7,
+  "bottomSeedTeam": {
+    "id": 21,
+    "name": {
+      "default": "Avalanche"
+    },
+    "abbrev": "COL",
+    "placeName": {
+      "default": "Colorado"
+    },
+    "placeNameWithPreposition": {
+      "default": "Colorado",
+      "fr": "du Colorado"
+    },
+    "conference": {
+      "name": "Western",
+      "abbrev": "W"
+    },
+    "record": "3-4",
+    "seriesWins": 3,
+    "divisionAbbrev": "C",
+    "seed": 3,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/COL_dark.svg"
+  },
+  "topSeedTeam": {
+    "id": 25,
+    "name": {
+      "default": "Stars"
+    },
+    "abbrev": "DAL",
+    "placeName": {
+      "default": "Dallas"
+    },
+    "placeNameWithPreposition": {
+      "default": "Dallas",
+      "fr": "de Dallas"
+    },
+    "conference": {
+      "name": "Western",
+      "abbrev": "W"
+    },
+    "record": "9-9",
+    "seriesWins": 4,
+    "divisionAbbrev": "C",
+    "seed": 2,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/DAL_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DAL_dark.svg"
+  },
+  "games": [
+    {
+      "id": 2024030161,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 1,
+      "ifNecessary": false,
+      "venue": {
+        "default": "American Airlines Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-04-20T00:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-05:00",
+      "venueTimezone": "US/Central",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 2,
+          "market": "A",
+          "countryCode": "US",
+          "network": "ALT",
+          "sequenceNumber": 385
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 519,
+          "market": "N",
+          "countryCode": "US",
+          "network": "MAX",
+          "sequenceNumber": 18
+        },
+        {
+          "id": 553,
+          "market": "H",
+          "countryCode": "US",
+          "network": "Victory+",
+          "sequenceNumber": 382
+        }
+      ],
+      "awayTeam": {
+        "id": 21,
+        "commonName": {
+          "default": "Avalanche"
+        },
+        "placeName": {
+          "default": "Colorado"
+        },
+        "placeNameWithPreposition": {
+          "default": "Colorado",
+          "fr": "du Colorado"
+        },
+        "abbrev": "COL",
+        "score": 5
+      },
+      "homeTeam": {
+        "id": 25,
+        "commonName": {
+          "default": "Stars"
+        },
+        "placeName": {
+          "default": "Dallas"
+        },
+        "placeNameWithPreposition": {
+          "default": "Dallas",
+          "fr": "de Dallas"
+        },
+        "abbrev": "DAL",
+        "score": 1
+      },
+      "gameCenterLink": "/gamecenter/col-vs-dal/2025/04/19/2024030161",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 0,
+        "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030162,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 2,
+      "ifNecessary": false,
+      "venue": {
+        "default": "American Airlines Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-04-22T01:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-05:00",
+      "venueTimezone": "US/Central",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 47,
+          "market": "A",
+          "countryCode": "US",
+          "network": "ALT2",
+          "sequenceNumber": 408
+        },
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        },
+        {
+          "id": 530,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS-D",
+          "sequenceNumber": 122
+        },
+        {
+          "id": 553,
+          "market": "H",
+          "countryCode": "US",
+          "network": "Victory+",
+          "sequenceNumber": 382
+        }
+      ],
+      "awayTeam": {
+        "id": 21,
+        "commonName": {
+          "default": "Avalanche"
+        },
+        "placeName": {
+          "default": "Colorado"
+        },
+        "placeNameWithPreposition": {
+          "default": "Colorado",
+          "fr": "du Colorado"
+        },
+        "abbrev": "COL",
+        "score": 3
+      },
+      "homeTeam": {
+        "id": 25,
+        "commonName": {
+          "default": "Stars"
+        },
+        "placeName": {
+          "default": "Dallas"
+        },
+        "placeNameWithPreposition": {
+          "default": "Dallas",
+          "fr": "de Dallas"
+        },
+        "abbrev": "DAL",
+        "score": 4
+      },
+      "gameCenterLink": "/gamecenter/col-vs-dal/2025/04/21/2024030162",
+      "periodDescriptor": {
+        "number": 4,
+        "periodType": "OT",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 1,
+        "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "OT",
+        "otPeriods": 1
+      }
+    },
+    {
+      "id": 2024030163,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 3,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Ball Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-04-24T01:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-06:00",
+      "venueTimezone": "America/Denver",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 2,
+          "market": "H",
+          "countryCode": "US",
+          "network": "ALT",
+          "sequenceNumber": 385
+        },
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 291,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS2",
+          "sequenceNumber": 121
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        },
+        {
+          "id": 553,
+          "market": "A",
+          "countryCode": "US",
+          "network": "Victory+",
+          "sequenceNumber": 382
+        }
+      ],
+      "awayTeam": {
+        "id": 25,
+        "commonName": {
+          "default": "Stars"
+        },
+        "placeName": {
+          "default": "Dallas"
+        },
+        "placeNameWithPreposition": {
+          "default": "Dallas",
+          "fr": "de Dallas"
+        },
+        "abbrev": "DAL",
+        "score": 2
+      },
+      "homeTeam": {
+        "id": 21,
+        "commonName": {
+          "default": "Avalanche"
+        },
+        "placeName": {
+          "default": "Colorado"
+        },
+        "placeNameWithPreposition": {
+          "default": "Colorado",
+          "fr": "du Colorado"
+        },
+        "abbrev": "COL",
+        "score": 1
+      },
+      "gameCenterLink": "/gamecenter/dal-vs-col/2025/04/23/2024030163",
+      "periodDescriptor": {
+        "number": 4,
+        "periodType": "OT",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 2,
+        "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "OT",
+        "otPeriods": 1
+      }
+    },
+    {
+      "id": 2024030164,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 4,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Ball Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-04-27T01:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-06:00",
+      "venueTimezone": "America/Denver",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 2,
+          "market": "H",
+          "countryCode": "US",
+          "network": "ALT",
+          "sequenceNumber": 385
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 284,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN1",
+          "sequenceNumber": 113
+        },
+        {
+          "id": 289,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SNW",
+          "sequenceNumber": 34
+        },
+        {
+          "id": 290,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SNP",
+          "sequenceNumber": 33
+        },
+        {
+          "id": 403,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TBS",
+          "sequenceNumber": 13
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 519,
+          "market": "N",
+          "countryCode": "US",
+          "network": "MAX",
+          "sequenceNumber": 18
+        },
+        {
+          "id": 553,
+          "market": "A",
+          "countryCode": "US",
+          "network": "Victory+",
+          "sequenceNumber": 382
+        }
+      ],
+      "awayTeam": {
+        "id": 25,
+        "commonName": {
+          "default": "Stars"
+        },
+        "placeName": {
+          "default": "Dallas"
+        },
+        "placeNameWithPreposition": {
+          "default": "Dallas",
+          "fr": "de Dallas"
+        },
+        "abbrev": "DAL",
+        "score": 0
+      },
+      "homeTeam": {
+        "id": 21,
+        "commonName": {
+          "default": "Avalanche"
+        },
+        "placeName": {
+          "default": "Colorado"
+        },
+        "placeNameWithPreposition": {
+          "default": "Colorado",
+          "fr": "du Colorado"
+        },
+        "abbrev": "COL",
+        "score": 4
+      },
+      "gameCenterLink": "/gamecenter/dal-vs-col/2025/04/26/2024030164",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 2,
+        "bottomSeedWins": 2
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030165,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 5,
+      "ifNecessary": false,
+      "venue": {
+        "default": "American Airlines Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-04-29T01:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-05:00",
+      "venueTimezone": "US/Central",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 2,
+          "market": "A",
+          "countryCode": "US",
+          "network": "ALT",
+          "sequenceNumber": 385
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        },
+        {
+          "id": 553,
+          "market": "H",
+          "countryCode": "US",
+          "network": "Victory+",
+          "sequenceNumber": 382
+        }
+      ],
+      "awayTeam": {
+        "id": 21,
+        "commonName": {
+          "default": "Avalanche"
+        },
+        "placeName": {
+          "default": "Colorado"
+        },
+        "placeNameWithPreposition": {
+          "default": "Colorado",
+          "fr": "du Colorado"
+        },
+        "abbrev": "COL",
+        "score": 2
+      },
+      "homeTeam": {
+        "id": 25,
+        "commonName": {
+          "default": "Stars"
+        },
+        "placeName": {
+          "default": "Dallas"
+        },
+        "placeNameWithPreposition": {
+          "default": "Dallas",
+          "fr": "de Dallas"
+        },
+        "abbrev": "DAL",
+        "score": 6
+      },
+      "gameCenterLink": "/gamecenter/col-vs-dal/2025/04/28/2024030165",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 3,
+        "bottomSeedWins": 2
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030166,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 6,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Ball Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-05-02T01:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-06:00",
+      "venueTimezone": "America/Denver",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 2,
+          "market": "H",
+          "countryCode": "US",
+          "network": "ALT",
+          "sequenceNumber": 385
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 287,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SNE",
+          "sequenceNumber": 30
+        },
+        {
+          "id": 403,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TBS",
+          "sequenceNumber": 13
+        },
+        {
+          "id": 519,
+          "market": "N",
+          "countryCode": "US",
+          "network": "MAX",
+          "sequenceNumber": 18
+        },
+        {
+          "id": 553,
+          "market": "A",
+          "countryCode": "US",
+          "network": "Victory+",
+          "sequenceNumber": 382
+        }
+      ],
+      "awayTeam": {
+        "id": 25,
+        "commonName": {
+          "default": "Stars"
+        },
+        "placeName": {
+          "default": "Dallas"
+        },
+        "placeNameWithPreposition": {
+          "default": "Dallas",
+          "fr": "de Dallas"
+        },
+        "abbrev": "DAL",
+        "score": 4
+      },
+      "homeTeam": {
+        "id": 21,
+        "commonName": {
+          "default": "Avalanche"
+        },
+        "placeName": {
+          "default": "Colorado"
+        },
+        "placeNameWithPreposition": {
+          "default": "Colorado",
+          "fr": "du Colorado"
+        },
+        "abbrev": "COL",
+        "score": 7
+      },
+      "gameCenterLink": "/gamecenter/dal-vs-col/2025/05/01/2024030166",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 3,
+        "bottomSeedWins": 3
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030167,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 7,
+      "ifNecessary": false,
+      "venue": {
+        "default": "American Airlines Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-05-04T00:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-05:00",
+      "venueTimezone": "US/Central",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 329,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN+",
+          "sequenceNumber": 16
+        },
+        {
+          "id": 384,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ABC",
+          "sequenceNumber": 1
+        }
+      ],
+      "awayTeam": {
+        "id": 21,
+        "commonName": {
+          "default": "Avalanche"
+        },
+        "placeName": {
+          "default": "Colorado"
+        },
+        "placeNameWithPreposition": {
+          "default": "Colorado",
+          "fr": "du Colorado"
+        },
+        "abbrev": "COL",
+        "score": 2
+      },
+      "homeTeam": {
+        "id": 25,
+        "commonName": {
+          "default": "Stars"
+        },
+        "placeName": {
+          "default": "Dallas"
+        },
+        "placeNameWithPreposition": {
+          "default": "Dallas",
+          "fr": "de Dallas"
+        },
+        "abbrev": "DAL",
+        "score": 4
+      },
+      "gameCenterLink": "/gamecenter/col-vs-dal/2025/05/03/2024030167",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 4,
+        "bottomSeedWins": 3
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    }
+  ],
+  "fullCoverageUrl": {
+    "cs": "https://www.nhl.com/cs/playoffs/2025/series-f-coverage",
+    "de": "https://www.nhl.com/de/playoffs/2025/series-f-coverage",
+    "sv": "https://www.nhl.com/sv/playoffs/2025/series-f-coverage",
+    "fi": "https://www.nhl.com/fi/playoffs/2025/series-f-coverage",
+    "sk": "https://www.nhl.com/sk/playoffs/2025/series-f-coverage",
+    "en": "https://www.nhl.com/playoffs/2025/series-f-coverage",
+    "fr": "https://www.nhl.com/fr/playoffs/2025/series-f-coverage",
+    "es": "https://www.nhl.com/es/playoffs/2025/series-f-coverage"
+  }
+}

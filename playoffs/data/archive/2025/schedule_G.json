@@ -1,0 +1,717 @@
+{
+  "round": 1,
+  "roundAbbrev": "R1",
+  "roundLabel": "1st-round",
+  "seriesLetter": "G",
+  "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/stanley_cup_playoffs_secondary_wordmark_dark.png",
+  "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/stanley_cup_playoffs_secondary_wordmark_fr_dark.png",
+  "neededToWin": 4,
+  "length": 7,
+  "bottomSeedTeam": {
+    "id": 30,
+    "name": {
+      "default": "Wild"
+    },
+    "abbrev": "MIN",
+    "placeName": {
+      "default": "Minnesota"
+    },
+    "placeNameWithPreposition": {
+      "default": "Minnesota",
+      "fr": "du Minnesota"
+    },
+    "conference": {
+      "name": "Western",
+      "abbrev": "W"
+    },
+    "record": "2-4",
+    "seriesWins": 2,
+    "divisionAbbrev": "C",
+    "seed": 4,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/MIN_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/MIN_dark.svg"
+  },
+  "topSeedTeam": {
+    "id": 54,
+    "name": {
+      "default": "Golden Knights"
+    },
+    "abbrev": "VGK",
+    "placeName": {
+      "default": "Vegas"
+    },
+    "placeNameWithPreposition": {
+      "default": "Vegas",
+      "fr": "de Vegas"
+    },
+    "conference": {
+      "name": "Western",
+      "abbrev": "W"
+    },
+    "record": "5-6",
+    "seriesWins": 4,
+    "divisionAbbrev": "P",
+    "seed": 1,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/VGK_dark.svg"
+  },
+  "games": [
+    {
+      "id": 2024030171,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 1,
+      "ifNecessary": false,
+      "venue": {
+        "default": "T-Mobile Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-04-21T02:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-07:00",
+      "venueTimezone": "US/Pacific",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        },
+        {
+          "id": 521,
+          "market": "H",
+          "countryCode": "US",
+          "network": "SCRIPPS",
+          "sequenceNumber": 657
+        },
+        {
+          "id": 567,
+          "market": "A",
+          "countryCode": "US",
+          "network": "FDSNNO",
+          "sequenceNumber": 284
+        }
+      ],
+      "awayTeam": {
+        "id": 30,
+        "commonName": {
+          "default": "Wild"
+        },
+        "placeName": {
+          "default": "Minnesota"
+        },
+        "placeNameWithPreposition": {
+          "default": "Minnesota",
+          "fr": "du Minnesota"
+        },
+        "abbrev": "MIN",
+        "score": 2
+      },
+      "homeTeam": {
+        "id": 54,
+        "commonName": {
+          "default": "Golden Knights"
+        },
+        "placeName": {
+          "default": "Vegas"
+        },
+        "placeNameWithPreposition": {
+          "default": "Vegas",
+          "fr": "de Vegas"
+        },
+        "abbrev": "VGK",
+        "score": 4
+      },
+      "gameCenterLink": "/gamecenter/min-vs-vgk/2025/04/20/2024030171",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 1,
+        "bottomSeedWins": 0
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030172,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 2,
+      "ifNecessary": false,
+      "venue": {
+        "default": "T-Mobile Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-04-23T03:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-07:00",
+      "venueTimezone": "US/Pacific",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        },
+        {
+          "id": 521,
+          "market": "H",
+          "countryCode": "US",
+          "network": "SCRIPPS",
+          "sequenceNumber": 657
+        },
+        {
+          "id": 567,
+          "market": "A",
+          "countryCode": "US",
+          "network": "FDSNNO",
+          "sequenceNumber": 284
+        }
+      ],
+      "awayTeam": {
+        "id": 30,
+        "commonName": {
+          "default": "Wild"
+        },
+        "placeName": {
+          "default": "Minnesota"
+        },
+        "placeNameWithPreposition": {
+          "default": "Minnesota",
+          "fr": "du Minnesota"
+        },
+        "abbrev": "MIN",
+        "score": 5
+      },
+      "homeTeam": {
+        "id": 54,
+        "commonName": {
+          "default": "Golden Knights"
+        },
+        "placeName": {
+          "default": "Vegas"
+        },
+        "placeNameWithPreposition": {
+          "default": "Vegas",
+          "fr": "de Vegas"
+        },
+        "abbrev": "VGK",
+        "score": 2
+      },
+      "gameCenterLink": "/gamecenter/min-vs-vgk/2025/04/22/2024030172",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 1,
+        "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030173,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 3,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Xcel Energy Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-04-25T01:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-05:00",
+      "venueTimezone": "US/Central",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 291,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS2",
+          "sequenceNumber": 121
+        },
+        {
+          "id": 403,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TBS",
+          "sequenceNumber": 13
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 519,
+          "market": "N",
+          "countryCode": "US",
+          "network": "MAX",
+          "sequenceNumber": 18
+        },
+        {
+          "id": 521,
+          "market": "A",
+          "countryCode": "US",
+          "network": "SCRIPPS",
+          "sequenceNumber": 657
+        },
+        {
+          "id": 567,
+          "market": "H",
+          "countryCode": "US",
+          "network": "FDSNNO",
+          "sequenceNumber": 284
+        }
+      ],
+      "awayTeam": {
+        "id": 54,
+        "commonName": {
+          "default": "Golden Knights"
+        },
+        "placeName": {
+          "default": "Vegas"
+        },
+        "placeNameWithPreposition": {
+          "default": "Vegas",
+          "fr": "de Vegas"
+        },
+        "abbrev": "VGK",
+        "score": 2
+      },
+      "homeTeam": {
+        "id": 30,
+        "commonName": {
+          "default": "Wild"
+        },
+        "placeName": {
+          "default": "Minnesota"
+        },
+        "placeNameWithPreposition": {
+          "default": "Minnesota",
+          "fr": "du Minnesota"
+        },
+        "abbrev": "MIN",
+        "score": 5
+      },
+      "gameCenterLink": "/gamecenter/vgk-vs-min/2025/04/24/2024030173",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 1,
+        "bottomSeedWins": 2
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030174,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 4,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Xcel Energy Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-04-26T20:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-05:00",
+      "venueTimezone": "US/Central",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 284,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN1",
+          "sequenceNumber": 113
+        },
+        {
+          "id": 289,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SNW",
+          "sequenceNumber": 34
+        },
+        {
+          "id": 290,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SNP",
+          "sequenceNumber": 33
+        },
+        {
+          "id": 403,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TBS",
+          "sequenceNumber": 13
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 519,
+          "market": "N",
+          "countryCode": "US",
+          "network": "MAX",
+          "sequenceNumber": 18
+        },
+        {
+          "id": 521,
+          "market": "A",
+          "countryCode": "US",
+          "network": "SCRIPPS",
+          "sequenceNumber": 657
+        },
+        {
+          "id": 567,
+          "market": "H",
+          "countryCode": "US",
+          "network": "FDSNNO",
+          "sequenceNumber": 284
+        }
+      ],
+      "awayTeam": {
+        "id": 54,
+        "commonName": {
+          "default": "Golden Knights"
+        },
+        "placeName": {
+          "default": "Vegas"
+        },
+        "placeNameWithPreposition": {
+          "default": "Vegas",
+          "fr": "de Vegas"
+        },
+        "abbrev": "VGK",
+        "score": 4
+      },
+      "homeTeam": {
+        "id": 30,
+        "commonName": {
+          "default": "Wild"
+        },
+        "placeName": {
+          "default": "Minnesota"
+        },
+        "placeNameWithPreposition": {
+          "default": "Minnesota",
+          "fr": "du Minnesota"
+        },
+        "abbrev": "MIN",
+        "score": 3
+      },
+      "gameCenterLink": "/gamecenter/vgk-vs-min/2025/04/26/2024030174",
+      "periodDescriptor": {
+        "number": 4,
+        "periodType": "OT",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 2,
+        "bottomSeedWins": 2
+      },
+      "gameOutcome": {
+        "lastPeriodType": "OT",
+        "otPeriods": 1
+      }
+    },
+    {
+      "id": 2024030175,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 5,
+      "ifNecessary": false,
+      "venue": {
+        "default": "T-Mobile Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-04-30T01:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-07:00",
+      "venueTimezone": "US/Pacific",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 287,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SNE",
+          "sequenceNumber": 30
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        },
+        {
+          "id": 521,
+          "market": "H",
+          "countryCode": "US",
+          "network": "SCRIPPS",
+          "sequenceNumber": 657
+        },
+        {
+          "id": 567,
+          "market": "A",
+          "countryCode": "US",
+          "network": "FDSNNO",
+          "sequenceNumber": 284
+        }
+      ],
+      "awayTeam": {
+        "id": 30,
+        "commonName": {
+          "default": "Wild"
+        },
+        "placeName": {
+          "default": "Minnesota"
+        },
+        "placeNameWithPreposition": {
+          "default": "Minnesota",
+          "fr": "du Minnesota"
+        },
+        "abbrev": "MIN",
+        "score": 2
+      },
+      "homeTeam": {
+        "id": 54,
+        "commonName": {
+          "default": "Golden Knights"
+        },
+        "placeName": {
+          "default": "Vegas"
+        },
+        "placeNameWithPreposition": {
+          "default": "Vegas",
+          "fr": "de Vegas"
+        },
+        "abbrev": "VGK",
+        "score": 3
+      },
+      "gameCenterLink": "/gamecenter/min-vs-vgk/2025/04/29/2024030175",
+      "periodDescriptor": {
+        "number": 4,
+        "periodType": "OT",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 3,
+        "bottomSeedWins": 2
+      },
+      "gameOutcome": {
+        "lastPeriodType": "OT",
+        "otPeriods": 1
+      }
+    },
+    {
+      "id": 2024030176,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 6,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Xcel Energy Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-05-01T23:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-05:00",
+      "venueTimezone": "US/Central",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 291,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS2",
+          "sequenceNumber": 121
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        },
+        {
+          "id": 521,
+          "market": "A",
+          "countryCode": "US",
+          "network": "SCRIPPS",
+          "sequenceNumber": 657
+        },
+        {
+          "id": 567,
+          "market": "H",
+          "countryCode": "US",
+          "network": "FDSNNO",
+          "sequenceNumber": 284
+        }
+      ],
+      "awayTeam": {
+        "id": 54,
+        "commonName": {
+          "default": "Golden Knights"
+        },
+        "placeName": {
+          "default": "Vegas"
+        },
+        "placeNameWithPreposition": {
+          "default": "Vegas",
+          "fr": "de Vegas"
+        },
+        "abbrev": "VGK",
+        "score": 3
+      },
+      "homeTeam": {
+        "id": 30,
+        "commonName": {
+          "default": "Wild"
+        },
+        "placeName": {
+          "default": "Minnesota"
+        },
+        "placeNameWithPreposition": {
+          "default": "Minnesota",
+          "fr": "du Minnesota"
+        },
+        "abbrev": "MIN",
+        "score": 2
+      },
+      "gameCenterLink": "/gamecenter/vgk-vs-min/2025/05/01/2024030176",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 4,
+        "bottomSeedWins": 2
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    }
+  ],
+  "fullCoverageUrl": {
+    "cs": "https://www.nhl.com/cs/playoffs/2025/series-g-coverage",
+    "de": "https://www.nhl.com/de/playoffs/2025/series-g-coverage",
+    "sv": "https://www.nhl.com/sv/playoffs/2025/series-g-coverage",
+    "fi": "https://www.nhl.com/fi/playoffs/2025/series-g-coverage",
+    "sk": "https://www.nhl.com/sk/playoffs/2025/series-g-coverage",
+    "en": "https://www.nhl.com/playoffs/2025/series-g-coverage",
+    "fr": "https://www.nhl.com/fr/playoffs/2025/series-g-coverage",
+    "es": "https://www.nhl.com/es/playoffs/2025/series-g-coverage"
+  }
+}

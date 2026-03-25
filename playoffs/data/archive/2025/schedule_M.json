@@ -1,0 +1,597 @@
+{
+  "round": 3,
+  "roundAbbrev": "ECF",
+  "roundLabel": "Eastern Conference Final",
+  "conferenceAbbrev": "E",
+  "conferenceName": "Eastern",
+  "seriesLetter": "M",
+  "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/eastern_conference_final_secondary_wordmark_dark.png",
+  "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/eastern_conference_final_secondary_wordmark_fr_dark.png",
+  "neededToWin": 4,
+  "length": 7,
+  "bottomSeedTeam": {
+    "id": 13,
+    "name": {
+      "default": "Panthers"
+    },
+    "abbrev": "FLA",
+    "placeName": {
+      "default": "Florida",
+      "fr": "Floride"
+    },
+    "placeNameWithPreposition": {
+      "default": "Florida",
+      "fr": "de la Floride"
+    },
+    "conference": {
+      "name": "Eastern",
+      "abbrev": "E"
+    },
+    "record": "16-7",
+    "seriesWins": 4,
+    "divisionAbbrev": "A",
+    "seed": 3,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/FLA_dark.svg"
+  },
+  "topSeedTeam": {
+    "id": 12,
+    "name": {
+      "default": "Hurricanes"
+    },
+    "abbrev": "CAR",
+    "placeName": {
+      "default": "Carolina",
+      "fr": "Caroline"
+    },
+    "placeNameWithPreposition": {
+      "default": "Carolina",
+      "fr": "de la Caroline"
+    },
+    "conference": {
+      "name": "Eastern",
+      "abbrev": "E"
+    },
+    "record": "9-6",
+    "seriesWins": 1,
+    "divisionAbbrev": "M",
+    "seed": 2,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CAR_dark.svg"
+  },
+  "games": [
+    {
+      "id": 2024030311,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 1,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Lenovo Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-05-21T00:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 519,
+          "market": "N",
+          "countryCode": "US",
+          "network": "MAX",
+          "sequenceNumber": 18
+        }
+      ],
+      "awayTeam": {
+        "id": 13,
+        "commonName": {
+          "default": "Panthers"
+        },
+        "placeName": {
+          "default": "Florida",
+          "fr": "Floride"
+        },
+        "placeNameWithPreposition": {
+          "default": "Florida",
+          "fr": "de la Floride"
+        },
+        "abbrev": "FLA",
+        "score": 5
+      },
+      "homeTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR",
+        "score": 2
+      },
+      "gameCenterLink": "/gamecenter/fla-vs-car/2025/05/20/2024030311",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 0,
+        "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030312,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 2,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Lenovo Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-05-23T00:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 519,
+          "market": "N",
+          "countryCode": "US",
+          "network": "MAX",
+          "sequenceNumber": 18
+        }
+      ],
+      "awayTeam": {
+        "id": 13,
+        "commonName": {
+          "default": "Panthers"
+        },
+        "placeName": {
+          "default": "Florida",
+          "fr": "Floride"
+        },
+        "placeNameWithPreposition": {
+          "default": "Florida",
+          "fr": "de la Floride"
+        },
+        "abbrev": "FLA",
+        "score": 5
+      },
+      "homeTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR",
+        "score": 0
+      },
+      "gameCenterLink": "/gamecenter/fla-vs-car/2025/05/22/2024030312",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 0,
+        "bottomSeedWins": 2
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030313,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 3,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Amerant Bank Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-05-25T00:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 519,
+          "market": "N",
+          "countryCode": "US",
+          "network": "MAX",
+          "sequenceNumber": 18
+        }
+      ],
+      "awayTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR",
+        "score": 2
+      },
+      "homeTeam": {
+        "id": 13,
+        "commonName": {
+          "default": "Panthers"
+        },
+        "placeName": {
+          "default": "Florida",
+          "fr": "Floride"
+        },
+        "placeNameWithPreposition": {
+          "default": "Florida",
+          "fr": "de la Floride"
+        },
+        "abbrev": "FLA",
+        "score": 6
+      },
+      "gameCenterLink": "/gamecenter/car-vs-fla/2025/05/24/2024030313",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 0,
+        "bottomSeedWins": 3
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030314,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 4,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Amerant Bank Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-05-27T00:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 519,
+          "market": "N",
+          "countryCode": "US",
+          "network": "MAX",
+          "sequenceNumber": 18
+        }
+      ],
+      "awayTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR",
+        "score": 3
+      },
+      "homeTeam": {
+        "id": 13,
+        "commonName": {
+          "default": "Panthers"
+        },
+        "placeName": {
+          "default": "Florida",
+          "fr": "Floride"
+        },
+        "placeNameWithPreposition": {
+          "default": "Florida",
+          "fr": "de la Floride"
+        },
+        "abbrev": "FLA",
+        "score": 0
+      },
+      "gameCenterLink": "/gamecenter/car-vs-fla/2025/05/26/2024030314",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 1,
+        "bottomSeedWins": 3
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030315,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 5,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Lenovo Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-05-29T00:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 519,
+          "market": "N",
+          "countryCode": "US",
+          "network": "MAX",
+          "sequenceNumber": 18
+        }
+      ],
+      "awayTeam": {
+        "id": 13,
+        "commonName": {
+          "default": "Panthers"
+        },
+        "placeName": {
+          "default": "Florida",
+          "fr": "Floride"
+        },
+        "placeNameWithPreposition": {
+          "default": "Florida",
+          "fr": "de la Floride"
+        },
+        "abbrev": "FLA",
+        "score": 5
+      },
+      "homeTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR",
+        "score": 3
+      },
+      "gameCenterLink": "/gamecenter/fla-vs-car/2025/05/28/2024030315",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 1,
+        "bottomSeedWins": 4
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    }
+  ],
+  "fullCoverageUrl": {
+    "cs": "https://www.nhl.com/cs/playoffs/2025/series-m-coverage",
+    "de": "https://www.nhl.com/de/playoffs/2025/series-m-coverage",
+    "sv": "https://www.nhl.com/sv/playoffs/2025/series-m-coverage",
+    "fi": "https://www.nhl.com/fi/playoffs/2025/series-m-coverage",
+    "sk": "https://www.nhl.com/sk/playoffs/2025/series-m-coverage",
+    "en": "https://www.nhl.com/playoffs/2025/series-m-coverage",
+    "fr": "https://www.nhl.com/fr/playoffs/2025/series-m-coverage",
+    "es": "https://www.nhl.com/es/playoffs/2025/series-m-coverage"
+  }
+}

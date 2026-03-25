@@ -1,8 +1,7 @@
-import { Series, ALL_SERIES, WINNER_MAP, Pick, Winner, PickStatus, PickResult, Scoring, PersonPointsSummary, Round, RoundSummary } from '../models.js';
+import { Series, Pick, Winner, PickStatus, PickResult, Scoring, PersonPointsSummary, Round, RoundSummary } from '../models.js';
 import { NhlApiHandler } from '../nhlApiHandler.js';
 import { PickResultCalculator } from '../pickResultCalculator.js';
 import { Summarizer } from '../summarizer.js';
-import { GOOGLE_SCRIPT_URL } from '../config.js';
 
 export async function runTests() {
 	const results = [];

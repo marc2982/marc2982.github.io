@@ -1,0 +1,534 @@
+{
+  "round": 2,
+  "roundAbbrev": "R2",
+  "roundLabel": "2nd-round",
+  "seriesLetter": "J",
+  "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/stanley_cup_playoffs_secondary_wordmark_dark.png",
+  "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/stanley_cup_playoffs_secondary_wordmark_fr_dark.png",
+  "neededToWin": 4,
+  "length": 7,
+  "bottomSeedTeam": {
+    "id": 12,
+    "name": {
+      "default": "Hurricanes"
+    },
+    "abbrev": "CAR",
+    "placeName": {
+      "default": "Carolina",
+      "fr": "Caroline"
+    },
+    "placeNameWithPreposition": {
+      "default": "Carolina",
+      "fr": "de la Caroline"
+    },
+    "conference": {
+      "name": "Eastern",
+      "abbrev": "E"
+    },
+    "record": "9-6",
+    "seriesWins": 4,
+    "divisionAbbrev": "M",
+    "seed": 2,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CAR_dark.svg"
+  },
+  "topSeedTeam": {
+    "id": 15,
+    "name": {
+      "default": "Capitals"
+    },
+    "abbrev": "WSH",
+    "placeName": {
+      "default": "Washington"
+    },
+    "placeNameWithPreposition": {
+      "default": "Washington",
+      "fr": "de Washington"
+    },
+    "conference": {
+      "name": "Eastern",
+      "abbrev": "E"
+    },
+    "record": "5-5",
+    "seriesWins": 1,
+    "divisionAbbrev": "M",
+    "seed": 1,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_secondary_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/WSH_secondary_dark.svg"
+  },
+  "games": [
+    {
+      "id": 2024030221,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 1,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Capital One Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-05-06T23:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        }
+      ],
+      "awayTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR",
+        "score": 2
+      },
+      "homeTeam": {
+        "id": 15,
+        "commonName": {
+          "default": "Capitals"
+        },
+        "placeName": {
+          "default": "Washington"
+        },
+        "placeNameWithPreposition": {
+          "default": "Washington",
+          "fr": "de Washington"
+        },
+        "abbrev": "WSH",
+        "score": 1
+      },
+      "gameCenterLink": "/gamecenter/car-vs-wsh/2025/05/06/2024030221",
+      "periodDescriptor": {
+        "number": 4,
+        "periodType": "OT",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 0,
+        "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "OT",
+        "otPeriods": 1
+      }
+    },
+    {
+      "id": 2024030222,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 2,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Capital One Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-05-08T23:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        }
+      ],
+      "awayTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR",
+        "score": 1
+      },
+      "homeTeam": {
+        "id": 15,
+        "commonName": {
+          "default": "Capitals"
+        },
+        "placeName": {
+          "default": "Washington"
+        },
+        "placeNameWithPreposition": {
+          "default": "Washington",
+          "fr": "de Washington"
+        },
+        "abbrev": "WSH",
+        "score": 3
+      },
+      "gameCenterLink": "/gamecenter/car-vs-wsh/2025/05/08/2024030222",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 1,
+        "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030223,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 3,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Lenovo Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-05-10T22:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 519,
+          "market": "N",
+          "countryCode": "US",
+          "network": "MAX",
+          "sequenceNumber": 18
+        }
+      ],
+      "awayTeam": {
+        "id": 15,
+        "commonName": {
+          "default": "Capitals"
+        },
+        "placeName": {
+          "default": "Washington"
+        },
+        "placeNameWithPreposition": {
+          "default": "Washington",
+          "fr": "de Washington"
+        },
+        "abbrev": "WSH",
+        "score": 0
+      },
+      "homeTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR",
+        "score": 4
+      },
+      "gameCenterLink": "/gamecenter/wsh-vs-car/2025/05/10/2024030223",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 1,
+        "bottomSeedWins": 2
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030224,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 4,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Lenovo Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-05-12T23:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 519,
+          "market": "N",
+          "countryCode": "US",
+          "network": "MAX",
+          "sequenceNumber": 18
+        }
+      ],
+      "awayTeam": {
+        "id": 15,
+        "commonName": {
+          "default": "Capitals"
+        },
+        "placeName": {
+          "default": "Washington"
+        },
+        "placeNameWithPreposition": {
+          "default": "Washington",
+          "fr": "de Washington"
+        },
+        "abbrev": "WSH",
+        "score": 2
+      },
+      "homeTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR",
+        "score": 5
+      },
+      "gameCenterLink": "/gamecenter/wsh-vs-car/2025/05/12/2024030224",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 1,
+        "bottomSeedWins": 3
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030225,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 5,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Capital One Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-05-15T23:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 519,
+          "market": "N",
+          "countryCode": "US",
+          "network": "MAX",
+          "sequenceNumber": 18
+        }
+      ],
+      "awayTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR",
+        "score": 3
+      },
+      "homeTeam": {
+        "id": 15,
+        "commonName": {
+          "default": "Capitals"
+        },
+        "placeName": {
+          "default": "Washington"
+        },
+        "placeNameWithPreposition": {
+          "default": "Washington",
+          "fr": "de Washington"
+        },
+        "abbrev": "WSH",
+        "score": 1
+      },
+      "gameCenterLink": "/gamecenter/car-vs-wsh/2025/05/15/2024030225",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 1,
+        "bottomSeedWins": 4
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    }
+  ],
+  "fullCoverageUrl": {
+    "cs": "https://www.nhl.com/cs/playoffs/2025/series-j-coverage",
+    "de": "https://www.nhl.com/de/playoffs/2025/series-j-coverage",
+    "fi": "https://www.nhl.com/fi/playoffs/2025/series-j-coverage",
+    "sv": "https://www.nhl.com/sv/playoffs/2025/series-j-coverage",
+    "sk": "https://www.nhl.com/sk/playoffs/2025/series-j-coverage",
+    "en": "https://www.nhl.com/playoffs/2025/series-j-coverage",
+    "fr": "https://www.nhl.com/fr/playoffs/2025/series-j-coverage",
+    "es": "https://www.nhl.com/es/playoffs/2025/series-j-coverage"
+  }
+}

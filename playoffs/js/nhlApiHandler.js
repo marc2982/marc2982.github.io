@@ -1,5 +1,4 @@
 import { Series, Team, ALL_SERIES, WINNER_MAP } from './models.js';
-import { DataLoader } from './dataLoader.js';
 import { SeriesRepository, TeamRepository } from './repositories.js';
 
 const TOP = 'top';

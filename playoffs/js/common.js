@@ -79,7 +79,7 @@ export function calculateCareerStats(years) {
 
 		// Get all participants sorted by points (for podium)
 		const participants = Object.entries(yearData.points)
-			.filter(([person, points]) => points > 0)
+			.filter(([_person, points]) => points > 0)
 			.sort((a, b) => b[1] - a[1]);
 
 		// Process points

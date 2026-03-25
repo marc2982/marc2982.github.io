@@ -1,0 +1,589 @@
+{
+  "round": 1,
+  "roundAbbrev": "R1",
+  "roundLabel": "1st-round",
+  "seriesLetter": "B",
+  "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/stanley_cup_playoffs_secondary_wordmark_dark.png",
+  "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/stanley_cup_playoffs_secondary_wordmark_fr_dark.png",
+  "neededToWin": 4,
+  "length": 7,
+  "bottomSeedTeam": {
+    "id": 13,
+    "name": {
+      "default": "Panthers"
+    },
+    "abbrev": "FLA",
+    "placeName": {
+      "default": "Florida",
+      "fr": "Floride"
+    },
+    "placeNameWithPreposition": {
+      "default": "Florida",
+      "fr": "de la Floride"
+    },
+    "conference": {
+      "name": "Eastern",
+      "abbrev": "E"
+    },
+    "record": "16-7",
+    "seriesWins": 4,
+    "divisionAbbrev": "A",
+    "seed": 3,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/FLA_dark.svg"
+  },
+  "topSeedTeam": {
+    "id": 14,
+    "name": {
+      "default": "Lightning"
+    },
+    "abbrev": "TBL",
+    "placeName": {
+      "default": "Tampa Bay"
+    },
+    "placeNameWithPreposition": {
+      "default": "Tampa Bay",
+      "fr": "de Tampa Bay"
+    },
+    "conference": {
+      "name": "Eastern",
+      "abbrev": "E"
+    },
+    "record": "1-4",
+    "seriesWins": 1,
+    "divisionAbbrev": "A",
+    "seed": 2,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/TBL_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TBL_dark.svg"
+  },
+  "games": [
+    {
+      "id": 2024030121,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 1,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Amalie Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-04-23T00:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 291,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS2",
+          "sequenceNumber": 121
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        },
+        {
+          "id": 521,
+          "market": "A",
+          "countryCode": "US",
+          "network": "SCRIPPS",
+          "sequenceNumber": 657
+        },
+        {
+          "id": 560,
+          "market": "H",
+          "countryCode": "US",
+          "network": "FDSNSUN",
+          "sequenceNumber": 287
+        }
+      ],
+      "awayTeam": {
+        "id": 13,
+        "commonName": {
+          "default": "Panthers"
+        },
+        "placeName": {
+          "default": "Florida",
+          "fr": "Floride"
+        },
+        "placeNameWithPreposition": {
+          "default": "Florida",
+          "fr": "de la Floride"
+        },
+        "abbrev": "FLA",
+        "score": 6
+      },
+      "homeTeam": {
+        "id": 14,
+        "commonName": {
+          "default": "Lightning"
+        },
+        "placeName": {
+          "default": "Tampa Bay"
+        },
+        "placeNameWithPreposition": {
+          "default": "Tampa Bay",
+          "fr": "de Tampa Bay"
+        },
+        "abbrev": "TBL",
+        "score": 2
+      },
+      "gameCenterLink": "/gamecenter/fla-vs-tbl/2025/04/22/2024030121",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 0,
+        "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030122,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 2,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Amalie Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-04-24T22:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 291,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS2",
+          "sequenceNumber": 121
+        },
+        {
+          "id": 403,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TBS",
+          "sequenceNumber": 13
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 519,
+          "market": "N",
+          "countryCode": "US",
+          "network": "MAX",
+          "sequenceNumber": 18
+        },
+        {
+          "id": 521,
+          "market": "A",
+          "countryCode": "US",
+          "network": "SCRIPPS",
+          "sequenceNumber": 657
+        },
+        {
+          "id": 560,
+          "market": "H",
+          "countryCode": "US",
+          "network": "FDSNSUN",
+          "sequenceNumber": 287
+        }
+      ],
+      "awayTeam": {
+        "id": 13,
+        "commonName": {
+          "default": "Panthers"
+        },
+        "placeName": {
+          "default": "Florida",
+          "fr": "Floride"
+        },
+        "placeNameWithPreposition": {
+          "default": "Florida",
+          "fr": "de la Floride"
+        },
+        "abbrev": "FLA",
+        "score": 2
+      },
+      "homeTeam": {
+        "id": 14,
+        "commonName": {
+          "default": "Lightning"
+        },
+        "placeName": {
+          "default": "Tampa Bay"
+        },
+        "placeNameWithPreposition": {
+          "default": "Tampa Bay",
+          "fr": "de Tampa Bay"
+        },
+        "abbrev": "TBL",
+        "score": 0
+      },
+      "gameCenterLink": "/gamecenter/fla-vs-tbl/2025/04/24/2024030122",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 0,
+        "bottomSeedWins": 2
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030123,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 3,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Amerant Bank Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-04-26T17:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 403,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TBS",
+          "sequenceNumber": 13
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 519,
+          "market": "N",
+          "countryCode": "US",
+          "network": "MAX",
+          "sequenceNumber": 18
+        },
+        {
+          "id": 521,
+          "market": "H",
+          "countryCode": "US",
+          "network": "SCRIPPS",
+          "sequenceNumber": 657
+        },
+        {
+          "id": 560,
+          "market": "A",
+          "countryCode": "US",
+          "network": "FDSNSUN",
+          "sequenceNumber": 287
+        }
+      ],
+      "awayTeam": {
+        "id": 14,
+        "commonName": {
+          "default": "Lightning"
+        },
+        "placeName": {
+          "default": "Tampa Bay"
+        },
+        "placeNameWithPreposition": {
+          "default": "Tampa Bay",
+          "fr": "de Tampa Bay"
+        },
+        "abbrev": "TBL",
+        "score": 5
+      },
+      "homeTeam": {
+        "id": 13,
+        "commonName": {
+          "default": "Panthers"
+        },
+        "placeName": {
+          "default": "Florida",
+          "fr": "Floride"
+        },
+        "placeNameWithPreposition": {
+          "default": "Florida",
+          "fr": "de la Floride"
+        },
+        "abbrev": "FLA",
+        "score": 1
+      },
+      "gameCenterLink": "/gamecenter/tbl-vs-fla/2025/04/26/2024030123",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 1,
+        "bottomSeedWins": 2
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030124,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 4,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Amerant Bank Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-04-28T23:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        },
+        {
+          "id": 521,
+          "market": "H",
+          "countryCode": "US",
+          "network": "SCRIPPS",
+          "sequenceNumber": 657
+        },
+        {
+          "id": 560,
+          "market": "A",
+          "countryCode": "US",
+          "network": "FDSNSUN",
+          "sequenceNumber": 287
+        }
+      ],
+      "awayTeam": {
+        "id": 14,
+        "commonName": {
+          "default": "Lightning"
+        },
+        "placeName": {
+          "default": "Tampa Bay"
+        },
+        "placeNameWithPreposition": {
+          "default": "Tampa Bay",
+          "fr": "de Tampa Bay"
+        },
+        "abbrev": "TBL",
+        "score": 2
+      },
+      "homeTeam": {
+        "id": 13,
+        "commonName": {
+          "default": "Panthers"
+        },
+        "placeName": {
+          "default": "Florida",
+          "fr": "Floride"
+        },
+        "placeNameWithPreposition": {
+          "default": "Florida",
+          "fr": "de la Floride"
+        },
+        "abbrev": "FLA",
+        "score": 4
+      },
+      "gameCenterLink": "/gamecenter/tbl-vs-fla/2025/04/28/2024030124",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 1,
+        "bottomSeedWins": 3
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030125,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 5,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Amalie Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-04-30T23:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 291,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS2",
+          "sequenceNumber": 121
+        },
+        {
+          "id": 307,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN2",
+          "sequenceNumber": 12
+        },
+        {
+          "id": 521,
+          "market": "A",
+          "countryCode": "US",
+          "network": "SCRIPPS",
+          "sequenceNumber": 657
+        },
+        {
+          "id": 560,
+          "market": "H",
+          "countryCode": "US",
+          "network": "FDSNSUN",
+          "sequenceNumber": 287
+        }
+      ],
+      "awayTeam": {
+        "id": 13,
+        "commonName": {
+          "default": "Panthers"
+        },
+        "placeName": {
+          "default": "Florida",
+          "fr": "Floride"
+        },
+        "placeNameWithPreposition": {
+          "default": "Florida",
+          "fr": "de la Floride"
+        },
+        "abbrev": "FLA",
+        "score": 6
+      },
+      "homeTeam": {
+        "id": 14,
+        "commonName": {
+          "default": "Lightning"
+        },
+        "placeName": {
+          "default": "Tampa Bay"
+        },
+        "placeNameWithPreposition": {
+          "default": "Tampa Bay",
+          "fr": "de Tampa Bay"
+        },
+        "abbrev": "TBL",
+        "score": 3
+      },
+      "gameCenterLink": "/gamecenter/fla-vs-tbl/2025/04/30/2024030125",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 1,
+        "bottomSeedWins": 4
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    }
+  ],
+  "fullCoverageUrl": {
+    "cs": "https://www.nhl.com/cs/playoffs/2025/series-b-coverage",
+    "de": "https://www.nhl.com/de/playoffs/2025/series-b-coverage",
+    "sv": "https://www.nhl.com/sv/playoffs/2025/series-b-coverage",
+    "fi": "https://www.nhl.com/fi/playoffs/2025/series-b-coverage",
+    "sk": "https://www.nhl.com/sk/playoffs/2025/series-b-coverage",
+    "en": "https://www.nhl.com/playoffs/2025/series-b-coverage",
+    "fr": "https://www.nhl.com/fr/playoffs/2025/series-b-coverage",
+    "es": "https://www.nhl.com/es/playoffs/2025/series-b-coverage"
+  }
+}

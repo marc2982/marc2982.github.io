@@ -26,7 +26,7 @@ export class DataLoader {
 		console.log(`Fetching cached series schedule for ${seriesLetter}: ${schedulePath}`);
 		try {
 			return await fetchJson(schedulePath, true); // bust cache
-		} catch (err) {
+		} catch {
 			console.log(`No schedule found for ${seriesLetter} yet at ${schedulePath}`);
 			return null;
 		}

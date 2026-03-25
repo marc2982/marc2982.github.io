@@ -3,6 +3,8 @@ node_modules/
 playoffs/node_modules/
 
 # Logs
+lint_out.json
+lint_output.txt
 *.log
 npm-debug.log*
 

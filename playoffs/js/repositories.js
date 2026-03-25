@@ -1,9 +1,9 @@
 export class SeriesRepository {
-	getSeries(letter) {
+	getSeries(_letter) {
 		throw new Error('Method not implemented');
 	}
 
-	getSeriesOrNone(letter) {
+	getSeriesOrNone(_letter) {
 		throw new Error('Method not implemented');
 	}
 
@@ -13,7 +13,7 @@ export class SeriesRepository {
 }
 
 export class TeamRepository {
-	getTeam(name) {
+	getTeam(_name) {
 		throw new Error('Method not implemented');
 	}
 

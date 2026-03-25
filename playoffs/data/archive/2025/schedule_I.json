@@ -1,0 +1,765 @@
+{
+  "round": 2,
+  "roundAbbrev": "R2",
+  "roundLabel": "2nd-round",
+  "seriesLetter": "I",
+  "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/stanley_cup_playoffs_secondary_wordmark_dark.png",
+  "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/stanley_cup_playoffs_secondary_wordmark_fr_dark.png",
+  "neededToWin": 4,
+  "length": 7,
+  "bottomSeedTeam": {
+    "id": 13,
+    "name": {
+      "default": "Panthers"
+    },
+    "abbrev": "FLA",
+    "placeName": {
+      "default": "Florida",
+      "fr": "Floride"
+    },
+    "placeNameWithPreposition": {
+      "default": "Florida",
+      "fr": "de la Floride"
+    },
+    "conference": {
+      "name": "Eastern",
+      "abbrev": "E"
+    },
+    "record": "16-7",
+    "seriesWins": 4,
+    "divisionAbbrev": "A",
+    "seed": 3,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/FLA_dark.svg"
+  },
+  "topSeedTeam": {
+    "id": 10,
+    "name": {
+      "default": "Maple Leafs"
+    },
+    "abbrev": "TOR",
+    "placeName": {
+      "default": "Toronto"
+    },
+    "placeNameWithPreposition": {
+      "default": "Toronto",
+      "fr": "de Toronto"
+    },
+    "conference": {
+      "name": "Eastern",
+      "abbrev": "E"
+    },
+    "record": "7-6",
+    "seriesWins": 3,
+    "divisionAbbrev": "A",
+    "seed": 1,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TOR_dark.svg"
+  },
+  "games": [
+    {
+      "id": 2024030211,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 1,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Scotiabank Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-05-06T00:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "America/Toronto",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        }
+      ],
+      "awayTeam": {
+        "id": 13,
+        "commonName": {
+          "default": "Panthers"
+        },
+        "placeName": {
+          "default": "Florida",
+          "fr": "Floride"
+        },
+        "placeNameWithPreposition": {
+          "default": "Florida",
+          "fr": "de la Floride"
+        },
+        "abbrev": "FLA",
+        "score": 4
+      },
+      "homeTeam": {
+        "id": 10,
+        "commonName": {
+          "default": "Maple Leafs"
+        },
+        "placeName": {
+          "default": "Toronto"
+        },
+        "placeNameWithPreposition": {
+          "default": "Toronto",
+          "fr": "de Toronto"
+        },
+        "abbrev": "TOR",
+        "score": 5
+      },
+      "gameCenterLink": "/gamecenter/fla-vs-tor/2025/05/05/2024030211",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 1,
+        "bottomSeedWins": 0
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030212,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 2,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Scotiabank Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-05-07T23:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "America/Toronto",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        }
+      ],
+      "awayTeam": {
+        "id": 13,
+        "commonName": {
+          "default": "Panthers"
+        },
+        "placeName": {
+          "default": "Florida",
+          "fr": "Floride"
+        },
+        "placeNameWithPreposition": {
+          "default": "Florida",
+          "fr": "de la Floride"
+        },
+        "abbrev": "FLA",
+        "score": 3
+      },
+      "homeTeam": {
+        "id": 10,
+        "commonName": {
+          "default": "Maple Leafs"
+        },
+        "placeName": {
+          "default": "Toronto"
+        },
+        "placeNameWithPreposition": {
+          "default": "Toronto",
+          "fr": "de Toronto"
+        },
+        "abbrev": "TOR",
+        "score": 4
+      },
+      "gameCenterLink": "/gamecenter/fla-vs-tor/2025/05/07/2024030212",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 2,
+        "bottomSeedWins": 0
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030213,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 3,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Amerant Bank Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-05-09T23:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 519,
+          "market": "N",
+          "countryCode": "US",
+          "network": "MAX",
+          "sequenceNumber": 18
+        }
+      ],
+      "awayTeam": {
+        "id": 10,
+        "commonName": {
+          "default": "Maple Leafs"
+        },
+        "placeName": {
+          "default": "Toronto"
+        },
+        "placeNameWithPreposition": {
+          "default": "Toronto",
+          "fr": "de Toronto"
+        },
+        "abbrev": "TOR",
+        "score": 4
+      },
+      "homeTeam": {
+        "id": 13,
+        "commonName": {
+          "default": "Panthers"
+        },
+        "placeName": {
+          "default": "Florida",
+          "fr": "Floride"
+        },
+        "placeNameWithPreposition": {
+          "default": "Florida",
+          "fr": "de la Floride"
+        },
+        "abbrev": "FLA",
+        "score": 5
+      },
+      "gameCenterLink": "/gamecenter/tor-vs-fla/2025/05/09/2024030213",
+      "periodDescriptor": {
+        "number": 4,
+        "periodType": "OT",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 2,
+        "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "OT",
+        "otPeriods": 1
+      }
+    },
+    {
+      "id": 2024030214,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 4,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Amerant Bank Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-05-11T23:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 403,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TBS",
+          "sequenceNumber": 13
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 519,
+          "market": "N",
+          "countryCode": "US",
+          "network": "MAX",
+          "sequenceNumber": 18
+        }
+      ],
+      "awayTeam": {
+        "id": 10,
+        "commonName": {
+          "default": "Maple Leafs"
+        },
+        "placeName": {
+          "default": "Toronto"
+        },
+        "placeNameWithPreposition": {
+          "default": "Toronto",
+          "fr": "de Toronto"
+        },
+        "abbrev": "TOR",
+        "score": 0
+      },
+      "homeTeam": {
+        "id": 13,
+        "commonName": {
+          "default": "Panthers"
+        },
+        "placeName": {
+          "default": "Florida",
+          "fr": "Floride"
+        },
+        "placeNameWithPreposition": {
+          "default": "Florida",
+          "fr": "de la Floride"
+        },
+        "abbrev": "FLA",
+        "score": 2
+      },
+      "gameCenterLink": "/gamecenter/tor-vs-fla/2025/05/11/2024030214",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 2,
+        "bottomSeedWins": 2
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030215,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 5,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Scotiabank Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-05-14T23:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "America/Toronto",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        }
+      ],
+      "awayTeam": {
+        "id": 13,
+        "commonName": {
+          "default": "Panthers"
+        },
+        "placeName": {
+          "default": "Florida",
+          "fr": "Floride"
+        },
+        "placeNameWithPreposition": {
+          "default": "Florida",
+          "fr": "de la Floride"
+        },
+        "abbrev": "FLA",
+        "score": 6
+      },
+      "homeTeam": {
+        "id": 10,
+        "commonName": {
+          "default": "Maple Leafs"
+        },
+        "placeName": {
+          "default": "Toronto"
+        },
+        "placeNameWithPreposition": {
+          "default": "Toronto",
+          "fr": "de Toronto"
+        },
+        "abbrev": "TOR",
+        "score": 1
+      },
+      "gameCenterLink": "/gamecenter/fla-vs-tor/2025/05/14/2024030215",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 2,
+        "bottomSeedWins": 3
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030216,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 6,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Amerant Bank Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-05-17T00:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 519,
+          "market": "N",
+          "countryCode": "US",
+          "network": "MAX",
+          "sequenceNumber": 18
+        }
+      ],
+      "awayTeam": {
+        "id": 10,
+        "commonName": {
+          "default": "Maple Leafs"
+        },
+        "placeName": {
+          "default": "Toronto"
+        },
+        "placeNameWithPreposition": {
+          "default": "Toronto",
+          "fr": "de Toronto"
+        },
+        "abbrev": "TOR",
+        "score": 2
+      },
+      "homeTeam": {
+        "id": 13,
+        "commonName": {
+          "default": "Panthers"
+        },
+        "placeName": {
+          "default": "Florida",
+          "fr": "Floride"
+        },
+        "placeNameWithPreposition": {
+          "default": "Florida",
+          "fr": "de la Floride"
+        },
+        "abbrev": "FLA",
+        "score": 0
+      },
+      "gameCenterLink": "/gamecenter/tor-vs-fla/2025/05/16/2024030216",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 3,
+        "bottomSeedWins": 3
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030217,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 7,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Scotiabank Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-05-18T23:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "America/Toronto",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 519,
+          "market": "N",
+          "countryCode": "US",
+          "network": "MAX",
+          "sequenceNumber": 18
+        }
+      ],
+      "awayTeam": {
+        "id": 13,
+        "commonName": {
+          "default": "Panthers"
+        },
+        "placeName": {
+          "default": "Florida",
+          "fr": "Floride"
+        },
+        "placeNameWithPreposition": {
+          "default": "Florida",
+          "fr": "de la Floride"
+        },
+        "abbrev": "FLA",
+        "score": 6
+      },
+      "homeTeam": {
+        "id": 10,
+        "commonName": {
+          "default": "Maple Leafs"
+        },
+        "placeName": {
+          "default": "Toronto"
+        },
+        "placeNameWithPreposition": {
+          "default": "Toronto",
+          "fr": "de Toronto"
+        },
+        "abbrev": "TOR",
+        "score": 1
+      },
+      "gameCenterLink": "/gamecenter/fla-vs-tor/2025/05/18/2024030217",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 3,
+        "bottomSeedWins": 4
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    }
+  ],
+  "fullCoverageUrl": {
+    "cs": "https://www.nhl.com/cs/playoffs/2025/series-i-coverage",
+    "de": "https://www.nhl.com/de/playoffs/2025/series-i-coverage",
+    "fi": "https://www.nhl.com/fi/playoffs/2025/series-i-coverage",
+    "sv": "https://www.nhl.com/sv/playoffs/2025/series-i-coverage",
+    "sk": "https://www.nhl.com/sk/playoffs/2025/series-i-coverage",
+    "en": "https://www.nhl.com/playoffs/2025/series-i-coverage",
+    "fr": "https://www.nhl.com/fr/playoffs/2025/series-i-coverage",
+    "es": "https://www.nhl.com/es/playoffs/2025/series-i-coverage"
+  }
+}

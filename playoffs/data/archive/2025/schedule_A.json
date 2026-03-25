@@ -1,0 +1,655 @@
+{
+  "round": 1,
+  "roundAbbrev": "R1",
+  "roundLabel": "1st-round",
+  "seriesLetter": "A",
+  "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/stanley_cup_playoffs_secondary_wordmark_dark.png",
+  "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/stanley_cup_playoffs_secondary_wordmark_fr_dark.png",
+  "neededToWin": 4,
+  "length": 7,
+  "bottomSeedTeam": {
+    "id": 9,
+    "name": {
+      "default": "Senators",
+      "fr": "Sénateurs"
+    },
+    "abbrev": "OTT",
+    "placeName": {
+      "default": "Ottawa"
+    },
+    "placeNameWithPreposition": {
+      "default": "Ottawa",
+      "fr": "d'Ottawa"
+    },
+    "conference": {
+      "name": "Eastern",
+      "abbrev": "E"
+    },
+    "record": "2-4",
+    "seriesWins": 2,
+    "divisionAbbrev": "A",
+    "seed": 4,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/OTT_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/OTT_dark.svg"
+  },
+  "topSeedTeam": {
+    "id": 10,
+    "name": {
+      "default": "Maple Leafs"
+    },
+    "abbrev": "TOR",
+    "placeName": {
+      "default": "Toronto"
+    },
+    "placeNameWithPreposition": {
+      "default": "Toronto",
+      "fr": "de Toronto"
+    },
+    "conference": {
+      "name": "Eastern",
+      "abbrev": "E"
+    },
+    "record": "7-6",
+    "seriesWins": 4,
+    "divisionAbbrev": "A",
+    "seed": 1,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TOR_dark.svg"
+  },
+  "games": [
+    {
+      "id": 2024030111,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 1,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Scotiabank Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-04-20T23:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "America/Toronto",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 307,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN2",
+          "sequenceNumber": 12
+        }
+      ],
+      "awayTeam": {
+        "id": 9,
+        "commonName": {
+          "default": "Senators",
+          "fr": "Sénateurs"
+        },
+        "placeName": {
+          "default": "Ottawa"
+        },
+        "placeNameWithPreposition": {
+          "default": "Ottawa",
+          "fr": "d'Ottawa"
+        },
+        "abbrev": "OTT",
+        "score": 2
+      },
+      "homeTeam": {
+        "id": 10,
+        "commonName": {
+          "default": "Maple Leafs"
+        },
+        "placeName": {
+          "default": "Toronto"
+        },
+        "placeNameWithPreposition": {
+          "default": "Toronto",
+          "fr": "de Toronto"
+        },
+        "abbrev": "TOR",
+        "score": 6
+      },
+      "gameCenterLink": "/gamecenter/ott-vs-tor/2025/04/20/2024030111",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 1,
+        "bottomSeedWins": 0
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030112,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 2,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Scotiabank Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-04-22T23:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "America/Toronto",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 307,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN2",
+          "sequenceNumber": 12
+        }
+      ],
+      "awayTeam": {
+        "id": 9,
+        "commonName": {
+          "default": "Senators",
+          "fr": "Sénateurs"
+        },
+        "placeName": {
+          "default": "Ottawa"
+        },
+        "placeNameWithPreposition": {
+          "default": "Ottawa",
+          "fr": "d'Ottawa"
+        },
+        "abbrev": "OTT",
+        "score": 2
+      },
+      "homeTeam": {
+        "id": 10,
+        "commonName": {
+          "default": "Maple Leafs"
+        },
+        "placeName": {
+          "default": "Toronto"
+        },
+        "placeNameWithPreposition": {
+          "default": "Toronto",
+          "fr": "de Toronto"
+        },
+        "abbrev": "TOR",
+        "score": 3
+      },
+      "gameCenterLink": "/gamecenter/ott-vs-tor/2025/04/22/2024030112",
+      "periodDescriptor": {
+        "number": 4,
+        "periodType": "OT",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 2,
+        "bottomSeedWins": 0
+      },
+      "gameOutcome": {
+        "lastPeriodType": "OT",
+        "otPeriods": 1
+      }
+    },
+    {
+      "id": 2024030113,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 3,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Canadian Tire Centre"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-04-24T23:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 287,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SNE",
+          "sequenceNumber": 30
+        },
+        {
+          "id": 288,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SNO",
+          "sequenceNumber": 31
+        },
+        {
+          "id": 290,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SNP",
+          "sequenceNumber": 33
+        },
+        {
+          "id": 307,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN2",
+          "sequenceNumber": 12
+        }
+      ],
+      "awayTeam": {
+        "id": 10,
+        "commonName": {
+          "default": "Maple Leafs"
+        },
+        "placeName": {
+          "default": "Toronto"
+        },
+        "placeNameWithPreposition": {
+          "default": "Toronto",
+          "fr": "de Toronto"
+        },
+        "abbrev": "TOR",
+        "score": 3
+      },
+      "homeTeam": {
+        "id": 9,
+        "commonName": {
+          "default": "Senators",
+          "fr": "Sénateurs"
+        },
+        "placeName": {
+          "default": "Ottawa"
+        },
+        "placeNameWithPreposition": {
+          "default": "Ottawa",
+          "fr": "d'Ottawa"
+        },
+        "abbrev": "OTT",
+        "score": 2
+      },
+      "gameCenterLink": "/gamecenter/tor-vs-ott/2025/04/24/2024030113",
+      "periodDescriptor": {
+        "number": 4,
+        "periodType": "OT",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 3,
+        "bottomSeedWins": 0
+      },
+      "gameOutcome": {
+        "lastPeriodType": "OT",
+        "otPeriods": 1
+      }
+    },
+    {
+      "id": 2024030114,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 4,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Canadian Tire Centre"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-04-26T23:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 403,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TBS",
+          "sequenceNumber": 13
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 519,
+          "market": "N",
+          "countryCode": "US",
+          "network": "MAX",
+          "sequenceNumber": 18
+        }
+      ],
+      "awayTeam": {
+        "id": 10,
+        "commonName": {
+          "default": "Maple Leafs"
+        },
+        "placeName": {
+          "default": "Toronto"
+        },
+        "placeNameWithPreposition": {
+          "default": "Toronto",
+          "fr": "de Toronto"
+        },
+        "abbrev": "TOR",
+        "score": 3
+      },
+      "homeTeam": {
+        "id": 9,
+        "commonName": {
+          "default": "Senators",
+          "fr": "Sénateurs"
+        },
+        "placeName": {
+          "default": "Ottawa"
+        },
+        "placeNameWithPreposition": {
+          "default": "Ottawa",
+          "fr": "d'Ottawa"
+        },
+        "abbrev": "OTT",
+        "score": 4
+      },
+      "gameCenterLink": "/gamecenter/tor-vs-ott/2025/04/26/2024030114",
+      "periodDescriptor": {
+        "number": 4,
+        "periodType": "OT",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 3,
+        "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "OT",
+        "otPeriods": 1
+      }
+    },
+    {
+      "id": 2024030115,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 5,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Scotiabank Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-04-29T23:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "America/Toronto",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        }
+      ],
+      "awayTeam": {
+        "id": 9,
+        "commonName": {
+          "default": "Senators",
+          "fr": "Sénateurs"
+        },
+        "placeName": {
+          "default": "Ottawa"
+        },
+        "placeNameWithPreposition": {
+          "default": "Ottawa",
+          "fr": "d'Ottawa"
+        },
+        "abbrev": "OTT",
+        "score": 4
+      },
+      "homeTeam": {
+        "id": 10,
+        "commonName": {
+          "default": "Maple Leafs"
+        },
+        "placeName": {
+          "default": "Toronto"
+        },
+        "placeNameWithPreposition": {
+          "default": "Toronto",
+          "fr": "de Toronto"
+        },
+        "abbrev": "TOR",
+        "score": 0
+      },
+      "gameCenterLink": "/gamecenter/ott-vs-tor/2025/04/29/2024030115",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 3,
+        "bottomSeedWins": 2
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030116,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 6,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Canadian Tire Centre"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-05-01T23:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 403,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TBS",
+          "sequenceNumber": 13
+        },
+        {
+          "id": 519,
+          "market": "N",
+          "countryCode": "US",
+          "network": "MAX",
+          "sequenceNumber": 18
+        }
+      ],
+      "awayTeam": {
+        "id": 10,
+        "commonName": {
+          "default": "Maple Leafs"
+        },
+        "placeName": {
+          "default": "Toronto"
+        },
+        "placeNameWithPreposition": {
+          "default": "Toronto",
+          "fr": "de Toronto"
+        },
+        "abbrev": "TOR",
+        "score": 4
+      },
+      "homeTeam": {
+        "id": 9,
+        "commonName": {
+          "default": "Senators",
+          "fr": "Sénateurs"
+        },
+        "placeName": {
+          "default": "Ottawa"
+        },
+        "placeNameWithPreposition": {
+          "default": "Ottawa",
+          "fr": "d'Ottawa"
+        },
+        "abbrev": "OTT",
+        "score": 2
+      },
+      "gameCenterLink": "/gamecenter/tor-vs-ott/2025/05/01/2024030116",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 4,
+        "bottomSeedWins": 2
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    }
+  ],
+  "fullCoverageUrl": {
+    "cs": "https://www.nhl.com/cs/playoffs/2025/series-a-coverage",
+    "de": "https://www.nhl.com/de/playoffs/2025/series-a-coverage",
+    "fi": "https://www.nhl.com/fi/playoffs/2025/series-a-coverage",
+    "sv": "https://www.nhl.com/sv/playoffs/2025/series-a-coverage",
+    "sk": "https://www.nhl.com/sk/playoffs/2025/series-a-coverage",
+    "en": "https://www.nhl.com/playoffs/2025/series-a-coverage",
+    "fr": "https://www.nhl.com/fr/playoffs/2025/series-a-coverage",
+    "es": "https://www.nhl.com/es/playoffs/2025/series-a-coverage"
+  }
+}

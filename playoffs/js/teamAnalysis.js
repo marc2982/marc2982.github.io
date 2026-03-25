@@ -33,10 +33,9 @@ export async function teamAnalysis(container) {
 		summary.rounds?.forEach((round) => {
 			// Process each series
 			round.serieses?.forEach((series) => {
-				const winner = series.winner;
 
 				// Process pick results for each person
-				Object.entries(round.pickResults || {}).forEach(([person, seriesResults]) => {
+				Object.entries(round.pickResults || {}).forEach(([_person, seriesResults]) => {
 					const result = seriesResults[series.letter];
 					if (!result?.pick?.team) return;
 

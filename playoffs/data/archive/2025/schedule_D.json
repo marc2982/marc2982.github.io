@@ -1,0 +1,600 @@
+{
+  "round": 1,
+  "roundAbbrev": "R1",
+  "roundLabel": "1st-round",
+  "seriesLetter": "D",
+  "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/stanley_cup_playoffs_secondary_wordmark_dark.png",
+  "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/stanley_cup_playoffs_secondary_wordmark_fr_dark.png",
+  "neededToWin": 4,
+  "length": 7,
+  "bottomSeedTeam": {
+    "id": 1,
+    "name": {
+      "default": "Devils"
+    },
+    "abbrev": "NJD",
+    "placeName": {
+      "default": "New Jersey"
+    },
+    "placeNameWithPreposition": {
+      "default": "New Jersey",
+      "fr": "du New Jersey"
+    },
+    "conference": {
+      "name": "Eastern",
+      "abbrev": "E"
+    },
+    "record": "1-4",
+    "seriesWins": 1,
+    "divisionAbbrev": "M",
+    "seed": 3,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NJD_dark.svg"
+  },
+  "topSeedTeam": {
+    "id": 12,
+    "name": {
+      "default": "Hurricanes"
+    },
+    "abbrev": "CAR",
+    "placeName": {
+      "default": "Carolina",
+      "fr": "Caroline"
+    },
+    "placeNameWithPreposition": {
+      "default": "Carolina",
+      "fr": "de la Caroline"
+    },
+    "conference": {
+      "name": "Eastern",
+      "abbrev": "E"
+    },
+    "record": "9-6",
+    "seriesWins": 4,
+    "divisionAbbrev": "M",
+    "seed": 2,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CAR_dark.svg"
+  },
+  "games": [
+    {
+      "id": 2024030141,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 1,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Lenovo Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-04-20T19:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        },
+        {
+          "id": 409,
+          "market": "A",
+          "countryCode": "US",
+          "network": "MSGSN",
+          "sequenceNumber": 411
+        },
+        {
+          "id": 561,
+          "market": "H",
+          "countryCode": "US",
+          "network": "FDSNSO",
+          "sequenceNumber": 202
+        }
+      ],
+      "awayTeam": {
+        "id": 1,
+        "commonName": {
+          "default": "Devils"
+        },
+        "placeName": {
+          "default": "New Jersey"
+        },
+        "placeNameWithPreposition": {
+          "default": "New Jersey",
+          "fr": "du New Jersey"
+        },
+        "abbrev": "NJD",
+        "score": 1
+      },
+      "homeTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR",
+        "score": 4
+      },
+      "gameCenterLink": "/gamecenter/njd-vs-car/2025/04/20/2024030141",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 1,
+        "bottomSeedWins": 0
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030142,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 2,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Lenovo Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-04-22T22:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 291,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS2",
+          "sequenceNumber": 121
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        },
+        {
+          "id": 409,
+          "market": "A",
+          "countryCode": "US",
+          "network": "MSGSN",
+          "sequenceNumber": 411
+        },
+        {
+          "id": 561,
+          "market": "H",
+          "countryCode": "US",
+          "network": "FDSNSO",
+          "sequenceNumber": 202
+        }
+      ],
+      "awayTeam": {
+        "id": 1,
+        "commonName": {
+          "default": "Devils"
+        },
+        "placeName": {
+          "default": "New Jersey"
+        },
+        "placeNameWithPreposition": {
+          "default": "New Jersey",
+          "fr": "du New Jersey"
+        },
+        "abbrev": "NJD",
+        "score": 1
+      },
+      "homeTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR",
+        "score": 3
+      },
+      "gameCenterLink": "/gamecenter/njd-vs-car/2025/04/22/2024030142",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 2,
+        "bottomSeedWins": 0
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030143,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 3,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Prudential Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-04-26T00:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 291,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS2",
+          "sequenceNumber": 121
+        },
+        {
+          "id": 403,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TBS",
+          "sequenceNumber": 13
+        },
+        {
+          "id": 409,
+          "market": "H",
+          "countryCode": "US",
+          "network": "MSGSN",
+          "sequenceNumber": 411
+        },
+        {
+          "id": 519,
+          "market": "N",
+          "countryCode": "US",
+          "network": "MAX",
+          "sequenceNumber": 18
+        },
+        {
+          "id": 561,
+          "market": "A",
+          "countryCode": "US",
+          "network": "FDSNSO",
+          "sequenceNumber": 202
+        }
+      ],
+      "awayTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR",
+        "score": 2
+      },
+      "homeTeam": {
+        "id": 1,
+        "commonName": {
+          "default": "Devils"
+        },
+        "placeName": {
+          "default": "New Jersey"
+        },
+        "placeNameWithPreposition": {
+          "default": "New Jersey",
+          "fr": "du New Jersey"
+        },
+        "abbrev": "NJD",
+        "score": 3
+      },
+      "gameCenterLink": "/gamecenter/car-vs-njd/2025/04/25/2024030143",
+      "periodDescriptor": {
+        "number": 5,
+        "periodType": "OT",
+        "otPeriods": 2,
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 2,
+        "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "OT",
+        "otPeriods": 2
+      }
+    },
+    {
+      "id": 2024030144,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 4,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Prudential Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-04-27T19:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 403,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TBS",
+          "sequenceNumber": 13
+        },
+        {
+          "id": 409,
+          "market": "H",
+          "countryCode": "US",
+          "network": "MSGSN",
+          "sequenceNumber": 411
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 519,
+          "market": "N",
+          "countryCode": "US",
+          "network": "MAX",
+          "sequenceNumber": 18
+        },
+        {
+          "id": 561,
+          "market": "A",
+          "countryCode": "US",
+          "network": "FDSNSO",
+          "sequenceNumber": 202
+        }
+      ],
+      "awayTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR",
+        "score": 5
+      },
+      "homeTeam": {
+        "id": 1,
+        "commonName": {
+          "default": "Devils"
+        },
+        "placeName": {
+          "default": "New Jersey"
+        },
+        "placeNameWithPreposition": {
+          "default": "New Jersey",
+          "fr": "du New Jersey"
+        },
+        "abbrev": "NJD",
+        "score": 2
+      },
+      "gameCenterLink": "/gamecenter/car-vs-njd/2025/04/27/2024030144",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 3,
+        "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030145,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 5,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Lenovo Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-04-29T23:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 291,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS2",
+          "sequenceNumber": 121
+        },
+        {
+          "id": 403,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TBS",
+          "sequenceNumber": 13
+        },
+        {
+          "id": 409,
+          "market": "A",
+          "countryCode": "US",
+          "network": "MSGSN",
+          "sequenceNumber": 411
+        },
+        {
+          "id": 519,
+          "market": "N",
+          "countryCode": "US",
+          "network": "MAX",
+          "sequenceNumber": 18
+        },
+        {
+          "id": 561,
+          "market": "H",
+          "countryCode": "US",
+          "network": "FDSNSO",
+          "sequenceNumber": 202
+        }
+      ],
+      "awayTeam": {
+        "id": 1,
+        "commonName": {
+          "default": "Devils"
+        },
+        "placeName": {
+          "default": "New Jersey"
+        },
+        "placeNameWithPreposition": {
+          "default": "New Jersey",
+          "fr": "du New Jersey"
+        },
+        "abbrev": "NJD",
+        "score": 4
+      },
+      "homeTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR",
+        "score": 5
+      },
+      "gameCenterLink": "/gamecenter/njd-vs-car/2025/04/29/2024030145",
+      "periodDescriptor": {
+        "number": 5,
+        "periodType": "OT",
+        "otPeriods": 2,
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 4,
+        "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "OT",
+        "otPeriods": 2
+      }
+    }
+  ],
+  "fullCoverageUrl": {
+    "cs": "https://www.nhl.com/cs/playoffs/2025/series-d-coverage",
+    "de": "https://www.nhl.com/de/playoffs/2025/series-d-coverage",
+    "fi": "https://www.nhl.com/fi/playoffs/2025/series-d-coverage",
+    "sv": "https://www.nhl.com/sv/playoffs/2025/series-d-coverage",
+    "sk": "https://www.nhl.com/sk/playoffs/2025/series-d-coverage",
+    "en": "https://www.nhl.com/playoffs/2025/series-d-coverage",
+    "fr": "https://www.nhl.com/fr/playoffs/2025/series-d-coverage",
+    "es": "https://www.nhl.com/es/playoffs/2025/series-d-coverage"
+  }
+}

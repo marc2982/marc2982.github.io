@@ -1,0 +1,793 @@
+{
+  "round": 1,
+  "roundAbbrev": "R1",
+  "roundLabel": "1st-round",
+  "seriesLetter": "E",
+  "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/stanley_cup_playoffs_secondary_wordmark_dark.png",
+  "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/stanley_cup_playoffs_secondary_wordmark_fr_dark.png",
+  "neededToWin": 4,
+  "length": 7,
+  "bottomSeedTeam": {
+    "id": 19,
+    "name": {
+      "default": "Blues"
+    },
+    "abbrev": "STL",
+    "placeName": {
+      "default": "St. Louis"
+    },
+    "placeNameWithPreposition": {
+      "default": "St. Louis",
+      "fr": "de St. Louis"
+    },
+    "conference": {
+      "name": "Western",
+      "abbrev": "W"
+    },
+    "record": "3-4",
+    "seriesWins": 3,
+    "divisionAbbrev": "C",
+    "seed": 4,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/STL_20082009-20242025_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/STL_20082009-20242025_dark.svg"
+  },
+  "topSeedTeam": {
+    "id": 52,
+    "name": {
+      "default": "Jets"
+    },
+    "abbrev": "WPG",
+    "placeName": {
+      "default": "Winnipeg"
+    },
+    "placeNameWithPreposition": {
+      "default": "Winnipeg",
+      "fr": "de Winnipeg"
+    },
+    "conference": {
+      "name": "Western",
+      "abbrev": "W"
+    },
+    "record": "6-7",
+    "seriesWins": 4,
+    "divisionAbbrev": "C",
+    "seed": 1,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/WPG_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/WPG_dark.svg"
+  },
+  "games": [
+    {
+      "id": 2024030151,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 1,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Canada Life Centre"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-04-19T22:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-05:00",
+      "venueTimezone": "America/Winnipeg",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 519,
+          "market": "N",
+          "countryCode": "US",
+          "network": "MAX",
+          "sequenceNumber": 18
+        },
+        {
+          "id": 566,
+          "market": "A",
+          "countryCode": "US",
+          "network": "FDSNMW",
+          "sequenceNumber": 201
+        }
+      ],
+      "awayTeam": {
+        "id": 19,
+        "commonName": {
+          "default": "Blues"
+        },
+        "placeName": {
+          "default": "St. Louis"
+        },
+        "placeNameWithPreposition": {
+          "default": "St. Louis",
+          "fr": "de St. Louis"
+        },
+        "abbrev": "STL",
+        "score": 3
+      },
+      "homeTeam": {
+        "id": 52,
+        "commonName": {
+          "default": "Jets"
+        },
+        "placeName": {
+          "default": "Winnipeg"
+        },
+        "placeNameWithPreposition": {
+          "default": "Winnipeg",
+          "fr": "de Winnipeg"
+        },
+        "abbrev": "WPG",
+        "score": 5
+      },
+      "gameCenterLink": "/gamecenter/stl-vs-wpg/2025/04/19/2024030151",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 1,
+        "bottomSeedWins": 0
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030152,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 2,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Canada Life Centre"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-04-21T23:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-05:00",
+      "venueTimezone": "America/Winnipeg",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 291,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS2",
+          "sequenceNumber": 121
+        },
+        {
+          "id": 307,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN2",
+          "sequenceNumber": 12
+        },
+        {
+          "id": 566,
+          "market": "A",
+          "countryCode": "US",
+          "network": "FDSNMW",
+          "sequenceNumber": 201
+        }
+      ],
+      "awayTeam": {
+        "id": 19,
+        "commonName": {
+          "default": "Blues"
+        },
+        "placeName": {
+          "default": "St. Louis"
+        },
+        "placeNameWithPreposition": {
+          "default": "St. Louis",
+          "fr": "de St. Louis"
+        },
+        "abbrev": "STL",
+        "score": 1
+      },
+      "homeTeam": {
+        "id": 52,
+        "commonName": {
+          "default": "Jets"
+        },
+        "placeName": {
+          "default": "Winnipeg"
+        },
+        "placeNameWithPreposition": {
+          "default": "Winnipeg",
+          "fr": "de Winnipeg"
+        },
+        "abbrev": "WPG",
+        "score": 2
+      },
+      "gameCenterLink": "/gamecenter/stl-vs-wpg/2025/04/21/2024030152",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 2,
+        "bottomSeedWins": 0
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030153,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 3,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Enterprise Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-04-25T01:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-05:00",
+      "venueTimezone": "US/Central",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 307,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN2",
+          "sequenceNumber": 12
+        },
+        {
+          "id": 566,
+          "market": "H",
+          "countryCode": "US",
+          "network": "FDSNMW",
+          "sequenceNumber": 201
+        }
+      ],
+      "awayTeam": {
+        "id": 52,
+        "commonName": {
+          "default": "Jets"
+        },
+        "placeName": {
+          "default": "Winnipeg"
+        },
+        "placeNameWithPreposition": {
+          "default": "Winnipeg",
+          "fr": "de Winnipeg"
+        },
+        "abbrev": "WPG",
+        "score": 2
+      },
+      "homeTeam": {
+        "id": 19,
+        "commonName": {
+          "default": "Blues"
+        },
+        "placeName": {
+          "default": "St. Louis"
+        },
+        "placeNameWithPreposition": {
+          "default": "St. Louis",
+          "fr": "de St. Louis"
+        },
+        "abbrev": "STL",
+        "score": 7
+      },
+      "gameCenterLink": "/gamecenter/wpg-vs-stl/2025/04/24/2024030153",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 2,
+        "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030154,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 4,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Enterprise Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-04-27T17:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-05:00",
+      "venueTimezone": "US/Central",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 403,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TBS",
+          "sequenceNumber": 13
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 519,
+          "market": "N",
+          "countryCode": "US",
+          "network": "MAX",
+          "sequenceNumber": 18
+        },
+        {
+          "id": 566,
+          "market": "H",
+          "countryCode": "US",
+          "network": "FDSNMW",
+          "sequenceNumber": 201
+        }
+      ],
+      "awayTeam": {
+        "id": 52,
+        "commonName": {
+          "default": "Jets"
+        },
+        "placeName": {
+          "default": "Winnipeg"
+        },
+        "placeNameWithPreposition": {
+          "default": "Winnipeg",
+          "fr": "de Winnipeg"
+        },
+        "abbrev": "WPG",
+        "score": 1
+      },
+      "homeTeam": {
+        "id": 19,
+        "commonName": {
+          "default": "Blues"
+        },
+        "placeName": {
+          "default": "St. Louis"
+        },
+        "placeNameWithPreposition": {
+          "default": "St. Louis",
+          "fr": "de St. Louis"
+        },
+        "abbrev": "STL",
+        "score": 5
+      },
+      "gameCenterLink": "/gamecenter/wpg-vs-stl/2025/04/27/2024030154",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 2,
+        "bottomSeedWins": 2
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030155,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 5,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Canada Life Centre"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-05-01T01:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-05:00",
+      "venueTimezone": "America/Winnipeg",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        },
+        {
+          "id": 566,
+          "market": "A",
+          "countryCode": "US",
+          "network": "FDSNMW",
+          "sequenceNumber": 201
+        }
+      ],
+      "awayTeam": {
+        "id": 19,
+        "commonName": {
+          "default": "Blues"
+        },
+        "placeName": {
+          "default": "St. Louis"
+        },
+        "placeNameWithPreposition": {
+          "default": "St. Louis",
+          "fr": "de St. Louis"
+        },
+        "abbrev": "STL",
+        "score": 3
+      },
+      "homeTeam": {
+        "id": 52,
+        "commonName": {
+          "default": "Jets"
+        },
+        "placeName": {
+          "default": "Winnipeg"
+        },
+        "placeNameWithPreposition": {
+          "default": "Winnipeg",
+          "fr": "de Winnipeg"
+        },
+        "abbrev": "WPG",
+        "score": 5
+      },
+      "gameCenterLink": "/gamecenter/stl-vs-wpg/2025/04/30/2024030155",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 3,
+        "bottomSeedWins": 2
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030156,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 6,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Enterprise Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-05-03T00:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-05:00",
+      "venueTimezone": "US/Central",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 519,
+          "market": "N",
+          "countryCode": "US",
+          "network": "MAX",
+          "sequenceNumber": 18
+        },
+        {
+          "id": 566,
+          "market": "H",
+          "countryCode": "US",
+          "network": "FDSNMW",
+          "sequenceNumber": 201
+        }
+      ],
+      "awayTeam": {
+        "id": 52,
+        "commonName": {
+          "default": "Jets"
+        },
+        "placeName": {
+          "default": "Winnipeg"
+        },
+        "placeNameWithPreposition": {
+          "default": "Winnipeg",
+          "fr": "de Winnipeg"
+        },
+        "abbrev": "WPG",
+        "score": 2
+      },
+      "homeTeam": {
+        "id": 19,
+        "commonName": {
+          "default": "Blues"
+        },
+        "placeName": {
+          "default": "St. Louis"
+        },
+        "placeNameWithPreposition": {
+          "default": "St. Louis",
+          "fr": "de St. Louis"
+        },
+        "abbrev": "STL",
+        "score": 5
+      },
+      "gameCenterLink": "/gamecenter/wpg-vs-stl/2025/05/02/2024030156",
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 3,
+        "bottomSeedWins": 3
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
+    },
+    {
+      "id": 2024030157,
+      "season": 20242025,
+      "gameType": 3,
+      "gameNumber": 7,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Canada Life Centre"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2025-05-04T23:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-05:00",
+      "venueTimezone": "America/Winnipeg",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 403,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TBS",
+          "sequenceNumber": 13
+        },
+        {
+          "id": 519,
+          "market": "N",
+          "countryCode": "US",
+          "network": "MAX",
+          "sequenceNumber": 18
+        },
+        {
+          "id": 566,
+          "market": "A",
+          "countryCode": "US",
+          "network": "FDSNMW",
+          "sequenceNumber": 201
+        }
+      ],
+      "awayTeam": {
+        "id": 19,
+        "commonName": {
+          "default": "Blues"
+        },
+        "placeName": {
+          "default": "St. Louis"
+        },
+        "placeNameWithPreposition": {
+          "default": "St. Louis",
+          "fr": "de St. Louis"
+        },
+        "abbrev": "STL",
+        "score": 3
+      },
+      "homeTeam": {
+        "id": 52,
+        "commonName": {
+          "default": "Jets"
+        },
+        "placeName": {
+          "default": "Winnipeg"
+        },
+        "placeNameWithPreposition": {
+          "default": "Winnipeg",
+          "fr": "de Winnipeg"
+        },
+        "abbrev": "WPG",
+        "score": 4
+      },
+      "gameCenterLink": "/gamecenter/stl-vs-wpg/2025/05/04/2024030157",
+      "periodDescriptor": {
+        "number": 5,
+        "periodType": "OT",
+        "otPeriods": 2,
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 4,
+        "bottomSeedWins": 3
+      },
+      "gameOutcome": {
+        "lastPeriodType": "OT",
+        "otPeriods": 2
+      }
+    }
+  ],
+  "fullCoverageUrl": {
+    "cs": "https://www.nhl.com/cs/playoffs/2025/series-e-coverage",
+    "de": "https://www.nhl.com/de/playoffs/2025/series-e-coverage",
+    "fi": "https://www.nhl.com/fi/playoffs/2025/series-e-coverage",
+    "sv": "https://www.nhl.com/sv/playoffs/2025/series-e-coverage",
+    "sk": "https://www.nhl.com/sk/playoffs/2025/series-e-coverage",
+    "en": "https://www.nhl.com/playoffs/2025/series-e-coverage",
+    "fr": "https://www.nhl.com/fr/playoffs/2025/series-e-coverage",
+    "es": "https://www.nhl.com/es/playoffs/2025/series-e-coverage"
+  }
+}
