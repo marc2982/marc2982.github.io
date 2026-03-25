@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E2E Simulator - Playoff Pool</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <style>
+        body { padding: 40px; max-width: 900px; margin: auto; background: #0f172a; color: #f8fafc; }
+        .card { background: #1e293b; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+        input[type="password"] { padding: 10px; width: 300px; font-size: 16px; margin-right: 10px; }
+        button { padding: 10px 20px; font-size: 16px; background: #3b82f6; color: white; border: none; cursor: pointer; border-radius: 4px; }
+        button:hover { background: #2563eb; }
+        button:disabled { background: #475569; cursor: not-allowed; }
+        pre { background: #000; padding: 15px; border-radius: 4px; overflow-x: auto; color: #10b981; min-height: 200px; }
+        .log-error { color: #ef4444; }
+        .log-warn { color: #f59e0b; }
+        .log-info { color: #3b82f6; }
+    </style>
+</head>
+<body>
+    <h1>🚀 Year 3000 E2E Simulator</h1>
+    <div class="card">
+        <p>This will run a full simulated playoff season on Year 3000. It will contact the real Google Apps Script backend and verify contingencies, locking mechanics, and points permutations.</p>
+        <div style="margin-top:20px;">
+            <input type="password" id="passcode" placeholder="Enter GAS Passcode" />
+            <button id="runBtn">Execute Simulation</button>
+        </div>
+    </div>
+    
+    <div class="card">
+        <h3>Mission Console</h3>
+        <pre id="console"></pre>
+    </div>
+
+    <!-- Inject the test runner logic -->
+    <script type="module">
+        import { runSimulation } from './js/tests/e2e.test.js';
+        
+        const btn = document.getElementById('runBtn');
+        const numInput = document.getElementById('passcode');
+        const consoleEl = document.getElementById('console');
+
+        function log(msg, type='success') {
+            const span = document.createElement('div');
+            if(type === 'error') span.className = 'log-error';
+            if(type === 'info') span.className = 'log-info';
+            if(type === 'warn') span.className = 'log-warn';
+            span.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+            consoleEl.appendChild(span);
+            consoleEl.scrollTop = consoleEl.scrollHeight;
+        }
+
+        btn.addEventListener('click', async () => {
+            const pass = numInput.value.trim();
+            if (!pass) return alert('Passcode required');
+            
+            btn.disabled = true;
+            consoleEl.innerHTML = '';
+            log('Starting E2E Mission...', 'info');
+
+            try {
+                await runSimulation(pass, log);
+                log('MISSION ACCOMPLISHED! All scenarios passed.', 'success');
+            } catch (err) {
+                log(`MISSION FAILED: ${err.message}`, 'error');
+                console.error(err);
+            } finally {
+                btn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

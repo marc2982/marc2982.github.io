@@ -42,6 +42,22 @@ function doPost(e) {
 		const timestamp = new Date();
 		const timestampStr = Utilities.formatDate(timestamp, 'GMT', 'M/d/yyyy H:mm:ss');
 
+		// 2.5 SPECIAL TEST ACTION
+		if (data.action === 'clearTestYear') {
+			if (year !== 3000) return respond({ result: 'error', error: 'Can only clear year 3000' });
+			try {
+				const folder = DriveApp.getFoldersByName(DRIVE_FOLDER_NAME).next();
+				const files = folder.getFilesByName(FILE_NAME_TEMPLATE.replace('{year}', year));
+				if (files.hasNext()) files.next().setTrashed(true);
+				
+				// Optional: Clear GitHub index
+				removeYearFromIndex(year);
+			} catch (e) {
+				console.error('Failed to clear test year:', e);
+			}
+			return respond({ result: 'success', details: 'Year 3000 cleared' });
+		}
+
 		// 3. Security 1: Check for Duplicates in the backup sheet
 		// This prevents low-effort spamming or accidental double-clicks.
 		const sheetName = `round${roundNum}`;
@@ -234,6 +250,30 @@ function ensureYearInIndex(year) {
 	} catch (e) {
 		console.error('Error in ensureYearInIndex:', e);
 	}
+}
+
+function removeYearFromIndex(year) {
+	const path = 'playoffs/data/summaries/yearly_index.json';
+	const url = `https://api.github.com/repos/${GITHUB_REPO_OWNER}/${GITHUB_REPO_NAME}/contents/${path}`;
+	const headers = { Authorization: 'token ' + GITHUB_TOKEN, Accept: 'application/vnd.github.v3+json' };
+	try {
+		const response = UrlFetchApp.fetch(url + '?ref=' + GITHUB_BRANCH, { headers: headers, muteHttpExceptions: true });
+		if (response.getResponseCode() !== 200) return;
+		
+		const fileData = JSON.parse(response.getContentText());
+		const content = JSON.parse(Utilities.newBlob(Utilities.base64Decode(fileData.content)).getDataAsString());
+		const yearStr = year.toString();
+		if (!content[yearStr]) return;
+		
+		delete content[yearStr];
+		const payload = {
+			message: `Automated: Removed ${year} from yearly index (Test Cleanup)`,
+			content: Utilities.base64Encode(JSON.stringify(content, null, 2), Utilities.Charset.UTF_8),
+			sha: fileData.sha,
+			branch: GITHUB_BRANCH,
+		};
+		UrlFetchApp.fetch(url, { method: 'PUT', headers: headers, payload: JSON.stringify(payload), contentType: 'application/json' });
+	} catch(e) {}
 }
 
 function respond(obj) {
