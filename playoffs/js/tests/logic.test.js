@@ -1,5 +1,7 @@
-import { Series, ALL_SERIES, WINNER_MAP } from '../models.js';
+import { Series, ALL_SERIES, WINNER_MAP, Pick, Winner, PickStatus, PickResult, Scoring, PersonPointsSummary, Round, RoundSummary } from '../models.js';
 import { NhlApiHandler } from '../nhlApiHandler.js';
+import { PickResultCalculator } from '../pickResultCalculator.js';
+import { Summarizer } from '../summarizer.js';
 import { GOOGLE_SCRIPT_URL } from '../config.js';
 
 export async function runTests() {
@@ -129,6 +131,146 @@ export async function runTests() {
 		const winners = handler.getPossibleWinners('I');
 		assert(winners.length === 3, 'Should have 3 possibilities (FLA, BOS, TOR)');
 		assert(winners.includes('FLA') && winners.includes('BOS') && winners.includes('TOR'), 'Wrong teams');
+	});
+
+	// 4. Scoring Tests (PickResultCalculator)
+	test('Scoring', 'Points calculation: Correct team & games gets bonus', () => {
+		const calc = new PickResultCalculator();
+		const scoring = Scoring.create({ team: 1, games: 2, bonus: 3 });
+		const points = calc.getPoints(scoring, PickStatus.CORRECT, PickStatus.CORRECT);
+		assert(points === 6, 'Should yield 6 points (1+2+3)');
+	});
+
+	test('Scoring', 'Points calculation: Correct team only', () => {
+		const calc = new PickResultCalculator();
+		const scoring = Scoring.create({ team: 1, games: 2, bonus: 3 });
+		const points = calc.getPoints(scoring, PickStatus.CORRECT, PickStatus.INCORRECT);
+		assert(points === 1, 'Should yield 1 point (team only)');
+	});
+
+	test('Scoring', 'Points calculation: Correct games only', () => {
+		const calc = new PickResultCalculator();
+		const scoring = Scoring.create({ team: 1, games: 2, bonus: 3 });
+		const points = calc.getPoints(scoring, PickStatus.INCORRECT, PickStatus.CORRECT);
+		assert(points === 2, 'Should yield 2 points (games only)');
+	});
+
+	test('Scoring', 'Possible points: Unknown series', () => {
+		const calc = new PickResultCalculator();
+		const scoring = Scoring.create({ team: 1, games: 2, bonus: 3 });
+		const possible = calc.calculatePossiblePoints(null, null, scoring, PickStatus.UNKNOWN, PickStatus.UNKNOWN);
+		assert(possible === 6, 'Should have 6 possible points remaining');
+	});
+
+	test('Scoring', 'Possible points: Eliminated team', () => {
+		const calc = new PickResultCalculator();
+		const scoring = Scoring.create({ team: 1, games: 2, bonus: 3 });
+		const possible = calc.calculatePossiblePoints(null, null, scoring, PickStatus.INCORRECT, PickStatus.UNKNOWN);
+		assert(possible === 2, 'Should only have 2 possible points (from games) remaining');
+	});
+
+	test('Scoring', 'Team status validation', () => {
+		const calc = new PickResultCalculator();
+		const pick = Pick.create({ team: 'FLA' });
+		const winner = Winner.create({ team: 'FLA' });
+		const status = calc.getTeamStatus(pick, winner);
+		assert(status === PickStatus.CORRECT, 'Team should be correct');
+	});
+
+	test('Scoring', 'Games status validation (finished series)', () => {
+		const calc = new PickResultCalculator();
+		const pick = Pick.create({ games: 6 });
+		const winner = Winner.create({ games: 6 });
+		const status = calc.getGamesStatus(pick, winner, null);
+		assert(status === PickStatus.CORRECT, 'Games should be correct');
+	});
+
+	test('Scoring', 'Games status validation (active series elimination)', () => {
+		const calc = new PickResultCalculator();
+		// Active series where 6 games have been played. Predicted to end in 5.
+		const series = Series.create({ topSeedWins: 3, bottomSeedWins: 3 }); // 6 games played
+		const pick = Pick.create({ games: 5 });
+		const status = calc.getGamesStatus(pick, null, series);
+		assert(status === PickStatus.INCORRECT, 'Should be eliminated since we reached game 6');
+	});
+
+	// 5. Summarizer & Tiebreaker Tests
+	test('Summarizer', 'Tiebreaker resolution (Points & Rank)', () => {
+		// Mock pick results for a single round to test aggregation and ranking
+		const pickResults = {
+			'Alice': { 'A': PickResult.create({ points: 10, possiblePoints: 10, teamStatus: PickStatus.CORRECT, gamesStatus: PickStatus.CORRECT, earnedBonusPoints: true }) },
+			'Bob': { 'A': PickResult.create({ points: 5, possiblePoints: 10, teamStatus: PickStatus.CORRECT, gamesStatus: PickStatus.INCORRECT }) },
+			'Charlie': { 'A': PickResult.create({ points: 10, possiblePoints: 10, teamStatus: PickStatus.CORRECT, gamesStatus: PickStatus.CORRECT, earnedBonusPoints: true }) }
+		};
+		const sum = new Summarizer(2025, { getAllTeams: () => ({}) });
+		const roundSummary = sum.summarizeRound(pickResults);
+		assert(roundSummary.summaries['Alice'].rank === 1, 'Alice should be rank 1');
+		assert(roundSummary.summaries['Bob'].rank === 3, 'Bob should be rank 3');
+		assert(roundSummary.summaries['Charlie'].rank === 1, 'Charlie should be rank 1');
+		assert(roundSummary.winners.includes('Alice') && roundSummary.winners.includes('Charlie'), 'Should be tied winners');
+	});
+
+	// 6. Tiebreaker Deep Tests
+	test('Summarizer (Tiebreakers)', 'Tiebreaker #1: Most exact games correct wins', () => {
+		const sum = new Summarizer(2025, { getAllTeams: () => ({}) });
+		const round = Round.create({
+			summary: RoundSummary.create({
+				summaries: {
+					'Alice': PersonPointsSummary.create({ person: 'Alice', points: 10, gamesCorrect: 3, teamsCorrect: 1 }),
+					'Bob': PersonPointsSummary.create({ person: 'Bob', points: 10, gamesCorrect: 1, teamsCorrect: 3 })
+				}
+			})
+		});
+
+		const yearlySummary = sum.summarizeYear([round], {});
+		assert(yearlySummary.tiebreakInfo.leaders.length === 2, 'Should have 2 leaders tied on points');
+		assert(yearlySummary.tiebreakInfo.winner === 'Alice', 'Alice should win Tiebreaker #1 via gamesCorrect');
+	});
+
+	test('Summarizer (Tiebreakers)', 'Tiebreaker #2: Most exact teams correct wins if games tied', () => {
+		const sum = new Summarizer(2025, { getAllTeams: () => ({}) });
+		const round = Round.create({
+			summary: RoundSummary.create({
+				summaries: {
+					'Alice': PersonPointsSummary.create({ person: 'Alice', points: 10, gamesCorrect: 2, teamsCorrect: 1 }),
+					'Bob': PersonPointsSummary.create({ person: 'Bob', points: 10, gamesCorrect: 2, teamsCorrect: 2 })
+				}
+			})
+		});
+
+		const yearlySummary = sum.summarizeYear([round], {});
+		assert(yearlySummary.tiebreakInfo.winner === 'Bob', 'Bob should win Tiebreaker #2 via teamsCorrect');
+	});
+
+	test('Summarizer (Tiebreakers)', 'Tie resolves to undefined if entirely identical', () => {
+		const sum = new Summarizer(2025, { getAllTeams: () => ({}) });
+		const round = Round.create({
+			summary: RoundSummary.create({
+				summaries: {
+					'Alice': PersonPointsSummary.create({ person: 'Alice', points: 10, gamesCorrect: 2, teamsCorrect: 2 }),
+					'Bob': PersonPointsSummary.create({ person: 'Bob', points: 10, gamesCorrect: 2, teamsCorrect: 2 })
+				}
+			})
+		});
+
+		const yearlySummary = sum.summarizeYear([round], {});
+		assert(yearlySummary.tiebreakInfo.winner === undefined, 'Winner should be undefined (completely tied)');
+	});
+
+	// 7. Series Core Logic Tests
+	test('Series Core Logic', 'isOver and getWinner operate correctly', () => {
+		const series = Series.create({ topSeed: 'BOS', bottomSeed: 'TOR', topSeedWins: 4, bottomSeedWins: 3 });
+		assert(series.isOver() === true, 'Series should be over');
+		
+		const winner = series.getWinner();
+		assert(winner.team === 'BOS', 'BOS should be the winner');
+		assert(winner.games === 7, 'Series should have gone 7 games');
+	});
+
+	test('Series Core Logic', 'isOver returns false for active series', () => {
+		const series = Series.create({ topSeed: 'BOS', bottomSeed: 'TOR', topSeedWins: 3, bottomSeedWins: 3 });
+		assert(series.isOver() === false, 'Series should not be over');
+		assert(series.getWinner() === null, 'Winner should be null');
 	});
 
 	return results;
