@@ -1,10 +1,12 @@
 import { runTests } from '../js/tests/logic.test.js';
 import { runStatsTests } from '../js/tests/stats.test.js';
+import { runImporterTests } from '../js/tests/importer.test.js';
 
 async function main() {
 	console.log('🏒 Running Playoff Unit Tests...\n');
 	let results = await runTests();
 	results = results.concat(await runStatsTests());
+	results = results.concat(runImporterTests());
 	
 	let passed = 0;
 	let failed = 0;

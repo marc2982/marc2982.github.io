@@ -1,4 +1,5 @@
 import { GOOGLE_SCRIPT_URL } from '../config.js';
+import { Series } from '../models.js';
 import { SCENARIOS } from './mockData.js';
 import { MockDataLoader } from './mockDataLoader.js';
 import { NhlApiHandler } from '../nhlApiHandler.js';
@@ -48,20 +49,22 @@ export async function runSimulation(passcode, log) {
     await api.fetchSchedules(ALL_SERIES[0]); // Round 1
     
     let seriesA = api.getSeriesList().find(s => s.letter === 'A');
-    if (seriesA.isLocked()) {
-        log('Scenario: Lock mechanisms functioning correctly at T-5 days', 'success');
+    // At T-5: round is NOT open yet (unlock window is T-3). Series is also not started.
+    if (!Series.isRoundOpen(seriesA.startTimeUTC) && !seriesA.isLocked()) {
+        log('Scenario: Round correctly closed to picks at T-5 days', 'success');
     } else {
-        throw new Error('Series should be locked 5 days out!');
+        throw new Error('Round should not be open 5 days out!');
     }
 
     // Fast Forward to Open
     dataLoader.setScenario(SCENARIOS.R1_OPEN);
     await api.fetchSchedules(ALL_SERIES[0]);
     seriesA = api.getSeriesList().find(s => s.letter === 'A');
-    if (!seriesA.isLocked()) {
-        log('Scenario: Series correctly unlocked at T-2 days', 'success');
+    // At T-2: round IS open (within 3 days), but game hasn't started so not locked.
+    if (Series.isRoundOpen(seriesA.startTimeUTC) && !seriesA.isLocked()) {
+        log('Scenario: Round open to picks at T-2 days, game not yet started', 'success');
     } else {
-         throw new Error('Series should be open 2 days out!');
+        throw new Error('Round should be open but series not yet started at T-2 days!');
     }
 
     // Scenario C: Send Multiple Permutations to GAS
@@ -144,9 +147,9 @@ export async function runSimulation(passcode, log) {
 
     // Verify Points Correctness
     // FLA won in 6. (Team: 1pt, Game: 2pts, Bonus: 3pts) = 6pts
-    const aliceScore = roundSummary.summaries['Alice_Perfect'].points; // should be 6
-    const bobScore = roundSummary.summaries['Bob_TeamOnly'].points; // should be 1
-    const charlieScore = roundSummary.summaries['Charlie_GamesOnly'].points; // should be 2
+    const aliceScore = roundSummary.summaries['Alice_perfect'].points; // should be 6
+    const bobScore = roundSummary.summaries['Bob_teamonly'].points; // should be 1
+    const charlieScore = roundSummary.summaries['Charlie_gamesonly'].points; // should be 2
 
     if (aliceScore !== 6) throw new Error(`Alice perfect score failed! Expected 6 got ${aliceScore}`);
     if (bobScore !== 1) throw new Error(`Bob team only score failed! Expected 1 got ${bobScore}`);
@@ -163,7 +166,22 @@ export async function runSimulation(passcode, log) {
     }
     log(`Contingency successfully bubbled up [${possibleI.join(',')}] for next round.`, 'success');
 
-    // Scenario E: Projection Matrix Logic
+    // Scenario E: Round Overlap / Contingency Picks (Round 2 starts before Round 1 finished)
+    log('Scenario: Round Overlap / Contingency Picks (Round 2 TBD-TBD)', 'info');
+    dataLoader.setScenario(SCENARIOS.R1_OVERLAP_R2);
+    await api.load();
+    await api.fetchSchedules(['I']); // Round 2 lead series
+
+    const possibleI_overlap = api.getPossibleWinners('I');
+    // Series A (FLA/TBL) vs Series B (BOS/TOR)
+    const expectedTeams = ['FLA', 'TBL', 'BOS', 'TOR'];
+    const allPresent = expectedTeams.every(t => possibleI_overlap.includes(t));
+    if (!allPresent || possibleI_overlap.length !== 4) {
+        throw new Error(`Contingency failed for Overlap! Expected 4 teams [FLA,TBL,BOS,TOR], got [${possibleI_overlap.join(',')}]`);
+    }
+    log(`Overlap success! Correctly bubbled up 4 possible participants: [${possibleI_overlap.join(',')}]`, 'success');
+
+    // Scenario F: Projection Matrix Logic
     log('Scenario: Projection Matrix Verification', 'info');
     const projector = new ProjectionCalculator(seriesRepo, teamRepo);
     const roundOneObj = Round.create({

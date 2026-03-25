@@ -14,6 +14,23 @@ Welcome to the NHL Playoffs Pool! This is a completely free, automated, serverle
   - **Head-to-Head:** Direct competition margins and tiebreaker records against specific competitors.
   - **Round Analysis:** Difficulty rankings by round, sweep prediction accuracy, Game 7 predictions, and bonus point efficiency.
 
+## 🔒 Pick Availability Logic
+
+Pick submission uses a two-stage gating system:
+
+1. **Round Unlock (coarse gate):** A round becomes open to picks **3 days before** the earliest Game 1 start time in that round. Before this window, the picks page shows "not available yet."
+2. **Series Lock (precise gate):** Once the round is open, each individual series locks at its **exact Game 1 start time**. A series that starts later in the round stays editable right up until its own puck drop.
+
+```
+Round open? → No  → "Picks not available yet"
+     ↓ Yes
+Series locked? → Yes → Show picks read-only
+     ↓ No
+Show editable pick form
+```
+
+This means no manual date configuration is ever needed — the app derives all timing directly from the NHL API schedule data.
+
 ## 💡 Future Analytics Ideas
 
 Feel free to expand the `pickAnalysis.js` engine to support new "fun" metrics in future years:

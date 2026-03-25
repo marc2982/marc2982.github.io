@@ -1,5 +1,22 @@
 import { Pick, ALL_SERIES } from './models.js';
-import { loadCsv } from './csvProcessor.js';
+
+// Minimal CSV parser that works in both browser and Node (no CDN dependency).
+// Handles quoted fields and comma-separated values.
+function parseCsvString(csvString) {
+	return csvString.trim().split('\n').map(line => {
+		const row = [];
+		let current = '';
+		let inQuotes = false;
+		for (const ch of line) {
+			if (ch === '"') { inQuotes = !inQuotes; }
+			else if (ch === ',' && !inQuotes) { row.push(current); current = ''; }
+			else { current += ch; }
+		}
+		row.push(current);
+		return row;
+	});
+}
+
 
 export class PicksImporter {
 	constructor(seriesRepo, teamRepo) {
@@ -9,13 +26,20 @@ export class PicksImporter {
 
 	async readCsv(dataDir, round) {
 		const filename = `${dataDir}/round${round}.csv`;
+		const { loadCsv } = await import('./csvProcessor.js');
 		const data = await loadCsv(filename);
+		// loadCsv returns string[][] already parsed; serialise back to a simple CSV
+		// string so processRows can handle both paths uniformly.
+		const csvString = data.map(row => row.join(',')).join('\n');
+		return this.processRows(csvString, round);
+	}
+
+	processRows(csvString, round) {
+		const data = parseCsvString(csvString);
 		const picks = {};
-		// Get all series for this round to look up against
 		const seriesLetters = ALL_SERIES[round - 1];
 		const seriesInRound = seriesLetters.map((letter) => this.seriesRepo.getSeries(letter));
 
-		// timestamp is first column, ignored
 		const nameIndex = 1;
 		const picksStartIndex = 2;
 
@@ -31,9 +55,8 @@ export class PicksImporter {
 				if (!teamName || !numGames) continue;
 
 				try {
-					const team = this.teamRepo.getTeam(teamName); // Keep this for series lookup, or modify parsePick to return team object
-					// Find which series this team belongs to
-					const series = seriesInRound.find((s) => s.topSeed === team.short || s.bottomSeed === team.short);
+					const team = this.teamRepo.getTeam(teamName);
+					const series = seriesInRound.find((s) => s && (s.topSeed === team.short || s.bottomSeed === team.short));
 
 					if (!series) {
 						console.warn(`Could not find series for team ${teamName} (${team.short})`);
@@ -44,9 +67,7 @@ export class PicksImporter {
 						throw new Error(`Invalid games value for ${person} in series ${series.letter}`);
 					}
 
-					if (!picks[person]) {
-						picks[person] = {};
-					}
+					if (!picks[person]) picks[person] = {};
 
 					picks[person][series.letter] = Pick.create({
 						team: team.short,
