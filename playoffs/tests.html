@@ -85,33 +85,10 @@
 			<h1>🏒 Playoff Picks Logic Tests</h1>
 			<div id="summary" class="summary"></div>
 			<div id="results">Running unit tests...</div>
-
-			<div class="test-group">
-				<h2>Integration Test (Roundtrip)</h2>
-				<p style="font-size: 0.9em; color: #666; margin-bottom: 15px">
-					This test will send real data to your Google Apps Script. 
-					<strong>Warning:</strong> This will create a REAL commit to your GitHub repository if successful.
-				</p>
-				<p style="font-size: 0.8em; color: #856404; background: #fff3cd; padding: 10px; border-radius: 4px; margin-bottom: 15px">
-					💡 <strong>Tip:</strong> If you updated <code>Code.gs</code>, you MUST use "Manage Deployments" &gt; "Edit" &gt; "New Version" in Google Apps Script for changes to take effect.
-				</p>
-				<button id="run-integration" style="
-					background: #3498db;
-					color: white;
-					border: none;
-					padding: 10px 20px;
-					border-radius: 6px;
-					font-weight: 600;
-					cursor: pointer;
-					margin-bottom: 15px;
-				">Run Full Roundtrip Test</button>
-				<div id="integration-results"></div>
-			</div>
 		</div>
 
 		<script type="module">
-			import { runTests, runIntegrationTest } from './js/tests/logic.test.js';
-			import { GOOGLE_SCRIPT_URL } from './js/config.js';
+			import { runTests } from './js/tests/logic.test.js';
 
 			async function init() {
 				const results = await runTests();
@@ -156,46 +133,6 @@
 					});
 					container.appendChild(groupDiv);
 				}
-
-				// Integration Test Handler
-				document.getElementById('run-integration').onclick = async () => {
-					console.log('Testing URL:', GOOGLE_SCRIPT_URL);
-					const btn = document.getElementById('run-integration');
-					const resDiv = document.getElementById('integration-results');
-					btn.disabled = true;
-					btn.textContent = '⏳ Testing...';
-					resDiv.innerHTML = '';
-
-					try {
-						// We'll prompt for passcode if it's generic, or just use a default
-						const passcode = prompt('Enter your GAS Passcode');
-						if (!passcode) {
-							btn.disabled = false;
-							btn.textContent = '🧪 Run Full Roundtrip Test';
-							return;
-						}
-
-						const result = await runIntegrationTest(GOOGLE_SCRIPT_URL, passcode);
-						resDiv.innerHTML = `
-							<div class="PASS" style="margin-top: 10px; display: inline-block">SUCCESS</div>
-							<p style="margin-top: 10px; font-size: 0.9em">
-								<strong>User:</strong> ${result.user}<br>
-								<strong>Status:</strong> ${result.details}
-							</p>
-							<p style="font-size: 0.8em; color: #666">
-								Check your repo: <a href="https://github.com/marc2982/marc2982.github.io/commits/rewrite" target="_blank">Commit History</a>
-							</p>
-						`;
-					} catch (e) {
-						resDiv.innerHTML = `
-							<div class="FAIL" style="margin-top: 10px; display: inline-block">FAILED</div>
-							<div class="error-msg">${e.message}</div>
-						`;
-					} finally {
-						btn.disabled = false;
-						btn.textContent = 'Run Full Roundtrip Test';
-					}
-				};
 			}
 
 			init();

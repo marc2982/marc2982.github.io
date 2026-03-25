@@ -49,11 +49,22 @@ To ensure the site remains fast in the future, we "lock in" the year:
 4. Click **Generate yearly_index.json** and save it to the same `summaries/` folder.
 5. Commit both files to the repository. The year will now load instantly forever without needing to hit the NHL API or calculate from CSVs.
 
-## 🧪 Testing
+## 🧪 Testing & Local Development
+
+Due to strict browser CORS policies regarding ES6 Modules, you cannot simply double-click `tests.html` or `index.html` from your file explorer. You must run it through a local web server.
+
+1. Ensure you have Node.js installed.
+2. Open a terminal in the `playoffs/` directory and run:
+   ```bash
+   npm install
+   npm start
+   ```
+3. Open `http://localhost:8080/playoffs/tests.html` in your browser.
 
 The codebase includes various ways to test:
-- **Browser Tests:** Open `playoffs/tests.html` in your browser. It uses a custom straightforward test suite to test utility functions, calculators, and parsers.
-- **Node/Jest Tests:** If you want to test the JavaScript modules directly via terminal, write your tests in the `js/tests/` directory and run them.
+- **Browser Tests (`tests.html`):** Uses a custom straightforward test suite to test utility functions, calculators, and parsers.
+- **E2E Backend Test (`e2e-tests.html`):** Use this hidden page to execute a full mock timeline of a playoffs using a dummy "Year 3000". It will natively test time-travel locking, Google Apps Script submissions, and Points Permutations logic against real local dependencies.
+- **Code Quality:** Run `npm run lint` to execute the ESLint compiler against the Javascript logic to check for code smells.
 
 ## 🤖 For AI Agents & Contributors
 If you're an LLM or a human developer looking to contribute to the codebase or fix a bug, **STOP** and read `AGENT_README.md` first. It serves as a highly detailed architecture map that will save you time and prevent you from adding unnecessary backend infrastructure to a purely static site.
