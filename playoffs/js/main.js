@@ -1,4 +1,5 @@
 import { renderPage } from './year.js';
+import { showGlobalError } from './errorOverlay.js';
 import {
 	Round,
 	YearlySummary,
@@ -23,8 +24,13 @@ import { ProjectionCalculator } from './projectionCalculator.js';
 import { fetchJson } from './httpUtils.js';
 
 export async function render(year) {
-	const data = await loadData(year);
-	renderPage(data);
+	try {
+		const data = await loadData(year);
+		renderPage(data);
+	} catch (err) {
+		console.error("Critical rendering error:", err);
+		showGlobalError(err);
+	}
 }
 
 async function loadData(year) {
@@ -44,8 +50,14 @@ async function loadData(year) {
 		const data = await fetchJson(dataPath);
 		return yearlySummaryFromJson(year, data);
 	} catch (err) {
-		console.log('No JSON found, loading from CSVs + API...');
-		return await loadAndProcessCsvs(year);
+		if (err.message === 'NOT_FOUND') {
+			console.log('No JSON found, loading from CSVs + API...');
+			return await loadAndProcessCsvs(year);
+		} else {
+			// This is a corrupt JSON, 500 Network error, or parsing error that should crash explicitly
+			console.error("Failed to load historical JSON for " + year, err);
+			throw err; 
+		}
 	}
 }
 
