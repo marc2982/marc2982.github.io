@@ -1,8 +1,8 @@
 name: Fetch NHL API
 
 on:
-  schedule:
-    - cron: '*/15 * * * *' # Every 15 minutes
+  # schedule:
+  #   - cron: '*/15 * * * *' # Disabled until playoffs start
   workflow_dispatch: # Allow manual trigger from GitHub UI
 
 jobs:
