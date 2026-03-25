@@ -14,6 +14,14 @@ Welcome to the NHL Playoffs Pool! This is a completely free, automated, serverle
   - **Head-to-Head:** Direct competition margins and tiebreaker records against specific competitors.
   - **Round Analysis:** Difficulty rankings by round, sweep prediction accuracy, Game 7 predictions, and bonus point efficiency.
 
+## 💡 Future Analytics Ideas
+
+Feel free to expand the `pickAnalysis.js` engine to support new "fun" metrics in future years:
+- **The Homer:** Track whose picks correlate highest with their self-professed favorite team.
+- **The Bandwagoner:** Identify who predominantly picks President's Trophy winners or #1 seeds.
+- **The Contrarian:** Track how often a player picks an underdog that >80% of the rest of the pool voted against.
+- **The Nostradamus:** Track "Lone Wolf" perfect picks (you perfectly guessed a game length/team that nobody else in the pool saw coming).
+
 ## 🚀 How It Works (The "Magic")
 
 This app requires **zero servers** and **zero manual database entry**. 

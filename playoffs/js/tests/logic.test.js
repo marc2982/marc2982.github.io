@@ -272,5 +272,13 @@ export async function runTests() {
 		assert(series.getWinner() === null, 'Winner should be null');
 	});
 
+	test('Series Core Logic', 'copy returns a new instance with overriding properties', () => {
+		const series = Series.create({ letter: 'A', topSeedWins: 2 });
+		const copied = series.copy({ topSeedWins: 4 });
+		assert(copied.letter === 'A', 'Should retain original properties');
+		assert(copied.topSeedWins === 4, 'Should apply overridden properties');
+		assert(copied !== series, 'Should be a new instance');
+	});
+
 	return results;
 }

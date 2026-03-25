@@ -89,9 +89,11 @@
 
 		<script type="module">
 			import { runTests } from './js/tests/logic.test.js';
+			import { runStatsTests } from './js/tests/stats.test.js';
 
 			async function init() {
-				const results = await runTests();
+				let results = await runTests();
+				results = results.concat(await runStatsTests());
 				const container = document.getElementById('results');
 				const summaryDiv = document.getElementById('summary');
 				container.innerHTML = '';

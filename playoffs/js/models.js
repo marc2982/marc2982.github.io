@@ -31,6 +31,12 @@ class BaseModel {
 		Object.assign(instance, data);
 		return instance;
 	}
+
+	copy(overrides = {}) {
+		const instance = new this.constructor();
+		Object.assign(instance, this, overrides);
+		return instance;
+	}
 }
 
 export class Pick extends BaseModel {}

@@ -2,12 +2,7 @@ import { PEOPLE, TEAMS } from './constants.js';
 import { loadAllYearsDetailed, isPerfectPick, isBonusEarned } from './common.js';
 import { createSection, createTable, initDataTable } from './tableUtils.js';
 
-export async function pickAnalysis(container) {
-	// Load all years data
-	const { results, yearlyIndex } = await loadAllYearsDetailed();
-
-	container.empty();
-
+export function aggregatePickStats(results, yearlyIndex) {
 	// Initialize stats
 	const stats = {};
 	PEOPLE.forEach((person) => {
@@ -157,7 +152,14 @@ export async function pickAnalysis(container) {
 	});
 
 	// Filter to active participants
-	const activeStats = Object.values(stats).filter((s) => s.gamesTotalPicks > 0);
+	return Object.values(stats).filter((s) => s.gamesTotalPicks > 0);
+}
+
+export async function pickAnalysis(container) {
+	const { results, yearlyIndex } = await loadAllYearsDetailed();
+	container.empty();
+	
+	const activeStats = aggregatePickStats(results, yearlyIndex);
 
 	// Build tables
 	buildMushTable(container, activeStats);
