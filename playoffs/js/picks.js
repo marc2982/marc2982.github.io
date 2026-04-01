@@ -117,10 +117,17 @@ function renderMatchups(seriesList, teamsObjects, targetRoundIdx) {
 	if (!isRoundOpen) {
 		if (leadSeries && leadSeries.startTimeUTC) {
 			const unlockDate = new Date(new Date(leadSeries.startTimeUTC).getTime() - 3 * 24 * 60 * 60 * 1000);
+			const monthStr = unlockDate.toLocaleString('default', { month: 'short' });
+			const dayStr = String(unlockDate.getDate()).padStart(2, '0');
+			let hr = unlockDate.getHours();
+			const ampm = hr >= 12 ? 'pm' : 'am';
+			hr = hr % 12 || 12;
+			const formattedDate = `${unlockDate.getFullYear()}-${monthStr}-${dayStr} at ${hr}${ampm}`;
+
 			container.html(`
                 <div class="intro-card" style="background-color: #e2f3ff; color: #004085; border-color: #b8daff;">
                     <h3>🔒 Picks Not Open Yet</h3>
-                    <p>Picks for this round will open on <b>${unlockDate.toLocaleDateString()} at ${unlockDate.toLocaleTimeString()}</b> (3 days before the first game).</p>
+                    <p>Picks for this round will open on <b>${formattedDate}</b> (3 days before the first game).</p>
                 </div>
             `);
 		} else {
@@ -133,6 +140,7 @@ function renderMatchups(seriesList, teamsObjects, targetRoundIdx) {
 
 	// 2. Render Cards
 	let allLocked = true;
+	let hasContingency = false;
 	targetSeries.forEach((s) => {
 		const isParticipantSet = s.topSeed && s.topSeed !== 'undefined' && s.bottomSeed && s.bottomSeed !== 'undefined';
 
@@ -146,6 +154,7 @@ function renderMatchups(seriesList, teamsObjects, targetRoundIdx) {
 			container.append(renderMatchupCard(s, s.topSeed, topTeam, s.bottomSeed, botTeam));
 		} else {
 			// Phase 2: Contingency Matchups
+			hasContingency = true;
 			const parents = WINNER_MAP[s.letter];
 			if (parents) {
 				const leftOptions = apiHandler.getPossibleWinners(parents[0]);
@@ -173,6 +182,15 @@ function renderMatchups(seriesList, teamsObjects, targetRoundIdx) {
 	} else {
 		$('#submit-picks').prop('disabled', false).text('Submit Picks');
 		attachEventHandlers();
+	}
+
+	if (hasContingency) {
+		container.prepend(`
+            <div class="intro-card contingency-banner" style="background-color: #fff3cd; color: #856404; border-color: #ffeeba; margin-bottom: 20px;">
+                <h3>⚠️ Overlapping Round</h3>
+                <p>The matchups for this round are not fully decided yet! Please submit your picks for <b>all possible permutations</b> below. Only the matchup that actually occurs will be scored.</p>
+            </div>
+        `);
 	}
 }
 

@@ -256,6 +256,36 @@ export async function runTests() {
 		assert(yearlySummary.tiebreakInfo.winner === undefined, 'Winner should be undefined (completely tied)');
 	});
 
+	test('Summarizer', 'Gracefully handles a person missing an entire round of picks', () => {
+		const sum = new Summarizer(2025, { getAllTeams: () => ({}) });
+		
+		const round1 = Round.create({
+			summary: RoundSummary.create({
+				summaries: {
+					'Alice': PersonPointsSummary.create({ person: 'Alice', points: 10, gamesCorrect: 2, teamsCorrect: 2 }),
+					'Bob': PersonPointsSummary.create({ person: 'Bob', points: 5, gamesCorrect: 1, teamsCorrect: 1 })
+				}
+			})
+		});
+		
+		const round2 = Round.create({
+			summary: RoundSummary.create({
+				summaries: {
+					// Alice forgot to submit picks for Round 2!
+					'Bob': PersonPointsSummary.create({ person: 'Bob', points: 10, gamesCorrect: 2, teamsCorrect: 2 })
+				}
+			})
+		});
+
+		const yearlySummary = sum.summarizeYear([round1, round2], {});
+		
+		// Alice: R1(10) + R2(0) = 10 points
+		// Bob: R1(5) + R2(10) = 15 points
+		assert(yearlySummary.personSummaries['Alice'].points === 10, 'Alice should have 10 points total');
+		assert(yearlySummary.personSummaries['Bob'].points === 15, 'Bob should have 15 points total');
+		assert(yearlySummary.tiebreakInfo.winner === 'Bob', 'Bob should win the year');
+	});
+
 	// 7. Series Core Logic Tests
 	test('Series Core Logic', 'isOver and getWinner operate correctly', () => {
 		const series = Series.create({ topSeed: 'BOS', bottomSeed: 'TOR', topSeedWins: 4, bottomSeedWins: 3 });

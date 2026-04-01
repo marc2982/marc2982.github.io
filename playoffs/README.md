@@ -20,6 +20,8 @@ Pick submission uses a two-stage gating system:
 
 1. **Round Unlock (coarse gate):** A round becomes open to picks **3 days before** the earliest Game 1 start time in that round. Before this window, the picks page shows "not available yet."
 2. **Series Lock (precise gate):** Once the round is open, each individual series locks at its **exact Game 1 start time**. A series that starts later in the round stays editable right up until its own puck drop.
+3. **Contingency Picks (overlapping rounds):** When a round unlocks (e.g. Round 2 opening 3 days before Game 1), but the previous round hasn't fully finished yet, the app generates **Contingency Picks**. It will display all possible permutations for a series. Participants must provide a pick for all permutations, but only the matchup that actually occurs will be scored.
+
 
 ```
 Round open? → No  → "Picks not available yet"
@@ -74,6 +76,13 @@ To ensure the site remains fast in the future, we "lock in" the year:
 4. Click **Generate yearly_index.json** and save it to the same `summaries/` folder.
 5. Commit both files to the repository. The year will now load instantly forever without needing to hit the NHL API or calculate from CSVs.
 
+### 4. Optional: Automated Round Notifications
+If you want to alert your pool participants exactly when a round opens (3 days before Game 1), you can do this for exactly $0.00 using Google Apps Script's native `MailApp` service:
+1. Write a function in your backend `Code.gs` that fetches the NHL API schedule. If the earliest Game 1 of the active round is exactly 3 days away, proceed.
+2. Loop through your participants' email addresses and call `MailApp.sendEmail(email, "NHL Pool: Next Round Open", "Time to submit your picks!")`.
+3. Set a "Time-driven trigger" within the GAS dashboard to execute this function every morning.
+***SMS Hack:*** You don't need paid Twilio credits to send text messages. Every major carrier provides an "Email-to-SMS" gateway (e.g. \`5551234567@vtext.com\` for Verizon, or \`@txt.att.net\` for AT&T). If you drop those specific carrier gateway addresses into your `MailApp` loop instead of standard emails, Google Apps Script will text their phones for free.
+
 ## 🧪 Testing & Local Development
 
 Due to strict browser CORS policies regarding ES6 Modules, you cannot simply double-click `tests.html` or `index.html` from your file explorer. You must run it through a local web server.
@@ -90,6 +99,14 @@ The codebase includes various ways to test:
 - **Browser Tests (`tests.html`):** Uses a custom straightforward test suite to test utility functions, calculators, and parsers.
 - **E2E Backend Test (`e2e-tests.html`):** Use this hidden page to execute a full mock timeline of a playoffs using a dummy "Year 3000". It will natively test time-travel locking, Google Apps Script submissions, and Points Permutations logic against real local dependencies.
 - **Code Quality:** Run `npm run lint` to execute the ESLint compiler against the Javascript logic to check for code smells.
+
+### 🔮 Possible Future E2E Improvements
+
+If you want to make the E2E test even more robust for a completely hands-off playoff season, consider adding:
+
+1. **The "Tiebreaker / End of Season" Scenario:** Inject a `mockPicks[4]` (Stanley Cup Final) where two players tie in points. Verify that `Summarizer.summarizeYear()` correctly applies the tiebreaker logic (e.g. Most Games Correct $\rightarrow$ Most Teams Correct) to crown the unified Champion.
+2. **The "Changing a Pick Before Deadline" Scenario:** Submit a revised payload for a user before the lockout deadline and ensure the Google Apps Script backend overwrites their previous row instead of rejecting it as a duplicate.
+3. **The "Missing File / Round 2 Start" Scenario:** Test the state where Round 1 finishes and Round 2 opens, but `round2.csv` returns a 404 from GitHub Pages. Make sure `PicksImporter` handles a missing file gracefully (e.g. treats it as 0 picks) instead of crashing the dashboard.
 
 ## 🤖 For AI Agents & Contributors
 If you're an LLM or a human developer looking to contribute to the codebase or fix a bug, **STOP** and read `AGENT_README.md` first. It serves as a highly detailed architecture map that will save you time and prevent you from adding unnecessary backend infrastructure to a purely static site.
