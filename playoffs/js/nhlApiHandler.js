@@ -27,15 +27,23 @@ export class NhlApiHandler {
 			}
 			const topSeed = this.buildTeam(series, TOP);
 			const bottomSeed = this.buildTeam(series, BOTTOM);
-			this.series.push(
-				Series.create({
-					letter: series.seriesLetter,
-					topSeed: topSeed.short,
-					bottomSeed: bottomSeed.short,
-					topSeedWins: series.topSeedWins,
-					bottomSeedWins: series.bottomSeedWins,
-				}),
-			);
+
+			const newSeries = Series.create({
+				letter: series.seriesLetter,
+				topSeed: topSeed.short,
+				bottomSeed: bottomSeed.short,
+				topSeedWins: series.topSeedWins,
+				bottomSeedWins: series.bottomSeedWins,
+			});
+
+			const existingIndex = this.series.findIndex(s => s.letter === series.seriesLetter);
+			if (existingIndex !== -1) {
+				newSeries.startTimeUTC = this.series[existingIndex].startTimeUTC;
+				this.series[existingIndex] = newSeries;
+			} else {
+				this.series.push(newSeries);
+			}
+
 			if (series.seriesTitle === 'Stanley Cup Final') {
 				break;
 			}

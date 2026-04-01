@@ -116,15 +116,15 @@ export async function runSimulation(passcode, log) {
     
     // Inject Mock CSV data corresponding to what we just submitted to GAS
     let mockCsv = "Timestamp,Name,Team,Games,Team,Games\n";
-    mockCsv += "2025-01-01,Alice_Perfect,FLA,6,TOR,7\n";
-    mockCsv += "2025-01-01,Bob_TeamOnly,FLA,5,TOR,7\n";
-    mockCsv += "2025-01-01,Charlie_GamesOnly,TBL,6,TOR,7\n";
+    mockCsv += "2025-01-01,Alice_Perfect,FLA,6,TOR,4\n";
+    mockCsv += "2025-01-01,Bob_TeamOnly,FLA,5,TOR,4\n";
+    mockCsv += "2025-01-01,Charlie_GamesOnly,TBL,6,TOR,4\n";
     dataLoader.mockPicks[1] = mockCsv;
 
     const seriesRepo = new class extends SeriesRepository {
         getSeries(letter) { return api.getSeriesList().find(s => s.letter === letter); }
         getSeriesOrNone(letter) { return this.getSeries(letter); }
-        getScfSeries() { return null; }
+        getScfSeries() { return this.getSeries('O'); }
     }();
 
     const teamRepo = new class extends TeamRepository {

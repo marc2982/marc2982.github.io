@@ -5,102 +5,255 @@ export function getRelativeDateString(daysOffset, baseDate = new Date()) {
 	return d.toISOString();
 }
 
-/** 
+/**
  * We will define a few distinct points in time.
  * The E2E script will set `MockTimeLoader.currentScenario` to transition between these states.
  */
 export const SCENARIOS = {
-    R1_LOCKED: 'R1_LOCKED',
-    R1_OPEN: 'R1_OPEN',
-    R1_FINISHED: 'R1_FINISHED',
-    R2_OPEN: 'R2_OPEN',
-    R1_OVERLAP_R2: 'R1_OVERLAP_R2'
+	R1_LOCKED: 'R1_LOCKED',
+	R1_OPEN: 'R1_OPEN',
+	R1_FINISHED: 'R1_FINISHED',
+	R2_OPEN: 'R2_OPEN',
+	R1_OVERLAP_R2: 'R1_OVERLAP_R2',
 };
 
 export const MOCK_API_DATA = {
-    // 16 teams set, seeds set. Game 1 starts in 5 days (locked)
-    [SCENARIOS.R1_LOCKED]: {
-        bracket: {
-            series: [
-                { seriesLetter: 'A', topSeedTeam: { abbrev: 'FLA', name: { default: 'Panthers' } }, bottomSeedTeam: { abbrev: 'TBL', name: { default: 'Lightning' } }, topSeedWins: 0, bottomSeedWins: 0, seriesUrl: 'stub' },
-                { seriesLetter: 'B', topSeedTeam: { abbrev: 'BOS', name: { default: 'Bruins' } }, bottomSeedTeam: { abbrev: 'TOR', name: { default: 'Maple Leafs' } }, topSeedWins: 0, bottomSeedWins: 0, seriesUrl: 'stub' },
-                // Just stubbing the rest for safety
-                { seriesLetter: 'C', topSeedTeam: { abbrev: 'NYR' }, bottomSeedTeam: { abbrev: 'WSH' }, topSeedWins: 0, bottomSeedWins: 0, seriesUrl: 'stub' },
-                { seriesLetter: 'D', topSeedTeam: { abbrev: 'CAR' }, bottomSeedTeam: { abbrev: 'NYI' }, topSeedWins: 0, bottomSeedWins: 0, seriesUrl: 'stub' },
-                { seriesLetter: 'E', topSeedTeam: { abbrev: 'DAL' }, bottomSeedTeam: { abbrev: 'VGK' }, topSeedWins: 0, bottomSeedWins: 0, seriesUrl: 'stub' },
-                { seriesLetter: 'F', topSeedTeam: { abbrev: 'WPG' }, bottomSeedTeam: { abbrev: 'COL' }, topSeedWins: 0, bottomSeedWins: 0, seriesUrl: 'stub' },
-                { seriesLetter: 'G', topSeedTeam: { abbrev: 'VAN' }, bottomSeedTeam: { abbrev: 'NSH' }, topSeedWins: 0, bottomSeedWins: 0, seriesUrl: 'stub' },
-                { seriesLetter: 'H', topSeedTeam: { abbrev: 'EDM' }, bottomSeedTeam: { abbrev: 'LAK' }, topSeedWins: 0, bottomSeedWins: 0, seriesUrl: 'stub' },
-            ]
-        },
-        schedules: {
-            'A': { games: [{ startTimeUTC: getRelativeDateString(5) }] },
-            'B': { games: [{ startTimeUTC: getRelativeDateString(5) }] }
-        }
-    },
-    
-    // 16 teams set. Game 1 starts in 2 days (open)
-    [SCENARIOS.R1_OPEN]: {
-        bracket: {
-            series: [
-                { seriesLetter: 'A', topSeedTeam: { abbrev: 'FLA', name: { default: 'Panthers' } }, bottomSeedTeam: { abbrev: 'TBL', name: { default: 'Lightning' } }, topSeedWins: 0, bottomSeedWins: 0 },
-                { seriesLetter: 'B', topSeedTeam: { abbrev: 'BOS', name: { default: 'Bruins' } }, bottomSeedTeam: { abbrev: 'TOR', name: { default: 'Maple Leafs' } }, topSeedWins: 0, bottomSeedWins: 0 },
-                { seriesLetter: 'C', topSeedTeam: { abbrev: 'NYR' }, bottomSeedTeam: { abbrev: 'WSH' }, topSeedWins: 0, bottomSeedWins: 0 },
-                { seriesLetter: 'D', topSeedTeam: { abbrev: 'CAR' }, bottomSeedTeam: { abbrev: 'NYI' }, topSeedWins: 0, bottomSeedWins: 0 },
-                { seriesLetter: 'E', topSeedTeam: { abbrev: 'DAL' }, bottomSeedTeam: { abbrev: 'VGK' }, topSeedWins: 0, bottomSeedWins: 0 },
-                { seriesLetter: 'F', topSeedTeam: { abbrev: 'WPG' }, bottomSeedTeam: { abbrev: 'COL' }, topSeedWins: 0, bottomSeedWins: 0 },
-                { seriesLetter: 'G', topSeedTeam: { abbrev: 'VAN' }, bottomSeedTeam: { abbrev: 'NSH' }, topSeedWins: 0, bottomSeedWins: 0 },
-                { seriesLetter: 'H', topSeedTeam: { abbrev: 'EDM' }, bottomSeedTeam: { abbrev: 'LAK' }, topSeedWins: 0, bottomSeedWins: 0 },
-            ]
-        },
-        schedules: {
-            'A': { games: [{ startTimeUTC: getRelativeDateString(2) }] },
-            'B': { games: [{ startTimeUTC: getRelativeDateString(2) }] }
-        }
-    },
-    
-    // R1 finished. FLA and BOS won. (R2 locked and TBD)
-    [SCENARIOS.R1_FINISHED]: {
-        bracket: {
-            series: [
-                { seriesLetter: 'A', topSeedTeam: { abbrev: 'FLA', name: { default: 'Panthers' } }, bottomSeedTeam: { abbrev: 'TBL', name: { default: 'Lightning' } }, topSeedWins: 4, bottomSeedWins: 2, seriesUrl: 'stub' },
-                { seriesLetter: 'B', topSeedTeam: { abbrev: 'BOS', name: { default: 'Bruins' } }, bottomSeedTeam: { abbrev: 'TOR', name: { default: 'Maple Leafs' } }, topSeedWins: 4, bottomSeedWins: 3, seriesUrl: 'stub' },
-                // ... others can remain 0-0 for simplicity, we focus on Series I (A vs B)
-            ]
-        },
-        schedules: {
-            'I': { games: [{ startTimeUTC: getRelativeDateString(5) }] } // R2 game 1 in 5 days
-        }
-    },
+	// 16 teams set, seeds set. Game 1 starts in 5 days (locked)
+	[SCENARIOS.R1_LOCKED]: {
+		bracket: {
+			series: [
+				{
+					seriesLetter: 'A',
+					topSeedTeam: { abbrev: 'FLA', name: { default: 'Panthers' } },
+					bottomSeedTeam: { abbrev: 'TBL', name: { default: 'Lightning' } },
+					topSeedWins: 0,
+					bottomSeedWins: 0,
+					seriesUrl: 'stub',
+				},
+				{
+					seriesLetter: 'B',
+					topSeedTeam: { abbrev: 'BOS', name: { default: 'Bruins' } },
+					bottomSeedTeam: { abbrev: 'TOR', name: { default: 'Maple Leafs' } },
+					topSeedWins: 0,
+					bottomSeedWins: 0,
+					seriesUrl: 'stub',
+				},
+				// Just stubbing the rest for safety
+				{
+					seriesLetter: 'C',
+					topSeedTeam: { abbrev: 'NYR', name: { default: 'Rangers' } },
+					bottomSeedTeam: { abbrev: 'WSH', name: { default: 'Capitals' } },
+					topSeedWins: 0,
+					bottomSeedWins: 0,
+					seriesUrl: 'stub',
+				},
+				{
+					seriesLetter: 'D',
+					topSeedTeam: { abbrev: 'CAR', name: { default: 'Hurricanes' } },
+					bottomSeedTeam: { abbrev: 'NYI', name: { default: 'Islanders' } },
+					topSeedWins: 0,
+					bottomSeedWins: 0,
+					seriesUrl: 'stub',
+				},
+				{
+					seriesLetter: 'E',
+					topSeedTeam: { abbrev: 'DAL', name: { default: 'Stars' } },
+					bottomSeedTeam: { abbrev: 'VGK', name: { default: 'Golden Knights' } },
+					topSeedWins: 0,
+					bottomSeedWins: 0,
+					seriesUrl: 'stub',
+				},
+				{
+					seriesLetter: 'F',
+					topSeedTeam: { abbrev: 'WPG', name: { default: 'Jets' } },
+					bottomSeedTeam: { abbrev: 'COL', name: { default: 'Avalanche' } },
+					topSeedWins: 0,
+					bottomSeedWins: 0,
+					seriesUrl: 'stub',
+				},
+				{
+					seriesLetter: 'G',
+					topSeedTeam: { abbrev: 'VAN', name: { default: 'Canucks' } },
+					bottomSeedTeam: { abbrev: 'NSH', name: { default: 'Predators' } },
+					topSeedWins: 0,
+					bottomSeedWins: 0,
+					seriesUrl: 'stub',
+				},
+				{
+					seriesLetter: 'H',
+					topSeedTeam: { abbrev: 'EDM', name: { default: 'Oilers' } },
+					bottomSeedTeam: { abbrev: 'LAK', name: { default: 'Kings' } },
+					topSeedWins: 0,
+					bottomSeedWins: 0,
+					seriesUrl: 'stub',
+				},
+			],
+		},
+		schedules: {
+			A: { games: [{ startTimeUTC: getRelativeDateString(5) }] },
+			B: { games: [{ startTimeUTC: getRelativeDateString(5) }] },
+		},
+	},
 
-    // R2 Open. Games start in 2 days.
-    [SCENARIOS.R2_OPEN]: {
-        bracket: {
-            series: [
-                { seriesLetter: 'A', topSeedTeam: { abbrev: 'FLA', name: { default: 'Panthers' } }, bottomSeedTeam: { abbrev: 'TBL', name: { default: 'Lightning' } }, topSeedWins: 4, bottomSeedWins: 2, seriesUrl: 'stub' },
-                { seriesLetter: 'B', topSeedTeam: { abbrev: 'BOS', name: { default: 'Bruins' } }, bottomSeedTeam: { abbrev: 'TOR', name: { default: 'Maple Leafs' } }, topSeedWins: 4, bottomSeedWins: 3, seriesUrl: 'stub' },
-                // Series I seeds now set (FLA vs BOS)
-                { seriesLetter: 'I', topSeedTeam: { abbrev: 'FLA' }, bottomSeedTeam: { abbrev: 'BOS' }, topSeedWins: 0, bottomSeedWins: 0, seriesUrl: 'stub' }
-            ]
-        },
-        schedules: {
-            'I': { games: [{ startTimeUTC: getRelativeDateString(2) }] } 
-        }
-    },
+	// 16 teams set. Game 1 starts in 2 days (open)
+	[SCENARIOS.R1_OPEN]: {
+		bracket: {
+			series: [
+				{
+					seriesLetter: 'A',
+					topSeedTeam: { abbrev: 'FLA', name: { default: 'Panthers' } },
+					bottomSeedTeam: { abbrev: 'TBL', name: { default: 'Lightning' } },
+					topSeedWins: 0,
+					bottomSeedWins: 0,
+				},
+				{
+					seriesLetter: 'B',
+					topSeedTeam: { abbrev: 'BOS', name: { default: 'Bruins' } },
+					bottomSeedTeam: { abbrev: 'TOR', name: { default: 'Maple Leafs' } },
+					topSeedWins: 0,
+					bottomSeedWins: 0,
+				},
+				{
+					seriesLetter: 'C',
+					topSeedTeam: { abbrev: 'NYR', name: { default: 'Rangers' } },
+					bottomSeedTeam: { abbrev: 'WSH', name: { default: 'Capitals' } },
+					topSeedWins: 0,
+					bottomSeedWins: 0,
+				},
+				{
+					seriesLetter: 'D',
+					topSeedTeam: { abbrev: 'CAR', name: { default: 'Hurricanes' } },
+					bottomSeedTeam: { abbrev: 'NYI', name: { default: 'Islanders' } },
+					topSeedWins: 0,
+					bottomSeedWins: 0,
+				},
+				{
+					seriesLetter: 'E',
+					topSeedTeam: { abbrev: 'DAL', name: { default: 'Stars' } },
+					bottomSeedTeam: { abbrev: 'VGK', name: { default: 'Golden Knights' } },
+					topSeedWins: 0,
+					bottomSeedWins: 0,
+				},
+				{
+					seriesLetter: 'F',
+					topSeedTeam: { abbrev: 'WPG', name: { default: 'Jets' } },
+					bottomSeedTeam: { abbrev: 'COL', name: { default: 'Avalanche' } },
+					topSeedWins: 0,
+					bottomSeedWins: 0,
+				},
+				{
+					seriesLetter: 'G',
+					topSeedTeam: { abbrev: 'VAN', name: { default: 'Canucks' } },
+					bottomSeedTeam: { abbrev: 'NSH', name: { default: 'Predators' } },
+					topSeedWins: 0,
+					bottomSeedWins: 0,
+				},
+				{
+					seriesLetter: 'H',
+					topSeedTeam: { abbrev: 'EDM', name: { default: 'Oilers' } },
+					bottomSeedTeam: { abbrev: 'LAK', name: { default: 'Kings' } },
+					topSeedWins: 0,
+					bottomSeedWins: 0,
+				},
+			],
+		},
+		schedules: {
+			A: { games: [{ startTimeUTC: getRelativeDateString(2) }] },
+			B: { games: [{ startTimeUTC: getRelativeDateString(2) }] },
+		},
+	},
 
-    // Round 1 still going, but Round 2 schedule released (3 days before R2 starts)
-    [SCENARIOS.R1_OVERLAP_R2]: {
-        bracket: {
-            series: [
-                // FLA vs TBL (active, not finished)
-                { seriesLetter: 'A', topSeedTeam: { abbrev: 'FLA', name: { default: 'Panthers' } }, bottomSeedTeam: { abbrev: 'TBL', name: { default: 'Lightning' } }, topSeedWins: 2, bottomSeedWins: 1, seriesUrl: 'stub' },
-                // BOS vs TOR (active, not finished)
-                { seriesLetter: 'B', topSeedTeam: { abbrev: 'BOS', name: { default: 'Bruins' } }, bottomSeedTeam: { abbrev: 'TOR', name: { default: 'Maple Leafs' } }, topSeedWins: 1, bottomSeedWins: 2, seriesUrl: 'stub' },
-            ]
-        },
-        schedules: {
-            // Round 2 Game 1 starts in 2 days (should unlock Round 2 for picks!)
-            'I': { games: [{ startTimeUTC: getRelativeDateString(2) }] }
-        }
-    }
+	// R1 finished. FLA and BOS won. (R2 locked and TBD)
+	[SCENARIOS.R1_FINISHED]: {
+		bracket: {
+			series: [
+				{
+					seriesLetter: 'A',
+					topSeedTeam: { abbrev: 'FLA', name: { default: 'Panthers' } },
+					bottomSeedTeam: { abbrev: 'TBL', name: { default: 'Lightning' } },
+					topSeedWins: 4,
+					bottomSeedWins: 2,
+					seriesUrl: 'stub',
+				},
+				{
+					seriesLetter: 'B',
+					topSeedTeam: { abbrev: 'BOS', name: { default: 'Bruins' } },
+					bottomSeedTeam: { abbrev: 'TOR', name: { default: 'Maple Leafs' } },
+					topSeedWins: 4,
+					bottomSeedWins: 3,
+					seriesUrl: 'stub',
+				},
+				// ... others can remain 0-0 for simplicity, we focus on Series I (A vs B)
+			],
+		},
+		schedules: {
+			I: { games: [{ startTimeUTC: getRelativeDateString(5) }] }, // R2 game 1 in 5 days
+		},
+	},
+
+	// R2 Open. Games start in 2 days.
+	[SCENARIOS.R2_OPEN]: {
+		bracket: {
+			series: [
+				{
+					seriesLetter: 'A',
+					topSeedTeam: { abbrev: 'FLA', name: { default: 'Panthers' } },
+					bottomSeedTeam: { abbrev: 'TBL', name: { default: 'Lightning' } },
+					topSeedWins: 4,
+					bottomSeedWins: 2,
+					seriesUrl: 'stub',
+				},
+				{
+					seriesLetter: 'B',
+					topSeedTeam: { abbrev: 'BOS', name: { default: 'Bruins' } },
+					bottomSeedTeam: { abbrev: 'TOR', name: { default: 'Maple Leafs' } },
+					topSeedWins: 4,
+					bottomSeedWins: 3,
+					seriesUrl: 'stub',
+				},
+				// Series I seeds now set (FLA vs BOS)
+				{
+					seriesLetter: 'I',
+					topSeedTeam: { abbrev: 'FLA', name: { default: 'Panthers' } },
+					bottomSeedTeam: { abbrev: 'BOS', name: { default: 'Bruins' } },
+					topSeedWins: 0,
+					bottomSeedWins: 0,
+					seriesUrl: 'stub',
+				},
+			],
+		},
+		schedules: {
+			I: { games: [{ startTimeUTC: getRelativeDateString(2) }] },
+		},
+	},
+
+	// Round 1 still going, but Round 2 schedule released (3 days before R2 starts)
+	[SCENARIOS.R1_OVERLAP_R2]: {
+		bracket: {
+			series: [
+				// FLA vs TBL (active, not finished)
+				{
+					seriesLetter: 'A',
+					topSeedTeam: { abbrev: 'FLA', name: { default: 'Panthers' } },
+					bottomSeedTeam: { abbrev: 'TBL', name: { default: 'Lightning' } },
+					topSeedWins: 2,
+					bottomSeedWins: 1,
+					seriesUrl: 'stub',
+				},
+				// BOS vs TOR (active, not finished)
+				{
+					seriesLetter: 'B',
+					topSeedTeam: { abbrev: 'BOS', name: { default: 'Bruins' } },
+					bottomSeedTeam: { abbrev: 'TOR', name: { default: 'Maple Leafs' } },
+					topSeedWins: 1,
+					bottomSeedWins: 2,
+					seriesUrl: 'stub',
+				},
+			],
+		},
+		schedules: {
+			// Round 2 Game 1 starts in 2 days (should unlock Round 2 for picks!)
+			I: { games: [{ startTimeUTC: getRelativeDateString(2) }] },
+		},
+	},
 };
