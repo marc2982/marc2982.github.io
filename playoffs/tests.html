@@ -88,12 +88,14 @@
 		</div>
 
 		<script type="module">
-			import { runTests } from './js/tests/logic.test.js';
+			import { runTests as runLogicTests } from './js/tests/logic.test.js';
 			import { runStatsTests } from './js/tests/stats.test.js';
+			import { runTests as runViewModelTests } from './js/tests/yearViewModel.test.js';
 
 			async function init() {
-				let results = await runTests();
+				let results = await runLogicTests();
 				results = results.concat(await runStatsTests());
+				results = results.concat(await runViewModelTests());
 				const container = document.getElementById('results');
 				const summaryDiv = document.getElementById('summary');
 				container.innerHTML = '';

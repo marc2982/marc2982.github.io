@@ -90,31 +90,14 @@ export function prepareRoundViewModel(teams, round) {
 				bonusEarned: summary.bonusEarned,
 			};
 		}),
-		dataTableConfig: getDataTableConfigForRound(round.number),
+		dataTableConfig: getDataTableConfigForRound(sortedSeries.length),
 	};
 }
 
-function getDataTableConfigForRound(roundNumber) {
-	const configs = {
-		1: {
-			pointsColumns: { targets: [9, 10], className: 'dt-body-center dt-head-center points' },
-			orderable: { orderable: false, targets: [1, 2, 3, 4, 5, 6, 7, 8] },
-		},
-		2: {
-			pointsColumns: { targets: [5, 6], className: 'dt-body-center dt-head-center points' },
-			orderable: { orderable: false, targets: [1, 2, 3, 4] },
-		},
-		3: {
-			pointsColumns: { targets: [3, 4], className: 'dt-body-center dt-head-center points' },
-			orderable: { orderable: false, targets: [1, 2] },
-		},
-		4: {
-			pointsColumns: { targets: [2, 3], className: 'dt-body-center dt-head-center points' },
-			orderable: { orderable: false, targets: [1] },
-		},
-	};
+function getDataTableConfigForRound(numSeries) {
+	const orderableTargets = Array.from({ length: numSeries }, (_, i) => i + 1);
+	const pointsTargets = [numSeries + 1, numSeries + 2];
 
-	const config = configs[roundNumber];
 	return {
 		paging: false,
 		searching: false,
@@ -123,8 +106,8 @@ function getDataTableConfigForRound(roundNumber) {
 		ordering: true,
 		autoWidth: false,
 		columnDefs: [
-			config.pointsColumns,
-			config.orderable,
+			{ targets: pointsTargets, className: 'dt-body-center dt-head-center points' },
+			{ orderable: false, targets: orderableTargets },
 			{ targets: [-1, -2, -3, -4], width: '5%' },
 			{ targets: '*', className: 'dt-body-center dt-head-center' },
 		],

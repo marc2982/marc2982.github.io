@@ -100,5 +100,51 @@ export function runImporterTests() {
         assert(picks['Alice_perfect']['A'].games === 6, 'Should reflect the latest row (last writer wins)');
     });
 
+    test('PicksImporter', 'processRows respects contingency opponent identifiers to prevent overwriting picks', () => {
+        // Setup a scenario where the actual series is BOS vs NYR (Series A)
+        const seriesBOS_NYR = Series.create({ letter: 'A', topSeed: 'BOS', bottomSeed: 'NYR' });
+        
+        // Mock the repos 
+        const testSeriesRepo = {
+            getSeries(letter) {
+                return { A: seriesBOS_NYR }[letter] || null;
+            }
+        };
+        const testTeamRepo = {
+            getTeam(name) { return { short: name, name }; }
+        };
+        
+        const importer = new PicksImporter(testSeriesRepo, testTeamRepo);
+
+        // Simulate a contingency scenario where a user predicted NYR to win against BOS, 
+        // AND predicted NYR to win against TOR. 
+        // Since the real series is BOS vs NYR, ONLY the NYR (vs BOS) pick should be assigned.
+        const contingencyCsv = 'Timestamp,Name,Team,Games,Team,Games\n' +
+                               '2025-01-01,TestContingency,NYR (vs BOS),5,NYR (vs TOR),4\n';
+
+        const picks = importer.processRows(contingencyCsv, 1);
+        
+        assert(picks['Testcontingency'] || picks['TestContingency'], 'User should have picks');
+        const userPicks = picks['Testcontingency'] || picks['TestContingency'];
+        assert(userPicks['A'] !== undefined, 'User should have a pick for Series A');
+        assert(userPicks['A'].games === 5, `Expected 5 games (the BOS vs NYR pick), got ${userPicks['A'].games}`);
+    });
+
+    test('PicksImporter', 'processRows fallback ensures older formatted standard picks (no opponent) are still parsed', () => {
+        const seriesBOS_NYR = Series.create({ letter: 'A', topSeed: 'BOS', bottomSeed: 'NYR' });
+        const testSeriesRepo = {
+            getSeries(letter) { return { A: seriesBOS_NYR }[letter] || null; }
+        };
+        const testTeamRepo = { getTeam(name) { return { short: name, name }; } };
+        
+        const importer = new PicksImporter(testSeriesRepo, testTeamRepo);
+        const normalCsv = 'Timestamp,Name,Team,Games\n' +
+                          '2025-01-01,ClassicUser,NYR (1),5\n'; // Old format with seed rank instead of opponent
+
+        const picks = importer.processRows(normalCsv, 1);
+        const userPicks = picks['Classicuser'] || picks['ClassicUser'];
+        assert(userPicks['A'].games === 5, 'Classic picks should remain unaffected by regex');
+    });
+
     return results;
 }

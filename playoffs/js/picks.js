@@ -208,6 +208,8 @@ function renderMatchupCard(series, topTeamShort, topTeam, bottomTeamShort, botto
         <div class="matchup ${hasStarted ? 'locked' : ''} ${isContingency ? 'contingency' : ''}" 
              data-series="${series.letter}" 
              data-contingency="${isContingency}"
+             data-top="${topTeamShort}"
+             data-bot="${bottomTeamShort}"
              ${disabledClass}>
             <div class="matchup-header">
                 <span>${desc} ${contingencyBadge}</span>
@@ -288,6 +290,9 @@ async function handleSubmit() {
 
 	$('.matchup').each(function () {
 		const seriesLetter = $(this).data('series');
+		const isContingency = $(this).data('contingency');
+		const topTeam = $(this).data('top');
+		const botTeam = $(this).data('bot');
 		const selectedTeam = $(this).find('.team.selected').data('team');
 		const selectedGames = $(this).find('.game-option.selected').data('games');
 
@@ -296,9 +301,15 @@ async function handleSubmit() {
 			return false; // break loop
 		}
 
+		let finalWinner = selectedTeam;
+		if (isContingency) {
+			const opponent = selectedTeam === topTeam ? botTeam : topTeam;
+			finalWinner = `${selectedTeam} (vs ${opponent})`;
+		}
+
 		picks.push({
 			series: seriesLetter,
-			winner: selectedTeam,
+			winner: finalWinner,
 			games: selectedGames,
 		});
 	});

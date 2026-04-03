@@ -49,17 +49,37 @@ export class PicksImporter {
 			const colIter = row.slice(picksStartIndex).values();
 
 			for (const col of colIter) {
-				const teamName = this.stripRank(col);
+				const teamNameFull = col.trim();
+				const teamName = this.stripRank(teamNameFull);
 				const numGames = colIter.next().value;
 
 				if (!teamName || !numGames) continue;
 
+				// Extract opponent if provided in the string (e.g. "NYR (vs BOS)")
+				let opponentMatch = teamNameFull.match(/\(vs ([A-Z]+)\)/);
+				let opponent = opponentMatch ? opponentMatch[1] : null;
+
 				try {
 					const team = this.teamRepo.getTeam(teamName);
-					const series = seriesInRound.find((s) => s && (s.topSeed === team.short || s.bottomSeed === team.short));
+					if (!team) continue;
+
+					// Match the series containing the picked team AND the optionally specified opponent
+					const series = seriesInRound.find((s) => {
+						if (!s) return false;
+						const hasTeam = s.topSeed === team.short || s.bottomSeed === team.short;
+						if (!hasTeam) return false;
+						if (opponent) {
+							return s.topSeed === opponent || s.bottomSeed === opponent;
+						}
+						return true;
+					});
 
 					if (!series) {
-						console.warn(`Could not find series for team ${teamName} (${team.short})`);
+						// Only warn if they didn't specify an opponent... if they specified
+						// an opponent and it missed, it just means that contingency branch didn't happen
+						if (!opponent) {
+							console.warn(`Could not find series for team ${teamName} (${team.short})`);
+						}
 						continue;
 					}
 
