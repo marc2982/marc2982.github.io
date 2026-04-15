@@ -1,32 +1,32 @@
 name: Fetch NHL API
 
 on:
-  # schedule:
-  #   - cron: '*/15 * * * *' # Disabled until playoffs start
-  workflow_dispatch: # Allow manual trigger from GitHub UI
+    schedule:
+      - cron: '*/15 * * * *' # Disabled until playoffs start
+    workflow_dispatch: # Allow manual trigger from GitHub UI
 
 jobs:
-  fetch-api:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write # Need permissions to commit back to the repository
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          
-      - name: Run Fetch Script
-        run: node playoffs/scripts/fetch_nhl_api.mjs
-        
-      - name: Commit and Push Changes
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add playoffs/data/archive/
-          # Commit will fail and exit 0 safely if there are no changes to the NHL data
-          git commit -m "[Auto] Update playoff bracket from NHL API" || exit 0
-          git push
+    fetch-api:
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write # Need permissions to commit back to the repository
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+
+            - name: Run Fetch Script
+              run: node playoffs/scripts/fetch_nhl_api.mjs
+
+            - name: Commit and Push Changes
+              run: |
+                  git config --global user.name "github-actions[bot]"
+                  git config --global user.email "github-actions[bot]@users.noreply.github.com"
+                  git add playoffs/data/archive/
+                  # Commit will fail and exit 0 safely if there are no changes to the NHL data
+                  git commit -m "[Auto] Update playoff bracket from NHL API" || exit 0
+                  git push
