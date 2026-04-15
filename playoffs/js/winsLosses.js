@@ -6,7 +6,7 @@ export async function winsLosses(winsLossesTable) {
 	const yearlyIndex = await fetchJson('./data/summaries/yearly_index.json');
 
 	// Convert to array
-	const years = Object.values(yearlyIndex);
+	const years = Object.values(yearlyIndex).filter(y => y.year !== 3000);
 
 	let thead = document.createElement('thead');
 	winsLossesTable.append(thead);

@@ -10,6 +10,7 @@ export async function yearlyResults(resultsTable) {
 		// Convert to array and sort by year descending
 		const years = Object.entries(yearlyIndex)
 			.map(([year, data]) => ({ year: parseInt(year), ...data }))
+			.filter(data => data.year !== 3000)
 			.sort((a, b) => b.year - a.year);
 
 		let thead = document.createElement('thead');
