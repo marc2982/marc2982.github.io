@@ -14,6 +14,7 @@ const CURRENT_YEAR = (function () {
 let activeRound = 1;
 
 $(document).ready(async function () {
+	$('#season-subtitle').text(`NHL Playoffs ${CURRENT_YEAR}`);
 	await init();
 });
 
