@@ -38,7 +38,7 @@ async function init() {
 		const isComplete = scf && scf.isOver();
 
 		if (isComplete) {
-			$('#matchups-container').html(`<div class="info">${getSeasonStr(true)}</div>`);
+			$('#matchups-container').html(`<div class="info">The ${CURRENT_YEAR}-${CURRENT_YEAR + 1} playoffs haven't started yet.</div>`);
 			return;
 		}
 
@@ -71,12 +71,12 @@ async function init() {
 			renderMatchups(seriesList, teams, maxRoundIdx);
 		} else {
 			// Bracket not set yet
-			$('#matchups-container').html(`<div class="info">${getSeasonStr(false)}</div>`);
+			$('#matchups-container').html(getNotOpenHtml());
 		}
 	} catch (e) {
 		console.error('Failed to load data', e);
 		if (e.message === 'PLAYOFFS_NOT_STARTED') {
-			$('#matchups-container').html(`<div class="info">${getSeasonStr(false)}</div>`);
+			$('#matchups-container').html(getNotOpenHtml());
 		} else {
 			$('#matchups-container').html(
 				`<div class="error">Failed to load playoff data, please let Marc know!</div>`,
@@ -87,9 +87,22 @@ async function init() {
 	$('#submit-picks').on('click', handleSubmit);
 }
 
-function getSeasonStr(isNextSeason) {
-	const startYear = isNextSeason ? CURRENT_YEAR : CURRENT_YEAR - 1;
-	return `${startYear}-${startYear + 1} playoffs haven't started yet.`;
+function getNotOpenHtml(unlockDateStr) {
+	if (unlockDateStr) {
+		return `
+            <div class="intro-card" style="background-color: #e2f3ff; color: #004085; border-color: #b8daff;">
+                <h3>🔒 Picks Not Open Yet</h3>
+                <p>Picks for this round will open on <b>${unlockDateStr}</b> (3 days before the first game).</p>
+            </div>
+        `;
+	} else {
+		return `
+            <div class="intro-card" style="background-color: #e2f3ff; color: #004085; border-color: #b8daff;">
+                <h3>🔒 Picks Not Open Yet</h3>
+                <p>Picks open 3 days before the first game of the round. The NHL hasn't announced the schedule yet, so check back later!</p>
+            </div>
+        `;
+	}
 }
 
 function renderMatchups(seriesList, teamsObjects, targetRoundIdx) {
@@ -125,15 +138,10 @@ function renderMatchups(seriesList, teamsObjects, targetRoundIdx) {
 			hr = hr % 12 || 12;
 			const formattedDate = `${unlockDate.getFullYear()}-${monthStr}-${dayStr} at ${hr}${ampm}`;
 
-			container.html(`
-                <div class="intro-card" style="background-color: #e2f3ff; color: #004085; border-color: #b8daff;">
-                    <h3>🔒 Picks Not Open Yet</h3>
-                    <p>Picks for this round will open on <b>${formattedDate}</b> (3 days before the first game).</p>
-                </div>
-            `);
+			container.html(getNotOpenHtml(formattedDate));
 		} else {
 			// No schedule at all = Case for projections or very early season
-			container.html(`<div class="info">${getSeasonStr(false)}</div>`);
+			container.html(getNotOpenHtml());
 		}
 		$('#submit-picks').prop('disabled', true).text('Locked');
 		return;
