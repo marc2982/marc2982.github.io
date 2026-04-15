@@ -257,6 +257,12 @@ function renderMatchupCard(series, topTeamShort, topTeam, bottomTeamShort, botto
 function attachEventHandlers() {
 	// Select Team
 	$('.team').on('click', function () {
+		if (!$('#passcode').val().trim()) {
+			alert('Please enter the league passcode first before making your picks!');
+			$('#passcode').focus();
+			return;
+		}
+
 		const matchup = $(this).closest('.matchup');
 
 		// Remove active from sibling
@@ -271,6 +277,12 @@ function attachEventHandlers() {
 
 	// Select Games
 	$('.game-option').on('click', function () {
+		if (!$('#passcode').val().trim()) {
+			alert('Please enter the league passcode first before making your picks!');
+			$('#passcode').focus();
+			return;
+		}
+
 		const options = $(this).closest('.games-select');
 		options.find('.game-option').removeClass('selected');
 		$(this).addClass('selected');
