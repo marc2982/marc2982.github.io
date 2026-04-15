@@ -1,0 +1,58 @@
+{
+  "round": 1,
+  "roundAbbrev": "R1",
+  "roundLabel": "1st-round",
+  "seriesLetter": "D",
+  "neededToWin": 4,
+  "length": 0,
+  "bottomSeedTeam": {
+    "id": 4,
+    "name": {
+      "default": "Flyers"
+    },
+    "abbrev": "PHI",
+    "placeName": {
+      "default": "Philadelphia",
+      "fr": "Philadelphie"
+    },
+    "placeNameWithPreposition": {
+      "default": "Philadelphia",
+      "fr": "de Philadelphie"
+    },
+    "conference": {
+      "name": "Eastern",
+      "abbrev": "E"
+    },
+    "record": "0-0",
+    "seriesWins": 0,
+    "divisionAbbrev": "M",
+    "seed": 3,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/PHI_dark.svg"
+  },
+  "topSeedTeam": {
+    "id": 5,
+    "name": {
+      "default": "Penguins"
+    },
+    "abbrev": "PIT",
+    "placeName": {
+      "default": "Pittsburgh"
+    },
+    "placeNameWithPreposition": {
+      "default": "Pittsburgh",
+      "fr": "de Pittsburgh"
+    },
+    "conference": {
+      "name": "Eastern",
+      "abbrev": "E"
+    },
+    "record": "0-0",
+    "seriesWins": 0,
+    "divisionAbbrev": "M",
+    "seed": 2,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/PIT_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/PIT_dark.svg"
+  },
+  "games": []
+}

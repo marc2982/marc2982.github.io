@@ -1,0 +1,57 @@
+{
+  "round": 1,
+  "roundAbbrev": "R1",
+  "roundLabel": "1st-round",
+  "seriesLetter": "F",
+  "neededToWin": 4,
+  "length": 0,
+  "bottomSeedTeam": {
+    "id": 30,
+    "name": {
+      "default": "Wild"
+    },
+    "abbrev": "MIN",
+    "placeName": {
+      "default": "Minnesota"
+    },
+    "placeNameWithPreposition": {
+      "default": "Minnesota",
+      "fr": "du Minnesota"
+    },
+    "conference": {
+      "name": "Western",
+      "abbrev": "W"
+    },
+    "record": "0-0",
+    "seriesWins": 0,
+    "divisionAbbrev": "C",
+    "seed": 3,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/MIN_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/MIN_dark.svg"
+  },
+  "topSeedTeam": {
+    "id": 25,
+    "name": {
+      "default": "Stars"
+    },
+    "abbrev": "DAL",
+    "placeName": {
+      "default": "Dallas"
+    },
+    "placeNameWithPreposition": {
+      "default": "Dallas",
+      "fr": "de Dallas"
+    },
+    "conference": {
+      "name": "Western",
+      "abbrev": "W"
+    },
+    "record": "0-0",
+    "seriesWins": 0,
+    "divisionAbbrev": "C",
+    "seed": 2,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/DAL_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DAL_dark.svg"
+  },
+  "games": []
+}

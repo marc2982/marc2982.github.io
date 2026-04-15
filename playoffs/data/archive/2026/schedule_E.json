@@ -1,0 +1,57 @@
+{
+  "round": 1,
+  "roundAbbrev": "R1",
+  "roundLabel": "1st-round",
+  "seriesLetter": "E",
+  "neededToWin": 4,
+  "length": 0,
+  "bottomSeedTeam": {
+    "id": 26,
+    "name": {
+      "default": "Kings"
+    },
+    "abbrev": "LAK",
+    "placeName": {
+      "default": "Los Angeles"
+    },
+    "placeNameWithPreposition": {
+      "default": "Los Angeles",
+      "fr": "de Los Angeles"
+    },
+    "conference": {
+      "name": "Western",
+      "abbrev": "W"
+    },
+    "record": "0-0",
+    "seriesWins": 0,
+    "divisionAbbrev": "P",
+    "seed": 4,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/LAK_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/LAK_dark.svg"
+  },
+  "topSeedTeam": {
+    "id": 21,
+    "name": {
+      "default": "Avalanche"
+    },
+    "abbrev": "COL",
+    "placeName": {
+      "default": "Colorado"
+    },
+    "placeNameWithPreposition": {
+      "default": "Colorado",
+      "fr": "du Colorado"
+    },
+    "conference": {
+      "name": "Western",
+      "abbrev": "W"
+    },
+    "record": "0-0",
+    "seriesWins": 0,
+    "divisionAbbrev": "C",
+    "seed": 1,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/COL_dark.svg"
+  },
+  "games": []
+}

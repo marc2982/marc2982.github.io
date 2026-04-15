@@ -1,0 +1,57 @@
+{
+  "round": 1,
+  "roundAbbrev": "R1",
+  "roundLabel": "1st-round",
+  "seriesLetter": "G",
+  "neededToWin": 4,
+  "length": 0,
+  "bottomSeedTeam": {
+    "id": 68,
+    "name": {
+      "default": "Mammoth"
+    },
+    "abbrev": "UTA",
+    "placeName": {
+      "default": "Utah"
+    },
+    "placeNameWithPreposition": {
+      "default": "Utah",
+      "fr": "de l'Utah"
+    },
+    "conference": {
+      "name": "Western",
+      "abbrev": "W"
+    },
+    "record": "0-0",
+    "seriesWins": 0,
+    "divisionAbbrev": "C",
+    "seed": 4,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/UTA_light.svg?season=20252026",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/UTA_dark.svg?season=20252026"
+  },
+  "topSeedTeam": {
+    "id": 54,
+    "name": {
+      "default": "Golden Knights"
+    },
+    "abbrev": "VGK",
+    "placeName": {
+      "default": "Vegas"
+    },
+    "placeNameWithPreposition": {
+      "default": "Vegas",
+      "fr": "de Vegas"
+    },
+    "conference": {
+      "name": "Western",
+      "abbrev": "W"
+    },
+    "record": "0-0",
+    "seriesWins": 0,
+    "divisionAbbrev": "P",
+    "seed": 1,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/VGK_dark.svg"
+  },
+  "games": []
+}
