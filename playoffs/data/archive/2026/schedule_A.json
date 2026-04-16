@@ -4,7 +4,7 @@
   "roundLabel": "1st-round",
   "seriesLetter": "A",
   "neededToWin": 4,
-  "length": 0,
+  "length": 7,
   "bottomSeedTeam": {
     "id": 6,
     "name": {
@@ -53,5 +53,288 @@
     "logo": "https://assets.nhle.com/logos/nhl/svg/BUF_light.svg",
     "darkLogo": "https://assets.nhle.com/logos/nhl/svg/BUF_dark.svg"
   },
-  "games": []
+  "games": [
+    {
+      "id": 2025030111,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 1,
+      "ifNecessary": false,
+      "venue": {
+        "default": "KeyBank Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-04-19T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "America/New_York",
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": 6,
+        "commonName": {
+          "default": "Bruins"
+        },
+        "placeName": {
+          "default": "Boston"
+        },
+        "placeNameWithPreposition": {
+          "default": "Boston",
+          "fr": "de Boston"
+        },
+        "abbrev": "BOS"
+      },
+      "homeTeam": {
+        "id": 7,
+        "commonName": {
+          "default": "Sabres"
+        },
+        "placeName": {
+          "default": "Buffalo"
+        },
+        "placeNameWithPreposition": {
+          "default": "Buffalo",
+          "fr": "de Buffalo"
+        },
+        "abbrev": "BUF"
+      },
+      "gameCenterLink": "/gamecenter/bos-vs-buf/2026/04/19/2025030111",
+      "ticketsLink": "https://www.nhl.com/sabres/tickets/"
+    },
+    {
+      "id": 2025030112,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 2,
+      "ifNecessary": false,
+      "neutralSite": false,
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": 6,
+        "commonName": {
+          "default": "Bruins"
+        },
+        "placeName": {
+          "default": "Boston"
+        },
+        "placeNameWithPreposition": {
+          "default": "Boston",
+          "fr": "de Boston"
+        },
+        "abbrev": "BOS"
+      },
+      "homeTeam": {
+        "id": 7,
+        "commonName": {
+          "default": "Sabres"
+        },
+        "placeName": {
+          "default": "Buffalo"
+        },
+        "placeNameWithPreposition": {
+          "default": "Buffalo",
+          "fr": "de Buffalo"
+        },
+        "abbrev": "BUF"
+      }
+    },
+    {
+      "id": 2025030113,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 3,
+      "ifNecessary": false,
+      "neutralSite": false,
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": 7,
+        "commonName": {
+          "default": "Sabres"
+        },
+        "placeName": {
+          "default": "Buffalo"
+        },
+        "placeNameWithPreposition": {
+          "default": "Buffalo",
+          "fr": "de Buffalo"
+        },
+        "abbrev": "BUF"
+      },
+      "homeTeam": {
+        "id": 6,
+        "commonName": {
+          "default": "Bruins"
+        },
+        "placeName": {
+          "default": "Boston"
+        },
+        "placeNameWithPreposition": {
+          "default": "Boston",
+          "fr": "de Boston"
+        },
+        "abbrev": "BOS"
+      }
+    },
+    {
+      "id": 2025030114,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 4,
+      "ifNecessary": false,
+      "neutralSite": false,
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": 7,
+        "commonName": {
+          "default": "Sabres"
+        },
+        "placeName": {
+          "default": "Buffalo"
+        },
+        "placeNameWithPreposition": {
+          "default": "Buffalo",
+          "fr": "de Buffalo"
+        },
+        "abbrev": "BUF"
+      },
+      "homeTeam": {
+        "id": 6,
+        "commonName": {
+          "default": "Bruins"
+        },
+        "placeName": {
+          "default": "Boston"
+        },
+        "placeNameWithPreposition": {
+          "default": "Boston",
+          "fr": "de Boston"
+        },
+        "abbrev": "BOS"
+      }
+    },
+    {
+      "id": 2025030115,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 5,
+      "ifNecessary": true,
+      "neutralSite": false,
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": 6,
+        "commonName": {
+          "default": "Bruins"
+        },
+        "placeName": {
+          "default": "Boston"
+        },
+        "placeNameWithPreposition": {
+          "default": "Boston",
+          "fr": "de Boston"
+        },
+        "abbrev": "BOS"
+      },
+      "homeTeam": {
+        "id": 7,
+        "commonName": {
+          "default": "Sabres"
+        },
+        "placeName": {
+          "default": "Buffalo"
+        },
+        "placeNameWithPreposition": {
+          "default": "Buffalo",
+          "fr": "de Buffalo"
+        },
+        "abbrev": "BUF"
+      }
+    },
+    {
+      "id": 2025030116,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 6,
+      "ifNecessary": true,
+      "neutralSite": false,
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": 7,
+        "commonName": {
+          "default": "Sabres"
+        },
+        "placeName": {
+          "default": "Buffalo"
+        },
+        "placeNameWithPreposition": {
+          "default": "Buffalo",
+          "fr": "de Buffalo"
+        },
+        "abbrev": "BUF"
+      },
+      "homeTeam": {
+        "id": 6,
+        "commonName": {
+          "default": "Bruins"
+        },
+        "placeName": {
+          "default": "Boston"
+        },
+        "placeNameWithPreposition": {
+          "default": "Boston",
+          "fr": "de Boston"
+        },
+        "abbrev": "BOS"
+      }
+    },
+    {
+      "id": 2025030117,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 7,
+      "ifNecessary": true,
+      "neutralSite": false,
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": 6,
+        "commonName": {
+          "default": "Bruins"
+        },
+        "placeName": {
+          "default": "Boston"
+        },
+        "placeNameWithPreposition": {
+          "default": "Boston",
+          "fr": "de Boston"
+        },
+        "abbrev": "BOS"
+      },
+      "homeTeam": {
+        "id": 7,
+        "commonName": {
+          "default": "Sabres"
+        },
+        "placeName": {
+          "default": "Buffalo"
+        },
+        "placeNameWithPreposition": {
+          "default": "Buffalo",
+          "fr": "de Buffalo"
+        },
+        "abbrev": "BUF"
+      }
+    }
+  ]
 }

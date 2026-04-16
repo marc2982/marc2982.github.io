@@ -4,7 +4,7 @@
   "roundLabel": "1st-round",
   "seriesLetter": "B",
   "neededToWin": 4,
-  "length": 0,
+  "length": 7,
   "bottomSeedTeam": {
     "id": 8,
     "name": {
@@ -53,5 +53,288 @@
     "logo": "https://assets.nhle.com/logos/nhl/svg/TBL_light.svg",
     "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TBL_dark.svg"
   },
-  "games": []
+  "games": [
+    {
+      "id": 2025030121,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 1,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Benchmark International Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-04-19T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": 8,
+        "commonName": {
+          "default": "Canadiens"
+        },
+        "placeName": {
+          "default": "Montréal"
+        },
+        "placeNameWithPreposition": {
+          "default": "Montréal",
+          "fr": "de Montréal"
+        },
+        "abbrev": "MTL"
+      },
+      "homeTeam": {
+        "id": 14,
+        "commonName": {
+          "default": "Lightning"
+        },
+        "placeName": {
+          "default": "Tampa Bay"
+        },
+        "placeNameWithPreposition": {
+          "default": "Tampa Bay",
+          "fr": "de Tampa Bay"
+        },
+        "abbrev": "TBL"
+      },
+      "gameCenterLink": "/gamecenter/mtl-vs-tbl/2026/04/19/2025030121",
+      "ticketsLink": "https://www.nhl.com/lightning/tickets/"
+    },
+    {
+      "id": 2025030122,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 2,
+      "ifNecessary": false,
+      "neutralSite": false,
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": 8,
+        "commonName": {
+          "default": "Canadiens"
+        },
+        "placeName": {
+          "default": "Montréal"
+        },
+        "placeNameWithPreposition": {
+          "default": "Montréal",
+          "fr": "de Montréal"
+        },
+        "abbrev": "MTL"
+      },
+      "homeTeam": {
+        "id": 14,
+        "commonName": {
+          "default": "Lightning"
+        },
+        "placeName": {
+          "default": "Tampa Bay"
+        },
+        "placeNameWithPreposition": {
+          "default": "Tampa Bay",
+          "fr": "de Tampa Bay"
+        },
+        "abbrev": "TBL"
+      }
+    },
+    {
+      "id": 2025030123,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 3,
+      "ifNecessary": false,
+      "neutralSite": false,
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": 14,
+        "commonName": {
+          "default": "Lightning"
+        },
+        "placeName": {
+          "default": "Tampa Bay"
+        },
+        "placeNameWithPreposition": {
+          "default": "Tampa Bay",
+          "fr": "de Tampa Bay"
+        },
+        "abbrev": "TBL"
+      },
+      "homeTeam": {
+        "id": 8,
+        "commonName": {
+          "default": "Canadiens"
+        },
+        "placeName": {
+          "default": "Montréal"
+        },
+        "placeNameWithPreposition": {
+          "default": "Montréal",
+          "fr": "de Montréal"
+        },
+        "abbrev": "MTL"
+      }
+    },
+    {
+      "id": 2025030124,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 4,
+      "ifNecessary": false,
+      "neutralSite": false,
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": 14,
+        "commonName": {
+          "default": "Lightning"
+        },
+        "placeName": {
+          "default": "Tampa Bay"
+        },
+        "placeNameWithPreposition": {
+          "default": "Tampa Bay",
+          "fr": "de Tampa Bay"
+        },
+        "abbrev": "TBL"
+      },
+      "homeTeam": {
+        "id": 8,
+        "commonName": {
+          "default": "Canadiens"
+        },
+        "placeName": {
+          "default": "Montréal"
+        },
+        "placeNameWithPreposition": {
+          "default": "Montréal",
+          "fr": "de Montréal"
+        },
+        "abbrev": "MTL"
+      }
+    },
+    {
+      "id": 2025030125,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 5,
+      "ifNecessary": true,
+      "neutralSite": false,
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": 8,
+        "commonName": {
+          "default": "Canadiens"
+        },
+        "placeName": {
+          "default": "Montréal"
+        },
+        "placeNameWithPreposition": {
+          "default": "Montréal",
+          "fr": "de Montréal"
+        },
+        "abbrev": "MTL"
+      },
+      "homeTeam": {
+        "id": 14,
+        "commonName": {
+          "default": "Lightning"
+        },
+        "placeName": {
+          "default": "Tampa Bay"
+        },
+        "placeNameWithPreposition": {
+          "default": "Tampa Bay",
+          "fr": "de Tampa Bay"
+        },
+        "abbrev": "TBL"
+      }
+    },
+    {
+      "id": 2025030126,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 6,
+      "ifNecessary": true,
+      "neutralSite": false,
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": 14,
+        "commonName": {
+          "default": "Lightning"
+        },
+        "placeName": {
+          "default": "Tampa Bay"
+        },
+        "placeNameWithPreposition": {
+          "default": "Tampa Bay",
+          "fr": "de Tampa Bay"
+        },
+        "abbrev": "TBL"
+      },
+      "homeTeam": {
+        "id": 8,
+        "commonName": {
+          "default": "Canadiens"
+        },
+        "placeName": {
+          "default": "Montréal"
+        },
+        "placeNameWithPreposition": {
+          "default": "Montréal",
+          "fr": "de Montréal"
+        },
+        "abbrev": "MTL"
+      }
+    },
+    {
+      "id": 2025030127,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 7,
+      "ifNecessary": true,
+      "neutralSite": false,
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": 8,
+        "commonName": {
+          "default": "Canadiens"
+        },
+        "placeName": {
+          "default": "Montréal"
+        },
+        "placeNameWithPreposition": {
+          "default": "Montréal",
+          "fr": "de Montréal"
+        },
+        "abbrev": "MTL"
+      },
+      "homeTeam": {
+        "id": 14,
+        "commonName": {
+          "default": "Lightning"
+        },
+        "placeName": {
+          "default": "Tampa Bay"
+        },
+        "placeNameWithPreposition": {
+          "default": "Tampa Bay",
+          "fr": "de Tampa Bay"
+        },
+        "abbrev": "TBL"
+      }
+    }
+  ]
 }
