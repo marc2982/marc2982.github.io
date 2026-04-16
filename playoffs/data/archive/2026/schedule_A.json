@@ -337,5 +337,15 @@
         "abbrev": "BUF"
       }
     }
-  ]
+  ],
+  "fullCoverageUrl": {
+    "cs": "https://www.nhl.com/cs/playoffs/2026/series-a-coverage",
+    "de": "https://www.nhl.com/de/playoffs/2026/series-a-coverage",
+    "fi": "https://www.nhl.com/fi/playoffs/2026/series-a-coverage",
+    "sv": "https://www.nhl.com/sv/playoffs/2026/series-a-coverage",
+    "sk": "https://www.nhl.com/sk/playoffs/2026/series-a-coverage",
+    "en": "https://www.nhl.com/playoffs/2026/series-a-coverage",
+    "fr": "https://www.nhl.com/fr/playoffs/2026/series-a-coverage",
+    "es": "https://www.nhl.com/es/playoffs/2026/series-a-coverage"
+  }
 }

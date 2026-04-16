@@ -338,5 +338,15 @@
         "abbrev": "TBL"
       }
     }
-  ]
+  ],
+  "fullCoverageUrl": {
+    "cs": "https://www.nhl.com/cs/playoffs/2026/series-b-coverage",
+    "de": "https://www.nhl.com/de/playoffs/2026/series-b-coverage",
+    "sv": "https://www.nhl.com/sv/playoffs/2026/series-b-coverage",
+    "fi": "https://www.nhl.com/fi/playoffs/2026/series-b-coverage",
+    "sk": "https://www.nhl.com/sk/playoffs/2026/series-b-coverage",
+    "en": "https://www.nhl.com/playoffs/2026/series-b-coverage",
+    "fr": "https://www.nhl.com/fr/playoffs/2026/series-b-coverage",
+    "es": "https://www.nhl.com/es/playoffs/2026/series-b-coverage"
+  }
 }
