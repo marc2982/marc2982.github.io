@@ -374,5 +374,15 @@
         "abbrev": "CAR"
       }
     }
-  ]
+  ],
+  "fullCoverageUrl": {
+    "cs": "https://www.nhl.com/playoffs/2026/bracket",
+    "de": "https://www.nhl.com/playoffs/2026/bracket",
+    "sv": "https://www.nhl.com/playoffs/2026/bracket",
+    "fi": "https://www.nhl.com/playoffs/2026/bracket",
+    "sk": "https://www.nhl.com/playoffs/2026/bracket",
+    "en": "https://www.nhl.com/playoffs/2026/bracket",
+    "fr": "https://www.nhl.com/playoffs/2026/bracket",
+    "es": "https://www.nhl.com/playoffs/2026/bracket"
+  }
 }
