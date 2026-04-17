@@ -64,13 +64,56 @@
         "default": "T-Mobile Arena"
       },
       "neutralSite": false,
-      "startTimeUTC": "2026-04-19T16:00:00Z",
+      "startTimeUTC": "2026-04-20T02:00:00Z",
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-07:00",
       "venueTimezone": "US/Pacific",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        },
+        {
+          "id": 521,
+          "market": "H",
+          "countryCode": "US",
+          "network": "SCRIPPS",
+          "sequenceNumber": 657
+        },
+        {
+          "id": 558,
+          "market": "A",
+          "countryCode": "US",
+          "network": "Utah16",
+          "sequenceNumber": 381
+        }
+      ],
       "awayTeam": {
         "id": 68,
         "commonName": {
@@ -108,10 +151,60 @@
       "gameType": 3,
       "gameNumber": 2,
       "ifNecessary": false,
+      "venue": {
+        "default": "T-Mobile Arena"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-04-22T01:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-07:00",
+      "venueTimezone": "US/Pacific",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 307,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN2",
+          "sequenceNumber": 12
+        },
+        {
+          "id": 521,
+          "market": "H",
+          "countryCode": "US",
+          "network": "SCRIPPS",
+          "sequenceNumber": 657
+        },
+        {
+          "id": 558,
+          "market": "A",
+          "countryCode": "US",
+          "network": "Utah16",
+          "sequenceNumber": 381
+        }
+      ],
       "awayTeam": {
         "id": 68,
         "commonName": {
@@ -139,7 +232,9 @@
           "fr": "de Vegas"
         },
         "abbrev": "VGK"
-      }
+      },
+      "gameCenterLink": "/gamecenter/uta-vs-vgk/2026/04/21/2025030172",
+      "ticketsLink": "https://www.nhl.com/goldenknights/tickets/"
     },
     {
       "id": 2025030173,
@@ -147,10 +242,60 @@
       "gameType": 3,
       "gameNumber": 3,
       "ifNecessary": false,
+      "venue": {
+        "default": "Delta Center"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-04-25T01:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-06:00",
+      "venueTimezone": "America/Denver",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 403,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TBS",
+          "sequenceNumber": 13
+        },
+        {
+          "id": 521,
+          "market": "A",
+          "countryCode": "US",
+          "network": "SCRIPPS",
+          "sequenceNumber": 657
+        },
+        {
+          "id": 558,
+          "market": "H",
+          "countryCode": "US",
+          "network": "Utah16",
+          "sequenceNumber": 381
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        }
+      ],
       "awayTeam": {
         "id": 54,
         "commonName": {
@@ -178,7 +323,9 @@
           "fr": "de l'Utah"
         },
         "abbrev": "UTA"
-      }
+      },
+      "gameCenterLink": "/gamecenter/vgk-vs-uta/2026/04/24/2025030173",
+      "ticketsLink": "https://www.nhl.com/utah/tickets/"
     },
     {
       "id": 2025030174,
@@ -186,10 +333,39 @@
       "gameType": 3,
       "gameNumber": 4,
       "ifNecessary": false,
+      "venue": {
+        "default": "Delta Center"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-04-27T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-06:00",
+      "venueTimezone": "America/Denver",
       "gameState": "FUT",
       "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "tvBroadcasts": [
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        },
+        {
+          "id": 521,
+          "market": "A",
+          "countryCode": "US",
+          "network": "SCRIPPS",
+          "sequenceNumber": 657
+        },
+        {
+          "id": 558,
+          "market": "H",
+          "countryCode": "US",
+          "network": "Utah16",
+          "sequenceNumber": 381
+        }
+      ],
       "awayTeam": {
         "id": 54,
         "commonName": {
@@ -217,7 +393,9 @@
           "fr": "de l'Utah"
         },
         "abbrev": "UTA"
-      }
+      },
+      "gameCenterLink": "/gamecenter/vgk-vs-uta/2026/04/27/2025030174",
+      "ticketsLink": "https://www.nhl.com/utah/tickets/"
     },
     {
       "id": 2025030175,
@@ -225,7 +403,14 @@
       "gameType": 3,
       "gameNumber": 5,
       "ifNecessary": true,
+      "venue": {
+        "default": "T-Mobile Arena"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-04-29T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-07:00",
+      "venueTimezone": "US/Pacific",
       "gameState": "FUT",
       "gameScheduleState": "TBD",
       "tvBroadcasts": [],
@@ -256,7 +441,9 @@
           "fr": "de Vegas"
         },
         "abbrev": "VGK"
-      }
+      },
+      "gameCenterLink": "/gamecenter/uta-vs-vgk/2026/04/29/2025030175",
+      "ticketsLink": "https://www.nhl.com/goldenknights/tickets/"
     },
     {
       "id": 2025030176,
@@ -264,7 +451,14 @@
       "gameType": 3,
       "gameNumber": 6,
       "ifNecessary": true,
+      "venue": {
+        "default": "Delta Center"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-05-01T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-06:00",
+      "venueTimezone": "America/Denver",
       "gameState": "FUT",
       "gameScheduleState": "TBD",
       "tvBroadcasts": [],
@@ -295,7 +489,9 @@
           "fr": "de l'Utah"
         },
         "abbrev": "UTA"
-      }
+      },
+      "gameCenterLink": "/gamecenter/vgk-vs-uta/2026/05/01/2025030176",
+      "ticketsLink": "https://www.nhl.com/utah/tickets/"
     },
     {
       "id": 2025030177,
@@ -303,7 +499,14 @@
       "gameType": 3,
       "gameNumber": 7,
       "ifNecessary": true,
+      "venue": {
+        "default": "T-Mobile Arena"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-05-03T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-07:00",
+      "venueTimezone": "US/Pacific",
       "gameState": "FUT",
       "gameScheduleState": "TBD",
       "tvBroadcasts": [],
@@ -334,7 +537,19 @@
           "fr": "de Vegas"
         },
         "abbrev": "VGK"
-      }
+      },
+      "gameCenterLink": "/gamecenter/uta-vs-vgk/2026/05/03/2025030177",
+      "ticketsLink": "https://www.nhl.com/goldenknights/tickets/"
     }
-  ]
+  ],
+  "fullCoverageUrl": {
+    "cs": "https://www.nhl.com/cs/playoffs/2026/series-g-coverage",
+    "de": "https://www.nhl.com/de/playoffs/2026/series-g-coverage",
+    "sv": "https://www.nhl.com/sv/playoffs/2026/series-g-coverage",
+    "fi": "https://www.nhl.com/fi/playoffs/2026/series-g-coverage",
+    "sk": "https://www.nhl.com/sk/playoffs/2026/series-g-coverage",
+    "en": "https://www.nhl.com/playoffs/2026/series-g-coverage",
+    "fr": "https://www.nhl.com/fr/playoffs/2026/series-g-coverage",
+    "es": "https://www.nhl.com/es/playoffs/2026/series-g-coverage"
+  }
 }

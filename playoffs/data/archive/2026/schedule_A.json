@@ -65,13 +65,56 @@
         "default": "KeyBank Center"
       },
       "neutralSite": false,
-      "startTimeUTC": "2026-04-19T16:00:00Z",
+      "startTimeUTC": "2026-04-19T23:30:00Z",
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "America/New_York",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 28,
+          "market": "H",
+          "countryCode": "US",
+          "network": "MSG-B",
+          "sequenceNumber": 392
+        },
+        {
+          "id": 31,
+          "market": "A",
+          "countryCode": "US",
+          "network": "NESN",
+          "sequenceNumber": 405
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 284,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN1",
+          "sequenceNumber": 113
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        }
+      ],
       "awayTeam": {
         "id": 6,
         "commonName": {
@@ -109,10 +152,53 @@
       "gameType": 3,
       "gameNumber": 2,
       "ifNecessary": false,
+      "venue": {
+        "default": "KeyBank Center"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-04-21T23:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "America/New_York",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 28,
+          "market": "H",
+          "countryCode": "US",
+          "network": "MSG-B",
+          "sequenceNumber": 392
+        },
+        {
+          "id": 31,
+          "market": "A",
+          "countryCode": "US",
+          "network": "NESN",
+          "sequenceNumber": 405
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        }
+      ],
       "awayTeam": {
         "id": 6,
         "commonName": {
@@ -140,7 +226,9 @@
           "fr": "de Buffalo"
         },
         "abbrev": "BUF"
-      }
+      },
+      "gameCenterLink": "/gamecenter/bos-vs-buf/2026/04/21/2025030112",
+      "ticketsLink": "https://www.nhl.com/sabres/tickets/"
     },
     {
       "id": 2025030113,
@@ -148,10 +236,67 @@
       "gameType": 3,
       "gameNumber": 3,
       "ifNecessary": false,
+      "venue": {
+        "default": "TD Garden"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-04-23T23:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 28,
+          "market": "A",
+          "countryCode": "US",
+          "network": "MSG-B",
+          "sequenceNumber": 392
+        },
+        {
+          "id": 31,
+          "market": "H",
+          "countryCode": "US",
+          "network": "NESN",
+          "sequenceNumber": 405
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        }
+      ],
       "awayTeam": {
         "id": 7,
         "commonName": {
@@ -179,7 +324,9 @@
           "fr": "de Boston"
         },
         "abbrev": "BOS"
-      }
+      },
+      "gameCenterLink": "/gamecenter/buf-vs-bos/2026/04/23/2025030113",
+      "ticketsLink": "https://www.nhl.com/bruins/tickets/"
     },
     {
       "id": 2025030114,
@@ -187,10 +334,67 @@
       "gameType": 3,
       "gameNumber": 4,
       "ifNecessary": false,
+      "venue": {
+        "default": "TD Garden"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-04-26T18:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 28,
+          "market": "A",
+          "countryCode": "US",
+          "network": "MSG-B",
+          "sequenceNumber": 392
+        },
+        {
+          "id": 31,
+          "market": "H",
+          "countryCode": "US",
+          "network": "NESN",
+          "sequenceNumber": 405
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        }
+      ],
       "awayTeam": {
         "id": 7,
         "commonName": {
@@ -218,7 +422,9 @@
           "fr": "de Boston"
         },
         "abbrev": "BOS"
-      }
+      },
+      "gameCenterLink": "/gamecenter/buf-vs-bos/2026/04/26/2025030114",
+      "ticketsLink": "https://www.nhl.com/bruins/tickets/"
     },
     {
       "id": 2025030115,
@@ -226,7 +432,14 @@
       "gameType": 3,
       "gameNumber": 5,
       "ifNecessary": true,
+      "venue": {
+        "default": "KeyBank Center"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-04-28T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "America/New_York",
       "gameState": "FUT",
       "gameScheduleState": "TBD",
       "tvBroadcasts": [],
@@ -257,7 +470,9 @@
           "fr": "de Buffalo"
         },
         "abbrev": "BUF"
-      }
+      },
+      "gameCenterLink": "/gamecenter/bos-vs-buf/2026/04/28/2025030115",
+      "ticketsLink": "https://www.nhl.com/sabres/tickets/"
     },
     {
       "id": 2025030116,
@@ -265,7 +480,14 @@
       "gameType": 3,
       "gameNumber": 6,
       "ifNecessary": true,
+      "venue": {
+        "default": "TD Garden"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-05-01T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
       "gameState": "FUT",
       "gameScheduleState": "TBD",
       "tvBroadcasts": [],
@@ -296,7 +518,9 @@
           "fr": "de Boston"
         },
         "abbrev": "BOS"
-      }
+      },
+      "gameCenterLink": "/gamecenter/buf-vs-bos/2026/05/01/2025030116",
+      "ticketsLink": "https://www.nhl.com/bruins/tickets/"
     },
     {
       "id": 2025030117,
@@ -304,7 +528,14 @@
       "gameType": 3,
       "gameNumber": 7,
       "ifNecessary": true,
+      "venue": {
+        "default": "KeyBank Center"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-05-03T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "America/New_York",
       "gameState": "FUT",
       "gameScheduleState": "TBD",
       "tvBroadcasts": [],
@@ -335,7 +566,9 @@
           "fr": "de Buffalo"
         },
         "abbrev": "BUF"
-      }
+      },
+      "gameCenterLink": "/gamecenter/bos-vs-buf/2026/05/03/2025030117",
+      "ticketsLink": "https://www.nhl.com/sabres/tickets/"
     }
   ],
   "fullCoverageUrl": {

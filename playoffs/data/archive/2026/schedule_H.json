@@ -4,7 +4,7 @@
   "roundLabel": "1st-round",
   "seriesLetter": "H",
   "neededToWin": 4,
-  "length": 0,
+  "length": 7,
   "bottomSeedTeam": {
     "id": 24,
     "name": {
@@ -53,5 +53,538 @@
     "logo": "https://assets.nhle.com/logos/nhl/svg/EDM_light.svg",
     "darkLogo": "https://assets.nhle.com/logos/nhl/svg/EDM_dark.svg"
   },
-  "games": []
+  "games": [
+    {
+      "id": 2025030181,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 1,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Rogers Place"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-04-21T02:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-06:00",
+      "venueTimezone": "America/Edmonton",
+      "gameState": "FUT",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 219,
+          "market": "A",
+          "countryCode": "US",
+          "network": "KCOP-13",
+          "sequenceNumber": 656
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 307,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN2",
+          "sequenceNumber": 12
+        },
+        {
+          "id": 553,
+          "market": "A",
+          "countryCode": "US",
+          "network": "Victory+",
+          "sequenceNumber": 382
+        }
+      ],
+      "awayTeam": {
+        "id": 24,
+        "commonName": {
+          "default": "Ducks"
+        },
+        "placeName": {
+          "default": "Anaheim"
+        },
+        "placeNameWithPreposition": {
+          "default": "Anaheim",
+          "fr": "d'Anaheim"
+        },
+        "abbrev": "ANA"
+      },
+      "homeTeam": {
+        "id": 22,
+        "commonName": {
+          "default": "Oilers"
+        },
+        "placeName": {
+          "default": "Edmonton"
+        },
+        "placeNameWithPreposition": {
+          "default": "Edmonton",
+          "fr": "d'Edmonton"
+        },
+        "abbrev": "EDM"
+      },
+      "gameCenterLink": "/gamecenter/ana-vs-edm/2026/04/20/2025030181",
+      "ticketsLink": "https://www.nhl.com/oilers/tickets/"
+    },
+    {
+      "id": 2025030182,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 2,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Rogers Place"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-04-23T02:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-06:00",
+      "venueTimezone": "America/Edmonton",
+      "gameState": "FUT",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 219,
+          "market": "A",
+          "countryCode": "US",
+          "network": "KCOP-13",
+          "sequenceNumber": 656
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 403,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TBS",
+          "sequenceNumber": 13
+        },
+        {
+          "id": 553,
+          "market": "A",
+          "countryCode": "US",
+          "network": "Victory+",
+          "sequenceNumber": 382
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        }
+      ],
+      "awayTeam": {
+        "id": 24,
+        "commonName": {
+          "default": "Ducks"
+        },
+        "placeName": {
+          "default": "Anaheim"
+        },
+        "placeNameWithPreposition": {
+          "default": "Anaheim",
+          "fr": "d'Anaheim"
+        },
+        "abbrev": "ANA"
+      },
+      "homeTeam": {
+        "id": 22,
+        "commonName": {
+          "default": "Oilers"
+        },
+        "placeName": {
+          "default": "Edmonton"
+        },
+        "placeNameWithPreposition": {
+          "default": "Edmonton",
+          "fr": "d'Edmonton"
+        },
+        "abbrev": "EDM"
+      },
+      "gameCenterLink": "/gamecenter/ana-vs-edm/2026/04/22/2025030182",
+      "ticketsLink": "https://www.nhl.com/oilers/tickets/"
+    },
+    {
+      "id": 2025030183,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 3,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Honda Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-04-25T02:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-07:00",
+      "venueTimezone": "America/Los_Angeles",
+      "gameState": "FUT",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 219,
+          "market": "H",
+          "countryCode": "US",
+          "network": "KCOP-13",
+          "sequenceNumber": 656
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 553,
+          "market": "H",
+          "countryCode": "US",
+          "network": "Victory+",
+          "sequenceNumber": 382
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        }
+      ],
+      "awayTeam": {
+        "id": 22,
+        "commonName": {
+          "default": "Oilers"
+        },
+        "placeName": {
+          "default": "Edmonton"
+        },
+        "placeNameWithPreposition": {
+          "default": "Edmonton",
+          "fr": "d'Edmonton"
+        },
+        "abbrev": "EDM"
+      },
+      "homeTeam": {
+        "id": 24,
+        "commonName": {
+          "default": "Ducks"
+        },
+        "placeName": {
+          "default": "Anaheim"
+        },
+        "placeNameWithPreposition": {
+          "default": "Anaheim",
+          "fr": "d'Anaheim"
+        },
+        "abbrev": "ANA"
+      },
+      "gameCenterLink": "/gamecenter/edm-vs-ana/2026/04/24/2025030183",
+      "ticketsLink": "https://www.nhl.com/ducks/tickets/"
+    },
+    {
+      "id": 2025030184,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 4,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Honda Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-04-27T01:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-07:00",
+      "venueTimezone": "America/Los_Angeles",
+      "gameState": "FUT",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        },
+        {
+          "id": 553,
+          "market": "H",
+          "countryCode": "US",
+          "network": "Victory+",
+          "sequenceNumber": 382
+        }
+      ],
+      "awayTeam": {
+        "id": 22,
+        "commonName": {
+          "default": "Oilers"
+        },
+        "placeName": {
+          "default": "Edmonton"
+        },
+        "placeNameWithPreposition": {
+          "default": "Edmonton",
+          "fr": "d'Edmonton"
+        },
+        "abbrev": "EDM"
+      },
+      "homeTeam": {
+        "id": 24,
+        "commonName": {
+          "default": "Ducks"
+        },
+        "placeName": {
+          "default": "Anaheim"
+        },
+        "placeNameWithPreposition": {
+          "default": "Anaheim",
+          "fr": "d'Anaheim"
+        },
+        "abbrev": "ANA"
+      },
+      "gameCenterLink": "/gamecenter/edm-vs-ana/2026/04/26/2025030184",
+      "ticketsLink": "https://www.nhl.com/ducks/tickets/"
+    },
+    {
+      "id": 2025030185,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 5,
+      "ifNecessary": true,
+      "venue": {
+        "default": "Rogers Place"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-04-28T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-06:00",
+      "venueTimezone": "America/Edmonton",
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": 24,
+        "commonName": {
+          "default": "Ducks"
+        },
+        "placeName": {
+          "default": "Anaheim"
+        },
+        "placeNameWithPreposition": {
+          "default": "Anaheim",
+          "fr": "d'Anaheim"
+        },
+        "abbrev": "ANA"
+      },
+      "homeTeam": {
+        "id": 22,
+        "commonName": {
+          "default": "Oilers"
+        },
+        "placeName": {
+          "default": "Edmonton"
+        },
+        "placeNameWithPreposition": {
+          "default": "Edmonton",
+          "fr": "d'Edmonton"
+        },
+        "abbrev": "EDM"
+      },
+      "gameCenterLink": "/gamecenter/ana-vs-edm/2026/04/28/2025030185",
+      "ticketsLink": "https://www.nhl.com/oilers/tickets/"
+    },
+    {
+      "id": 2025030186,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 6,
+      "ifNecessary": true,
+      "venue": {
+        "default": "Honda Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-04-30T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-07:00",
+      "venueTimezone": "America/Los_Angeles",
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": 22,
+        "commonName": {
+          "default": "Oilers"
+        },
+        "placeName": {
+          "default": "Edmonton"
+        },
+        "placeNameWithPreposition": {
+          "default": "Edmonton",
+          "fr": "d'Edmonton"
+        },
+        "abbrev": "EDM"
+      },
+      "homeTeam": {
+        "id": 24,
+        "commonName": {
+          "default": "Ducks"
+        },
+        "placeName": {
+          "default": "Anaheim"
+        },
+        "placeNameWithPreposition": {
+          "default": "Anaheim",
+          "fr": "d'Anaheim"
+        },
+        "abbrev": "ANA"
+      },
+      "gameCenterLink": "/gamecenter/edm-vs-ana/2026/04/30/2025030186",
+      "ticketsLink": "https://www.nhl.com/ducks/tickets/"
+    },
+    {
+      "id": 2025030187,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 7,
+      "ifNecessary": true,
+      "venue": {
+        "default": "Rogers Place"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-05-02T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-06:00",
+      "venueTimezone": "America/Edmonton",
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": 24,
+        "commonName": {
+          "default": "Ducks"
+        },
+        "placeName": {
+          "default": "Anaheim"
+        },
+        "placeNameWithPreposition": {
+          "default": "Anaheim",
+          "fr": "d'Anaheim"
+        },
+        "abbrev": "ANA"
+      },
+      "homeTeam": {
+        "id": 22,
+        "commonName": {
+          "default": "Oilers"
+        },
+        "placeName": {
+          "default": "Edmonton"
+        },
+        "placeNameWithPreposition": {
+          "default": "Edmonton",
+          "fr": "d'Edmonton"
+        },
+        "abbrev": "EDM"
+      },
+      "gameCenterLink": "/gamecenter/ana-vs-edm/2026/05/02/2025030187",
+      "ticketsLink": "https://www.nhl.com/oilers/tickets/"
+    }
+  ],
+  "fullCoverageUrl": {
+    "cs": "https://www.nhl.com/cs/playoffs/2026/series-h-coverage",
+    "de": "https://www.nhl.com/de/playoffs/2026/series-h-coverage",
+    "sv": "https://www.nhl.com/sv/playoffs/2026/series-h-coverage",
+    "fi": "https://www.nhl.com/fi/playoffs/2026/series-h-coverage",
+    "sk": "https://www.nhl.com/sk/playoffs/2026/series-h-coverage",
+    "en": "https://www.nhl.com/playoffs/2026/series-h-coverage",
+    "fr": "https://www.nhl.com/fr/playoffs/2026/series-h-coverage",
+    "es": "https://www.nhl.com/es/playoffs/2026/series-h-coverage"
+  }
 }

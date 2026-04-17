@@ -66,13 +66,63 @@
         "default": "Benchmark International Arena"
       },
       "neutralSite": false,
-      "startTimeUTC": "2026-04-19T16:00:00Z",
+      "startTimeUTC": "2026-04-19T21:45:00Z",
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        },
+        {
+          "id": 581,
+          "market": "H",
+          "countryCode": "US",
+          "network": "The Spot",
+          "sequenceNumber": 211
+        }
+      ],
       "awayTeam": {
         "id": 8,
         "commonName": {
@@ -110,10 +160,53 @@
       "gameType": 3,
       "gameNumber": 2,
       "ifNecessary": false,
+      "venue": {
+        "default": "Benchmark International Arena"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-04-21T23:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 307,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN2",
+          "sequenceNumber": 12
+        },
+        {
+          "id": 581,
+          "market": "H",
+          "countryCode": "US",
+          "network": "The Spot",
+          "sequenceNumber": 211
+        }
+      ],
       "awayTeam": {
         "id": 8,
         "commonName": {
@@ -141,7 +234,9 @@
           "fr": "de Tampa Bay"
         },
         "abbrev": "TBL"
-      }
+      },
+      "gameCenterLink": "/gamecenter/mtl-vs-tbl/2026/04/21/2025030122",
+      "ticketsLink": "https://www.nhl.com/lightning/tickets/"
     },
     {
       "id": 2025030123,
@@ -149,10 +244,67 @@
       "gameType": 3,
       "gameNumber": 3,
       "ifNecessary": false,
+      "venue": {
+        "default": "Centre Bell"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-04-24T23:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "America/Montreal",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        },
+        {
+          "id": 581,
+          "market": "A",
+          "countryCode": "US",
+          "network": "The Spot",
+          "sequenceNumber": 211
+        }
+      ],
       "awayTeam": {
         "id": 14,
         "commonName": {
@@ -180,7 +332,9 @@
           "fr": "de Montréal"
         },
         "abbrev": "MTL"
-      }
+      },
+      "gameCenterLink": "/gamecenter/tbl-vs-mtl/2026/04/24/2025030123",
+      "ticketsLink": "https://www.nhl.com/canadiens/tickets/"
     },
     {
       "id": 2025030124,
@@ -188,10 +342,67 @@
       "gameType": 3,
       "gameNumber": 4,
       "ifNecessary": false,
+      "venue": {
+        "default": "Centre Bell"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-04-26T23:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "America/Montreal",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 287,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SNE",
+          "sequenceNumber": 30
+        },
+        {
+          "id": 288,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SNO",
+          "sequenceNumber": 31
+        },
+        {
+          "id": 290,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SNP",
+          "sequenceNumber": 33
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        },
+        {
+          "id": 581,
+          "market": "A",
+          "countryCode": "US",
+          "network": "The Spot",
+          "sequenceNumber": 211
+        }
+      ],
       "awayTeam": {
         "id": 14,
         "commonName": {
@@ -219,7 +430,9 @@
           "fr": "de Montréal"
         },
         "abbrev": "MTL"
-      }
+      },
+      "gameCenterLink": "/gamecenter/tbl-vs-mtl/2026/04/26/2025030124",
+      "ticketsLink": "https://www.nhl.com/canadiens/tickets/"
     },
     {
       "id": 2025030125,
@@ -227,7 +440,14 @@
       "gameType": 3,
       "gameNumber": 5,
       "ifNecessary": true,
+      "venue": {
+        "default": "Benchmark International Arena"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-04-29T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
       "gameState": "FUT",
       "gameScheduleState": "TBD",
       "tvBroadcasts": [],
@@ -258,7 +478,9 @@
           "fr": "de Tampa Bay"
         },
         "abbrev": "TBL"
-      }
+      },
+      "gameCenterLink": "/gamecenter/mtl-vs-tbl/2026/04/29/2025030125",
+      "ticketsLink": "https://www.nhl.com/lightning/tickets/"
     },
     {
       "id": 2025030126,
@@ -266,7 +488,14 @@
       "gameType": 3,
       "gameNumber": 6,
       "ifNecessary": true,
+      "venue": {
+        "default": "Centre Bell"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-05-01T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "America/Montreal",
       "gameState": "FUT",
       "gameScheduleState": "TBD",
       "tvBroadcasts": [],
@@ -297,7 +526,9 @@
           "fr": "de Montréal"
         },
         "abbrev": "MTL"
-      }
+      },
+      "gameCenterLink": "/gamecenter/tbl-vs-mtl/2026/05/01/2025030126",
+      "ticketsLink": "https://www.nhl.com/canadiens/tickets/"
     },
     {
       "id": 2025030127,
@@ -305,7 +536,14 @@
       "gameType": 3,
       "gameNumber": 7,
       "ifNecessary": true,
+      "venue": {
+        "default": "Benchmark International Arena"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-05-03T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
       "gameState": "FUT",
       "gameScheduleState": "TBD",
       "tvBroadcasts": [],
@@ -336,7 +574,9 @@
           "fr": "de Tampa Bay"
         },
         "abbrev": "TBL"
-      }
+      },
+      "gameCenterLink": "/gamecenter/mtl-vs-tbl/2026/05/03/2025030127",
+      "ticketsLink": "https://www.nhl.com/lightning/tickets/"
     }
   ],
   "fullCoverageUrl": {

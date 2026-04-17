@@ -92,6 +92,20 @@
           "countryCode": "US",
           "network": "ESPN",
           "sequenceNumber": 10
+        },
+        {
+          "id": 322,
+          "market": "A",
+          "countryCode": "US",
+          "network": "NBCSP",
+          "sequenceNumber": 389
+        },
+        {
+          "id": 528,
+          "market": "H",
+          "countryCode": "US",
+          "network": "SN-PIT",
+          "sequenceNumber": 384
         }
       ],
       "awayTeam": {
@@ -132,10 +146,53 @@
       "gameType": 3,
       "gameNumber": 2,
       "ifNecessary": false,
+      "venue": {
+        "default": "PPG Paints Arena"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-04-20T23:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        },
+        {
+          "id": 322,
+          "market": "A",
+          "countryCode": "US",
+          "network": "NBCSP",
+          "sequenceNumber": 389
+        },
+        {
+          "id": 528,
+          "market": "H",
+          "countryCode": "US",
+          "network": "SN-PIT",
+          "sequenceNumber": 384
+        }
+      ],
       "awayTeam": {
         "id": 4,
         "commonName": {
@@ -164,7 +221,9 @@
           "fr": "de Pittsburgh"
         },
         "abbrev": "PIT"
-      }
+      },
+      "gameCenterLink": "/gamecenter/phi-vs-pit/2026/04/20/2025030142",
+      "ticketsLink": "https://www.nhl.com/penguins/tickets/"
     },
     {
       "id": 2025030143,
@@ -172,10 +231,88 @@
       "gameType": 3,
       "gameNumber": 3,
       "ifNecessary": false,
+      "venue": {
+        "default": "Xfinity Mobile Arena"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-04-22T23:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 287,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SNE",
+          "sequenceNumber": 30
+        },
+        {
+          "id": 288,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SNO",
+          "sequenceNumber": 31
+        },
+        {
+          "id": 290,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SNP",
+          "sequenceNumber": 33
+        },
+        {
+          "id": 322,
+          "market": "H",
+          "countryCode": "US",
+          "network": "NBCSP",
+          "sequenceNumber": 389
+        },
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 528,
+          "market": "A",
+          "countryCode": "US",
+          "network": "SN-PIT",
+          "sequenceNumber": 384
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        }
+      ],
       "awayTeam": {
         "id": 5,
         "commonName": {
@@ -204,7 +341,9 @@
           "fr": "de Philadelphie"
         },
         "abbrev": "PHI"
-      }
+      },
+      "gameCenterLink": "/gamecenter/pit-vs-phi/2026/04/22/2025030143",
+      "ticketsLink": "https://www.nhl.com/flyers/tickets/"
     },
     {
       "id": 2025030144,
@@ -212,10 +351,67 @@
       "gameType": 3,
       "gameNumber": 4,
       "ifNecessary": false,
+      "venue": {
+        "default": "Xfinity Mobile Arena"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-04-26T00:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 322,
+          "market": "H",
+          "countryCode": "US",
+          "network": "NBCSP",
+          "sequenceNumber": 389
+        },
+        {
+          "id": 403,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TBS",
+          "sequenceNumber": 13
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 528,
+          "market": "A",
+          "countryCode": "US",
+          "network": "SN-PIT",
+          "sequenceNumber": 384
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        }
+      ],
       "awayTeam": {
         "id": 5,
         "commonName": {
@@ -244,7 +440,9 @@
           "fr": "de Philadelphie"
         },
         "abbrev": "PHI"
-      }
+      },
+      "gameCenterLink": "/gamecenter/pit-vs-phi/2026/04/25/2025030144",
+      "ticketsLink": "https://www.nhl.com/flyers/tickets/"
     },
     {
       "id": 2025030145,
@@ -252,7 +450,14 @@
       "gameType": 3,
       "gameNumber": 5,
       "ifNecessary": true,
+      "venue": {
+        "default": "PPG Paints Arena"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-04-27T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
       "gameState": "FUT",
       "gameScheduleState": "TBD",
       "tvBroadcasts": [],
@@ -284,7 +489,9 @@
           "fr": "de Pittsburgh"
         },
         "abbrev": "PIT"
-      }
+      },
+      "gameCenterLink": "/gamecenter/phi-vs-pit/2026/04/27/2025030145",
+      "ticketsLink": "https://www.nhl.com/penguins/tickets/"
     },
     {
       "id": 2025030146,
@@ -292,7 +499,14 @@
       "gameType": 3,
       "gameNumber": 6,
       "ifNecessary": true,
+      "venue": {
+        "default": "Xfinity Mobile Arena"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-04-29T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
       "gameState": "FUT",
       "gameScheduleState": "TBD",
       "tvBroadcasts": [],
@@ -324,7 +538,9 @@
           "fr": "de Philadelphie"
         },
         "abbrev": "PHI"
-      }
+      },
+      "gameCenterLink": "/gamecenter/pit-vs-phi/2026/04/29/2025030146",
+      "ticketsLink": "https://www.nhl.com/flyers/tickets/"
     },
     {
       "id": 2025030147,
@@ -332,7 +548,14 @@
       "gameType": 3,
       "gameNumber": 7,
       "ifNecessary": true,
+      "venue": {
+        "default": "PPG Paints Arena"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-05-02T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
       "gameState": "FUT",
       "gameScheduleState": "TBD",
       "tvBroadcasts": [],
@@ -364,7 +587,9 @@
           "fr": "de Pittsburgh"
         },
         "abbrev": "PIT"
-      }
+      },
+      "gameCenterLink": "/gamecenter/phi-vs-pit/2026/05/02/2025030147",
+      "ticketsLink": "https://www.nhl.com/penguins/tickets/"
     }
   ],
   "fullCoverageUrl": {

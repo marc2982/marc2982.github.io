@@ -93,6 +93,13 @@
           "countryCode": "US",
           "network": "ESPN",
           "sequenceNumber": 10
+        },
+        {
+          "id": 561,
+          "market": "H",
+          "countryCode": "US",
+          "network": "FDSNSO",
+          "sequenceNumber": 202
         }
       ],
       "awayTeam": {
@@ -134,10 +141,67 @@
       "gameType": 3,
       "gameNumber": 2,
       "ifNecessary": false,
+      "venue": {
+        "default": "Lenovo Center"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-04-20T23:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 287,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SNE",
+          "sequenceNumber": 30
+        },
+        {
+          "id": 288,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SNO",
+          "sequenceNumber": 31
+        },
+        {
+          "id": 290,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SNP",
+          "sequenceNumber": 33
+        },
+        {
+          "id": 307,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN2",
+          "sequenceNumber": 12
+        },
+        {
+          "id": 561,
+          "market": "H",
+          "countryCode": "US",
+          "network": "FDSNSO",
+          "sequenceNumber": 202
+        }
+      ],
       "awayTeam": {
         "id": 9,
         "commonName": {
@@ -167,7 +231,9 @@
           "fr": "de la Caroline"
         },
         "abbrev": "CAR"
-      }
+      },
+      "gameCenterLink": "/gamecenter/ott-vs-car/2026/04/20/2025030132",
+      "ticketsLink": "https://www.nhl.com/hurricanes/tickets/"
     },
     {
       "id": 2025030133,
@@ -175,10 +241,60 @@
       "gameType": 3,
       "gameNumber": 3,
       "ifNecessary": false,
+      "venue": {
+        "default": "Canadian Tire Centre"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-04-23T23:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 403,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TBS",
+          "sequenceNumber": 13
+        },
+        {
+          "id": 561,
+          "market": "A",
+          "countryCode": "US",
+          "network": "FDSNSO",
+          "sequenceNumber": 202
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        }
+      ],
       "awayTeam": {
         "id": 12,
         "commonName": {
@@ -208,7 +324,9 @@
           "fr": "d'Ottawa"
         },
         "abbrev": "OTT"
-      }
+      },
+      "gameCenterLink": "/gamecenter/car-vs-ott/2026/04/23/2025030133",
+      "ticketsLink": "https://www.nhl.com/senators/tickets/"
     },
     {
       "id": 2025030134,
@@ -216,10 +334,60 @@
       "gameType": 3,
       "gameNumber": 4,
       "ifNecessary": false,
+      "venue": {
+        "default": "Canadian Tire Centre"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-04-25T19:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 403,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TBS",
+          "sequenceNumber": 13
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 561,
+          "market": "A",
+          "countryCode": "US",
+          "network": "FDSNSO",
+          "sequenceNumber": 202
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        }
+      ],
       "awayTeam": {
         "id": 12,
         "commonName": {
@@ -249,7 +417,9 @@
           "fr": "d'Ottawa"
         },
         "abbrev": "OTT"
-      }
+      },
+      "gameCenterLink": "/gamecenter/car-vs-ott/2026/04/25/2025030134",
+      "ticketsLink": "https://www.nhl.com/senators/tickets/"
     },
     {
       "id": 2025030135,
@@ -257,7 +427,14 @@
       "gameType": 3,
       "gameNumber": 5,
       "ifNecessary": true,
+      "venue": {
+        "default": "Lenovo Center"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-04-27T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
       "gameState": "FUT",
       "gameScheduleState": "TBD",
       "tvBroadcasts": [],
@@ -290,7 +467,9 @@
           "fr": "de la Caroline"
         },
         "abbrev": "CAR"
-      }
+      },
+      "gameCenterLink": "/gamecenter/ott-vs-car/2026/04/27/2025030135",
+      "ticketsLink": "https://www.nhl.com/hurricanes/tickets/"
     },
     {
       "id": 2025030136,
@@ -298,7 +477,14 @@
       "gameType": 3,
       "gameNumber": 6,
       "ifNecessary": true,
+      "venue": {
+        "default": "Canadian Tire Centre"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-04-30T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
       "gameState": "FUT",
       "gameScheduleState": "TBD",
       "tvBroadcasts": [],
@@ -331,7 +517,9 @@
           "fr": "d'Ottawa"
         },
         "abbrev": "OTT"
-      }
+      },
+      "gameCenterLink": "/gamecenter/car-vs-ott/2026/04/30/2025030136",
+      "ticketsLink": "https://www.nhl.com/senators/tickets/"
     },
     {
       "id": 2025030137,
@@ -339,7 +527,14 @@
       "gameType": 3,
       "gameNumber": 7,
       "ifNecessary": true,
+      "venue": {
+        "default": "Lenovo Center"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-05-02T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
       "gameState": "FUT",
       "gameScheduleState": "TBD",
       "tvBroadcasts": [],
@@ -372,7 +567,9 @@
           "fr": "de la Caroline"
         },
         "abbrev": "CAR"
-      }
+      },
+      "gameCenterLink": "/gamecenter/ott-vs-car/2026/05/02/2025030137",
+      "ticketsLink": "https://www.nhl.com/hurricanes/tickets/"
     }
   ],
   "fullCoverageUrl": {

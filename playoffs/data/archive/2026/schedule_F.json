@@ -86,11 +86,46 @@
           "sequenceNumber": 107
         },
         {
+          "id": 288,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SNO",
+          "sequenceNumber": 31
+        },
+        {
+          "id": 289,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SNW",
+          "sequenceNumber": 34
+        },
+        {
+          "id": 290,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SNP",
+          "sequenceNumber": 33
+        },
+        {
           "id": 309,
           "market": "N",
           "countryCode": "US",
           "network": "ESPN",
           "sequenceNumber": 10
+        },
+        {
+          "id": 553,
+          "market": "H",
+          "countryCode": "US",
+          "network": "Victory+",
+          "sequenceNumber": 382
+        },
+        {
+          "id": 567,
+          "market": "A",
+          "countryCode": "US",
+          "network": "FDSNNO",
+          "sequenceNumber": 284
         }
       ],
       "awayTeam": {
@@ -130,10 +165,53 @@
       "gameType": 3,
       "gameNumber": 2,
       "ifNecessary": false,
+      "venue": {
+        "default": "American Airlines Center"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-04-21T01:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-05:00",
+      "venueTimezone": "US/Central",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        },
+        {
+          "id": 553,
+          "market": "H",
+          "countryCode": "US",
+          "network": "Victory+",
+          "sequenceNumber": 382
+        },
+        {
+          "id": 567,
+          "market": "A",
+          "countryCode": "US",
+          "network": "FDSNNO",
+          "sequenceNumber": 284
+        }
+      ],
       "awayTeam": {
         "id": 30,
         "commonName": {
@@ -161,7 +239,9 @@
           "fr": "de Dallas"
         },
         "abbrev": "DAL"
-      }
+      },
+      "gameCenterLink": "/gamecenter/min-vs-dal/2026/04/20/2025030162",
+      "ticketsLink": "https://www.nhl.com/stars/tickets/"
     },
     {
       "id": 2025030163,
@@ -169,10 +249,67 @@
       "gameType": 3,
       "gameNumber": 3,
       "ifNecessary": false,
+      "venue": {
+        "default": "Grand Casino Arena"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-04-23T01:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-05:00",
+      "venueTimezone": "US/Central",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 553,
+          "market": "A",
+          "countryCode": "US",
+          "network": "Victory+",
+          "sequenceNumber": 382
+        },
+        {
+          "id": 567,
+          "market": "H",
+          "countryCode": "US",
+          "network": "FDSNNO",
+          "sequenceNumber": 284
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        }
+      ],
       "awayTeam": {
         "id": 25,
         "commonName": {
@@ -200,7 +337,9 @@
           "fr": "du Minnesota"
         },
         "abbrev": "MIN"
-      }
+      },
+      "gameCenterLink": "/gamecenter/dal-vs-min/2026/04/22/2025030163",
+      "ticketsLink": "https://www.nhl.com/wild/tickets/"
     },
     {
       "id": 2025030164,
@@ -208,10 +347,81 @@
       "gameType": 3,
       "gameNumber": 4,
       "ifNecessary": false,
+      "venue": {
+        "default": "Grand Casino Arena"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-04-25T21:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-05:00",
+      "venueTimezone": "US/Central",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 288,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SNO",
+          "sequenceNumber": 31
+        },
+        {
+          "id": 289,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SNW",
+          "sequenceNumber": 34
+        },
+        {
+          "id": 290,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SNP",
+          "sequenceNumber": 33
+        },
+        {
+          "id": 403,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TBS",
+          "sequenceNumber": 13
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 553,
+          "market": "A",
+          "countryCode": "US",
+          "network": "Victory+",
+          "sequenceNumber": 382
+        },
+        {
+          "id": 567,
+          "market": "H",
+          "countryCode": "US",
+          "network": "FDSNNO",
+          "sequenceNumber": 284
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        }
+      ],
       "awayTeam": {
         "id": 25,
         "commonName": {
@@ -239,7 +449,9 @@
           "fr": "du Minnesota"
         },
         "abbrev": "MIN"
-      }
+      },
+      "gameCenterLink": "/gamecenter/dal-vs-min/2026/04/25/2025030164",
+      "ticketsLink": "https://www.nhl.com/wild/tickets/"
     },
     {
       "id": 2025030165,
@@ -247,7 +459,14 @@
       "gameType": 3,
       "gameNumber": 5,
       "ifNecessary": true,
+      "venue": {
+        "default": "American Airlines Center"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-04-28T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-05:00",
+      "venueTimezone": "US/Central",
       "gameState": "FUT",
       "gameScheduleState": "TBD",
       "tvBroadcasts": [],
@@ -278,7 +497,9 @@
           "fr": "de Dallas"
         },
         "abbrev": "DAL"
-      }
+      },
+      "gameCenterLink": "/gamecenter/min-vs-dal/2026/04/28/2025030165",
+      "ticketsLink": "https://www.nhl.com/stars/tickets/"
     },
     {
       "id": 2025030166,
@@ -286,7 +507,14 @@
       "gameType": 3,
       "gameNumber": 6,
       "ifNecessary": true,
+      "venue": {
+        "default": "Grand Casino Arena"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-04-30T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-05:00",
+      "venueTimezone": "US/Central",
       "gameState": "FUT",
       "gameScheduleState": "TBD",
       "tvBroadcasts": [],
@@ -317,7 +545,9 @@
           "fr": "du Minnesota"
         },
         "abbrev": "MIN"
-      }
+      },
+      "gameCenterLink": "/gamecenter/dal-vs-min/2026/04/30/2025030166",
+      "ticketsLink": "https://www.nhl.com/wild/tickets/"
     },
     {
       "id": 2025030167,
@@ -325,7 +555,14 @@
       "gameType": 3,
       "gameNumber": 7,
       "ifNecessary": true,
+      "venue": {
+        "default": "American Airlines Center"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-05-02T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-05:00",
+      "venueTimezone": "US/Central",
       "gameState": "FUT",
       "gameScheduleState": "TBD",
       "tvBroadcasts": [],
@@ -356,7 +593,9 @@
           "fr": "de Dallas"
         },
         "abbrev": "DAL"
-      }
+      },
+      "gameCenterLink": "/gamecenter/min-vs-dal/2026/05/02/2025030167",
+      "ticketsLink": "https://www.nhl.com/stars/tickets/"
     }
   ],
   "fullCoverageUrl": {
