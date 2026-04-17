@@ -121,6 +121,13 @@
           "countryCode": "US",
           "network": "FDSNNO",
           "sequenceNumber": 284
+        },
+        {
+          "id": 569,
+          "market": "A",
+          "countryCode": "US",
+          "network": "FDSNWI",
+          "sequenceNumber": 419
         }
       ],
       "awayTeam": {
@@ -205,6 +212,13 @@
           "countryCode": "US",
           "network": "FDSNNO",
           "sequenceNumber": 284
+        },
+        {
+          "id": 569,
+          "market": "A",
+          "countryCode": "US",
+          "network": "FDSNWI",
+          "sequenceNumber": 419
         }
       ],
       "awayTeam": {
@@ -296,6 +310,13 @@
           "countryCode": "US",
           "network": "FDSNNO",
           "sequenceNumber": 284
+        },
+        {
+          "id": 569,
+          "market": "H",
+          "countryCode": "US",
+          "network": "FDSNWI",
+          "sequenceNumber": 419
         },
         {
           "id": 578,
@@ -408,6 +429,13 @@
           "countryCode": "US",
           "network": "FDSNNO",
           "sequenceNumber": 284
+        },
+        {
+          "id": 569,
+          "market": "H",
+          "countryCode": "US",
+          "network": "FDSNWI",
+          "sequenceNumber": 419
         },
         {
           "id": 578,
