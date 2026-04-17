@@ -16,7 +16,9 @@ export function renderPage(data) {
 
 export function renderTiebreaker(data, div) {
 	const leaderCount = data.tiebreakInfo?.leaders?.length ?? 0;
-	if (leaderCount > 1) {
+	const isFinalRoundComplete = data.rounds?.[3]?.serieses?.[0]?.isOver() ?? false;
+	
+	if (leaderCount > 1 && isFinalRoundComplete) {
 		div.show();
 	} else {
 		div.hide();
