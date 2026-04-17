@@ -358,5 +358,15 @@
         "abbrev": "DAL"
       }
     }
-  ]
+  ],
+  "fullCoverageUrl": {
+    "cs": "https://www.nhl.com/cs/playoffs/2026/series-f-coverage",
+    "de": "https://www.nhl.com/de/playoffs/2026/series-f-coverage",
+    "sv": "https://www.nhl.com/sv/playoffs/2026/series-f-coverage",
+    "fi": "https://www.nhl.com/fi/playoffs/2026/series-f-coverage",
+    "sk": "https://www.nhl.com/sk/playoffs/2026/series-f-coverage",
+    "en": "https://www.nhl.com/playoffs/2026/series-f-coverage",
+    "fr": "https://www.nhl.com/fr/playoffs/2026/series-f-coverage",
+    "es": "https://www.nhl.com/es/playoffs/2026/series-f-coverage"
+  }
 }

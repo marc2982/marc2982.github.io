@@ -2,24 +2,10 @@
   "bracketLogo": "https://assets.nhle.com/logos/playoffs/png/scp-20252026-horizontal-banner-en.png",
   "bracketLogoFr": "https://assets.nhle.com/logos/playoffs/png/scp-20252026-horizontal-banner-fr.png",
   "bracketTitle": {
-    "default": "If The Playoffs Started Today",
-    "cs": "Pokud by play off začalo teď",
-    "de": "Wenn die Playoffs heute starten würden",
-    "es": "Si la postemporada comenzara hoy",
-    "fi": "Jos pudotuspelit alkaisivat tänään",
-    "fr": "Si les séries commençaient aujourd’hui",
-    "sk": "Ak by sa play off začalo teraz",
-    "sv": "Om slutspelet inleddes idag"
+    "default": ""
   },
   "bracketSubTitle": {
-    "default": "Matchups update after each game ends",
-    "cs": "Aktualizace dvojic po každém skončeném zápase",
-    "de": "Begegnungen werden nach dem Ende jedes Spiels aktualisiert",
-    "es": "Los enfrentamientos se actualizan al final de cada partido",
-    "fi": "Otteluparit päivittyvät jokaisen ottelun päätyttyä",
-    "fr": "Les confrontations sont mises à jour à la fin de chaque match",
-    "sk": "Aktualizácia dvojíc po každom skončenom zápase",
-    "sv": "Matchparen uppdateras när matcherna är färdigspelade"
+    "default": ""
   },
   "series": [
     {
