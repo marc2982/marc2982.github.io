@@ -19,6 +19,21 @@ export async function runTests() {
 		if (!condition) throw new Error(message || 'Assertion failed');
 	}
 
+	test('API Loader', 'load throws PLAYOFFS_NOT_STARTED if bracket is projected', () => {
+		const mockDataLoader = {
+			load: async () => ({
+				series: [{}],
+				bracketTitle: { default: "If The Playoffs Started Today" }
+			})
+		};
+		const handler = new NhlApiHandler(2025, mockDataLoader);
+		handler.load()
+			.then(() => console.error("FAIL: 'load throws if projected' - Expected throw, didn't happen"))
+			.catch((e) => {
+				if (e.message !== 'PLAYOFFS_NOT_STARTED') console.error("FAIL: 'load throws if projected' - wrong error", e);
+			});
+	});
+
 	// 1. Series Locking Tests
 	test('Series Locking', 'isLocked returns true if now >= start time', () => {
 		const s = Series.create({ letter: 'A', startTimeUTC: '2025-04-20T23:00:00Z' });

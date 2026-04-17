@@ -16,7 +16,7 @@ export class NhlApiHandler {
 		// Use the injected DataLoader to fetch data
 		const data = await this.dataLoader.load();
 
-		if (!data || !data.series) {
+		if (!data || !data.series || data.bracketTitle?.default?.includes('Started Today')) {
 			throw new Error('PLAYOFFS_NOT_STARTED');
 		}
 
