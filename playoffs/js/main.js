@@ -28,8 +28,18 @@ export async function render(year) {
 		const data = await loadData(year);
 		renderPage(data);
 	} catch (err) {
-		console.error("Critical rendering error:", err);
-		showGlobalError(err);
+		if (err.message === 'PLAYOFFS_NOT_STARTED') {
+			$('#loading').hide();
+			$('#main-content').html(
+				`<div style="text-align: center; margin-top: 50px;">
+					<h2>The ${year} Playoffs have not started yet.</h2>
+					<p>Please check back later or click the "Make Picks!" button to participate.</p>
+				</div>`
+			).fadeIn();
+		} else {
+			console.error("Critical rendering error:", err);
+			showGlobalError(err);
+		}
 	}
 }
 
