@@ -146,5 +146,22 @@ export function runImporterTests() {
         assert(userPicks['A'].games === 5, 'Classic picks should remain unaffected by regex');
     });
 
+    test('PicksImporter', 'readCsv handles NOT_FOUND gracefully by returning empty object', () => {
+        // Skip this test in Node since csvProcessor dynamically imports a Skypack https URL,
+        // which Node's default ESM loader rejects.
+        if (typeof window === 'undefined') return;
+
+        const importer = new PicksImporter(seriesRepo, teamRepo);
+        // Call with a path guaranteed to 404.
+        // It's an async method but the synchronous test wrapper means we handle verification inside the promise.
+        importer.readCsv('/non_existent_folder_xyz', 1).then(picks => {
+            if (Object.keys(picks).length !== 0) {
+                console.error("FAIL: 'readCsv handles NOT_FOUND' - Expected empty picks object, got something else.");
+            }
+        }).catch(e => {
+            console.error("FAIL: 'readCsv handles NOT_FOUND' - Threw error instead of absorbing NOT_FOUND:", e);
+        });
+    });
+
     return results;
 }

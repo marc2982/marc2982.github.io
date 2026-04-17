@@ -27,11 +27,18 @@ export class PicksImporter {
 	async readCsv(dataDir, round) {
 		const filename = `${dataDir}/round${round}.csv`;
 		const { loadCsv } = await import('./csvProcessor.js');
-		const data = await loadCsv(filename);
-		// loadCsv returns string[][] already parsed; serialise back to a simple CSV
-		// string so processRows can handle both paths uniformly.
-		const csvString = data.map(row => row.join(',')).join('\n');
-		return this.processRows(csvString, round);
+		try {
+			const data = await loadCsv(filename);
+			// loadCsv returns string[][] already parsed; serialise back to a simple CSV
+			// string so processRows can handle both paths uniformly.
+			const csvString = data.map(row => row.join(',')).join('\n');
+			return this.processRows(csvString, round);
+		} catch (err) {
+			if (err.message === 'NOT_FOUND') {
+				return {};
+			}
+			throw err;
+		}
 	}
 
 	processRows(csvString, round) {

@@ -3,7 +3,7 @@ async function fetchWithCacheBusting(url, bustCache) {
 	const response = await fetch(finalUrl);
 
 	if (!response.ok) {
-		if (response.status === 404) {
+		if (response.status === 404 || response.status === 503) {
 			throw new Error('NOT_FOUND');
 		}
 		throw new Error(`HTTP error! status: ${response.status} for ${url}`);

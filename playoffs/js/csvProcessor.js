@@ -6,7 +6,9 @@ export async function loadCsv(filename) {
 		const data = await fetchText(filename);
 		return parse(data);
 	} catch (err) {
-		console.error(`Failed to load CSV file ${filename}:`, err);
+		if (err.message !== 'NOT_FOUND') {
+			console.error(`Failed to load CSV file ${filename}:`, err);
+		}
 		throw err;
 	}
 }
