@@ -653,6 +653,13 @@
       "Nickall": 16
     }
   },
+  "2026": {
+    "year": 2026,
+    "poolWinner": "In Progress",
+    "poolLoser": null,
+    "cupWinner": null,
+    "points": {}
+  },
   "3000": {
     "year": 3000,
     "poolWinner": "In Progress",
