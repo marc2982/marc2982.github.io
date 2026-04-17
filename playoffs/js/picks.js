@@ -38,7 +38,9 @@ async function init() {
 		const isComplete = scf && scf.isOver();
 
 		if (isComplete) {
-			$('#matchups-container').html(`<div class="info">The ${CURRENT_YEAR}-${CURRENT_YEAR + 1} playoffs haven't started yet.</div>`);
+			$('#matchups-container').html(
+				`<div class="info">The ${CURRENT_YEAR}-${CURRENT_YEAR + 1} playoffs haven't started yet.</div>`,
+			);
 			return;
 		}
 
@@ -99,7 +101,7 @@ function getNotOpenHtml(unlockDateStr) {
 		return `
             <div class="intro-card" style="background-color: #e2f3ff; color: #004085; border-color: #b8daff;">
                 <h3>🔒 Picks Not Open Yet</h3>
-                <p>Picks open 3 days before the first game of the round. The NHL hasn't announced the schedule yet, so check back later!</p>
+                <p>Picks open once the matchups are announced and 3 (or fewer) days exist before the first game of the round.</p>
             </div>
         `;
 	}
@@ -257,6 +259,11 @@ function renderMatchupCard(series, topTeamShort, topTeam, bottomTeamShort, botto
 function attachEventHandlers() {
 	// Select Team
 	$('.team').on('click', function () {
+		if (!$('#username').val()) {
+			alert('Please select your name first before making your picks!');
+			$('#username').focus();
+			return;
+		}
 		if (!$('#passcode').val().trim()) {
 			alert('Please enter the league passcode first before making your picks!');
 			$('#passcode').focus();
@@ -277,6 +284,11 @@ function attachEventHandlers() {
 
 	// Select Games
 	$('.game-option').on('click', function () {
+		if (!$('#username').val()) {
+			alert('Please select your name first before making your picks!');
+			$('#username').focus();
+			return;
+		}
 		if (!$('#passcode').val().trim()) {
 			alert('Please enter the league passcode first before making your picks!');
 			$('#passcode').focus();
