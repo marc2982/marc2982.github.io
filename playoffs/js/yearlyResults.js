@@ -1,6 +1,40 @@
 import { TEAMS } from './constants.js';
-import { fetchJson } from './httpUtils.js';
+import { fetchJson, fetchText } from './httpUtils.js';
 import { showGlobalError } from './errorOverlay.js';
+
+// Detects current season phase and updates the progress-state span.
+async function updateProgressState(year) {
+	const el = document.getElementById(`progress-state-${year}`);
+	if (!el) return;
+
+	try {
+		const api = await fetchJson(`./data/archive/${year}/api.json`);
+		const isProjected = api?.bracketTitle?.default?.includes('Started Today');
+
+		if (isProjected || !api?.series) {
+			el.textContent = '⏳ Awaiting Matchups';
+			return;
+		}
+
+		// Check if any picks have been submitted
+		try {
+			await fetchText(`./data/archive/${year}/round1.csv`);
+			el.textContent = '🏒 Watching Hockey';
+		} catch (e) {
+			if (e.message === 'NOT_FOUND') {
+				el.textContent = '📋 Gathering Picks';
+			} else {
+				throw e;
+			}
+		}
+	} catch (e) {
+		if (e.message === 'NOT_FOUND') {
+			el.textContent = '⏳ Awaiting Matchups';
+		} else {
+			console.warn('Could not determine progress state:', e);
+		}
+	}
+}
 
 export async function yearlyResults(resultsTable) {
 	try {
@@ -30,8 +64,12 @@ export async function yearlyResults(resultsTable) {
 			const poolLoser = yearData.poolLoser || '-';
 			const cupWinner = yearData.cupWinner || '';
 
+			const isCurrentProgress = poolWinner === 'In Progress';
 			const poolWinners = Array.isArray(poolWinner) ? poolWinner : [poolWinner];
 			const poolLosers = Array.isArray(poolLoser) ? poolLoser : [poolLoser];
+			const poolWinnersHtml = isCurrentProgress 
+				? `<span id="progress-state-${yearData.year}">In Progress</span>`
+				: poolWinners.join(', ');
 
 			var row = tbody.insertRow();
 			const hasLink = yearData.year >= 1997 && yearData.year !== 2005 && yearData.year !== 2013;
@@ -39,9 +77,13 @@ export async function yearlyResults(resultsTable) {
 				? '<a href="year.html?year=' + yearData.year + '">' + yearData.year + ' </a>'
 				: yearData.year;
 			row.insertCell().outerHTML = '<td>' + innerHtml + '</td>';
-			row.insertCell().outerHTML = '<td>' + poolWinners.join(', ') + '</td>';
+			row.insertCell().outerHTML = '<td>' + poolWinnersHtml + '</td>';
 			row.insertCell().outerHTML = '<td>' + poolLosers.join(', ') + '</td>';
 			row.insertCell().outerHTML = '<td>' + (TEAMS[cupWinner] || cupWinner) + '</td>';
+
+			if (isCurrentProgress) {
+				updateProgressState(yearData.year);
+			}
 		});
 
 		resultsTable.DataTable({
