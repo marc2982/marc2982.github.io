@@ -81,13 +81,6 @@
           "sequenceNumber": 385
         },
         {
-          "id": 281,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "TVAS",
-          "sequenceNumber": 120
-        },
-        {
           "id": 288,
           "market": "N",
           "countryCode": "CA",
@@ -107,6 +100,13 @@
           "countryCode": "CA",
           "network": "SNP",
           "sequenceNumber": 33
+        },
+        {
+          "id": 291,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS2",
+          "sequenceNumber": 121
         },
         {
           "id": 385,
@@ -382,13 +382,6 @@
           "sequenceNumber": 385
         },
         {
-          "id": 281,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "TVAS",
-          "sequenceNumber": 120
-        },
-        {
           "id": 283,
           "market": "N",
           "countryCode": "CA",
@@ -408,6 +401,13 @@
           "countryCode": "CA",
           "network": "SNP",
           "sequenceNumber": 33
+        },
+        {
+          "id": 291,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS2",
+          "sequenceNumber": 121
         },
         {
           "id": 385,

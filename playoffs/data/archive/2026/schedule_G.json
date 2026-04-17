@@ -172,18 +172,18 @@
           "sequenceNumber": 101
         },
         {
-          "id": 281,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "TVAS",
-          "sequenceNumber": 120
-        },
-        {
           "id": 282,
           "market": "N",
           "countryCode": "CA",
           "network": "SN",
           "sequenceNumber": 107
+        },
+        {
+          "id": 291,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS2",
+          "sequenceNumber": 121
         },
         {
           "id": 307,
@@ -256,18 +256,18 @@
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
-          "id": 281,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "TVAS",
-          "sequenceNumber": 120
-        },
-        {
           "id": 283,
           "market": "N",
           "countryCode": "CA",
           "network": "SN360",
           "sequenceNumber": 114
+        },
+        {
+          "id": 291,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS2",
+          "sequenceNumber": 121
         },
         {
           "id": 403,
