@@ -53,6 +53,25 @@ export function prepareRoundViewModel(teams, round) {
 		return null;
 	}
 
+	// If the round hasn't started yet, censor picks to avoid spoilers UNLESS everyone has submitted
+	if (round.roundStarted === false && round.expectedParticipants) {
+		const submitted = new Set(Object.keys(round.pickResults));
+		const expectedArr = round.expectedParticipants || [];
+		const isEveryoneIn = expectedArr.length > 0 && expectedArr.every(person => submitted.has(person));
+
+		if (!isEveryoneIn) {
+			const allPeople = [...new Set([...expectedArr, ...submitted])].sort();
+			return {
+				roundNumber: round.number,
+				censored: true,
+				participants: allPeople.map(person => ({
+					person,
+					hasSubmitted: submitted.has(person),
+				})),
+			};
+		}
+	}
+
 	return {
 		roundNumber: round.number,
 		series: sortedSeries.map((series) => ({

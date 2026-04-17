@@ -334,3 +334,62 @@ table.table.table-striped td {
         margin-bottom: 12px;
     }
 }
+
+/* Censored picks (pre-round) */
+.censored-round {
+    padding: 10px 0;
+}
+
+.censored-notice {
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 16px;
+}
+
+.censored-lists {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.censored-group {
+    min-width: 180px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 12px 16px;
+    border: 1px solid #dee2e6;
+}
+
+.censored-group h4 {
+    margin: 0 0 8px;
+    font-size: 0.95em;
+    color: #495057;
+}
+
+.censored-group ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.censored-group ul li {
+    padding: 4px 0;
+    font-size: 0.95em;
+}
+
+.censored-group.submitted {
+    border-left: 3px solid #66B666;
+}
+
+.censored-group.missing {
+    border-left: 3px solid #dc3545;
+    background-color: #fff5f5;
+}
+
+.censored-group.missing ul li {
+    color: #dc3545;
+    font-weight: 500;
+}

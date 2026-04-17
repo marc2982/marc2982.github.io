@@ -65,6 +65,33 @@ export function renderRound(teams, round, table) {
 		return;
 	}
 
+	// Censored mode: round hasn't started, just show submission status
+	if (viewModel.censored) {
+		const submitted = viewModel.participants.filter(p => p.hasSubmitted);
+		const missing = viewModel.participants.filter(p => !p.hasSubmitted);
+
+		$(table).html(`
+			<div class="censored-round">
+				<p class="censored-notice">🔒 Picks are hidden until the round begins.</p>
+				<div class="censored-lists">
+					<div class="censored-group submitted">
+						<h4>Submitted (${submitted.length})</h4>
+						<ul>
+							${submitted.map(p => `<li>🤫 ${p.person}</li>`).join('')}
+						</ul>
+					</div>
+					<div class="censored-group missing">
+						<h4>Still Needed (${missing.length})</h4>
+						<ul>
+							${missing.map(p => `<li>❌ ${p.person}</li>`).join('')}
+						</ul>
+					</div>
+				</div>
+			</div>
+		`);
+		return;
+	}
+
 	$(table).html(`
         <thead>
             <tr>

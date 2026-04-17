@@ -17,15 +17,40 @@ async function updateProgressState(year) {
 		}
 
 		// Check if any picks have been submitted
+		let hasPicks = false;
 		try {
 			await fetchText(`./data/archive/${year}/round1.csv`);
-			el.textContent = '🏒 Watching Hockey';
+			hasPicks = true;
 		} catch (e) {
-			if (e.message === 'NOT_FOUND') {
-				el.textContent = '📋 Gathering Picks';
-			} else {
-				throw e;
+			if (e.message !== 'NOT_FOUND') throw e;
+		}
+
+		if (!hasPicks) {
+			el.textContent = '📋 Gathering Picks';
+			return;
+		}
+
+		// Check if the first game has actually started
+		const seriesLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+		let earliestStart = null;
+		for (const letter of seriesLetters) {
+			try {
+				const schedule = await fetchJson(`./data/archive/${year}/schedule_${letter}.json`);
+				if (schedule?.games?.[0]?.startTimeUTC) {
+					const gameStart = new Date(schedule.games[0].startTimeUTC);
+					if (!earliestStart || gameStart < earliestStart) {
+						earliestStart = gameStart;
+					}
+				}
+			} catch (e) {
+				// Schedule not available yet, skip
 			}
+		}
+
+		if (earliestStart && new Date() >= earliestStart) {
+			el.textContent = '🏒 Watching Hockey';
+		} else {
+			el.textContent = '📋 Gathering Picks';
 		}
 	} catch (e) {
 		if (e.message === 'NOT_FOUND') {

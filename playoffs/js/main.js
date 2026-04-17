@@ -1,4 +1,5 @@
 import { renderPage } from './year.js';
+import { fetchText } from './httpUtils.js';
 import { showGlobalError } from './errorOverlay.js';
 import {
 	Round,
@@ -159,6 +160,16 @@ export async function loadAndProcessCsvs(year, dataPath = `./data/archive/${year
 	const api = new NhlApiHandler(year, dataLoader);
 	await api.load();
 
+	// Fetch schedules for all known series so startTimeUTC is available
+	const allLetters = ALL_SERIES.flat();
+	const knownLetters = api.getSeriesList()
+		.filter(s => s.topSeed && s.topSeed !== 'undefined')
+		.map(s => s.letter);
+	const lettersToFetch = allLetters.filter(l => knownLetters.includes(l));
+	if (lettersToFetch.length > 0) {
+		await api.fetchSchedules(lettersToFetch);
+	}
+
 	const seriesRepo = new NhlSeriesRepository(api.getSeriesList());
 	const teamRepo = new NhlTeamRepository(api.getTeams());
 
@@ -166,6 +177,10 @@ export async function loadAndProcessCsvs(year, dataPath = `./data/archive/${year
 	const calculator = new PickResultCalculator();
 	const summarizer = new Summarizer(year, teamRepo);
 	const projector = new ProjectionCalculator(seriesRepo, teamRepo);
+
+	// Get expected participants from last year's round 1
+	const expectedParticipants = await getLastYearParticipants(year, archiveBasePath);
+
 	const rounds = [];
 
 	for (let roundNum = 1; roundNum <= 4; roundNum++) {
@@ -175,6 +190,14 @@ export async function loadAndProcessCsvs(year, dataPath = `./data/archive/${year
 		const picks = await picksImporter.readCsv(dataPath, roundNum);
 		const pickResults = calculator.buildPickResults(scoring, seriesRepo, picks);
 		const summary = summarizer.summarizeRound(pickResults);
+
+		// Determine if this round has started (any game 1 has begun)
+		const earliestStart = serieses
+			.filter(s => s.startTimeUTC)
+			.map(s => new Date(s.startTimeUTC))
+			.sort((a, b) => a - b)[0];
+		const roundStarted = earliestStart ? new Date() >= earliestStart : false;
+
 		rounds.push(
 			Round.create({
 				number: roundNum,
@@ -182,10 +205,33 @@ export async function loadAndProcessCsvs(year, dataPath = `./data/archive/${year
 				pickResults: pickResults,
 				scoring: scoring,
 				summary: summary,
+				roundStarted: roundStarted,
+				expectedParticipants: expectedParticipants,
 			}),
 		);
 	}
 
 	const projections = projector.calculate(rounds);
 	return summarizer.summarizeYear(rounds, projections);
+}
+
+/**
+ * Fetches last year's round 1 CSV and extracts the unique participant names.
+ * Returns null if last year's data isn't available (disabling censoring).
+ */
+async function getLastYearParticipants(currentYear, archiveBasePath) {
+	const lastYear = currentYear - 1;
+	const csvPath = `${archiveBasePath}${lastYear}/round1.csv`;
+	try {
+		const csvText = await fetchText(csvPath);
+		const lines = csvText.trim().split('\n');
+		// Skip header, extract name column (index 1)
+		const names = lines.slice(1)
+			.map(line => line.split(',')[1]?.trim())
+			.filter(Boolean);
+		return [...new Set(names)].sort();
+	} catch {
+		console.log(`No previous year data found at ${csvPath}, censoring disabled`);
+		return null;
+	}
 }
