@@ -378,6 +378,7 @@ async function handleSubmit() {
 		return;
 	}
 
+	let success = false;
 	// Send
 	try {
 		const response = await fetch(GOOGLE_SCRIPT_URL, {
@@ -389,6 +390,7 @@ async function handleSubmit() {
 
 		if (json.result === 'success') {
 			showStatus('Success! Your picks have been submitted.', 'success');
+			success = true;
 		} else {
 			showStatus('Error: ' + json.error, 'error');
 		}
@@ -399,8 +401,13 @@ async function handleSubmit() {
 			'Submitted! (Note: If you are seeing this, check with Admin to confirm it went through. You might have a network issue or CORS issue.)',
 			'success',
 		);
+		success = true;
 	} finally {
-		btn.prop('disabled', false).text('Submit Picks');
+		if (!success) {
+			btn.prop('disabled', false).text('Submit Picks');
+		} else {
+			btn.text('Submitted');
+		}
 	}
 }
 
