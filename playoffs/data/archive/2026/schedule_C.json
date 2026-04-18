@@ -72,7 +72,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
-      "gameState": "FUT",
+      "gameState": "LIVE",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -117,7 +117,8 @@
           "default": "Ottawa",
           "fr": "d'Ottawa"
         },
-        "abbrev": "OTT"
+        "abbrev": "OTT",
+        "score": 0
       },
       "homeTeam": {
         "id": 12,
@@ -132,10 +133,19 @@
           "default": "Carolina",
           "fr": "de la Caroline"
         },
-        "abbrev": "CAR"
+        "abbrev": "CAR",
+        "score": 0
       },
       "gameCenterLink": "/gamecenter/ott-vs-car/2026/04/18/2025030131",
-      "ticketsLink": "https://www.nhl.com/hurricanes/tickets/"
+      "periodDescriptor": {
+        "number": 1,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 0,
+        "bottomSeedWins": 0
+      }
     },
     {
       "id": 2025030132,
