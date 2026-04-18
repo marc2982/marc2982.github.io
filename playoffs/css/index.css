@@ -108,6 +108,19 @@ table.dataTable th {
 	text-align: left !important;
 }
 
+/* Special Row Styles */
+.year-dimmed {
+	opacity: 0.6;
+	background-color: #fafafa !important;
+}
+
+.status-span {
+	text-align: center !important;
+	color: #888;
+	font-style: italic;
+	font-weight: normal;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
 	body {

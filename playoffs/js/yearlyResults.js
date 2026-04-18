@@ -90,21 +90,30 @@ export async function yearlyResults(resultsTable) {
 			const cupWinner = yearData.cupWinner || '';
 
 			const isCurrentProgress = poolWinner === 'In Progress';
+			const isLockout = cupWinner === 'LOCKOUT';
+			const shouldSpan = isCurrentProgress || isLockout;
+
 			const poolWinners = Array.isArray(poolWinner) ? poolWinner : [poolWinner];
 			const poolLosers = Array.isArray(poolLoser) ? poolLoser : [poolLoser];
-			const poolWinnersHtml = isCurrentProgress 
+			const poolWinnersHtml = isCurrentProgress
 				? `<span id="progress-state-${yearData.year}">In Progress</span>`
 				: poolWinners.join(', ');
 
 			var row = tbody.insertRow();
+			if (isLockout) {
+				row.classList.add('year-dimmed');
+			}
+
 			const hasLink = yearData.year >= 1997 && yearData.year !== 2005 && yearData.year !== 2013;
-			var innerHtml = hasLink
+			var yearHtml = hasLink
 				? '<a href="year.html?year=' + yearData.year + '">' + yearData.year + ' </a>'
 				: yearData.year;
-			row.insertCell().outerHTML = '<td>' + innerHtml + '</td>';
-			row.insertCell().outerHTML = '<td>' + poolWinnersHtml + '</td>';
-			row.insertCell().outerHTML = '<td>' + poolLosers.join(', ') + '</td>';
-			row.insertCell().outerHTML = '<td>' + (TEAMS[cupWinner] || cupWinner) + '</td>';
+			
+			row.insertCell().outerHTML = '<td>' + yearHtml + '</td>';
+			const statusHtml = isLockout ? (TEAMS[cupWinner] || cupWinner) : poolWinnersHtml;
+			row.insertCell().outerHTML = '<td class="' + (shouldSpan ? 'status-span' : '') + '">' + statusHtml + '</td>';
+			row.insertCell().outerHTML = '<td>' + (shouldSpan ? '' : poolLosers.join(', ')) + '</td>';
+			row.insertCell().outerHTML = '<td>' + (shouldSpan ? '' : (TEAMS[cupWinner] || cupWinner)) + '</td>';
 
 			if (isCurrentProgress) {
 				updateProgressState(yearData.year);
@@ -113,11 +122,12 @@ export async function yearlyResults(resultsTable) {
 
 		resultsTable.DataTable({
 			info: false,
-			order: [[1, 'desc']],
+			order: [[0, 'desc']],
 			ordering: false,
 			paging: false,
 			searching: false,
 		});
+
 	} catch (e) {
 		console.error("Critical home page rendering error:", e);
 		showGlobalError(e);
