@@ -25,7 +25,7 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "0-0",
+    "record": "0-1",
     "seriesWins": 0,
     "divisionAbbrev": "A",
     "seed": 4,
@@ -50,8 +50,8 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "0-0",
-    "seriesWins": 0,
+    "record": "1-0",
+    "seriesWins": 1,
     "divisionAbbrev": "M",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
@@ -72,7 +72,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
-      "gameState": "CRIT",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -143,8 +143,11 @@
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
-        "topSeedWins": 0,
+        "topSeedWins": 1,
         "bottomSeedWins": 0
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
       }
     },
     {

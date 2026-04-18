@@ -70,7 +70,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-05:00",
       "venueTimezone": "US/Central",
-      "gameState": "PRE",
+      "gameState": "LIVE",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -142,7 +142,8 @@
           "default": "Minnesota",
           "fr": "du Minnesota"
         },
-        "abbrev": "MIN"
+        "abbrev": "MIN",
+        "score": 1
       },
       "homeTeam": {
         "id": 25,
@@ -156,10 +157,19 @@
           "default": "Dallas",
           "fr": "de Dallas"
         },
-        "abbrev": "DAL"
+        "abbrev": "DAL",
+        "score": 0
       },
       "gameCenterLink": "/gamecenter/min-vs-dal/2026/04/18/2025030161",
-      "ticketsLink": "https://www.nhl.com/stars/tickets/"
+      "periodDescriptor": {
+        "number": 1,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 0,
+        "bottomSeedWins": 0
+      }
     },
     {
       "id": 2025030162,
