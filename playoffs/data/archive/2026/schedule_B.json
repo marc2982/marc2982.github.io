@@ -70,7 +70,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
-      "gameState": "PRE",
+      "gameState": "LIVE",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -135,7 +135,8 @@
           "default": "Montréal",
           "fr": "de Montréal"
         },
-        "abbrev": "MTL"
+        "abbrev": "MTL",
+        "score": 1
       },
       "homeTeam": {
         "id": 14,
@@ -149,10 +150,19 @@
           "default": "Tampa Bay",
           "fr": "de Tampa Bay"
         },
-        "abbrev": "TBL"
+        "abbrev": "TBL",
+        "score": 0
       },
       "gameCenterLink": "/gamecenter/mtl-vs-tbl/2026/04/19/2025030121",
-      "ticketsLink": "https://www.nhl.com/lightning/tickets/"
+      "periodDescriptor": {
+        "number": 1,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 0,
+        "bottomSeedWins": 0
+      }
     },
     {
       "id": 2025030122,

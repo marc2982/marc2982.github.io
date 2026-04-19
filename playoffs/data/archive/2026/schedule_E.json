@@ -49,7 +49,7 @@
       "abbrev": "W"
     },
     "record": "0-0",
-    "seriesWins": 0,
+    "seriesWins": 1,
     "divisionAbbrev": "C",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg",
@@ -70,7 +70,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-06:00",
       "venueTimezone": "America/Denver",
-      "gameState": "CRIT",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -150,7 +150,7 @@
           "fr": "de Los Angeles"
         },
         "abbrev": "LAK",
-        "score": 0
+        "score": 1
       },
       "homeTeam": {
         "id": 21,
@@ -174,8 +174,11 @@
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
-        "topSeedWins": 0,
+        "topSeedWins": 1,
         "bottomSeedWins": 0
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
       }
     },
     {
