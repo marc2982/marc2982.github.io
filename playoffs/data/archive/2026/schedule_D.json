@@ -25,8 +25,8 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "0-0",
-    "seriesWins": 0,
+    "record": "1-0",
+    "seriesWins": 1,
     "divisionAbbrev": "M",
     "seed": 3,
     "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_light.svg",
@@ -49,7 +49,7 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "0-0",
+    "record": "0-1",
     "seriesWins": 0,
     "divisionAbbrev": "M",
     "seed": 2,
@@ -71,7 +71,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
-      "gameState": "PRE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -123,7 +123,8 @@
           "default": "Philadelphia",
           "fr": "de Philadelphie"
         },
-        "abbrev": "PHI"
+        "abbrev": "PHI",
+        "score": 3
       },
       "homeTeam": {
         "id": 5,
@@ -137,10 +138,22 @@
           "default": "Pittsburgh",
           "fr": "de Pittsburgh"
         },
-        "abbrev": "PIT"
+        "abbrev": "PIT",
+        "score": 2
       },
       "gameCenterLink": "/gamecenter/phi-vs-pit/2026/04/18/2025030141",
-      "ticketsLink": "https://www.ticketmaster.com/event/1600646DD3E4C63A?brand=nhl&wt.mc_id=NHL_LEAGUE_PIT_GAMECENTER_PREVIEW_PLAYOFFS_RD1_GM1&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_LEAGUE_PIT&utm_content=GAMECENTER_PREVIEW_PLAYOFFS_RD1_GM1&camefrom=NHLPENGUINS_WEB_NHL_GAMECENTER_PLAYOFFS"
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 0,
+        "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
     },
     {
       "id": 2025030142,
