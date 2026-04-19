@@ -70,7 +70,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-06:00",
       "venueTimezone": "America/Denver",
-      "gameState": "FUT",
+      "gameState": "LIVE",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -149,7 +149,8 @@
           "default": "Los Angeles",
           "fr": "de Los Angeles"
         },
-        "abbrev": "LAK"
+        "abbrev": "LAK",
+        "score": 0
       },
       "homeTeam": {
         "id": 21,
@@ -163,10 +164,19 @@
           "default": "Colorado",
           "fr": "du Colorado"
         },
-        "abbrev": "COL"
+        "abbrev": "COL",
+        "score": 0
       },
       "gameCenterLink": "/gamecenter/lak-vs-col/2026/04/19/2025030151",
-      "ticketsLink": "https://www.nhl.com/avalanche/tickets/"
+      "periodDescriptor": {
+        "number": 1,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 0,
+        "bottomSeedWins": 0
+      }
     },
     {
       "id": 2025030152,
