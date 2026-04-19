@@ -77,7 +77,15 @@ export class NhlApiHandler {
 				const schedule = await this.dataLoader.fetchSeriesSchedule(this.year, letter);
 				if (schedule && schedule.games && schedule.games.length > 0) {
 					// Series objects are immutable (dataclass), so we must create a copy
-					this.series[index] = series.copy({ startTimeUTC: schedule.games[0].startTimeUTC });
+					// Find the first game that hasn't finished yet
+					const nextGame = schedule.games.find(
+						(g) => g.gameState === 'FUT' || g.gameState === 'LIVE' || g.gameState === 'PRE'
+					);
+					this.series[index] = series.copy({
+						startTimeUTC: schedule.games[0].startTimeUTC, // Still lock based on Game 1
+						nextGameStartTimeUTC: nextGame ? nextGame.startTimeUTC : null,
+						nextGameNumber: nextGame ? nextGame.gameNumber : null,
+					});
 				}
 			}
 		});

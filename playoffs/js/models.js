@@ -87,6 +87,13 @@ export class Series extends BaseModel {
 		if (!this.startTimeUTC) return false;
 		return now >= new Date(this.startTimeUTC);
 	}
+	getNextGameDesc() {
+		if (!this.nextGameStartTimeUTC) return null;
+		const date = new Date(this.nextGameStartTimeUTC);
+		const options = { weekday: 'short', hour: 'numeric', minute: '2-digit' };
+		const dateStr = date.toLocaleString('en-US', options);
+		return `G${this.nextGameNumber}: ${dateStr}`;
+	}
 	static isRoundOpen(leadStartTimeUTC, now = new Date()) {
 		if (!leadStartTimeUTC) return false;
 		const leadTime = new Date(leadStartTimeUTC);

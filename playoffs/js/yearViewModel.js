@@ -82,6 +82,7 @@ export function prepareRoundViewModel(teams, round) {
 			bottomSeedWins: series.bottomSeedWins,
 			topSeedIsWinner: series.topSeedWins === 4,
 			bottomSeedIsWinner: series.bottomSeedWins === 4,
+			nextGameDesc: series.getNextGameDesc(),
 		})),
 		picks: Object.entries(round.pickResults).map(([person, results]) => {
 			const summary = round.summary.summaries[person];

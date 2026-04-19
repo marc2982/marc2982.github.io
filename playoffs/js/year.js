@@ -107,6 +107,7 @@ export function renderRound(teams, round, table) {
                             <div class="team-bottom ${s.bottomSeedIsWinner ? 'winner' : ''}">${s.bottomSeed} (${
 							s.bottomSeedWins
 						})</div>
+                            ${s.nextGameDesc ? `<div class="next-game">${s.nextGameDesc}</div>` : ''}
                         </div>
                     </th>
                 `,
