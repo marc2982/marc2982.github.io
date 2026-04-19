@@ -48,7 +48,8 @@ export class PickResultCalculator {
 			if (gamesPlayed >= pick.games) {
 				return PickStatus.INCORRECT;
 			}
-			const minGamesForWinner = Math.min(series.topSeedWins, series.bottomSeedWins) + 4;
+			const opponentWins = (pick.team === series.topSeed) ? (series.bottomSeedWins || 0) : (series.topSeedWins || 0);
+			const minGamesForWinner = opponentWins + 4;
 			if (pick.games < minGamesForWinner) {
 				return PickStatus.INCORRECT;
 			}

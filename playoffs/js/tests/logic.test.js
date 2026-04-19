@@ -208,6 +208,21 @@ export async function runTests() {
 		assert(status === PickStatus.INCORRECT, 'Should be eliminated since we reached game 6');
 	});
 
+	test('Scoring', 'Games status validation (impossible via team specificity)', () => {
+		const calc = new PickResultCalculator();
+		// Series: CAR (top) vs OTT (bottom). CAR leads 1-0.
+		const series = Series.create({ topSeed: 'CAR', bottomSeed: 'OTT', topSeedWins: 1, bottomSeedWins: 0 });
+		
+		// Theodore picks OTT in 4. Impossible because CAR already has 1 win.
+		// Min games for OTT to win is now 5.
+		const pickImpossible = Pick.create({ team: 'OTT', games: 4 });
+		assert(calc.getGamesStatus(pickImpossible, null, series) === PickStatus.INCORRECT, 'OTT in 4 should be impossible if CAR has 1 win');
+
+		// Same scenario, but pick is CAR in 4. Still possible.
+		const pickPossible = Pick.create({ team: 'CAR', games: 4 });
+		assert(calc.getGamesStatus(pickPossible, null, series) === PickStatus.UNKNOWN, 'CAR in 4 should still be possible if CAR has 1 win');
+	});
+
 	// 5. Summarizer & Tiebreaker Tests
 	test('Summarizer', 'Tiebreaker resolution (Points & Rank)', () => {
 		// Mock pick results for a single round to test aggregation and ranking
