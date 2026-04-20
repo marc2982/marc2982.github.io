@@ -16,7 +16,7 @@
       "playoffRound": 1,
       "topSeedRank": 1,
       "topSeedRankAbbrev": "D1",
-      "topSeedWins": 0,
+      "topSeedWins": 1,
       "bottomSeedRank": 4,
       "bottomSeedRankAbbrev": "WC1",
       "bottomSeedWins": 0,
@@ -66,7 +66,7 @@
       "topSeedWins": 0,
       "bottomSeedRank": 3,
       "bottomSeedRankAbbrev": "D3",
-      "bottomSeedWins": 0,
+      "bottomSeedWins": 1,
       "topSeedTeam": {
         "id": 14,
         "abbrev": "TBL",
