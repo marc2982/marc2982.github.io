@@ -24,7 +24,7 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "0-0",
+    "record": "0-1",
     "seriesWins": 0,
     "divisionAbbrev": "C",
     "seed": 4,
@@ -48,8 +48,8 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "0-0",
-    "seriesWins": 0,
+    "record": "1-0",
+    "seriesWins": 1,
     "divisionAbbrev": "P",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
@@ -70,7 +70,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-07:00",
       "venueTimezone": "US/Pacific",
-      "gameState": "LIVE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -129,7 +129,7 @@
           "fr": "de l'Utah"
         },
         "abbrev": "UTA",
-        "score": 1
+        "score": 2
       },
       "homeTeam": {
         "id": 54,
@@ -144,17 +144,20 @@
           "fr": "de Vegas"
         },
         "abbrev": "VGK",
-        "score": 1
+        "score": 4
       },
       "gameCenterLink": "/gamecenter/uta-vs-vgk/2026/04/19/2025030171",
       "periodDescriptor": {
-        "number": 2,
+        "number": 3,
         "periodType": "REG",
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
-        "topSeedWins": 0,
+        "topSeedWins": 1,
         "bottomSeedWins": 0
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
       }
     },
     {
