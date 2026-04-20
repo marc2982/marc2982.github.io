@@ -169,7 +169,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
-      "gameState": "PRE",
+      "gameState": "LIVE",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -221,7 +221,8 @@
           "default": "Philadelphia",
           "fr": "de Philadelphie"
         },
-        "abbrev": "PHI"
+        "abbrev": "PHI",
+        "score": 0
       },
       "homeTeam": {
         "id": 5,
@@ -235,10 +236,19 @@
           "default": "Pittsburgh",
           "fr": "de Pittsburgh"
         },
-        "abbrev": "PIT"
+        "abbrev": "PIT",
+        "score": 0
       },
       "gameCenterLink": "/gamecenter/phi-vs-pit/2026/04/20/2025030142",
-      "ticketsLink": "https://www.ticketmaster.com/event/1600646DD3EAC640?brand=nhl&wt.mc_id=NHL_LEAGUE_PIT_GAMECENTER_PREVIEW_PLAYOFFS_RD1_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_LEAGUE_PIT&utm_content=GAMECENTER_PREVIEW_PLAYOFFS_RD1_GM2&camefrom=NHLPENGUINS_WEB_NHL_GAMECENTER_PLAYOFFS"
+      "periodDescriptor": {
+        "number": 1,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 0,
+        "bottomSeedWins": 1
+      }
     },
     {
       "id": 2025030143,
