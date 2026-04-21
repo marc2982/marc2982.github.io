@@ -174,7 +174,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "America/New_York",
-      "gameState": "PRE",
+      "gameState": "LIVE",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -225,7 +225,8 @@
           "default": "Boston",
           "fr": "de Boston"
         },
-        "abbrev": "BOS"
+        "abbrev": "BOS",
+        "score": 0
       },
       "homeTeam": {
         "id": 7,
@@ -239,10 +240,19 @@
           "default": "Buffalo",
           "fr": "de Buffalo"
         },
-        "abbrev": "BUF"
+        "abbrev": "BUF",
+        "score": 0
       },
       "gameCenterLink": "/gamecenter/bos-vs-buf/2026/04/21/2025030112",
-      "ticketsLink": "https://www.nhl.com/sabres/tickets/"
+      "periodDescriptor": {
+        "number": 1,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 1,
+        "bottomSeedWins": 0
+      }
     },
     {
       "id": 2025030113,

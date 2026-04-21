@@ -182,7 +182,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
-      "gameState": "PRE",
+      "gameState": "LIVE",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -233,7 +233,8 @@
           "default": "Montréal",
           "fr": "de Montréal"
         },
-        "abbrev": "MTL"
+        "abbrev": "MTL",
+        "score": 1
       },
       "homeTeam": {
         "id": 14,
@@ -247,10 +248,19 @@
           "default": "Tampa Bay",
           "fr": "de Tampa Bay"
         },
-        "abbrev": "TBL"
+        "abbrev": "TBL",
+        "score": 1
       },
       "gameCenterLink": "/gamecenter/mtl-vs-tbl/2026/04/21/2025030122",
-      "ticketsLink": "https://www.ticketmaster.com/event/0D00647EABCD6C81?brand=nhl&wt.mc_id=NHL_LEAGUE_TBL_GAMECENTER_PREVIEW_PLAYOFFS_RD1_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_LEAGUE_TBL&utm_content=GAMECENTER_PREVIEW_PLAYOFFS_RD1_GM2"
+      "periodDescriptor": {
+        "number": 1,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 0,
+        "bottomSeedWins": 1
+      }
     },
     {
       "id": 2025030123,
