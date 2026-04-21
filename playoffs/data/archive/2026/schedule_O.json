@@ -3,6 +3,8 @@
   "roundAbbrev": "SCF",
   "roundLabel": "stanley-cup-final",
   "seriesLetter": "O",
+  "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/2026-scf-generic-1753x266-en.png",
+  "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/2026-scf-generic-2395x266-fr.png",
   "neededToWin": 4,
   "length": 0,
   "bottomSeedTeam": {

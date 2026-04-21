@@ -3,6 +3,8 @@
   "roundAbbrev": "CF",
   "roundLabel": "conference-finals",
   "seriesLetter": "N",
+  "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/2026-wcf-2494x266-en.png",
+  "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/2026-wcf-2868x266-fr.png",
   "neededToWin": 4,
   "length": 0,
   "bottomSeedTeam": {
