@@ -25,7 +25,7 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "0-1",
+    "record": "0-2",
     "seriesWins": 0,
     "divisionAbbrev": "A",
     "seed": 4,
@@ -50,8 +50,8 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "1-0",
-    "seriesWins": 1,
+    "record": "2-0",
+    "seriesWins": 2,
     "divisionAbbrev": "M",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
@@ -164,7 +164,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
-      "gameState": "CRIT",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -247,7 +247,7 @@
           "fr": "de la Caroline"
         },
         "abbrev": "CAR",
-        "score": 2
+        "score": 3
       },
       "gameCenterLink": "/gamecenter/ott-vs-car/2026/04/20/2025030132",
       "periodDescriptor": {
@@ -257,8 +257,12 @@
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
-        "topSeedWins": 1,
+        "topSeedWins": 2,
         "bottomSeedWins": 0
+      },
+      "gameOutcome": {
+        "lastPeriodType": "OT",
+        "otPeriods": 2
       }
     },
     {
