@@ -164,7 +164,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
-      "gameState": "LIVE",
+      "gameState": "CRIT",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -231,7 +231,7 @@
           "fr": "d'Ottawa"
         },
         "abbrev": "OTT",
-        "score": 0
+        "score": 2
       },
       "homeTeam": {
         "id": 12,
@@ -247,12 +247,13 @@
           "fr": "de la Caroline"
         },
         "abbrev": "CAR",
-        "score": 1
+        "score": 2
       },
       "gameCenterLink": "/gamecenter/ott-vs-car/2026/04/20/2025030132",
       "periodDescriptor": {
-        "number": 1,
-        "periodType": "REG",
+        "number": 5,
+        "periodType": "OT",
+        "otPeriods": 2,
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {

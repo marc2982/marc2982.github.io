@@ -25,8 +25,8 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "1-0",
-    "seriesWins": 1,
+    "record": "2-0",
+    "seriesWins": 2,
     "divisionAbbrev": "M",
     "seed": 3,
     "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_light.svg",
@@ -49,7 +49,7 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "0-1",
+    "record": "0-2",
     "seriesWins": 0,
     "divisionAbbrev": "M",
     "seed": 2,
@@ -169,7 +169,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
-      "gameState": "LIVE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -222,7 +222,7 @@
           "fr": "de Philadelphie"
         },
         "abbrev": "PHI",
-        "score": 0
+        "score": 3
       },
       "homeTeam": {
         "id": 5,
@@ -241,13 +241,16 @@
       },
       "gameCenterLink": "/gamecenter/phi-vs-pit/2026/04/20/2025030142",
       "periodDescriptor": {
-        "number": 1,
+        "number": 3,
         "periodType": "REG",
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
         "topSeedWins": 0,
-        "bottomSeedWins": 1
+        "bottomSeedWins": 2
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
       }
     },
     {
