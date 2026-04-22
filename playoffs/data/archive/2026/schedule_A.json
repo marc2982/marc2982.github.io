@@ -25,7 +25,7 @@
       "abbrev": "E"
     },
     "record": "0-1",
-    "seriesWins": 0,
+    "seriesWins": 1,
     "divisionAbbrev": "A",
     "seed": 4,
     "logo": "https://assets.nhle.com/logos/nhl/svg/BOS_light.svg?season=20252026",
@@ -174,7 +174,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "America/New_York",
-      "gameState": "LIVE",
+      "gameState": "FINAL",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -226,7 +226,7 @@
           "fr": "de Boston"
         },
         "abbrev": "BOS",
-        "score": 0
+        "score": 4
       },
       "homeTeam": {
         "id": 7,
@@ -241,17 +241,20 @@
           "fr": "de Buffalo"
         },
         "abbrev": "BUF",
-        "score": 0
+        "score": 2
       },
       "gameCenterLink": "/gamecenter/bos-vs-buf/2026/04/21/2025030112",
       "periodDescriptor": {
-        "number": 1,
+        "number": 3,
         "periodType": "REG",
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
         "topSeedWins": 1,
-        "bottomSeedWins": 0
+        "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
       }
     },
     {
@@ -455,7 +458,7 @@
       "season": 20252026,
       "gameType": 3,
       "gameNumber": 5,
-      "ifNecessary": true,
+      "ifNecessary": false,
       "venue": {
         "default": "KeyBank Center"
       },
