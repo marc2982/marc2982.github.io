@@ -195,7 +195,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-06:00",
       "venueTimezone": "America/Denver",
-      "gameState": "LIVE",
+      "gameState": "CRIT",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -247,7 +247,7 @@
           "fr": "de Los Angeles"
         },
         "abbrev": "LAK",
-        "score": 0
+        "score": 1
       },
       "homeTeam": {
         "id": 21,
@@ -262,11 +262,11 @@
           "fr": "du Colorado"
         },
         "abbrev": "COL",
-        "score": 0
+        "score": 1
       },
       "gameCenterLink": "/gamecenter/lak-vs-col/2026/04/21/2025030152",
       "periodDescriptor": {
-        "number": 2,
+        "number": 3,
         "periodType": "REG",
         "maxRegulationPeriods": 3
       },

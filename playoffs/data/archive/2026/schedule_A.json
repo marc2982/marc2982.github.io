@@ -24,7 +24,7 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "0-1",
+    "record": "1-1",
     "seriesWins": 1,
     "divisionAbbrev": "A",
     "seed": 4,
@@ -48,7 +48,7 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "1-0",
+    "record": "1-1",
     "seriesWins": 1,
     "divisionAbbrev": "A",
     "seed": 1,
@@ -174,7 +174,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "America/New_York",
-      "gameState": "FINAL",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {

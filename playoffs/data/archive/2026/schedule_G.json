@@ -24,8 +24,8 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "0-1",
-    "seriesWins": 0,
+    "record": "1-1",
+    "seriesWins": 1,
     "divisionAbbrev": "C",
     "seed": 4,
     "logo": "https://assets.nhle.com/logos/nhl/svg/UTA_light.svg?season=20252026",
@@ -48,7 +48,7 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "1-0",
+    "record": "1-1",
     "seriesWins": 1,
     "divisionAbbrev": "P",
     "seed": 1,
@@ -174,7 +174,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-07:00",
       "venueTimezone": "US/Pacific",
-      "gameState": "LIVE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -233,7 +233,7 @@
           "fr": "de l'Utah"
         },
         "abbrev": "UTA",
-        "score": 1
+        "score": 3
       },
       "homeTeam": {
         "id": 54,
@@ -248,17 +248,20 @@
           "fr": "de Vegas"
         },
         "abbrev": "VGK",
-        "score": 1
+        "score": 2
       },
       "gameCenterLink": "/gamecenter/uta-vs-vgk/2026/04/21/2025030172",
       "periodDescriptor": {
-        "number": 2,
+        "number": 3,
         "periodType": "REG",
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
         "topSeedWins": 1,
-        "bottomSeedWins": 0
+        "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
       }
     },
     {
@@ -427,7 +430,7 @@
       "season": 20252026,
       "gameType": 3,
       "gameNumber": 5,
-      "ifNecessary": true,
+      "ifNecessary": false,
       "venue": {
         "default": "T-Mobile Arena"
       },
