@@ -271,7 +271,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
-      "gameState": "FUT",
+      "gameState": "LIVE",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -336,7 +336,8 @@
           "default": "Buffalo",
           "fr": "de Buffalo"
         },
-        "abbrev": "BUF"
+        "abbrev": "BUF",
+        "score": 0
       },
       "homeTeam": {
         "id": 6,
@@ -350,10 +351,19 @@
           "default": "Boston",
           "fr": "de Boston"
         },
-        "abbrev": "BOS"
+        "abbrev": "BOS",
+        "score": 0
       },
       "gameCenterLink": "/gamecenter/buf-vs-bos/2026/04/23/2025030113",
-      "ticketsLink": "https://www.ticketmaster.com/event/0100646BBA1A32ED?brand=nhl&wt.mc_id=NHL_LEAGUE_BOS_GAMECENTER_PREVIEW_PLAYOFFS_RD1_GM1&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_LEAGUE_BOS&utm_content=GAMECENTER_PREVIEW_PLAYOFFS_RD1_GM1"
+      "periodDescriptor": {
+        "number": 1,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 1,
+        "bottomSeedWins": 1
+      }
     },
     {
       "id": 2025030114,
