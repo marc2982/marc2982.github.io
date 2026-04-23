@@ -49,7 +49,7 @@
       "abbrev": "W"
     },
     "record": "1-1",
-    "seriesWins": 1,
+    "seriesWins": 2,
     "divisionAbbrev": "C",
     "seed": 2,
     "logo": "https://assets.nhle.com/logos/nhl/svg/DAL_light.svg",
@@ -292,7 +292,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-05:00",
       "venueTimezone": "US/Central",
-      "gameState": "CRIT",
+      "gameState": "FINAL",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -365,7 +365,7 @@
           "fr": "de Dallas"
         },
         "abbrev": "DAL",
-        "score": 3
+        "score": 4
       },
       "homeTeam": {
         "id": 30,
@@ -390,8 +390,12 @@
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
-        "topSeedWins": 1,
+        "topSeedWins": 2,
         "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "OT",
+        "otPeriods": 2
       }
     },
     {
