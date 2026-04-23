@@ -7,9 +7,17 @@
     <link href="css/index.css" rel="stylesheet" />
     <link href="css/teams.css" rel="stylesheet" />
     <link href="css/tables.css" rel="stylesheet" />
+    <link href="css/dark-mode.css" rel="stylesheet" />
+    <script>
+        if (document.cookie.split('; ').find(row => row.startsWith('darkMode='))?.split('=')[1] !== 'false') {
+            document.documentElement.classList.add('dark-mode');
+            document.documentElement.setAttribute('data-bs-theme', 'dark');
+        }
+    </script>
 
     <script src="js/yearlyResults.js" type="module"></script>
     <script src="js/winsLosses.js" type="module"></script>
+    <script src="js/darkMode.js" type="module"></script>
 
     <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>

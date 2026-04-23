@@ -10,6 +10,14 @@
   <meta property="og:type" content="website">
   <link href="./css/year.css" rel="stylesheet" />
   <link href="./css/teams.css" rel="stylesheet" />
+  <link href="./css/dark-mode.css" rel="stylesheet" />
+  <script>
+    if (document.cookie.split('; ').find(row => row.startsWith('darkMode='))?.split('=')[1] !== 'false') {
+        document.documentElement.classList.add('dark-mode');
+        document.documentElement.setAttribute('data-bs-theme', 'dark');
+    }
+  </script>
+  <script src="./js/darkMode.js" type="module"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" />

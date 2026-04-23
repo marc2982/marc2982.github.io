@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Make Picks | NHL Playoffs Pool</title>
     <link href="css/picks.css" rel="stylesheet" />
+    <link href="css/dark-mode.css" rel="stylesheet" />
+    <script>
+        if (document.cookie.split('; ').find(row => row.startsWith('darkMode='))?.split('=')[1] !== 'false') {
+            document.documentElement.classList.add('dark-mode');
+            document.documentElement.setAttribute('data-bs-theme', 'dark');
+        }
+    </script>
+    <script src="js/darkMode.js" type="module"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
