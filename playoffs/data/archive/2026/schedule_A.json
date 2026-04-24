@@ -24,7 +24,7 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "1-1",
+    "record": "1-2",
     "seriesWins": 1,
     "divisionAbbrev": "A",
     "seed": 4,
@@ -48,8 +48,8 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "1-1",
-    "seriesWins": 1,
+    "record": "2-1",
+    "seriesWins": 2,
     "divisionAbbrev": "A",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/BUF_light.svg",
@@ -271,7 +271,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
-      "gameState": "LIVE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -337,7 +337,7 @@
           "fr": "de Buffalo"
         },
         "abbrev": "BUF",
-        "score": 0
+        "score": 3
       },
       "homeTeam": {
         "id": 6,
@@ -352,17 +352,20 @@
           "fr": "de Boston"
         },
         "abbrev": "BOS",
-        "score": 0
+        "score": 1
       },
       "gameCenterLink": "/gamecenter/buf-vs-bos/2026/04/23/2025030113",
       "periodDescriptor": {
-        "number": 2,
+        "number": 3,
         "periodType": "REG",
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
-        "topSeedWins": 1,
+        "topSeedWins": 2,
         "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
       }
     },
     {
