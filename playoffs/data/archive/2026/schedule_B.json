@@ -280,7 +280,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "America/Montreal",
-      "gameState": "FUT",
+      "gameState": "PRE",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
