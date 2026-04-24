@@ -279,7 +279,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
-      "gameState": "PRE",
+      "gameState": "LIVE",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -338,7 +338,8 @@
           "default": "Carolina",
           "fr": "de la Caroline"
         },
-        "abbrev": "CAR"
+        "abbrev": "CAR",
+        "score": 1
       },
       "homeTeam": {
         "id": 9,
@@ -353,10 +354,19 @@
           "default": "Ottawa",
           "fr": "d'Ottawa"
         },
-        "abbrev": "OTT"
+        "abbrev": "OTT",
+        "score": 0
       },
       "gameCenterLink": "/gamecenter/car-vs-ott/2026/04/23/2025030133",
-      "ticketsLink": "https://www.nhl.com/senators/tickets/"
+      "periodDescriptor": {
+        "number": 1,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 2,
+        "bottomSeedWins": 0
+      }
     },
     {
       "id": 2025030134,
