@@ -24,7 +24,7 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "0-2",
+    "record": "0-3",
     "seriesWins": 0,
     "divisionAbbrev": "P",
     "seed": 4,
@@ -48,8 +48,8 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "2-0",
-    "seriesWins": 2,
+    "record": "3-0",
+    "seriesWins": 3,
     "divisionAbbrev": "C",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg",
@@ -293,7 +293,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-07:00",
       "venueTimezone": "America/Los_Angeles",
-      "gameState": "LIVE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -366,7 +366,7 @@
           "fr": "du Colorado"
         },
         "abbrev": "COL",
-        "score": 2
+        "score": 4
       },
       "homeTeam": {
         "id": 26,
@@ -381,17 +381,20 @@
           "fr": "de Los Angeles"
         },
         "abbrev": "LAK",
-        "score": 1
+        "score": 2
       },
       "gameCenterLink": "/gamecenter/col-vs-lak/2026/04/23/2025030153",
       "periodDescriptor": {
-        "number": 2,
+        "number": 3,
         "periodType": "REG",
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
-        "topSeedWins": 2,
+        "topSeedWins": 3,
         "bottomSeedWins": 0
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
       }
     },
     {
