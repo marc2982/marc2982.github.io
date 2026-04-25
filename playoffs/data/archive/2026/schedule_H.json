@@ -24,8 +24,8 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "1-1",
-    "seriesWins": 1,
+    "record": "2-1",
+    "seriesWins": 2,
     "divisionAbbrev": "P",
     "seed": 3,
     "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg",
@@ -48,7 +48,7 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "1-1",
+    "record": "1-2",
     "seriesWins": 1,
     "divisionAbbrev": "P",
     "seed": 2,
@@ -285,7 +285,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-07:00",
       "venueTimezone": "America/Los_Angeles",
-      "gameState": "LIVE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -358,7 +358,7 @@
           "fr": "d'Edmonton"
         },
         "abbrev": "EDM",
-        "score": 3
+        "score": 4
       },
       "homeTeam": {
         "id": 24,
@@ -373,17 +373,20 @@
           "fr": "d'Anaheim"
         },
         "abbrev": "ANA",
-        "score": 2
+        "score": 7
       },
       "gameCenterLink": "/gamecenter/edm-vs-ana/2026/04/24/2025030183",
       "periodDescriptor": {
-        "number": 2,
+        "number": 3,
         "periodType": "REG",
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
         "topSeedWins": 1,
-        "bottomSeedWins": 1
+        "bottomSeedWins": 2
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
       }
     },
     {
