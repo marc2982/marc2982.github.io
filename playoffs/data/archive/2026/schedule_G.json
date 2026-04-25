@@ -278,7 +278,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-06:00",
       "venueTimezone": "America/Denver",
-      "gameState": "FUT",
+      "gameState": "LIVE",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -336,7 +336,8 @@
           "default": "Vegas",
           "fr": "de Vegas"
         },
-        "abbrev": "VGK"
+        "abbrev": "VGK",
+        "score": 1
       },
       "homeTeam": {
         "id": 68,
@@ -350,10 +351,19 @@
           "default": "Utah",
           "fr": "de l'Utah"
         },
-        "abbrev": "UTA"
+        "abbrev": "UTA",
+        "score": 4
       },
       "gameCenterLink": "/gamecenter/vgk-vs-uta/2026/04/24/2025030173",
-      "ticketsLink": "https://www.nhl.com/utah/tickets/"
+      "periodDescriptor": {
+        "number": 2,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 1,
+        "bottomSeedWins": 1
+      }
     },
     {
       "id": 2025030174,
