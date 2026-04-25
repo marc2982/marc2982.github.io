@@ -499,7 +499,7 @@
           "fr": "de Dallas"
         },
         "abbrev": "DAL",
-        "score": 1
+        "score": 2
       },
       "homeTeam": {
         "id": 30,
@@ -518,7 +518,7 @@
       },
       "gameCenterLink": "/gamecenter/dal-vs-min/2026/04/25/2025030164",
       "periodDescriptor": {
-        "number": 2,
+        "number": 3,
         "periodType": "REG",
         "maxRegulationPeriods": 3
       },

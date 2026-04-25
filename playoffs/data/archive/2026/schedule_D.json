@@ -400,7 +400,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
-      "gameState": "FUT",
+      "gameState": "PRE",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
