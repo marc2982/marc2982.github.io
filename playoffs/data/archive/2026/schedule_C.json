@@ -51,7 +51,7 @@
       "abbrev": "E"
     },
     "record": "3-0",
-    "seriesWins": 3,
+    "seriesWins": 4,
     "divisionAbbrev": "M",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
@@ -385,7 +385,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
-      "gameState": "LIVE",
+      "gameState": "FINAL",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -445,7 +445,7 @@
           "fr": "de la Caroline"
         },
         "abbrev": "CAR",
-        "score": 2
+        "score": 4
       },
       "homeTeam": {
         "id": 9,
@@ -461,7 +461,7 @@
           "fr": "d'Ottawa"
         },
         "abbrev": "OTT",
-        "score": 1
+        "score": 2
       },
       "gameCenterLink": "/gamecenter/car-vs-ott/2026/04/25/2025030134",
       "periodDescriptor": {
@@ -470,159 +470,12 @@
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
-        "topSeedWins": 3,
+        "topSeedWins": 4,
         "bottomSeedWins": 0
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
       }
-    },
-    {
-      "id": 2025030135,
-      "season": 20252026,
-      "gameType": 3,
-      "gameNumber": 5,
-      "ifNecessary": true,
-      "venue": {
-        "default": "Lenovo Center"
-      },
-      "neutralSite": false,
-      "startTimeUTC": "2026-04-27T16:00:00Z",
-      "easternUTCOffset": "-04:00",
-      "venueUTCOffset": "-04:00",
-      "venueTimezone": "US/Eastern",
-      "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
-      "awayTeam": {
-        "id": 9,
-        "commonName": {
-          "default": "Senators",
-          "fr": "Sénateurs"
-        },
-        "placeName": {
-          "default": "Ottawa"
-        },
-        "placeNameWithPreposition": {
-          "default": "Ottawa",
-          "fr": "d'Ottawa"
-        },
-        "abbrev": "OTT"
-      },
-      "homeTeam": {
-        "id": 12,
-        "commonName": {
-          "default": "Hurricanes"
-        },
-        "placeName": {
-          "default": "Carolina",
-          "fr": "Caroline"
-        },
-        "placeNameWithPreposition": {
-          "default": "Carolina",
-          "fr": "de la Caroline"
-        },
-        "abbrev": "CAR"
-      },
-      "gameCenterLink": "/gamecenter/ott-vs-car/2026/04/27/2025030135",
-      "ticketsLink": "https://www.ticketmaster.com/event/2D00646AAE85EFC5?brand=nhl&wt.mc_id=NHL_LEAGUE_CAR_GAMECENTER_PREVIEW_PLAYOFFS_RD1_GM3&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_LEAGUE_CAR&utm_content=GAMECENTER_PREVIEW_PLAYOFFS_RD1_GM3"
-    },
-    {
-      "id": 2025030136,
-      "season": 20252026,
-      "gameType": 3,
-      "gameNumber": 6,
-      "ifNecessary": true,
-      "venue": {
-        "default": "Canadian Tire Centre"
-      },
-      "neutralSite": false,
-      "startTimeUTC": "2026-04-30T16:00:00Z",
-      "easternUTCOffset": "-04:00",
-      "venueUTCOffset": "-04:00",
-      "venueTimezone": "US/Eastern",
-      "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
-      "awayTeam": {
-        "id": 12,
-        "commonName": {
-          "default": "Hurricanes"
-        },
-        "placeName": {
-          "default": "Carolina",
-          "fr": "Caroline"
-        },
-        "placeNameWithPreposition": {
-          "default": "Carolina",
-          "fr": "de la Caroline"
-        },
-        "abbrev": "CAR"
-      },
-      "homeTeam": {
-        "id": 9,
-        "commonName": {
-          "default": "Senators",
-          "fr": "Sénateurs"
-        },
-        "placeName": {
-          "default": "Ottawa"
-        },
-        "placeNameWithPreposition": {
-          "default": "Ottawa",
-          "fr": "d'Ottawa"
-        },
-        "abbrev": "OTT"
-      },
-      "gameCenterLink": "/gamecenter/car-vs-ott/2026/04/30/2025030136",
-      "ticketsLink": "https://www.nhl.com/senators/tickets/"
-    },
-    {
-      "id": 2025030137,
-      "season": 20252026,
-      "gameType": 3,
-      "gameNumber": 7,
-      "ifNecessary": true,
-      "venue": {
-        "default": "Lenovo Center"
-      },
-      "neutralSite": false,
-      "startTimeUTC": "2026-05-02T16:00:00Z",
-      "easternUTCOffset": "-04:00",
-      "venueUTCOffset": "-04:00",
-      "venueTimezone": "US/Eastern",
-      "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
-      "awayTeam": {
-        "id": 9,
-        "commonName": {
-          "default": "Senators",
-          "fr": "Sénateurs"
-        },
-        "placeName": {
-          "default": "Ottawa"
-        },
-        "placeNameWithPreposition": {
-          "default": "Ottawa",
-          "fr": "d'Ottawa"
-        },
-        "abbrev": "OTT"
-      },
-      "homeTeam": {
-        "id": 12,
-        "commonName": {
-          "default": "Hurricanes"
-        },
-        "placeName": {
-          "default": "Carolina",
-          "fr": "Caroline"
-        },
-        "placeNameWithPreposition": {
-          "default": "Carolina",
-          "fr": "de la Caroline"
-        },
-        "abbrev": "CAR"
-      },
-      "gameCenterLink": "/gamecenter/ott-vs-car/2026/05/02/2025030137",
-      "ticketsLink": "https://www.ticketmaster.com/event/2D00646AAE71EF8B?brand=nhl&wt.mc_id=NHL_LEAGUE_CAR_GAMECENTER_PREVIEW_PLAYOFFS_RD1_GM4&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_LEAGUE_CAR&utm_content=GAMECENTER_PREVIEW_PLAYOFFS_RD1_GM4"
     }
   ],
   "fullCoverageUrl": {
