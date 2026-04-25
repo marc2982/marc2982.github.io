@@ -445,7 +445,7 @@
           "fr": "de la Caroline"
         },
         "abbrev": "CAR",
-        "score": 0
+        "score": 1
       },
       "homeTeam": {
         "id": 9,
@@ -461,11 +461,11 @@
           "fr": "d'Ottawa"
         },
         "abbrev": "OTT",
-        "score": 0
+        "score": 1
       },
       "gameCenterLink": "/gamecenter/car-vs-ott/2026/04/25/2025030134",
       "periodDescriptor": {
-        "number": 1,
+        "number": 2,
         "periodType": "REG",
         "maxRegulationPeriods": 3
       },
