@@ -114,6 +114,8 @@
       "bottomSeedRank": 4,
       "bottomSeedRankAbbrev": "WC2",
       "bottomSeedWins": 0,
+      "winningTeamId": 12,
+      "losingTeamId": 9,
       "topSeedTeam": {
         "id": 12,
         "abbrev": "CAR",
