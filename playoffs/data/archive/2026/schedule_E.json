@@ -484,7 +484,7 @@
           "fr": "du Colorado"
         },
         "abbrev": "COL",
-        "score": 1
+        "score": 2
       },
       "homeTeam": {
         "id": 26,
@@ -499,11 +499,11 @@
           "fr": "de Los Angeles"
         },
         "abbrev": "LAK",
-        "score": 0
+        "score": 1
       },
       "gameCenterLink": "/gamecenter/col-vs-lak/2026/04/26/2025030154",
       "periodDescriptor": {
-        "number": 1,
+        "number": 3,
         "periodType": "REG",
         "maxRegulationPeriods": 3
       },
