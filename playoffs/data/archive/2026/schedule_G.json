@@ -378,13 +378,41 @@
         "default": "Delta Center"
       },
       "neutralSite": false,
-      "startTimeUTC": "2026-04-27T16:00:00Z",
+      "startTimeUTC": "2026-04-28T01:30:00Z",
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-06:00",
       "venueTimezone": "America/Denver",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
+      "gameScheduleState": "OK",
       "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
         {
           "id": 309,
           "market": "N",

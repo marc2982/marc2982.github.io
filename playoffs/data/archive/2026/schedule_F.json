@@ -24,8 +24,8 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "1-2",
-    "seriesWins": 1,
+    "record": "2-2",
+    "seriesWins": 2,
     "divisionAbbrev": "C",
     "seed": 3,
     "logo": "https://assets.nhle.com/logos/nhl/svg/MIN_light.svg",
@@ -48,7 +48,7 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "2-1",
+    "record": "2-2",
     "seriesWins": 2,
     "divisionAbbrev": "C",
     "seed": 2,
@@ -412,7 +412,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-05:00",
       "venueTimezone": "US/Central",
-      "gameState": "LIVE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -514,17 +514,21 @@
           "fr": "du Minnesota"
         },
         "abbrev": "MIN",
-        "score": 1
+        "score": 3
       },
       "gameCenterLink": "/gamecenter/dal-vs-min/2026/04/25/2025030164",
       "periodDescriptor": {
-        "number": 3,
-        "periodType": "REG",
+        "number": 4,
+        "periodType": "OT",
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
         "topSeedWins": 2,
-        "bottomSeedWins": 1
+        "bottomSeedWins": 2
+      },
+      "gameOutcome": {
+        "lastPeriodType": "OT",
+        "otPeriods": 1
       }
     },
     {
@@ -623,7 +627,7 @@
       "season": 20252026,
       "gameType": 3,
       "gameNumber": 6,
-      "ifNecessary": true,
+      "ifNecessary": false,
       "venue": {
         "default": "Grand Casino Arena"
       },
