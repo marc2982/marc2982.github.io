@@ -24,22 +24,27 @@
     "darkLogo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-dark.svg"
   },
   "topSeedTeam": {
-    "id": -1,
+    "id": 21,
     "name": {
-      "default": "TBD"
+      "default": "Avalanche"
     },
-    "abbrev": "TBD",
+    "abbrev": "COL",
     "placeName": {
-      "default": "TBD"
+      "default": "Colorado"
     },
     "placeNameWithPreposition": {
-      "default": "TBD"
+      "default": "Colorado",
+      "fr": "du Colorado"
     },
-    "record": "0-0",
+    "conference": {
+      "name": "Western",
+      "abbrev": "W"
+    },
+    "record": "3-0",
     "seriesWins": 0,
     "seed": 1,
-    "logo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-light.svg",
-    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-dark.svg"
+    "logo": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/COL_dark.svg"
   },
   "games": []
 }

@@ -49,7 +49,7 @@
       "abbrev": "W"
     },
     "record": "3-0",
-    "seriesWins": 3,
+    "seriesWins": 4,
     "divisionAbbrev": "C",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg",
@@ -411,7 +411,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-07:00",
       "venueTimezone": "America/Los_Angeles",
-      "gameState": "LIVE",
+      "gameState": "FINAL",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -484,7 +484,7 @@
           "fr": "du Colorado"
         },
         "abbrev": "COL",
-        "score": 2
+        "score": 5
       },
       "homeTeam": {
         "id": 26,
@@ -508,153 +508,12 @@
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
-        "topSeedWins": 3,
+        "topSeedWins": 4,
         "bottomSeedWins": 0
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
       }
-    },
-    {
-      "id": 2025030155,
-      "season": 20252026,
-      "gameType": 3,
-      "gameNumber": 5,
-      "ifNecessary": true,
-      "venue": {
-        "default": "Ball Arena"
-      },
-      "neutralSite": false,
-      "startTimeUTC": "2026-04-29T16:00:00Z",
-      "easternUTCOffset": "-04:00",
-      "venueUTCOffset": "-06:00",
-      "venueTimezone": "America/Denver",
-      "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
-      "awayTeam": {
-        "id": 26,
-        "commonName": {
-          "default": "Kings"
-        },
-        "placeName": {
-          "default": "Los Angeles"
-        },
-        "placeNameWithPreposition": {
-          "default": "Los Angeles",
-          "fr": "de Los Angeles"
-        },
-        "abbrev": "LAK"
-      },
-      "homeTeam": {
-        "id": 21,
-        "commonName": {
-          "default": "Avalanche"
-        },
-        "placeName": {
-          "default": "Colorado"
-        },
-        "placeNameWithPreposition": {
-          "default": "Colorado",
-          "fr": "du Colorado"
-        },
-        "abbrev": "COL"
-      },
-      "gameCenterLink": "/gamecenter/lak-vs-col/2026/04/29/2025030155",
-      "ticketsLink": "https://avs.social/26_LG_GMCNTR_PREVIEW_PO_RD1GM3"
-    },
-    {
-      "id": 2025030156,
-      "season": 20252026,
-      "gameType": 3,
-      "gameNumber": 6,
-      "ifNecessary": true,
-      "venue": {
-        "default": "Crypto.com Arena"
-      },
-      "neutralSite": false,
-      "startTimeUTC": "2026-05-01T16:00:00Z",
-      "easternUTCOffset": "-04:00",
-      "venueUTCOffset": "-07:00",
-      "venueTimezone": "America/Los_Angeles",
-      "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
-      "awayTeam": {
-        "id": 21,
-        "commonName": {
-          "default": "Avalanche"
-        },
-        "placeName": {
-          "default": "Colorado"
-        },
-        "placeNameWithPreposition": {
-          "default": "Colorado",
-          "fr": "du Colorado"
-        },
-        "abbrev": "COL"
-      },
-      "homeTeam": {
-        "id": 26,
-        "commonName": {
-          "default": "Kings"
-        },
-        "placeName": {
-          "default": "Los Angeles"
-        },
-        "placeNameWithPreposition": {
-          "default": "Los Angeles",
-          "fr": "de Los Angeles"
-        },
-        "abbrev": "LAK"
-      },
-      "gameCenterLink": "/gamecenter/col-vs-lak/2026/05/01/2025030156",
-      "ticketsLink": "https://www.nhl.com/kings/tickets/"
-    },
-    {
-      "id": 2025030157,
-      "season": 20252026,
-      "gameType": 3,
-      "gameNumber": 7,
-      "ifNecessary": true,
-      "venue": {
-        "default": "Ball Arena"
-      },
-      "neutralSite": false,
-      "startTimeUTC": "2026-05-03T16:00:00Z",
-      "easternUTCOffset": "-04:00",
-      "venueUTCOffset": "-06:00",
-      "venueTimezone": "America/Denver",
-      "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
-      "awayTeam": {
-        "id": 26,
-        "commonName": {
-          "default": "Kings"
-        },
-        "placeName": {
-          "default": "Los Angeles"
-        },
-        "placeNameWithPreposition": {
-          "default": "Los Angeles",
-          "fr": "de Los Angeles"
-        },
-        "abbrev": "LAK"
-      },
-      "homeTeam": {
-        "id": 21,
-        "commonName": {
-          "default": "Avalanche"
-        },
-        "placeName": {
-          "default": "Colorado"
-        },
-        "placeNameWithPreposition": {
-          "default": "Colorado",
-          "fr": "du Colorado"
-        },
-        "abbrev": "COL"
-      },
-      "gameCenterLink": "/gamecenter/lak-vs-col/2026/05/03/2025030157",
-      "ticketsLink": "https://avs.social/26_LG_GMCNTR_PREVIEW_PO_RD1GM4"
     }
   ],
   "fullCoverageUrl": {
