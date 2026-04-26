@@ -382,7 +382,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
-      "gameState": "LIVE",
+      "gameState": "FINAL",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -448,7 +448,7 @@
           "fr": "de Buffalo"
         },
         "abbrev": "BUF",
-        "score": 4
+        "score": 6
       },
       "homeTeam": {
         "id": 6,
@@ -463,17 +463,20 @@
           "fr": "de Boston"
         },
         "abbrev": "BOS",
-        "score": 0
+        "score": 1
       },
       "gameCenterLink": "/gamecenter/buf-vs-bos/2026/04/26/2025030114",
       "periodDescriptor": {
-        "number": 2,
+        "number": 3,
         "periodType": "REG",
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
         "topSeedWins": 2,
         "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
       }
     },
     {

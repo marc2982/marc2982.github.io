@@ -411,7 +411,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-07:00",
       "venueTimezone": "America/Los_Angeles",
-      "gameState": "FUT",
+      "gameState": "LIVE",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -483,7 +483,8 @@
           "default": "Colorado",
           "fr": "du Colorado"
         },
-        "abbrev": "COL"
+        "abbrev": "COL",
+        "score": 0
       },
       "homeTeam": {
         "id": 26,
@@ -497,10 +498,19 @@
           "default": "Los Angeles",
           "fr": "de Los Angeles"
         },
-        "abbrev": "LAK"
+        "abbrev": "LAK",
+        "score": 0
       },
       "gameCenterLink": "/gamecenter/col-vs-lak/2026/04/26/2025030154",
-      "ticketsLink": "https://www.nhl.com/kings/tickets/playoffs"
+      "periodDescriptor": {
+        "number": 1,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 3,
+        "bottomSeedWins": 0
+      }
     },
     {
       "id": 2025030155,
