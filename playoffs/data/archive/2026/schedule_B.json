@@ -499,12 +499,12 @@
         "default": "Benchmark International Arena"
       },
       "neutralSite": false,
-      "startTimeUTC": "2026-04-29T16:00:00Z",
+      "startTimeUTC": "2026-04-29T23:00:00Z",
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
+      "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
           "id": 4,
