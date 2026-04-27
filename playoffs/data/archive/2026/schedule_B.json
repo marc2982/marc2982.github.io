@@ -505,7 +505,36 @@
       "venueTimezone": "US/Eastern",
       "gameState": "FUT",
       "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 581,
+          "market": "H",
+          "countryCode": "US",
+          "network": "The Spot",
+          "sequenceNumber": 211
+        }
+      ],
       "awayTeam": {
         "id": 8,
         "commonName": {
