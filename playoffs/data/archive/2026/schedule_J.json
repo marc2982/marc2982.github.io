@@ -3,6 +3,8 @@
   "roundAbbrev": "R2",
   "roundLabel": "2nd-round",
   "seriesLetter": "J",
+  "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/2026-playoffs-logo-en-rd1-2.png",
+  "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/2026-playoffs-3602x266-fr.png",
   "neededToWin": 4,
   "length": 0,
   "bottomSeedTeam": {
