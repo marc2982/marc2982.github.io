@@ -386,13 +386,6 @@
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
-          "id": 4,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "CBC",
-          "sequenceNumber": 101
-        },
-        {
           "id": 281,
           "market": "N",
           "countryCode": "CA",
