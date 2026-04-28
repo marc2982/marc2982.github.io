@@ -610,11 +610,39 @@
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
           "id": 219,
           "market": "H",
           "countryCode": "US",
           "network": "KCOP-13",
           "sequenceNumber": 656
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
         },
         {
           "id": 385,
