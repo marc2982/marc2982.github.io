@@ -382,7 +382,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-06:00",
       "venueTimezone": "America/Denver",
-      "gameState": "PRE",
+      "gameState": "CRIT",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -447,7 +447,8 @@
           "default": "Vegas",
           "fr": "de Vegas"
         },
-        "abbrev": "VGK"
+        "abbrev": "VGK",
+        "score": 4
       },
       "homeTeam": {
         "id": 68,
@@ -461,10 +462,19 @@
           "default": "Utah",
           "fr": "de l'Utah"
         },
-        "abbrev": "UTA"
+        "abbrev": "UTA",
+        "score": 4
       },
       "gameCenterLink": "/gamecenter/vgk-vs-uta/2026/04/27/2025030174",
-      "ticketsLink": "https://www.nhl.com/utah/tickets/"
+      "periodDescriptor": {
+        "number": 4,
+        "periodType": "OT",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 1,
+        "bottomSeedWins": 2
+      }
     },
     {
       "id": 2025030175,
@@ -476,13 +486,56 @@
         "default": "T-Mobile Arena"
       },
       "neutralSite": false,
-      "startTimeUTC": "2026-04-29T16:00:00Z",
+      "startTimeUTC": "2026-04-30T02:00:00Z",
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-07:00",
       "venueTimezone": "US/Pacific",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 521,
+          "market": "H",
+          "countryCode": "US",
+          "network": "SCRIPPS",
+          "sequenceNumber": 657
+        },
+        {
+          "id": 558,
+          "market": "A",
+          "countryCode": "US",
+          "network": "Utah16",
+          "sequenceNumber": 381
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        }
+      ],
       "awayTeam": {
         "id": 68,
         "commonName": {
