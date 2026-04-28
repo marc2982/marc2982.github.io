@@ -24,7 +24,7 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "2-1",
+    "record": "2-2",
     "seriesWins": 2,
     "divisionAbbrev": "C",
     "seed": 4,
@@ -48,8 +48,8 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "1-2",
-    "seriesWins": 1,
+    "record": "2-2",
+    "seriesWins": 2,
     "divisionAbbrev": "P",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
@@ -382,7 +382,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-06:00",
       "venueTimezone": "America/Denver",
-      "gameState": "CRIT",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -448,7 +448,7 @@
           "fr": "de Vegas"
         },
         "abbrev": "VGK",
-        "score": 4
+        "score": 5
       },
       "homeTeam": {
         "id": 68,
@@ -472,8 +472,12 @@
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
-        "topSeedWins": 1,
+        "topSeedWins": 2,
         "bottomSeedWins": 2
+      },
+      "gameOutcome": {
+        "lastPeriodType": "OT",
+        "otPeriods": 1
       }
     },
     {
@@ -572,7 +576,7 @@
       "season": 20252026,
       "gameType": 3,
       "gameNumber": 6,
-      "ifNecessary": true,
+      "ifNecessary": false,
       "venue": {
         "default": "Delta Center"
       },
