@@ -572,7 +572,7 @@
           "fr": "de Philadelphie"
         },
         "abbrev": "PHI",
-        "score": 0
+        "score": 2
       },
       "homeTeam": {
         "id": 5,
@@ -587,11 +587,11 @@
           "fr": "de Pittsburgh"
         },
         "abbrev": "PIT",
-        "score": 1
+        "score": 3
       },
       "gameCenterLink": "/gamecenter/phi-vs-pit/2026/04/27/2025030145",
       "periodDescriptor": {
-        "number": 1,
+        "number": 3,
         "periodType": "REG",
         "maxRegulationPeriods": 3
       },
