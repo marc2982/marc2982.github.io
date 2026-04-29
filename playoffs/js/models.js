@@ -88,6 +88,19 @@ export class Series extends BaseModel {
 		return now >= new Date(this.startTimeUTC);
 	}
 	getNextGameDesc() {
+		if (this.liveGameState === 'LIVE' || this.liveGameState === 'CRIT') {
+			const pNum = this.periodNumber;
+			const pType = this.periodType;
+			let periodStr = '';
+			if (pType === 'REG') {
+				periodStr = `P${pNum}`;
+			} else if (pType === 'OT') {
+				periodStr = pNum > 3 ? `OT${pNum - 3}` : 'OT';
+			} else {
+				periodStr = pType;
+			}
+			return `LIVE - ${this.awayTeamAbbrev} ${this.awayTeamScore}, ${this.homeTeamAbbrev} ${this.homeTeamScore} (${periodStr})`;
+		}
 		if (!this.nextGameStartTimeUTC) return null;
 		const date = new Date(this.nextGameStartTimeUTC);
 		const options = { weekday: 'short', hour: 'numeric', minute: '2-digit' };

@@ -79,12 +79,20 @@ export class NhlApiHandler {
 					// Series objects are immutable (dataclass), so we must create a copy
 					// Find the first game that hasn't finished yet
 					const nextGame = schedule.games.find(
-						(g) => g.gameState === 'FUT' || g.gameState === 'LIVE' || g.gameState === 'PRE'
+						(g) => g.gameState === 'FUT' || g.gameState === 'LIVE' || g.gameState === 'PRE' || g.gameState === 'CRIT'
 					);
+					const liveGame = nextGame && (nextGame.gameState === 'LIVE' || nextGame.gameState === 'CRIT') ? nextGame : null;
 					this.series[index] = series.copy({
 						startTimeUTC: schedule.games[0].startTimeUTC, // Still lock based on Game 1
 						nextGameStartTimeUTC: nextGame ? nextGame.startTimeUTC : null,
 						nextGameNumber: nextGame ? nextGame.gameNumber : null,
+						liveGameState: liveGame ? liveGame.gameState : null,
+						awayTeamAbbrev: liveGame ? liveGame.awayTeam.abbrev : null,
+						awayTeamScore: liveGame ? liveGame.awayTeam.score : null,
+						homeTeamAbbrev: liveGame ? liveGame.homeTeam.abbrev : null,
+						homeTeamScore: liveGame ? liveGame.homeTeam.score : null,
+						periodNumber: liveGame?.periodDescriptor?.number : null,
+						periodType: liveGame?.periodDescriptor?.periodType : null,
 					});
 				}
 			}
