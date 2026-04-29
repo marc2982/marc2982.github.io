@@ -100,7 +100,7 @@ export function renderRound(teams, round, table) {
 					.map(
 						(s) => `
                     <th>
-                        <div class="matchup-header">
+                        <div class="matchup-header" title="${s.scoresTooltip || ''}">
                             <div class="team-top ${s.topSeedIsWinner ? 'winner' : ''}">${s.topSeed} (${
 							s.topSeedWins
 						})</div>

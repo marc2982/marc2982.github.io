@@ -82,6 +82,31 @@ export class NhlApiHandler {
 						(g) => g.gameState === 'FUT' || g.gameState === 'LIVE' || g.gameState === 'PRE' || g.gameState === 'CRIT'
 					);
 					const liveGame = nextGame && (nextGame.gameState === 'LIVE' || nextGame.gameState === 'CRIT') ? nextGame : null;
+					
+					const pastGameScores = schedule.games
+						.filter(g => g.gameState === 'OFF' || g.gameState === 'FINAL' || g.gameState === 'LIVE' || g.gameState === 'CRIT')
+						.map(g => {
+							const pNum = g.periodDescriptor?.number;
+							const isLive = g.gameState === 'LIVE' || g.gameState === 'CRIT';
+							let periodStr = '';
+							
+							if (isLive) {
+								const pType = g.periodDescriptor?.periodType;
+								if (pType === 'REG') {
+									periodStr = ` (LIVE P${pNum})`;
+								} else if (pType === 'OT') {
+									periodStr = ` (LIVE OT${pNum > 3 ? pNum - 3 : ''})`;
+								} else {
+									periodStr = ` (LIVE)`;
+								}
+							} else if (g.gameOutcome?.lastPeriodType === 'OT') {
+								const otNum = pNum > 4 ? pNum - 3 : '';
+								periodStr = ` (${otNum}OT)`;
+							}
+							
+							return `G${g.gameNumber}: ${g.awayTeam.abbrev} ${g.awayTeam.score}, ${g.homeTeam.abbrev} ${g.homeTeam.score}${periodStr}`;
+						});
+
 					this.series[index] = series.copy({
 						startTimeUTC: schedule.games[0].startTimeUTC, // Still lock based on Game 1
 						nextGameStartTimeUTC: nextGame ? nextGame.startTimeUTC : null,
@@ -91,8 +116,9 @@ export class NhlApiHandler {
 						awayTeamScore: liveGame ? liveGame.awayTeam.score : null,
 						homeTeamAbbrev: liveGame ? liveGame.homeTeam.abbrev : null,
 						homeTeamScore: liveGame ? liveGame.homeTeam.score : null,
-						periodNumber: liveGame?.periodDescriptor?.number : null,
-						periodType: liveGame?.periodDescriptor?.periodType : null,
+						periodNumber: liveGame?.periodDescriptor?.number || null,
+						periodType: liveGame?.periodDescriptor?.periodType || null,
+						pastGameScores: pastGameScores,
 					});
 				}
 			}

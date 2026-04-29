@@ -107,6 +107,10 @@ export class Series extends BaseModel {
 		const dateStr = date.toLocaleString('en-US', options);
 		return `G${this.nextGameNumber}: ${dateStr}`;
 	}
+	getScoresTooltip() {
+		if (!this.pastGameScores || this.pastGameScores.length === 0) return '';
+		return this.pastGameScores.join('&#10;');
+	}
 	static isRoundOpen(leadStartTimeUTC, now = new Date()) {
 		if (!leadStartTimeUTC) return false;
 		const leadTime = new Date(leadStartTimeUTC);
