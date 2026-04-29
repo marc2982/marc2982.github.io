@@ -501,7 +501,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-06:00",
       "venueTimezone": "America/Edmonton",
-      "gameState": "FUT",
+      "gameState": "LIVE",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -573,7 +573,8 @@
           "default": "Anaheim",
           "fr": "d'Anaheim"
         },
-        "abbrev": "ANA"
+        "abbrev": "ANA",
+        "score": 1
       },
       "homeTeam": {
         "id": 22,
@@ -587,10 +588,19 @@
           "default": "Edmonton",
           "fr": "d'Edmonton"
         },
-        "abbrev": "EDM"
+        "abbrev": "EDM",
+        "score": 4
       },
       "gameCenterLink": "/gamecenter/ana-vs-edm/2026/04/28/2025030185",
-      "ticketsLink": "https://www.ticketmaster.ca/event/1100647ED728885F?brand=nhl&wt.mc_id=NHL_LEAGUE_EDM_GAMECENTER_PREVIEW_PLAYOFFS_RD1_GM3&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_LEAGUE_EDM&utm_content=GAMECENTER_PREVIEW_PLAYOFFS_RD1_GM3"
+      "periodDescriptor": {
+        "number": 2,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 1,
+        "bottomSeedWins": 3
+      }
     },
     {
       "id": 2025030186,

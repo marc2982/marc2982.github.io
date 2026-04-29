@@ -24,8 +24,8 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "1-3",
-    "seriesWins": 1,
+    "record": "2-3",
+    "seriesWins": 2,
     "divisionAbbrev": "A",
     "seed": 4,
     "logo": "https://assets.nhle.com/logos/nhl/svg/BOS_light.svg?season=20252026",
@@ -48,7 +48,7 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "3-1",
+    "record": "3-2",
     "seriesWins": 3,
     "divisionAbbrev": "A",
     "seed": 1,
@@ -493,7 +493,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "America/New_York",
-      "gameState": "LIVE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -573,7 +573,7 @@
           "fr": "de Boston"
         },
         "abbrev": "BOS",
-        "score": 0
+        "score": 2
       },
       "homeTeam": {
         "id": 7,
@@ -592,13 +592,17 @@
       },
       "gameCenterLink": "/gamecenter/bos-vs-buf/2026/04/28/2025030115",
       "periodDescriptor": {
-        "number": 1,
-        "periodType": "REG",
+        "number": 4,
+        "periodType": "OT",
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
         "topSeedWins": 3,
-        "bottomSeedWins": 1
+        "bottomSeedWins": 2
+      },
+      "gameOutcome": {
+        "lastPeriodType": "OT",
+        "otPeriods": 1
       }
     },
     {
@@ -606,18 +610,40 @@
       "season": 20252026,
       "gameType": 3,
       "gameNumber": 6,
-      "ifNecessary": true,
+      "ifNecessary": false,
       "venue": {
         "default": "TD Garden"
       },
       "neutralSite": false,
-      "startTimeUTC": "2026-05-01T16:00:00Z",
+      "startTimeUTC": "2026-05-01T23:30:00Z",
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 291,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS2",
+          "sequenceNumber": 121
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        }
+      ],
       "awayTeam": {
         "id": 7,
         "commonName": {
