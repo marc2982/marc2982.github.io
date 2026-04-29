@@ -24,7 +24,7 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "3-1",
+    "record": "3-2",
     "seriesWins": 3,
     "divisionAbbrev": "P",
     "seed": 3,
@@ -48,8 +48,8 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "1-3",
-    "seriesWins": 1,
+    "record": "2-3",
+    "seriesWins": 2,
     "divisionAbbrev": "P",
     "seed": 2,
     "logo": "https://assets.nhle.com/logos/nhl/svg/EDM_light.svg",
@@ -501,7 +501,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-06:00",
       "venueTimezone": "America/Edmonton",
-      "gameState": "LIVE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -593,13 +593,16 @@
       },
       "gameCenterLink": "/gamecenter/ana-vs-edm/2026/04/28/2025030185",
       "periodDescriptor": {
-        "number": 2,
+        "number": 3,
         "periodType": "REG",
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
-        "topSeedWins": 1,
+        "topSeedWins": 2,
         "bottomSeedWins": 3
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
       }
     },
     {
@@ -607,7 +610,7 @@
       "season": 20252026,
       "gameType": 3,
       "gameNumber": 6,
-      "ifNecessary": true,
+      "ifNecessary": false,
       "venue": {
         "default": "Honda Center"
       },

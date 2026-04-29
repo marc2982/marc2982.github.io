@@ -645,13 +645,77 @@
         "default": "Grand Casino Arena"
       },
       "neutralSite": false,
-      "startTimeUTC": "2026-04-30T16:00:00Z",
+      "startTimeUTC": "2026-04-30T23:30:00Z",
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-05:00",
       "venueTimezone": "US/Central",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 287,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SNE",
+          "sequenceNumber": 30
+        },
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 553,
+          "market": "A",
+          "countryCode": "US",
+          "network": "Victory+",
+          "sequenceNumber": 382
+        },
+        {
+          "id": 567,
+          "market": "H",
+          "countryCode": "US",
+          "network": "FDSNNO",
+          "sequenceNumber": 284
+        },
+        {
+          "id": 569,
+          "market": "H",
+          "countryCode": "US",
+          "network": "FDSNWI",
+          "sequenceNumber": 419
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        }
+      ],
       "awayTeam": {
         "id": 25,
         "commonName": {
