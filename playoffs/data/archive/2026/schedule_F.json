@@ -545,7 +545,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-05:00",
       "venueTimezone": "US/Central",
-      "gameState": "FUT",
+      "gameState": "LIVE",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -603,7 +603,8 @@
           "default": "Minnesota",
           "fr": "du Minnesota"
         },
-        "abbrev": "MIN"
+        "abbrev": "MIN",
+        "score": 0
       },
       "homeTeam": {
         "id": 25,
@@ -617,10 +618,19 @@
           "default": "Dallas",
           "fr": "de Dallas"
         },
-        "abbrev": "DAL"
+        "abbrev": "DAL",
+        "score": 0
       },
       "gameCenterLink": "/gamecenter/min-vs-dal/2026/04/28/2025030165",
-      "ticketsLink": "https://www.ticketmaster.com/event/0C00646AFBDCF902?brand=nhl&wt.mc_id=NHL_LEAGUE_DAL_GAMECENTER_PREVIEW_PLAYOFFS_RD1_GM3&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_LEAGUE_DAL&utm_content=GAMECENTER_PREVIEW_PLAYOFFS_RD1_GM3"
+      "periodDescriptor": {
+        "number": 1,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 2,
+        "bottomSeedWins": 2
+      }
     },
     {
       "id": 2025030166,
