@@ -623,6 +623,20 @@
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
+          "id": 28,
+          "market": "A",
+          "countryCode": "US",
+          "network": "MSG-B",
+          "sequenceNumber": 392
+        },
+        {
+          "id": 31,
+          "market": "H",
+          "countryCode": "US",
+          "network": "NESN",
+          "sequenceNumber": 405
+        },
+        {
           "id": 283,
           "market": "N",
           "countryCode": "CA",

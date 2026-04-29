@@ -617,6 +617,13 @@
           "countryCode": "US",
           "network": "ESPN2",
           "sequenceNumber": 12
+        },
+        {
+          "id": 581,
+          "market": "A",
+          "countryCode": "US",
+          "network": "The Spot",
+          "sequenceNumber": 211
         }
       ],
       "awayTeam": {
