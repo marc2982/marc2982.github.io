@@ -617,7 +617,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
-      "gameState": "FUT",
+      "gameState": "LIVE",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -682,7 +682,8 @@
           "default": "Pittsburgh",
           "fr": "de Pittsburgh"
         },
-        "abbrev": "PIT"
+        "abbrev": "PIT",
+        "score": 0
       },
       "homeTeam": {
         "id": 4,
@@ -697,10 +698,19 @@
           "default": "Philadelphia",
           "fr": "de Philadelphie"
         },
-        "abbrev": "PHI"
+        "abbrev": "PHI",
+        "score": 0
       },
       "gameCenterLink": "/gamecenter/pit-vs-phi/2026/04/29/2025030146",
-      "ticketsLink": "https://www.nhl.com/flyers/tickets/"
+      "periodDescriptor": {
+        "number": 1,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 2,
+        "bottomSeedWins": 3
+      }
     },
     {
       "id": 2025030147,
