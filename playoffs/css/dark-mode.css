@@ -231,3 +231,15 @@ html.dark-mode a {
 html.dark-mode a:hover {
     color: #99ccff;
 }
+
+/* Tooltip Dark Mode Overrides */
+html.dark-mode .matchup-header[data-tooltip]::after {
+    background-color: #0f1526;
+    color: #e6e6e6;
+    border: 1px solid #2c3e50;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.8);
+}
+
+html.dark-mode .matchup-header[data-tooltip]::before {
+    border-bottom-color: #0f1526;
+}
