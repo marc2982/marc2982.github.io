@@ -101,6 +101,15 @@ export class Series extends BaseModel {
 			}
 			return `LIVE - ${this.awayTeamAbbrev} ${this.awayTeamScore}, ${this.homeTeamAbbrev} ${this.homeTeamScore} (${periodStr})`;
 		}
+		if (this.liveGameState === 'FINAL') {
+			const pNum = this.periodNumber;
+			const pType = this.periodType;
+			let periodStr = '';
+			if (pType === 'OT') {
+				periodStr = pNum > 4 ? ` (${pNum - 3}OT)` : ' (OT)';
+			}
+			return `FINAL - ${this.awayTeamAbbrev} ${this.awayTeamScore}, ${this.homeTeamAbbrev} ${this.homeTeamScore}${periodStr}`;
+		}
 		if (!this.nextGameStartTimeUTC) return null;
 		const date = new Date(this.nextGameStartTimeUTC);
 		const options = { weekday: 'short', hour: 'numeric', minute: '2-digit' };

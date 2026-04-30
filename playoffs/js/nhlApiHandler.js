@@ -79,9 +79,9 @@ export class NhlApiHandler {
 					// Series objects are immutable (dataclass), so we must create a copy
 					// Find the first game that hasn't finished yet
 					const nextGame = schedule.games.find(
-						(g) => g.gameState === 'FUT' || g.gameState === 'LIVE' || g.gameState === 'PRE' || g.gameState === 'CRIT'
+						(g) => g.gameState === 'FUT' || g.gameState === 'LIVE' || g.gameState === 'PRE' || g.gameState === 'CRIT' || g.gameState === 'FINAL'
 					);
-					const liveGame = nextGame && (nextGame.gameState === 'LIVE' || nextGame.gameState === 'CRIT') ? nextGame : null;
+					const liveGame = nextGame && (nextGame.gameState === 'LIVE' || nextGame.gameState === 'CRIT' || nextGame.gameState === 'FINAL') ? nextGame : null;
 					
 					const pastGameScores = schedule.games
 						.filter(g => g.gameState === 'OFF' || g.gameState === 'FINAL' || g.gameState === 'LIVE' || g.gameState === 'CRIT')
