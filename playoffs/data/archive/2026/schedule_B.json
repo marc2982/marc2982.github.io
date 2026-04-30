@@ -24,8 +24,8 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "2-2",
-    "seriesWins": 2,
+    "record": "3-2",
+    "seriesWins": 3,
     "divisionAbbrev": "A",
     "seed": 3,
     "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg",
@@ -48,7 +48,7 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "2-2",
+    "record": "2-3",
     "seriesWins": 2,
     "divisionAbbrev": "A",
     "seed": 2,
@@ -503,7 +503,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
-      "gameState": "LIVE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -580,7 +580,10 @@
       },
       "seriesStatus": {
         "topSeedWins": 2,
-        "bottomSeedWins": 2
+        "bottomSeedWins": 3
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
       }
     },
     {

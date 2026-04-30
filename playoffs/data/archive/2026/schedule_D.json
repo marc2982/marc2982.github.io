@@ -25,8 +25,8 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "3-2",
-    "seriesWins": 3,
+    "record": "4-2",
+    "seriesWins": 4,
     "divisionAbbrev": "M",
     "seed": 3,
     "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_light.svg",
@@ -49,7 +49,7 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "2-3",
+    "record": "2-4",
     "seriesWins": 2,
     "divisionAbbrev": "M",
     "seed": 2,
@@ -617,7 +617,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
-      "gameState": "LIVE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -699,67 +699,22 @@
           "fr": "de Philadelphie"
         },
         "abbrev": "PHI",
-        "score": 0
+        "score": 1
       },
       "gameCenterLink": "/gamecenter/pit-vs-phi/2026/04/29/2025030146",
       "periodDescriptor": {
-        "number": 2,
-        "periodType": "REG",
+        "number": 4,
+        "periodType": "OT",
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
         "topSeedWins": 2,
-        "bottomSeedWins": 3
+        "bottomSeedWins": 4
+      },
+      "gameOutcome": {
+        "lastPeriodType": "OT",
+        "otPeriods": 1
       }
-    },
-    {
-      "id": 2025030147,
-      "season": 20252026,
-      "gameType": 3,
-      "gameNumber": 7,
-      "ifNecessary": true,
-      "venue": {
-        "default": "PPG Paints Arena"
-      },
-      "neutralSite": false,
-      "startTimeUTC": "2026-05-02T16:00:00Z",
-      "easternUTCOffset": "-04:00",
-      "venueUTCOffset": "-04:00",
-      "venueTimezone": "US/Eastern",
-      "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
-      "awayTeam": {
-        "id": 4,
-        "commonName": {
-          "default": "Flyers"
-        },
-        "placeName": {
-          "default": "Philadelphia",
-          "fr": "Philadelphie"
-        },
-        "placeNameWithPreposition": {
-          "default": "Philadelphia",
-          "fr": "de Philadelphie"
-        },
-        "abbrev": "PHI"
-      },
-      "homeTeam": {
-        "id": 5,
-        "commonName": {
-          "default": "Penguins"
-        },
-        "placeName": {
-          "default": "Pittsburgh"
-        },
-        "placeNameWithPreposition": {
-          "default": "Pittsburgh",
-          "fr": "de Pittsburgh"
-        },
-        "abbrev": "PIT"
-      },
-      "gameCenterLink": "/gamecenter/phi-vs-pit/2026/05/02/2025030147",
-      "ticketsLink": "https://www.ticketmaster.com/event/1600646DD3F3C648?brand=nhl&wt.mc_id=NHL_LEAGUE_PIT_GAMECENTER_PREVIEW_PLAYOFFS_RD1_GM4&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_LEAGUE_PIT&utm_content=GAMECENTER_PREVIEW_PLAYOFFS_RD1_GM4&camefrom=NHLPENGUINS_WEB_NHL_GAMECENTER_PLAYOFFS"
     }
   ],
   "fullCoverageUrl": {
