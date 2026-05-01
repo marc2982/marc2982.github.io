@@ -357,7 +357,9 @@
       "topSeedWins": 2,
       "bottomSeedRank": 3,
       "bottomSeedRankAbbrev": "D3",
-      "bottomSeedWins": 3,
+      "bottomSeedWins": 4,
+      "winningTeamId": 24,
+      "losingTeamId": 22,
       "topSeedTeam": {
         "id": 22,
         "abbrev": "EDM",
@@ -500,6 +502,7 @@
       }
     },
     {
+      "seriesUrl": "/schedule/playoff-series/2026/series-l/ducks-vs-tbd",
       "seriesTitle": "2nd Round",
       "seriesAbbrev": "R2",
       "seriesLetter": "L",
@@ -507,9 +510,41 @@
       "topSeedRank": 1,
       "topSeedRankAbbrev": "D1",
       "topSeedWins": 0,
-      "bottomSeedRank": 1,
-      "bottomSeedRankAbbrev": "D1",
-      "bottomSeedWins": 0
+      "bottomSeedRank": 3,
+      "bottomSeedRankAbbrev": "D3",
+      "bottomSeedWins": 0,
+      "topSeedTeam": {
+        "id": -1,
+        "abbrev": "TBD",
+        "name": {
+          "default": "TBD"
+        },
+        "commonName": {
+          "default": "TBD"
+        },
+        "placeNameWithPreposition": {
+          "default": "TBD"
+        },
+        "logo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-light.svg",
+        "darkLogo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-dark.svg"
+      },
+      "bottomSeedTeam": {
+        "id": 24,
+        "abbrev": "ANA",
+        "name": {
+          "default": "Anaheim Ducks",
+          "fr": "Ducks d'Anaheim"
+        },
+        "commonName": {
+          "default": "Ducks"
+        },
+        "placeNameWithPreposition": {
+          "default": "Anaheim",
+          "fr": "d'Anaheim"
+        },
+        "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg",
+        "darkLogo": "https://assets.nhle.com/logos/nhl/svg/ANA_dark.svg"
+      }
     },
     {
       "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/ecf-20232024-wordmark-en.png",
