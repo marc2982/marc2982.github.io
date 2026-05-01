@@ -24,8 +24,8 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "3-2",
-    "seriesWins": 3,
+    "record": "4-2",
+    "seriesWins": 4,
     "divisionAbbrev": "C",
     "seed": 3,
     "logo": "https://assets.nhle.com/logos/nhl/svg/MIN_light.svg",
@@ -48,7 +48,7 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "2-3",
+    "record": "2-4",
     "seriesWins": 2,
     "divisionAbbrev": "C",
     "seed": 2,
@@ -649,7 +649,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-05:00",
       "venueTimezone": "US/Central",
-      "gameState": "LIVE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -729,7 +729,7 @@
           "fr": "de Dallas"
         },
         "abbrev": "DAL",
-        "score": 0
+        "score": 2
       },
       "homeTeam": {
         "id": 30,
@@ -744,66 +744,21 @@
           "fr": "du Minnesota"
         },
         "abbrev": "MIN",
-        "score": 1
+        "score": 5
       },
       "gameCenterLink": "/gamecenter/dal-vs-min/2026/04/30/2025030166",
       "periodDescriptor": {
-        "number": 1,
+        "number": 3,
         "periodType": "REG",
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
         "topSeedWins": 2,
-        "bottomSeedWins": 3
+        "bottomSeedWins": 4
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
       }
-    },
-    {
-      "id": 2025030167,
-      "season": 20252026,
-      "gameType": 3,
-      "gameNumber": 7,
-      "ifNecessary": true,
-      "venue": {
-        "default": "American Airlines Center"
-      },
-      "neutralSite": false,
-      "startTimeUTC": "2026-05-02T16:00:00Z",
-      "easternUTCOffset": "-04:00",
-      "venueUTCOffset": "-05:00",
-      "venueTimezone": "US/Central",
-      "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
-      "awayTeam": {
-        "id": 30,
-        "commonName": {
-          "default": "Wild"
-        },
-        "placeName": {
-          "default": "Minnesota"
-        },
-        "placeNameWithPreposition": {
-          "default": "Minnesota",
-          "fr": "du Minnesota"
-        },
-        "abbrev": "MIN"
-      },
-      "homeTeam": {
-        "id": 25,
-        "commonName": {
-          "default": "Stars"
-        },
-        "placeName": {
-          "default": "Dallas"
-        },
-        "placeNameWithPreposition": {
-          "default": "Dallas",
-          "fr": "de Dallas"
-        },
-        "abbrev": "DAL"
-      },
-      "gameCenterLink": "/gamecenter/min-vs-dal/2026/05/02/2025030167",
-      "ticketsLink": "https://www.ticketmaster.com/event/0C00646AFBE1F909?brand=nhl&wt.mc_id=NHL_LEAGUE_DAL_GAMECENTER_PREVIEW_PLAYOFFS_RD1_GM4&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_LEAGUE_DAL&utm_content=GAMECENTER_PREVIEW_PLAYOFFS_RD1_GM4"
     }
   ],
   "fullCoverageUrl": {
