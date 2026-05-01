@@ -437,13 +437,12 @@ table.table.table-striped td {
 }
 
 /* Custom Tooltip */
-.matchup-header[data-tooltip] {
+.matchup-header.has-tooltip {
     position: relative;
     cursor: help;
 }
 
-.matchup-header[data-tooltip]::after {
-    content: attr(data-tooltip);
+.scores-tooltip {
     position: absolute;
     top: 100%;
     left: 50%;
@@ -452,7 +451,7 @@ table.table.table-striped td {
     color: #fff;
     padding: 8px 12px;
     border-radius: 6px;
-    white-space: pre-wrap;
+    white-space: nowrap;
     font-size: 0.85rem;
     font-weight: normal;
     text-align: left;
@@ -468,24 +467,23 @@ table.table.table-striped td {
 }
 
 /* Tooltip arrow */
-.matchup-header[data-tooltip]::before {
+.scores-tooltip::before {
     content: '';
     position: absolute;
-    top: 100%;
+    bottom: 100%;
     left: 50%;
     transform: translateX(-50%);
     border: 6px solid transparent;
     border-bottom-color: #343a40;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
-    z-index: 1000;
-    margin-top: -4px;
 }
 
-.matchup-header[data-tooltip]:hover::after,
-.matchup-header[data-tooltip]:hover::before {
+.matchup-header.has-tooltip:hover .scores-tooltip {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(2px);
+}
+
+.winner-score {
+    color: #28a745;
+    font-weight: bold;
 }

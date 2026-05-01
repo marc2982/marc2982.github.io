@@ -118,7 +118,7 @@ export class Series extends BaseModel {
 	}
 	getScoresTooltip() {
 		if (!this.pastGameScores || this.pastGameScores.length === 0) return '';
-		return this.pastGameScores.join('&#10;');
+		return this.pastGameScores.join('<br>');
 	}
 	static isRoundOpen(leadStartTimeUTC, now = new Date()) {
 		if (!leadStartTimeUTC) return false;

@@ -104,7 +104,18 @@ export class NhlApiHandler {
 								periodStr = ` (${otNum}OT)`;
 							}
 							
-							return `G${g.gameNumber}: ${g.awayTeam.abbrev} ${g.awayTeam.score}, ${g.homeTeam.abbrev} ${g.homeTeam.score}${periodStr}`;
+							let awayStr = `${g.awayTeam.abbrev} ${g.awayTeam.score}`;
+							let homeStr = `${g.homeTeam.abbrev} ${g.homeTeam.score}`;
+							
+							if (!isLive && g.awayTeam.score !== g.homeTeam.score) {
+								if (g.awayTeam.score > g.homeTeam.score) {
+									awayStr = `<span class="winner-score">${awayStr}</span>`;
+								} else {
+									homeStr = `<span class="winner-score">${homeStr}</span>`;
+								}
+							}
+							
+							return `G${g.gameNumber}: ${awayStr}, ${homeStr}${periodStr}`;
 						});
 
 					this.series[index] = series.copy({

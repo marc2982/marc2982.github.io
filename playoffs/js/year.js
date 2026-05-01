@@ -100,7 +100,7 @@ export function renderRound(teams, round, table) {
 					.map(
 						(s) => `
                     <th>
-                        <div class="matchup-header" data-tooltip="${s.scoresTooltip || ''}">
+                        <div class="matchup-header ${s.scoresTooltip ? 'has-tooltip' : ''}">
                             <div class="team-top ${s.topSeedIsWinner ? 'winner' : ''}">${s.topSeed} (${
 							s.topSeedWins
 						})</div>
@@ -108,6 +108,7 @@ export function renderRound(teams, round, table) {
 							s.bottomSeedWins
 						})</div>
                             ${s.nextGameDesc ? `<div class="next-game">${s.nextGameDesc}</div>` : ''}
+                            ${s.scoresTooltip ? `<div class="scores-tooltip">${s.scoresTooltip}</div>` : ''}
                         </div>
                     </th>
                 `,
