@@ -173,40 +173,45 @@ html.dark-mode input[type="text"] {
     border-color: #2c3e50;
 }
 
-html.dark-mode .matchup-card {
+html.dark-mode .matchup {
     background-color: #16213e;
     border-color: #0f3460;
 }
 
-html.dark-mode .team-option {
+html.dark-mode .matchup-header {
+    background: #0f1526;
+    color: #a0a0a0;
+}
+
+html.dark-mode .team {
     border-color: #2c3e50;
 }
 
-html.dark-mode .team-option:hover {
+html.dark-mode .team:hover {
     background-color: #2c3e50;
 }
 
-html.dark-mode .team-option.selected {
+html.dark-mode .team.selected {
     background-color: rgba(32, 201, 151, 0.2);
     border-color: #20c997;
 }
 
-html.dark-mode .games-section {
+html.dark-mode .prediction-options {
     border-top-color: #2c3e50;
     background-color: rgba(0,0,0,0.2);
 }
 
-html.dark-mode .game-btn {
+html.dark-mode .game-option {
     border-color: #2c3e50;
     color: #e6e6e6;
     background-color: #0f1526;
 }
 
-html.dark-mode .game-btn:hover {
+html.dark-mode .game-option:hover {
     background-color: #2c3e50;
 }
 
-html.dark-mode .game-btn.selected {
+html.dark-mode .game-option.selected {
     background-color: #e94560;
     color: white;
     border-color: #e94560;
@@ -214,6 +219,25 @@ html.dark-mode .game-btn.selected {
 
 html.dark-mode .team-name {
     color: #e6e6e6;
+}
+
+html.dark-mode .team-seed {
+    color: #a0a0a0;
+}
+
+html.dark-mode .vs {
+    color: #4a5c6e;
+}
+
+html.dark-mode .contingency-banner {
+    background-color: #4a3a0e !important;
+    color: #ffdda1 !important;
+    border-color: #6a5315 !important;
+}
+
+html.dark-mode .contingency-badge {
+    background-color: #0f3460 !important;
+    color: #66b3ff !important;
 }
 
 /* Adjust back index button */
