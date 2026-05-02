@@ -74,17 +74,22 @@ export function prepareRoundViewModel(teams, round) {
 
 	return {
 		roundNumber: round.number,
-		series: sortedSeries.map((series) => ({
-			letter: series.letter,
-			topSeed: series.topSeed,
-			topSeedWins: series.topSeedWins,
-			bottomSeed: series.bottomSeed,
-			bottomSeedWins: series.bottomSeedWins,
-			topSeedIsWinner: series.topSeedWins === 4,
-			bottomSeedIsWinner: series.bottomSeedWins === 4,
-			nextGameDesc: series.getNextGameDesc(),
-			scoresTooltip: series.getScoresTooltip(),
-		})),
+		series: sortedSeries.map((series) => {
+			const topIsTbd = !series.topSeed || series.topSeed === 'undefined' || series.topSeed.toUpperCase() === 'TBD';
+			const botIsTbd = !series.bottomSeed || series.bottomSeed === 'undefined' || series.bottomSeed.toUpperCase() === 'TBD';
+			return {
+				letter: series.letter,
+				topSeed: topIsTbd ? (series.possibleTopSeeds?.join('/') || 'TBD') : series.topSeed,
+				topSeedWins: series.topSeedWins,
+				bottomSeed: botIsTbd ? (series.possibleBottomSeeds?.join('/') || 'TBD') : series.bottomSeed,
+				bottomSeedWins: series.bottomSeedWins,
+				topSeedIsWinner: series.topSeedWins === 4,
+				bottomSeedIsWinner: series.bottomSeedWins === 4,
+				nextGameDesc: series.getNextGameDesc(),
+				scoresTooltip: series.getScoresTooltip(),
+				isTbd: topIsTbd || botIsTbd
+			};
+		}),
 		picks: Object.entries(round.pickResults).map(([person, results]) => {
 			const summary = round.summary.summaries[person];
 			return {
@@ -92,15 +97,19 @@ export function prepareRoundViewModel(teams, round) {
 				isLeader: round.summary.winners.includes(person) && summary.points > 0,
 				seriesPicks: sortedSeries.map((series) => {
 					const seriesResult = results[series.letter];
-					const pick = seriesResult.pick;
+					const pick = seriesResult?.pick || {};
 					const team = teams[pick.team];
+					const topIsTbd = !series.topSeed || series.topSeed === 'undefined' || series.topSeed.toUpperCase() === 'TBD';
+					const botIsTbd = !series.bottomSeed || series.bottomSeed === 'undefined' || series.bottomSeed.toUpperCase() === 'TBD';
+					const isTBD = !pick.team && (topIsTbd || botIsTbd);
 					return {
 						teamShort: team?.short,
 						teamLogo: team?.logo,
 						teamName: team?.name,
-						games: pick.games,
-						teamStatus: seriesResult.teamStatus.toLowerCase(),
-						gamesStatus: seriesResult.gamesStatus.toLowerCase(),
+						games: pick.games || (isTBD ? '-' : ''),
+						isTBD: isTBD,
+						teamStatus: seriesResult?.teamStatus?.toLowerCase() || 'unknown',
+						gamesStatus: seriesResult?.gamesStatus?.toLowerCase() || 'unknown',
 					};
 				}),
 				points: summary.points,

@@ -6,6 +6,7 @@ import {
 	YearlySummary,
 	SCORING,
 	ALL_SERIES,
+	WINNER_MAP,
 	TiebreakInfo,
 	Team,
 	Series,
@@ -171,6 +172,16 @@ export async function loadAndProcessCsvs(year, dataPath = `./data/archive/${year
 	}
 
 	const seriesRepo = new NhlSeriesRepository(api.getSeriesList());
+
+	// Populate possible seeds for unresolved series
+	for (const series of api.getSeriesList()) {
+		const parents = WINNER_MAP[series.letter];
+		if (parents) {
+			series.possibleTopSeeds = api.getPossibleWinners(parents[0]);
+			series.possibleBottomSeeds = api.getPossibleWinners(parents[1]);
+		}
+	}
+
 	const teamRepo = new NhlTeamRepository(api.getTeams());
 
 	const picksImporter = new PicksImporter(seriesRepo, teamRepo);

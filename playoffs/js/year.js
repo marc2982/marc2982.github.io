@@ -137,7 +137,7 @@ export function renderRound(teams, round, table) {
                                     ${
 										pick.teamShort
 											? `<img src="${pick.teamLogo}" alt="${pick.teamName}" />`
-											: '&nbsp;'
+											: (pick.isTBD ? '<span style="color:#999;font-weight:bold;font-size:0.8rem;margin-top:10px;display:inline-block;">TBD</span>' : '&nbsp;')
 									}
                                 </div>
                                 <div class="games ${pick.gamesStatus}">${pick.games}</div>
