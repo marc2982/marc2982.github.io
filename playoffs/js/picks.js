@@ -61,16 +61,36 @@ async function init() {
 				if (rIdx > maxRoundIdx) maxRoundIdx = rIdx;
 			});
 
-			const targetRoundLetters = ALL_SERIES[maxRoundIdx];
-			activeRound = maxRoundIdx + 1;
-			const targetRoundSeries = activeSeries.filter((s) => seriesToRound[s.letter] === maxRoundIdx);
+			let targetRoundIdx = maxRoundIdx;
 
-			// Fetch schedules for active series in this round + the lead series for unlocking logic
-			const leadSeriesLetter = targetRoundLetters[0];
-			const lettersToFetch = [...new Set([...targetRoundSeries.map((s) => s.letter), leadSeriesLetter])];
-			await apiHandler.fetchSchedules(lettersToFetch);
+			const lettersToFetch = new Set();
+			
+			// Always add ALL series in the current max round
+			if (maxRoundIdx >= 0) {
+				ALL_SERIES[maxRoundIdx].forEach(l => lettersToFetch.add(l));
+			}
 
-			renderMatchups(seriesList, teams, maxRoundIdx);
+			// Add ALL series in the next round (for overlap detection)
+			if (maxRoundIdx + 1 < ALL_SERIES.length) {
+				ALL_SERIES[maxRoundIdx + 1].forEach(l => lettersToFetch.add(l));
+			}
+
+			await apiHandler.fetchSchedules([...lettersToFetch]);
+
+			// Now check if the NEXT round is actually open (overlapping)
+			if (maxRoundIdx + 1 < ALL_SERIES.length) {
+				const nextRoundLetters = ALL_SERIES[maxRoundIdx + 1];
+				const nextRoundSeries = seriesList.filter(s => nextRoundLetters.includes(s.letter));
+				
+				// Find the true chronological lead series of the next round
+				const nextRoundOpenSeries = nextRoundSeries.filter(s => s.startTimeUTC && Series.isRoundOpen(s.startTimeUTC));
+				if (nextRoundOpenSeries.length > 0) {
+					targetRoundIdx = maxRoundIdx + 1;
+				}
+			}
+
+			activeRound = targetRoundIdx + 1;
+			renderMatchups(seriesList, teams, targetRoundIdx);
 		} else {
 			// Bracket not set yet
 			$('#matchups-container').html(getNotOpenHtml());
@@ -123,16 +143,26 @@ function renderMatchups(seriesList, teamsObjects, targetRoundIdx) {
 
 	const targetSeries = seriesList.filter((s) => seriesToRound[s.letter] === targetRoundIdx);
 
-	// 1. Check if Round is Open (3 days before Lead Series)
-	const leadSeriesLetter = ALL_SERIES[targetRoundIdx][0];
-	const leadSeries = seriesList.find((s) => s.letter === leadSeriesLetter);
+	// 1. Check if Round is Open (3 days before chronological Lead Series)
+	let chronologicalLeadSeries = null;
+	let earliestTime = Infinity;
+
+	targetSeries.forEach(s => {
+		if (s.startTimeUTC) {
+			const t = new Date(s.startTimeUTC).getTime();
+			if (t < earliestTime) {
+				earliestTime = t;
+				chronologicalLeadSeries = s;
+			}
+		}
+	});
 
 	// Strictly require startTimeUTC. If missing, it's either TBD or a projection (not open yet).
-	const isRoundOpen = !!(leadSeries && leadSeries.startTimeUTC && Series.isRoundOpen(leadSeries.startTimeUTC));
+	const isRoundOpen = !!(chronologicalLeadSeries && Series.isRoundOpen(chronologicalLeadSeries.startTimeUTC));
 
 	if (!isRoundOpen) {
-		if (leadSeries && leadSeries.startTimeUTC) {
-			const unlockDate = new Date(new Date(leadSeries.startTimeUTC).getTime() - 3 * 24 * 60 * 60 * 1000);
+		if (chronologicalLeadSeries && chronologicalLeadSeries.startTimeUTC) {
+			const unlockDate = new Date(new Date(chronologicalLeadSeries.startTimeUTC).getTime() - 3 * 24 * 60 * 60 * 1000);
 			const monthStr = unlockDate.toLocaleString('default', { month: 'short' });
 			const dayStr = String(unlockDate.getDate()).padStart(2, '0');
 			let hr = unlockDate.getHours();
