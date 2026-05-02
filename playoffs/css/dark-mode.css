@@ -6,7 +6,7 @@ html.dark-mode body {
     color: #e6e6e6;
 }
 
-html.h1 {
+html.dark-mode h1 {
     color: white;
 }
 
