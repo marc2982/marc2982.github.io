@@ -24,7 +24,7 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "3-2",
+    "record": "3-3",
     "seriesWins": 3,
     "divisionAbbrev": "A",
     "seed": 3,
@@ -48,8 +48,8 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "2-3",
-    "seriesWins": 2,
+    "record": "3-3",
+    "seriesWins": 3,
     "divisionAbbrev": "A",
     "seed": 2,
     "logo": "https://assets.nhle.com/logos/nhl/svg/TBL_light.svg",
@@ -600,7 +600,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "America/Montreal",
-      "gameState": "LIVE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -652,7 +652,7 @@
           "fr": "de Tampa Bay"
         },
         "abbrev": "TBL",
-        "score": 0
+        "score": 1
       },
       "homeTeam": {
         "id": 8,
@@ -671,13 +671,17 @@
       },
       "gameCenterLink": "/gamecenter/tbl-vs-mtl/2026/05/01/2025030126",
       "periodDescriptor": {
-        "number": 2,
-        "periodType": "REG",
+        "number": 4,
+        "periodType": "OT",
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
-        "topSeedWins": 2,
+        "topSeedWins": 3,
         "bottomSeedWins": 3
+      },
+      "gameOutcome": {
+        "lastPeriodType": "OT",
+        "otPeriods": 1
       }
     },
     {
@@ -685,7 +689,7 @@
       "season": 20252026,
       "gameType": 3,
       "gameNumber": 7,
-      "ifNecessary": true,
+      "ifNecessary": false,
       "venue": {
         "default": "Benchmark International Arena"
       },

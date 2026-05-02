@@ -26,22 +26,27 @@
     "darkLogo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-dark.svg"
   },
   "topSeedTeam": {
-    "id": -1,
+    "id": 7,
     "name": {
-      "default": "TBD"
+      "default": "Sabres"
     },
-    "abbrev": "TBD",
+    "abbrev": "BUF",
     "placeName": {
-      "default": "TBD"
+      "default": "Buffalo"
     },
     "placeNameWithPreposition": {
-      "default": "TBD"
+      "default": "Buffalo",
+      "fr": "de Buffalo"
     },
-    "record": "0-0",
+    "conference": {
+      "name": "Eastern",
+      "abbrev": "E"
+    },
+    "record": "4-2",
     "seriesWins": 0,
     "seed": 1,
-    "logo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-light.svg",
-    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-dark.svg"
+    "logo": "https://assets.nhle.com/logos/nhl/svg/BUF_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/BUF_dark.svg"
   },
   "games": []
 }

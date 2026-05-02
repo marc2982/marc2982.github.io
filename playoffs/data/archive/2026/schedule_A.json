@@ -24,7 +24,7 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "2-3",
+    "record": "2-4",
     "seriesWins": 2,
     "divisionAbbrev": "A",
     "seed": 4,
@@ -48,8 +48,8 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "3-2",
-    "seriesWins": 3,
+    "record": "4-2",
+    "seriesWins": 4,
     "divisionAbbrev": "A",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/BUF_light.svg",
@@ -619,7 +619,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
-      "gameState": "LIVE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -671,7 +671,7 @@
           "fr": "de Buffalo"
         },
         "abbrev": "BUF",
-        "score": 2
+        "score": 4
       },
       "homeTeam": {
         "id": 6,
@@ -686,66 +686,21 @@
           "fr": "de Boston"
         },
         "abbrev": "BOS",
-        "score": 0
+        "score": 1
       },
       "gameCenterLink": "/gamecenter/buf-vs-bos/2026/05/01/2025030116",
       "periodDescriptor": {
-        "number": 1,
+        "number": 3,
         "periodType": "REG",
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
-        "topSeedWins": 3,
+        "topSeedWins": 4,
         "bottomSeedWins": 2
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
       }
-    },
-    {
-      "id": 2025030117,
-      "season": 20252026,
-      "gameType": 3,
-      "gameNumber": 7,
-      "ifNecessary": true,
-      "venue": {
-        "default": "KeyBank Center"
-      },
-      "neutralSite": false,
-      "startTimeUTC": "2026-05-03T16:00:00Z",
-      "easternUTCOffset": "-04:00",
-      "venueUTCOffset": "-04:00",
-      "venueTimezone": "America/New_York",
-      "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
-      "awayTeam": {
-        "id": 6,
-        "commonName": {
-          "default": "Bruins"
-        },
-        "placeName": {
-          "default": "Boston"
-        },
-        "placeNameWithPreposition": {
-          "default": "Boston",
-          "fr": "de Boston"
-        },
-        "abbrev": "BOS"
-      },
-      "homeTeam": {
-        "id": 7,
-        "commonName": {
-          "default": "Sabres"
-        },
-        "placeName": {
-          "default": "Buffalo"
-        },
-        "placeNameWithPreposition": {
-          "default": "Buffalo",
-          "fr": "de Buffalo"
-        },
-        "abbrev": "BUF"
-      },
-      "gameCenterLink": "/gamecenter/bos-vs-buf/2026/05/03/2025030117",
-      "ticketsLink": "https://www.nhl.com/sabres/tickets/"
     }
   ],
   "fullCoverageUrl": {
