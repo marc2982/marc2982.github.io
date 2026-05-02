@@ -309,10 +309,12 @@
       "playoffRound": 1,
       "topSeedRank": 1,
       "topSeedRankAbbrev": "D1",
-      "topSeedWins": 3,
+      "topSeedWins": 4,
       "bottomSeedRank": 4,
       "bottomSeedRankAbbrev": "WC1",
       "bottomSeedWins": 2,
+      "winningTeamId": 54,
+      "losingTeamId": 68,
       "topSeedTeam": {
         "id": 54,
         "abbrev": "VGK",
@@ -537,7 +539,7 @@
       }
     },
     {
-      "seriesUrl": "/schedule/playoff-series/2026/series-l/ducks-vs-tbd",
+      "seriesUrl": "/schedule/playoff-series/2026/series-l/ducks-vs-goldenknights",
       "seriesTitle": "2nd Round",
       "seriesAbbrev": "R2",
       "seriesLetter": "L",
@@ -549,19 +551,21 @@
       "bottomSeedRankAbbrev": "D3",
       "bottomSeedWins": 0,
       "topSeedTeam": {
-        "id": -1,
-        "abbrev": "TBD",
+        "id": 54,
+        "abbrev": "VGK",
         "name": {
-          "default": "TBD"
+          "default": "Vegas Golden Knights",
+          "fr": "Golden Knights de Vegas"
         },
         "commonName": {
-          "default": "TBD"
+          "default": "Golden Knights"
         },
         "placeNameWithPreposition": {
-          "default": "TBD"
+          "default": "Vegas",
+          "fr": "de Vegas"
         },
-        "logo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-light.svg",
-        "darkLogo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-dark.svg"
+        "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
+        "darkLogo": "https://assets.nhle.com/logos/nhl/svg/VGK_dark.svg"
       },
       "bottomSeedTeam": {
         "id": 24,

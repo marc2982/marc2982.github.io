@@ -6,7 +6,7 @@
   "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/2026-playoffs-logo-en-rd1-2.png",
   "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/2026-playoffs-3602x266-fr.png",
   "neededToWin": 4,
-  "length": 0,
+  "length": 7,
   "bottomSeedTeam": {
     "id": 30,
     "name": {
@@ -26,6 +26,7 @@
     },
     "record": "4-2",
     "seriesWins": 0,
+    "divisionAbbrev": "C",
     "seed": 3,
     "logo": "https://assets.nhle.com/logos/nhl/svg/MIN_light.svg",
     "darkLogo": "https://assets.nhle.com/logos/nhl/svg/MIN_dark.svg"
@@ -49,11 +50,345 @@
     },
     "record": "4-0",
     "seriesWins": 0,
+    "divisionAbbrev": "C",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg",
     "darkLogo": "https://assets.nhle.com/logos/nhl/svg/COL_dark.svg"
   },
-  "games": [],
+  "games": [
+    {
+      "id": 2025030231,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 1,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Ball Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-05-04T01:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-06:00",
+      "venueTimezone": "America/Denver",
+      "gameState": "FUT",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        }
+      ],
+      "awayTeam": {
+        "id": 30,
+        "commonName": {
+          "default": "Wild"
+        },
+        "placeName": {
+          "default": "Minnesota"
+        },
+        "placeNameWithPreposition": {
+          "default": "Minnesota",
+          "fr": "du Minnesota"
+        },
+        "abbrev": "MIN"
+      },
+      "homeTeam": {
+        "id": 21,
+        "commonName": {
+          "default": "Avalanche"
+        },
+        "placeName": {
+          "default": "Colorado"
+        },
+        "placeNameWithPreposition": {
+          "default": "Colorado",
+          "fr": "du Colorado"
+        },
+        "abbrev": "COL"
+      },
+      "gameCenterLink": "/gamecenter/min-vs-col/2026/05/03/2025030231",
+      "ticketsLink": "https://www.nhl.com/avalanche/tickets/"
+    },
+    {
+      "id": 2025030232,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 2,
+      "ifNecessary": false,
+      "neutralSite": false,
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": 30,
+        "commonName": {
+          "default": "Wild"
+        },
+        "placeName": {
+          "default": "Minnesota"
+        },
+        "placeNameWithPreposition": {
+          "default": "Minnesota",
+          "fr": "du Minnesota"
+        },
+        "abbrev": "MIN"
+      },
+      "homeTeam": {
+        "id": 21,
+        "commonName": {
+          "default": "Avalanche"
+        },
+        "placeName": {
+          "default": "Colorado"
+        },
+        "placeNameWithPreposition": {
+          "default": "Colorado",
+          "fr": "du Colorado"
+        },
+        "abbrev": "COL"
+      }
+    },
+    {
+      "id": 2025030233,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 3,
+      "ifNecessary": false,
+      "neutralSite": false,
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": 21,
+        "commonName": {
+          "default": "Avalanche"
+        },
+        "placeName": {
+          "default": "Colorado"
+        },
+        "placeNameWithPreposition": {
+          "default": "Colorado",
+          "fr": "du Colorado"
+        },
+        "abbrev": "COL"
+      },
+      "homeTeam": {
+        "id": 30,
+        "commonName": {
+          "default": "Wild"
+        },
+        "placeName": {
+          "default": "Minnesota"
+        },
+        "placeNameWithPreposition": {
+          "default": "Minnesota",
+          "fr": "du Minnesota"
+        },
+        "abbrev": "MIN"
+      }
+    },
+    {
+      "id": 2025030234,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 4,
+      "ifNecessary": false,
+      "neutralSite": false,
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": 21,
+        "commonName": {
+          "default": "Avalanche"
+        },
+        "placeName": {
+          "default": "Colorado"
+        },
+        "placeNameWithPreposition": {
+          "default": "Colorado",
+          "fr": "du Colorado"
+        },
+        "abbrev": "COL"
+      },
+      "homeTeam": {
+        "id": 30,
+        "commonName": {
+          "default": "Wild"
+        },
+        "placeName": {
+          "default": "Minnesota"
+        },
+        "placeNameWithPreposition": {
+          "default": "Minnesota",
+          "fr": "du Minnesota"
+        },
+        "abbrev": "MIN"
+      }
+    },
+    {
+      "id": 2025030235,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 5,
+      "ifNecessary": true,
+      "neutralSite": false,
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": 30,
+        "commonName": {
+          "default": "Wild"
+        },
+        "placeName": {
+          "default": "Minnesota"
+        },
+        "placeNameWithPreposition": {
+          "default": "Minnesota",
+          "fr": "du Minnesota"
+        },
+        "abbrev": "MIN"
+      },
+      "homeTeam": {
+        "id": 21,
+        "commonName": {
+          "default": "Avalanche"
+        },
+        "placeName": {
+          "default": "Colorado"
+        },
+        "placeNameWithPreposition": {
+          "default": "Colorado",
+          "fr": "du Colorado"
+        },
+        "abbrev": "COL"
+      }
+    },
+    {
+      "id": 2025030236,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 6,
+      "ifNecessary": true,
+      "neutralSite": false,
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": 21,
+        "commonName": {
+          "default": "Avalanche"
+        },
+        "placeName": {
+          "default": "Colorado"
+        },
+        "placeNameWithPreposition": {
+          "default": "Colorado",
+          "fr": "du Colorado"
+        },
+        "abbrev": "COL"
+      },
+      "homeTeam": {
+        "id": 30,
+        "commonName": {
+          "default": "Wild"
+        },
+        "placeName": {
+          "default": "Minnesota"
+        },
+        "placeNameWithPreposition": {
+          "default": "Minnesota",
+          "fr": "du Minnesota"
+        },
+        "abbrev": "MIN"
+      }
+    },
+    {
+      "id": 2025030237,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 7,
+      "ifNecessary": true,
+      "neutralSite": false,
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": 30,
+        "commonName": {
+          "default": "Wild"
+        },
+        "placeName": {
+          "default": "Minnesota"
+        },
+        "placeNameWithPreposition": {
+          "default": "Minnesota",
+          "fr": "du Minnesota"
+        },
+        "abbrev": "MIN"
+      },
+      "homeTeam": {
+        "id": 21,
+        "commonName": {
+          "default": "Avalanche"
+        },
+        "placeName": {
+          "default": "Colorado"
+        },
+        "placeNameWithPreposition": {
+          "default": "Colorado",
+          "fr": "du Colorado"
+        },
+        "abbrev": "COL"
+      }
+    }
+  ],
   "fullCoverageUrl": {
     "cs": "https://www.nhl.com/cs/playoffs/2026/series-k-coverage",
     "de": "https://www.nhl.com/de/playoffs/2026/series-k-coverage",
