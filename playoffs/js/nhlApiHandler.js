@@ -158,8 +158,10 @@ export class NhlApiHandler {
 		if (
 			series.topSeed &&
 			series.topSeed !== 'undefined' &&
+			series.topSeed.toUpperCase() !== 'TBD' &&
 			series.bottomSeed &&
-			series.bottomSeed !== 'undefined'
+			series.bottomSeed !== 'undefined' &&
+			series.bottomSeed.toUpperCase() !== 'TBD'
 		) {
 			return [series.topSeed, series.bottomSeed];
 		}

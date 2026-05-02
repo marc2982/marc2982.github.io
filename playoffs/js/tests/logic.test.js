@@ -75,6 +75,17 @@ export async function runTests() {
 		assert(Series.isRoundOpen(undefined) === false, 'Should be closed');
 	});
 
+	test('Round Unlocking', 'getChronologicalLeadSeries finds the earliest starting series regardless of alphabetical order', () => {
+		const seriesList = [
+			Series.create({ letter: 'I', startTimeUTC: '2025-05-10T23:00:00Z' }),
+			Series.create({ letter: 'J', startTimeUTC: '2025-05-09T23:00:00Z' }), // Starts earlier!
+			Series.create({ letter: 'K', startTimeUTC: undefined })
+		];
+		const lead = Series.getChronologicalLeadSeries(seriesList);
+		assert(lead !== null, 'Should find a lead series');
+		assert(lead.letter === 'J', 'Should identify J as the lead series because it starts earlier');
+	});
+
 	// 3. Contingency Logic Tests (NhlApiHandler.getPossibleWinners)
 	test('Contingency Logic', 'getPossibleWinners returns both participants for active series', () => {
 		const handler = new NhlApiHandler(2025, null);
@@ -114,6 +125,18 @@ export async function runTests() {
 			['FLA', 'TBL', 'BOS', 'TOR'].every((t) => winners.includes(t)),
 			'Missing expected team',
 		);
+	});
+
+	test('Contingency Logic', 'getPossibleWinners treats literal TBD strings as unresolved seeds', () => {
+		const handler = new NhlApiHandler(2025, null);
+		handler.series = [
+			Series.create({ letter: 'A', topSeed: 'FLA', bottomSeed: 'TBL' }),
+			Series.create({ letter: 'B', topSeed: 'BOS', bottomSeed: 'TOR' }),
+			Series.create({ letter: 'I', topSeed: 'TBD', bottomSeed: 'TBD' }),
+		];
+		const winners = handler.getPossibleWinners('I');
+		assert(winners.length === 4, 'Should recurse and return 4 possible winners, not literal TBD');
+		assert(!winners.includes('TBD'), 'Should not include literal TBD in possible winners');
 	});
 
 	test('Contingency Logic', 'getPossibleWinners recurses multiple levels (Round 3)', () => {

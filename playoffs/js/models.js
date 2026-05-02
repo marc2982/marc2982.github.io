@@ -126,6 +126,21 @@ export class Series extends BaseModel {
 		const unlockTime = new Date(leadTime.getTime() - 3 * 24 * 60 * 60 * 1000); // 3 days before
 		return now >= unlockTime;
 	}
+	static getChronologicalLeadSeries(seriesList) {
+		let chronologicalLeadSeries = null;
+		let earliestTime = Infinity;
+
+		seriesList.forEach(s => {
+			if (s.startTimeUTC) {
+				const t = new Date(s.startTimeUTC).getTime();
+				if (t < earliestTime) {
+					earliestTime = t;
+					chronologicalLeadSeries = s;
+				}
+			}
+		});
+		return chronologicalLeadSeries;
+	}
 }
 
 export class Team extends BaseModel {}

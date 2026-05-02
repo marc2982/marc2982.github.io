@@ -46,7 +46,7 @@ async function init() {
 
 		// Determine target round
 		const activeSeries = seriesList.filter(
-			(s) => s.topSeed && s.topSeed !== 'undefined' && s.bottomSeed && s.bottomSeed !== 'undefined',
+			(s) => s.topSeed && s.topSeed !== 'undefined' && s.topSeed.toUpperCase() !== 'TBD' && s.bottomSeed && s.bottomSeed !== 'undefined' && s.bottomSeed.toUpperCase() !== 'TBD',
 		);
 
 		if (activeSeries.length > 0) {
@@ -90,7 +90,7 @@ async function init() {
 			}
 
 			activeRound = targetRoundIdx + 1;
-			renderMatchups(seriesList, teams, targetRoundIdx);
+			renderMatchups(seriesList, teams, targetRoundIdx, apiHandler);
 		} else {
 			// Bracket not set yet
 			$('#matchups-container').html(getNotOpenHtml());
@@ -127,7 +127,7 @@ function getNotOpenHtml(unlockDateStr) {
 	}
 }
 
-function renderMatchups(seriesList, teamsObjects, targetRoundIdx) {
+function renderMatchups(seriesList, teamsObjects, targetRoundIdx, apiHandler) {
 	const container = $('#matchups-container');
 	container.empty();
 
@@ -144,18 +144,7 @@ function renderMatchups(seriesList, teamsObjects, targetRoundIdx) {
 	const targetSeries = seriesList.filter((s) => seriesToRound[s.letter] === targetRoundIdx);
 
 	// 1. Check if Round is Open (3 days before chronological Lead Series)
-	let chronologicalLeadSeries = null;
-	let earliestTime = Infinity;
-
-	targetSeries.forEach(s => {
-		if (s.startTimeUTC) {
-			const t = new Date(s.startTimeUTC).getTime();
-			if (t < earliestTime) {
-				earliestTime = t;
-				chronologicalLeadSeries = s;
-			}
-		}
-	});
+	const chronologicalLeadSeries = Series.getChronologicalLeadSeries(targetSeries);
 
 	// Strictly require startTimeUTC. If missing, it's either TBD or a projection (not open yet).
 	const isRoundOpen = !!(chronologicalLeadSeries && Series.isRoundOpen(chronologicalLeadSeries.startTimeUTC));
@@ -183,7 +172,7 @@ function renderMatchups(seriesList, teamsObjects, targetRoundIdx) {
 	let allLocked = true;
 	let hasContingency = false;
 	targetSeries.forEach((s) => {
-		const isParticipantSet = s.topSeed && s.topSeed !== 'undefined' && s.bottomSeed && s.bottomSeed !== 'undefined';
+		const isParticipantSet = s.topSeed && s.topSeed !== 'undefined' && s.topSeed.toUpperCase() !== 'TBD' && s.bottomSeed && s.bottomSeed !== 'undefined' && s.bottomSeed.toUpperCase() !== 'TBD';
 
 		if (isParticipantSet) {
 			const topTeam = teamsObjects[s.topSeed] || { logo: '', rank: 'Top' };

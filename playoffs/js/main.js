@@ -163,7 +163,7 @@ export async function loadAndProcessCsvs(year, dataPath = `./data/archive/${year
 	// Fetch schedules for all known series so startTimeUTC is available
 	const allLetters = ALL_SERIES.flat();
 	const knownLetters = api.getSeriesList()
-		.filter(s => s.topSeed && s.topSeed !== 'undefined')
+		.filter(s => s.topSeed && s.topSeed !== 'undefined' && s.topSeed.toUpperCase() !== 'TBD')
 		.map(s => s.letter);
 	const lettersToFetch = allLetters.filter(l => knownLetters.includes(l));
 	if (lettersToFetch.length > 0) {
