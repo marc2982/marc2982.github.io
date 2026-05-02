@@ -110,7 +110,12 @@ export class Series extends BaseModel {
 			}
 			return `FINAL - ${this.awayTeamAbbrev} ${this.awayTeamScore}, ${this.homeTeamAbbrev} ${this.homeTeamScore}${periodStr}`;
 		}
-		if (!this.nextGameStartTimeUTC) return null;
+		if (!this.nextGameStartTimeUTC) {
+			if (this.totalGames() === 0 && !this.isOver()) {
+				return 'G1: TBD';
+			}
+			return null;
+		}
 		const date = new Date(this.nextGameStartTimeUTC);
 		const options = { weekday: 'short', hour: 'numeric', minute: '2-digit' };
 		const dateStr = date.toLocaleString('en-US', options);
