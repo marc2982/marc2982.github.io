@@ -764,7 +764,7 @@
           "fr": "de Montréal"
         },
         "abbrev": "MTL",
-        "score": 0
+        "score": 1
       },
       "homeTeam": {
         "id": 14,
@@ -783,7 +783,7 @@
       },
       "gameCenterLink": "/gamecenter/mtl-vs-tbl/2026/05/03/2025030127",
       "periodDescriptor": {
-        "number": 1,
+        "number": 2,
         "periodType": "REG",
         "maxRegulationPeriods": 3
       },
