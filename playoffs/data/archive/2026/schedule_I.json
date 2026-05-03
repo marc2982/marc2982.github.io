@@ -65,7 +65,43 @@
       "venueTimezone": "America/New_York",
       "gameState": "FUT",
       "gameScheduleState": "OK",
-      "tvBroadcasts": [],
+      "tvBroadcasts": [
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 81,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC (HD)",
+          "sequenceNumber": 102
+        }
+      ],
       "awayTeam": {
         "id": -1,
         "commonName": {
@@ -110,7 +146,43 @@
       "venueTimezone": "America/New_York",
       "gameState": "FUT",
       "gameScheduleState": "OK",
-      "tvBroadcasts": [],
+      "tvBroadcasts": [
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        },
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        }
+      ],
       "awayTeam": {
         "id": -1,
         "commonName": {
@@ -148,7 +220,15 @@
       "neutralSite": false,
       "gameState": "FUT",
       "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "tvBroadcasts": [
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        }
+      ],
       "awayTeam": {
         "id": 7,
         "commonName": {
