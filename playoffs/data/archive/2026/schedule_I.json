@@ -6,7 +6,7 @@
   "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/2026-playoffs-1995x266-en.png",
   "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/2026-playoffs-3602x266-fr.png",
   "neededToWin": 4,
-  "length": 0,
+  "length": 7,
   "bottomSeedTeam": {
     "id": -1,
     "name": {
@@ -48,5 +48,300 @@
     "logo": "https://assets.nhle.com/logos/nhl/svg/BUF_light.svg",
     "darkLogo": "https://assets.nhle.com/logos/nhl/svg/BUF_dark.svg"
   },
-  "games": []
+  "games": [
+    {
+      "id": 2025030211,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 1,
+      "ifNecessary": false,
+      "venue": {
+        "default": "KeyBank Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-05-06T23:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "America/New_York",
+      "gameState": "FUT",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": -1,
+        "commonName": {
+          "default": "TBD"
+        },
+        "placeName": {
+          "default": "TBD"
+        },
+        "placeNameWithPreposition": {
+          "default": "TBD"
+        },
+        "abbrev": "TBD"
+      },
+      "homeTeam": {
+        "id": 7,
+        "commonName": {
+          "default": "Sabres"
+        },
+        "placeName": {
+          "default": "Buffalo"
+        },
+        "placeNameWithPreposition": {
+          "default": "Buffalo",
+          "fr": "de Buffalo"
+        },
+        "abbrev": "BUF"
+      }
+    },
+    {
+      "id": 2025030212,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 2,
+      "ifNecessary": false,
+      "venue": {
+        "default": "KeyBank Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-05-08T23:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "America/New_York",
+      "gameState": "FUT",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": -1,
+        "commonName": {
+          "default": "TBD"
+        },
+        "placeName": {
+          "default": "TBD"
+        },
+        "placeNameWithPreposition": {
+          "default": "TBD"
+        },
+        "abbrev": "TBD"
+      },
+      "homeTeam": {
+        "id": 7,
+        "commonName": {
+          "default": "Sabres"
+        },
+        "placeName": {
+          "default": "Buffalo"
+        },
+        "placeNameWithPreposition": {
+          "default": "Buffalo",
+          "fr": "de Buffalo"
+        },
+        "abbrev": "BUF"
+      }
+    },
+    {
+      "id": 2025030213,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 3,
+      "ifNecessary": false,
+      "neutralSite": false,
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": 7,
+        "commonName": {
+          "default": "Sabres"
+        },
+        "placeName": {
+          "default": "Buffalo"
+        },
+        "placeNameWithPreposition": {
+          "default": "Buffalo",
+          "fr": "de Buffalo"
+        },
+        "abbrev": "BUF"
+      },
+      "homeTeam": {
+        "id": -1,
+        "commonName": {
+          "default": "TBD"
+        },
+        "placeName": {
+          "default": "TBD"
+        },
+        "placeNameWithPreposition": {
+          "default": "TBD"
+        },
+        "abbrev": "TBD"
+      }
+    },
+    {
+      "id": 2025030214,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 4,
+      "ifNecessary": false,
+      "neutralSite": false,
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": 7,
+        "commonName": {
+          "default": "Sabres"
+        },
+        "placeName": {
+          "default": "Buffalo"
+        },
+        "placeNameWithPreposition": {
+          "default": "Buffalo",
+          "fr": "de Buffalo"
+        },
+        "abbrev": "BUF"
+      },
+      "homeTeam": {
+        "id": -1,
+        "commonName": {
+          "default": "TBD"
+        },
+        "placeName": {
+          "default": "TBD"
+        },
+        "placeNameWithPreposition": {
+          "default": "TBD"
+        },
+        "abbrev": "TBD"
+      }
+    },
+    {
+      "id": 2025030215,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 5,
+      "ifNecessary": true,
+      "venue": {
+        "default": "KeyBank Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-05-14T04:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "America/New_York",
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": -1,
+        "commonName": {
+          "default": "TBD"
+        },
+        "placeName": {
+          "default": "TBD"
+        },
+        "placeNameWithPreposition": {
+          "default": "TBD"
+        },
+        "abbrev": "TBD"
+      },
+      "homeTeam": {
+        "id": 7,
+        "commonName": {
+          "default": "Sabres"
+        },
+        "placeName": {
+          "default": "Buffalo"
+        },
+        "placeNameWithPreposition": {
+          "default": "Buffalo",
+          "fr": "de Buffalo"
+        },
+        "abbrev": "BUF"
+      }
+    },
+    {
+      "id": 2025030216,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 6,
+      "ifNecessary": true,
+      "neutralSite": false,
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": 7,
+        "commonName": {
+          "default": "Sabres"
+        },
+        "placeName": {
+          "default": "Buffalo"
+        },
+        "placeNameWithPreposition": {
+          "default": "Buffalo",
+          "fr": "de Buffalo"
+        },
+        "abbrev": "BUF"
+      },
+      "homeTeam": {
+        "id": -1,
+        "commonName": {
+          "default": "TBD"
+        },
+        "placeName": {
+          "default": "TBD"
+        },
+        "placeNameWithPreposition": {
+          "default": "TBD"
+        },
+        "abbrev": "TBD"
+      }
+    },
+    {
+      "id": 2025030217,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 7,
+      "ifNecessary": true,
+      "venue": {
+        "default": "KeyBank Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-05-18T04:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "America/New_York",
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": -1,
+        "commonName": {
+          "default": "TBD"
+        },
+        "placeName": {
+          "default": "TBD"
+        },
+        "placeNameWithPreposition": {
+          "default": "TBD"
+        },
+        "abbrev": "TBD"
+      },
+      "homeTeam": {
+        "id": 7,
+        "commonName": {
+          "default": "Sabres"
+        },
+        "placeName": {
+          "default": "Buffalo"
+        },
+        "placeNameWithPreposition": {
+          "default": "Buffalo",
+          "fr": "de Buffalo"
+        },
+        "abbrev": "BUF"
+      }
+    }
+  ]
 }

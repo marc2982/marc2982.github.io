@@ -160,10 +160,46 @@
       "gameType": 3,
       "gameNumber": 2,
       "ifNecessary": false,
+      "venue": {
+        "default": "Ball Arena"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-05-06T00:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-06:00",
+      "venueTimezone": "America/Denver",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        }
+      ],
       "awayTeam": {
         "id": 30,
         "commonName": {
@@ -191,7 +227,9 @@
           "fr": "du Colorado"
         },
         "abbrev": "COL"
-      }
+      },
+      "gameCenterLink": "/gamecenter/min-vs-col/2026/05/05/2025030232",
+      "ticketsLink": ""
     },
     {
       "id": 2025030233,
@@ -199,10 +237,67 @@
       "gameType": 3,
       "gameNumber": 3,
       "ifNecessary": false,
+      "venue": {
+        "default": "Grand Casino Arena"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-05-10T01:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-05:00",
+      "venueTimezone": "US/Central",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 284,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN1",
+          "sequenceNumber": 113
+        },
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        }
+      ],
       "awayTeam": {
         "id": 21,
         "commonName": {
@@ -230,7 +325,9 @@
           "fr": "du Minnesota"
         },
         "abbrev": "MIN"
-      }
+      },
+      "gameCenterLink": "/gamecenter/col-vs-min/2026/05/09/2025030233",
+      "ticketsLink": "https://www.nhl.com/wild/tickets/"
     },
     {
       "id": 2025030234,
@@ -238,10 +335,25 @@
       "gameType": 3,
       "gameNumber": 4,
       "ifNecessary": false,
+      "venue": {
+        "default": "Grand Casino Arena"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-05-11T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-05:00",
+      "venueTimezone": "US/Central",
       "gameState": "FUT",
       "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "tvBroadcasts": [
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        }
+      ],
       "awayTeam": {
         "id": 21,
         "commonName": {
@@ -269,7 +381,9 @@
           "fr": "du Minnesota"
         },
         "abbrev": "MIN"
-      }
+      },
+      "gameCenterLink": "/gamecenter/col-vs-min/2026/05/11/2025030234",
+      "ticketsLink": "https://www.nhl.com/wild/tickets/"
     },
     {
       "id": 2025030235,
@@ -277,10 +391,39 @@
       "gameType": 3,
       "gameNumber": 5,
       "ifNecessary": true,
+      "venue": {
+        "default": "Ball Arena"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-05-13T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-06:00",
+      "venueTimezone": "America/Denver",
       "gameState": "FUT",
       "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "tvBroadcasts": [
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        }
+      ],
       "awayTeam": {
         "id": 30,
         "commonName": {
@@ -308,7 +451,9 @@
           "fr": "du Colorado"
         },
         "abbrev": "COL"
-      }
+      },
+      "gameCenterLink": "/gamecenter/min-vs-col/2026/05/13/2025030235",
+      "ticketsLink": ""
     },
     {
       "id": 2025030236,
@@ -316,10 +461,25 @@
       "gameType": 3,
       "gameNumber": 6,
       "ifNecessary": true,
+      "venue": {
+        "default": "Grand Casino Arena"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-05-15T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-05:00",
+      "venueTimezone": "US/Central",
       "gameState": "FUT",
       "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "tvBroadcasts": [
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        }
+      ],
       "awayTeam": {
         "id": 21,
         "commonName": {
@@ -347,7 +507,9 @@
           "fr": "du Minnesota"
         },
         "abbrev": "MIN"
-      }
+      },
+      "gameCenterLink": "/gamecenter/col-vs-min/2026/05/15/2025030236",
+      "ticketsLink": "https://www.nhl.com/wild/tickets/"
     },
     {
       "id": 2025030237,
@@ -355,10 +517,39 @@
       "gameType": 3,
       "gameNumber": 7,
       "ifNecessary": true,
+      "venue": {
+        "default": "Ball Arena"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-05-17T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-06:00",
+      "venueTimezone": "America/Denver",
       "gameState": "FUT",
       "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "tvBroadcasts": [
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        }
+      ],
       "awayTeam": {
         "id": 30,
         "commonName": {
@@ -386,7 +577,9 @@
           "fr": "du Colorado"
         },
         "abbrev": "COL"
-      }
+      },
+      "gameCenterLink": "/gamecenter/min-vs-col/2026/05/17/2025030237",
+      "ticketsLink": ""
     }
   ],
   "fullCoverageUrl": {

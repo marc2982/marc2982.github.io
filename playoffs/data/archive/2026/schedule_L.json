@@ -6,7 +6,7 @@
   "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/2026-playoffs-logo-en-rd1-2.png",
   "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/2026-playoffs-3602x266-fr.png",
   "neededToWin": 4,
-  "length": 0,
+  "length": 7,
   "bottomSeedTeam": {
     "id": 24,
     "name": {
@@ -26,6 +26,7 @@
     },
     "record": "4-2",
     "seriesWins": 0,
+    "divisionAbbrev": "P",
     "seed": 3,
     "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg",
     "darkLogo": "https://assets.nhle.com/logos/nhl/svg/ANA_dark.svg"
@@ -49,11 +50,538 @@
     },
     "record": "4-2",
     "seriesWins": 0,
+    "divisionAbbrev": "P",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
     "darkLogo": "https://assets.nhle.com/logos/nhl/svg/VGK_dark.svg"
   },
-  "games": [],
+  "games": [
+    {
+      "id": 2025030241,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 1,
+      "ifNecessary": false,
+      "venue": {
+        "default": "T-Mobile Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-05-05T01:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-07:00",
+      "venueTimezone": "US/Pacific",
+      "gameState": "FUT",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        }
+      ],
+      "awayTeam": {
+        "id": 24,
+        "commonName": {
+          "default": "Ducks"
+        },
+        "placeName": {
+          "default": "Anaheim"
+        },
+        "placeNameWithPreposition": {
+          "default": "Anaheim",
+          "fr": "d'Anaheim"
+        },
+        "abbrev": "ANA"
+      },
+      "homeTeam": {
+        "id": 54,
+        "commonName": {
+          "default": "Golden Knights"
+        },
+        "placeName": {
+          "default": "Vegas"
+        },
+        "placeNameWithPreposition": {
+          "default": "Vegas",
+          "fr": "de Vegas"
+        },
+        "abbrev": "VGK"
+      },
+      "gameCenterLink": "/gamecenter/ana-vs-vgk/2026/05/04/2025030241",
+      "ticketsLink": ""
+    },
+    {
+      "id": 2025030242,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 2,
+      "ifNecessary": false,
+      "venue": {
+        "default": "T-Mobile Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-05-07T01:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-07:00",
+      "venueTimezone": "US/Pacific",
+      "gameState": "FUT",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        }
+      ],
+      "awayTeam": {
+        "id": 24,
+        "commonName": {
+          "default": "Ducks"
+        },
+        "placeName": {
+          "default": "Anaheim"
+        },
+        "placeNameWithPreposition": {
+          "default": "Anaheim",
+          "fr": "d'Anaheim"
+        },
+        "abbrev": "ANA"
+      },
+      "homeTeam": {
+        "id": 54,
+        "commonName": {
+          "default": "Golden Knights"
+        },
+        "placeName": {
+          "default": "Vegas"
+        },
+        "placeNameWithPreposition": {
+          "default": "Vegas",
+          "fr": "de Vegas"
+        },
+        "abbrev": "VGK"
+      },
+      "gameCenterLink": "/gamecenter/ana-vs-vgk/2026/05/06/2025030242",
+      "ticketsLink": ""
+    },
+    {
+      "id": 2025030243,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 3,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Honda Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-05-09T01:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-07:00",
+      "venueTimezone": "America/Los_Angeles",
+      "gameState": "FUT",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        }
+      ],
+      "awayTeam": {
+        "id": 54,
+        "commonName": {
+          "default": "Golden Knights"
+        },
+        "placeName": {
+          "default": "Vegas"
+        },
+        "placeNameWithPreposition": {
+          "default": "Vegas",
+          "fr": "de Vegas"
+        },
+        "abbrev": "VGK"
+      },
+      "homeTeam": {
+        "id": 24,
+        "commonName": {
+          "default": "Ducks"
+        },
+        "placeName": {
+          "default": "Anaheim"
+        },
+        "placeNameWithPreposition": {
+          "default": "Anaheim",
+          "fr": "d'Anaheim"
+        },
+        "abbrev": "ANA"
+      },
+      "gameCenterLink": "/gamecenter/vgk-vs-ana/2026/05/08/2025030243",
+      "ticketsLink": "https://www.nhl.com/ducks/tickets/"
+    },
+    {
+      "id": 2025030244,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 4,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Honda Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-05-11T01:30:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-07:00",
+      "venueTimezone": "America/Los_Angeles",
+      "gameState": "FUT",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        }
+      ],
+      "awayTeam": {
+        "id": 54,
+        "commonName": {
+          "default": "Golden Knights"
+        },
+        "placeName": {
+          "default": "Vegas"
+        },
+        "placeNameWithPreposition": {
+          "default": "Vegas",
+          "fr": "de Vegas"
+        },
+        "abbrev": "VGK"
+      },
+      "homeTeam": {
+        "id": 24,
+        "commonName": {
+          "default": "Ducks"
+        },
+        "placeName": {
+          "default": "Anaheim"
+        },
+        "placeNameWithPreposition": {
+          "default": "Anaheim",
+          "fr": "d'Anaheim"
+        },
+        "abbrev": "ANA"
+      },
+      "gameCenterLink": "/gamecenter/vgk-vs-ana/2026/05/10/2025030244",
+      "ticketsLink": "https://www.nhl.com/ducks/tickets/"
+    },
+    {
+      "id": 2025030245,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 5,
+      "ifNecessary": true,
+      "venue": {
+        "default": "T-Mobile Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-05-12T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-07:00",
+      "venueTimezone": "US/Pacific",
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        }
+      ],
+      "awayTeam": {
+        "id": 24,
+        "commonName": {
+          "default": "Ducks"
+        },
+        "placeName": {
+          "default": "Anaheim"
+        },
+        "placeNameWithPreposition": {
+          "default": "Anaheim",
+          "fr": "d'Anaheim"
+        },
+        "abbrev": "ANA"
+      },
+      "homeTeam": {
+        "id": 54,
+        "commonName": {
+          "default": "Golden Knights"
+        },
+        "placeName": {
+          "default": "Vegas"
+        },
+        "placeNameWithPreposition": {
+          "default": "Vegas",
+          "fr": "de Vegas"
+        },
+        "abbrev": "VGK"
+      },
+      "gameCenterLink": "/gamecenter/ana-vs-vgk/2026/05/12/2025030245",
+      "ticketsLink": ""
+    },
+    {
+      "id": 2025030246,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 6,
+      "ifNecessary": true,
+      "venue": {
+        "default": "Honda Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-05-14T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-07:00",
+      "venueTimezone": "America/Los_Angeles",
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        }
+      ],
+      "awayTeam": {
+        "id": 54,
+        "commonName": {
+          "default": "Golden Knights"
+        },
+        "placeName": {
+          "default": "Vegas"
+        },
+        "placeNameWithPreposition": {
+          "default": "Vegas",
+          "fr": "de Vegas"
+        },
+        "abbrev": "VGK"
+      },
+      "homeTeam": {
+        "id": 24,
+        "commonName": {
+          "default": "Ducks"
+        },
+        "placeName": {
+          "default": "Anaheim"
+        },
+        "placeNameWithPreposition": {
+          "default": "Anaheim",
+          "fr": "d'Anaheim"
+        },
+        "abbrev": "ANA"
+      },
+      "gameCenterLink": "/gamecenter/vgk-vs-ana/2026/05/14/2025030246",
+      "ticketsLink": "https://www.nhl.com/ducks/tickets/"
+    },
+    {
+      "id": 2025030247,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 7,
+      "ifNecessary": true,
+      "venue": {
+        "default": "T-Mobile Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-05-16T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-07:00",
+      "venueTimezone": "US/Pacific",
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        },
+        {
+          "id": 384,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ABC",
+          "sequenceNumber": 1
+        }
+      ],
+      "awayTeam": {
+        "id": 24,
+        "commonName": {
+          "default": "Ducks"
+        },
+        "placeName": {
+          "default": "Anaheim"
+        },
+        "placeNameWithPreposition": {
+          "default": "Anaheim",
+          "fr": "d'Anaheim"
+        },
+        "abbrev": "ANA"
+      },
+      "homeTeam": {
+        "id": 54,
+        "commonName": {
+          "default": "Golden Knights"
+        },
+        "placeName": {
+          "default": "Vegas"
+        },
+        "placeNameWithPreposition": {
+          "default": "Vegas",
+          "fr": "de Vegas"
+        },
+        "abbrev": "VGK"
+      },
+      "gameCenterLink": "/gamecenter/ana-vs-vgk/2026/05/16/2025030247",
+      "ticketsLink": ""
+    }
+  ],
   "fullCoverageUrl": {
     "cs": "https://www.nhl.com/cs/playoffs/2026/series-l-coverage",
     "de": "https://www.nhl.com/de/playoffs/2026/series-l-coverage",

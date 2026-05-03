@@ -25,7 +25,7 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "4-2",
+    "record": "4-3",
     "seriesWins": 0,
     "divisionAbbrev": "M",
     "seed": 3,
@@ -50,8 +50,8 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "4-0",
-    "seriesWins": 0,
+    "record": "5-0",
+    "seriesWins": 1,
     "divisionAbbrev": "M",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
@@ -72,7 +72,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
-      "gameState": "PRE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -110,7 +110,8 @@
           "default": "Philadelphia",
           "fr": "de Philadelphie"
         },
-        "abbrev": "PHI"
+        "abbrev": "PHI",
+        "score": 0
       },
       "homeTeam": {
         "id": 12,
@@ -125,10 +126,22 @@
           "default": "Carolina",
           "fr": "de la Caroline"
         },
-        "abbrev": "CAR"
+        "abbrev": "CAR",
+        "score": 3
       },
       "gameCenterLink": "/gamecenter/phi-vs-car/2026/05/02/2025030221",
-      "ticketsLink": "https://www.nhl.com/hurricanes/tickets/"
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 1,
+        "bottomSeedWins": 0
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
     },
     {
       "id": 2025030222,
@@ -136,10 +149,46 @@
       "gameType": 3,
       "gameNumber": 2,
       "ifNecessary": false,
+      "venue": {
+        "default": "Lenovo Center"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-05-04T23:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        }
+      ],
       "awayTeam": {
         "id": 4,
         "commonName": {
@@ -169,7 +218,9 @@
           "fr": "de la Caroline"
         },
         "abbrev": "CAR"
-      }
+      },
+      "gameCenterLink": "/gamecenter/phi-vs-car/2026/05/04/2025030222",
+      "ticketsLink": "https://www.nhl.com/hurricanes/tickets/"
     },
     {
       "id": 2025030223,
@@ -177,10 +228,60 @@
       "gameType": 3,
       "gameNumber": 3,
       "ifNecessary": false,
+      "venue": {
+        "default": "Xfinity Mobile Arena"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-05-08T00:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        }
+      ],
       "awayTeam": {
         "id": 12,
         "commonName": {
@@ -210,7 +311,9 @@
           "fr": "de Philadelphie"
         },
         "abbrev": "PHI"
-      }
+      },
+      "gameCenterLink": "/gamecenter/car-vs-phi/2026/05/07/2025030223",
+      "ticketsLink": "https://www.nhl.com/flyers/tickets/"
     },
     {
       "id": 2025030224,
@@ -218,10 +321,60 @@
       "gameType": 3,
       "gameNumber": 4,
       "ifNecessary": false,
+      "venue": {
+        "default": "Xfinity Mobile Arena"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-05-09T22:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        }
+      ],
       "awayTeam": {
         "id": 12,
         "commonName": {
@@ -251,7 +404,9 @@
           "fr": "de Philadelphie"
         },
         "abbrev": "PHI"
-      }
+      },
+      "gameCenterLink": "/gamecenter/car-vs-phi/2026/05/09/2025030224",
+      "ticketsLink": "https://www.nhl.com/flyers/tickets/"
     },
     {
       "id": 2025030225,
@@ -259,10 +414,25 @@
       "gameType": 3,
       "gameNumber": 5,
       "ifNecessary": true,
+      "venue": {
+        "default": "Lenovo Center"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-05-11T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
       "gameState": "FUT",
       "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "tvBroadcasts": [
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        }
+      ],
       "awayTeam": {
         "id": 4,
         "commonName": {
@@ -292,7 +462,9 @@
           "fr": "de la Caroline"
         },
         "abbrev": "CAR"
-      }
+      },
+      "gameCenterLink": "/gamecenter/phi-vs-car/2026/05/11/2025030225",
+      "ticketsLink": "https://www.nhl.com/hurricanes/tickets/"
     },
     {
       "id": 2025030226,
@@ -300,10 +472,39 @@
       "gameType": 3,
       "gameNumber": 6,
       "ifNecessary": true,
+      "venue": {
+        "default": "Xfinity Mobile Arena"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-05-13T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
       "gameState": "FUT",
       "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "tvBroadcasts": [
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        }
+      ],
       "awayTeam": {
         "id": 12,
         "commonName": {
@@ -333,7 +534,9 @@
           "fr": "de Philadelphie"
         },
         "abbrev": "PHI"
-      }
+      },
+      "gameCenterLink": "/gamecenter/car-vs-phi/2026/05/13/2025030226",
+      "ticketsLink": "https://www.nhl.com/flyers/tickets/"
     },
     {
       "id": 2025030227,
@@ -341,10 +544,39 @@
       "gameType": 3,
       "gameNumber": 7,
       "ifNecessary": true,
+      "venue": {
+        "default": "Lenovo Center"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-05-16T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
       "gameState": "FUT",
       "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "tvBroadcasts": [
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        }
+      ],
       "awayTeam": {
         "id": 4,
         "commonName": {
@@ -374,7 +606,9 @@
           "fr": "de la Caroline"
         },
         "abbrev": "CAR"
-      }
+      },
+      "gameCenterLink": "/gamecenter/phi-vs-car/2026/05/16/2025030227",
+      "ticketsLink": "https://www.nhl.com/hurricanes/tickets/"
     }
   ],
   "fullCoverageUrl": {
