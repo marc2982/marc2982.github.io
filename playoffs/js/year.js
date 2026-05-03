@@ -72,18 +72,18 @@ export function renderRound(teams, round, table) {
 
 		$(table).html(`
 			<div class="censored-round">
-				<p class="censored-notice">🔒 Picks are hidden until the round begins.</p>
+				<p class="censored-notice">\u{1F512} Picks are hidden until the round begins.</p>
 				<div class="censored-lists">
 					<div class="censored-group submitted">
 						<h4>Submitted (${submitted.length})</h4>
 						<ul>
-							${submitted.map(p => `<li>🤫 ${p.person}</li>`).join('')}
+							${submitted.map(p => `<li>\u{1F92B} ${p.person}</li>`).join('')}
 						</ul>
 					</div>
 					<div class="censored-group missing">
 						<h4>Still Needed (${missing.length})</h4>
 						<ul>
-							${missing.map(p => `<li>❌ ${p.person}</li>`).join('')}
+							${missing.map(p => `<li>\u{274C} ${p.person}</li>`).join('')}
 						</ul>
 					</div>
 				</div>
@@ -102,11 +102,11 @@ export function renderRound(teams, round, table) {
                     <th>
                         <div class="matchup-header ${s.scoresTooltip ? 'has-tooltip' : ''}">
                             <div class="team-top ${s.topSeedIsWinner ? 'winner' : ''}">${s.topSeed} (${
-							s.topSeedWins
-						})</div>
+						s.topSeedWins
+					})</div>
                             <div class="team-bottom ${s.bottomSeedIsWinner ? 'winner' : ''}">${s.bottomSeed} (${
-							s.bottomSeedWins
-						})</div>
+						s.bottomSeedWins
+					})</div>
                             ${s.nextGameDesc ? `<div class="next-game">${s.nextGameDesc}</div>` : ''}
                             ${s.scoresTooltip ? `<div class="scores-tooltip">${s.scoresTooltip}</div>` : ''}
                         </div>
@@ -132,15 +132,16 @@ export function renderRound(teams, round, table) {
 						.map(
 							(pick) => `
                         <td>
-                            <div class="pick">
-                                <div class="img_container ${pick.teamStatus}">
-                                    ${
-										pick.teamShort
-											? `<img src="${pick.teamLogo}" alt="${pick.teamName}" />`
-											: (pick.isTBD ? '<span style="color:#999;font-weight:bold;font-size:0.8rem;margin-top:10px;display:inline-block;">TBD</span>' : '&nbsp;')
-									}
-                                </div>
-                                <div class="games ${pick.gamesStatus}">${pick.games}</div>
+                            <div style="${pick.picksData.length > 1 ? 'display:flex;gap:8px;justify-content:center;' : ''}">
+                            ${pick.picksData.map((cp, idx) => {
+								const isMulti = pick.picksData.length > 1;
+								const scaleStyle = isMulti ? 'transform:scale(0.85);margin:-8px 0;' : '';
+								const teamHtml = cp.teamShort
+									? `<img src="${cp.teamLogo}" alt="${cp.teamName}" />`
+									: (pick.isTBD ? '<span style="color:#999;font-weight:bold;font-size:0.8rem;margin-top:10px;display:inline-block;">TBD</span>' : '&nbsp;');
+								const opponentHtml = cp.opponent ? `<div style="font-size:0.65rem;color:var(--bs-body-color);margin-top:1px;">vs ${cp.opponent}</div>` : '';
+								return `<div class="pick" style="${scaleStyle}"><div class="img_container ${pick.teamStatus}">${teamHtml}${opponentHtml}</div><div class="games ${pick.gamesStatus}">${cp.games}</div></div>`;
+							}).join('')}
                             </div>
                         </td>
                     `,

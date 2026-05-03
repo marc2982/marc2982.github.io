@@ -73,10 +73,14 @@ export class PicksImporter {
 					// Match the series containing the picked team AND the optionally specified opponent
 					const series = seriesInRound.find((s) => {
 						if (!s) return false;
-						const hasTeam = s.topSeed === team.short || s.bottomSeed === team.short;
+						const hasTeam = s.topSeed === team.short || s.bottomSeed === team.short || 
+										(s.possibleTopSeeds && s.possibleTopSeeds.includes(team.short)) || 
+										(s.possibleBottomSeeds && s.possibleBottomSeeds.includes(team.short));
 						if (!hasTeam) return false;
 						if (opponent) {
-							return s.topSeed === opponent || s.bottomSeed === opponent;
+							return s.topSeed === opponent || s.bottomSeed === opponent ||
+								   (s.possibleTopSeeds && s.possibleTopSeeds.includes(opponent)) ||
+								   (s.possibleBottomSeeds && s.possibleBottomSeeds.includes(opponent));
 						}
 						return true;
 					});
@@ -96,10 +100,15 @@ export class PicksImporter {
 
 					if (!picks[person]) picks[person] = {};
 
-					picks[person][series.letter] = Pick.create({
+					if (!picks[person][series.letter]) {
+						picks[person][series.letter] = [];
+					}
+
+					picks[person][series.letter].push(Pick.create({
 						team: team.short,
 						games: parseInt(numGames, 10),
-					});
+						opponent: opponent,
+					}));
 				} catch (e) {
 					throw new Error(`Skipping pick for ${person}: ${e.message}`);
 				}

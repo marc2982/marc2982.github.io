@@ -102,14 +102,28 @@ export function prepareRoundViewModel(teams, round) {
 					const topIsTbd = !series.topSeed || series.topSeed === 'undefined' || series.topSeed.toUpperCase() === 'TBD';
 					const botIsTbd = !series.bottomSeed || series.bottomSeed === 'undefined' || series.bottomSeed.toUpperCase() === 'TBD';
 					const isTBD = !pick.team && (topIsTbd || botIsTbd);
+
+					let picksToRender = [pick];
+					if ((topIsTbd || botIsTbd) && seriesResult?.conditionalPicks && seriesResult.conditionalPicks.length > 1) {
+						picksToRender = seriesResult.conditionalPicks;
+					}
+
+					const picksData = picksToRender.map(cp => {
+						const cpTeam = teams[cp.team];
+						return {
+							teamShort: cpTeam?.short,
+							teamLogo: cpTeam?.logo,
+							teamName: cpTeam?.name,
+							games: cp.games || (isTBD ? '-' : ''),
+							opponent: cp.opponent
+						};
+					});
+
 					return {
-						teamShort: team?.short,
-						teamLogo: team?.logo,
-						teamName: team?.name,
-						games: pick.games || (isTBD ? '-' : ''),
 						isTBD: isTBD,
 						teamStatus: seriesResult?.teamStatus?.toLowerCase() || 'unknown',
 						gamesStatus: seriesResult?.gamesStatus?.toLowerCase() || 'unknown',
+						picksData: picksData,
 					};
 				}),
 				points: summary.points,

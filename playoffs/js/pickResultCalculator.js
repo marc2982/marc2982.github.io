@@ -4,20 +4,32 @@ export class PickResultCalculator {
 	buildPickResults(scoring, seriesRepo, picks) {
 		const pickResults = {};
 		for (const [person, picksBySeries] of Object.entries(picks)) {
-			for (const [seriesLetter, pick] of Object.entries(picksBySeries)) {
+			for (const [seriesLetter, pickData] of Object.entries(picksBySeries)) {
 				const series = seriesRepo.getSeries(seriesLetter);
+				
+				const pickArray = Array.isArray(pickData) ? pickData : [pickData];
+				let activePick = pickArray[0];
+
+				if (series.topSeed && series.topSeed !== 'TBD' && series.bottomSeed && series.bottomSeed !== 'TBD') {
+					const matchedPick = pickArray.find(p => p.team === series.topSeed || p.team === series.bottomSeed);
+					if (matchedPick) {
+						activePick = matchedPick;
+					}
+				}
+
 				const winner = series.getWinner();
-				const teamStatus = this.getTeamStatus(pick, winner);
-				const gamesStatus = this.getGamesStatus(pick, winner, series);
+				const teamStatus = this.getTeamStatus(activePick, winner);
+				const gamesStatus = this.getGamesStatus(activePick, winner, series);
 				const points = this.getPoints(scoring, teamStatus, gamesStatus);
 				const possiblePoints = winner
 					? points
-					: this.calculatePossiblePoints(pick, series, scoring, teamStatus, gamesStatus);
+					: this.calculatePossiblePoints(activePick, series, scoring, teamStatus, gamesStatus);
 				if (!pickResults[person]) {
 					pickResults[person] = {};
 				}
 				pickResults[person][series.letter] = PickResult.create({
-					pick: pick,
+					pick: activePick,
+					conditionalPicks: pickArray,
 					teamStatus: teamStatus,
 					gamesStatus: gamesStatus,
 					points: points,
