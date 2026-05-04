@@ -142,6 +142,10 @@ export async function runTests() {
 		const pointsDef = config.columnDefs.find(def => def.className && def.className.includes('points'));
 		assert(pointsDef.targets.join(',') === '3,4', `Expected points targets 3,4, got ${pointsDef.targets}`);
 
+		// Default sort should be column 9 (2 series + 7)
+		assert(config.order[0][0] === 9, `Expected default sort column 9, got ${config.order[0][0]}`);
+		assert(config.order[0][1] === 'desc', `Expected default sort desc, got ${config.order[0][1]}`);
+
 		// Small col width should now cover 5 columns (the 4 stats + prior overall)
 		const widthDef = config.columnDefs.find(def => def.width === '5%');
 		assert(widthDef.targets.length === 5, `Expected 5 small columns, got ${widthDef.targets.length}`);

@@ -144,12 +144,13 @@ function getDataTableConfigForRound(numSeries, hasPriorOverall = false) {
 	const orderableTargets = Array.from({ length: numSeries }, (_, i) => i + 1);
 	const pointsTargets = [numSeries + 1, numSeries + 2];
 	const smallColTargets = hasPriorOverall ? [-1, -2, -3, -4, -5] : [-1, -2, -3, -4];
+	const defaultOrder = hasPriorOverall ? [[numSeries + 7, 'desc']] : [[0, 'asc']];
 
 	return {
 		paging: false,
 		searching: false,
 		info: false,
-		order: [[0, 'asc']],
+		order: defaultOrder,
 		ordering: true,
 		autoWidth: false,
 		columnDefs: [
