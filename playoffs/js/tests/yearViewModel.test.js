@@ -151,5 +151,57 @@ export async function runTests() {
 		assert(widthDef.targets.length === 5, `Expected 5 small columns, got ${widthDef.targets.length}`);
 	});
 
+	test('Conditional Picks', 'Hide opponent when matchup is solidified', () => {
+		const teams = { 'EDM': { short: 'EDM', logo: 'edm.png', name: 'Oilers' } };
+		const round = {
+			number: 2,
+			scoring: { team: 2, games: 3, bonus: 5 },
+			serieses: [
+				mockSeries({ letter: 'I', topSeed: 'EDM', bottomSeed: 'VAN' }) // Solidified
+			],
+			pickResults: {
+				'Alice': {
+					'I': {
+						pick: { team: 'EDM', games: 6, opponent: 'VAN' },
+						teamStatus: 'CORRECT',
+						gamesStatus: 'CORRECT'
+					}
+				}
+			},
+			summary: { summaries: { 'Alice': { points: 10 } }, winners: [] }
+		};
+
+		const viewModel = prepareRoundViewModel(teams, round);
+		const alicePick = viewModel.picks[0].seriesPicks[0];
+		assert(alicePick.picksData[0].opponent === null, `Expected opponent to be null when solidified, got ${alicePick.picksData[0].opponent}`);
+	});
+
+	test('Conditional Picks', 'Show opponent when matchup is TBD', () => {
+		const teams = { 'EDM': { short: 'EDM', logo: 'edm.png', name: 'Oilers' } };
+		const round = {
+			number: 2,
+			scoring: { team: 2, games: 3, bonus: 5 },
+			serieses: [
+				mockSeries({ letter: 'I', topSeed: 'TBD', bottomSeed: 'TBD' }) // TBD
+			],
+			pickResults: {
+				'Alice': {
+					'I': {
+						conditionalPicks: [
+							{ team: 'EDM', games: 6, opponent: 'VAN' },
+							{ team: 'EDM', games: 7, opponent: 'LAK' }
+						]
+					}
+				}
+			},
+			summary: { summaries: { 'Alice': { points: 0 } }, winners: [] }
+		};
+
+		const viewModel = prepareRoundViewModel(teams, round);
+		const alicePick = viewModel.picks[0].seriesPicks[0];
+		assert(alicePick.picksData[0].opponent === 'VAN', `Expected opponent to be 'VAN', got ${alicePick.picksData[0].opponent}`);
+		assert(alicePick.picksData[1].opponent === 'LAK', `Expected opponent to be 'LAK', got ${alicePick.picksData[1].opponent}`);
+	});
+
 	return results;
 }

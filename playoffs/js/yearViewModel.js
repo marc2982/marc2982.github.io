@@ -159,7 +159,7 @@ export function prepareRoundViewModel(teams, round, priorOverall = null) {
 							teamLogo: cpTeam?.logo,
 							teamName: cpTeam?.name,
 							games: cp.games || (isTBD ? '-' : ''),
-							opponent: cp.opponent
+							opponent: (topIsTbd || botIsTbd) ? cp.opponent : null
 						};
 					});
 
