@@ -1,6 +1,21 @@
 import { ScenarioAnalyzer } from './scenarioAnalyzer.js';
+import { excelRank } from './common.js';
+
 
 export function prepareSummaryViewModel(data) {
+	const roundRankMaps = [];
+	const cumulativePoints = {};
+	data.rounds.forEach((round) => {
+		for (const [person, summary] of Object.entries(round.summary.summaries)) {
+			cumulativePoints[person] = (cumulativePoints[person] || 0) + summary.points;
+		}
+		const allPoints = Object.values(cumulativePoints);
+		const rankMap = Object.fromEntries(
+			Object.entries(cumulativePoints).map(([person, pts]) => [person, excelRank(allPoints, pts)])
+		);
+		roundRankMaps.push(rankMap);
+	});
+
 	return {
 		headers: [
 			'Round 1',
@@ -17,9 +32,22 @@ export function prepareSummaryViewModel(data) {
 		rows: Object.entries(data.personSummaries).map(([person, summary]) => ({
 			person: person,
 			isLeader: person === data.tiebreakInfo?.winner,
-			roundPoints: data.rounds.map((round) => {
-				const summaries = round.summary.summaries;
-				return person in summaries ? summaries[person].points : 0;
+			roundPoints: data.rounds.map((round, i) => {
+				const roundPoints = person in round.summary.summaries ? round.summary.summaries[person].points : 0;
+				const currentRank = roundRankMaps[i] ? roundRankMaps[i][person] : null;
+				let rankChange = null;
+				if (i > 0 && roundRankMaps[i] && roundRankMaps[i - 1]) {
+					const prevRank = roundRankMaps[i - 1][person];
+					const currRank = roundRankMaps[i][person];
+					if (prevRank !== undefined && currRank !== undefined) {
+						rankChange = prevRank - currRank;
+					}
+				}
+				return {
+					points: roundPoints,
+					rankChange: rankChange,
+					rank: currentRank
+				};
 			}),
 			totalPoints: summary.points,
 			rank: summary.rank,

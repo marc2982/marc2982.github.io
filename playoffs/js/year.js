@@ -56,7 +56,7 @@ export function renderSummary(data, table) {
 					(row) => `
                 <tr ${row.isLeader ? "class='leader'" : ''}>
                     <th>${row.person}</th>
-                    ${row.roundPoints.map((pts) => `<td>${pts}</td>`).join('')}
+                    ${row.roundPoints.map((rp, idx) => `<td>${rp.points}${renderRankChange(rp, idx)}</td>`).join('')}
                     <td>${row.totalPoints}</td>
                     <td>${row.rank}</td>
                     <td>${row.possiblePoints}</td>
@@ -361,4 +361,15 @@ export function renderProjections(data, table) {
     `);
 
 	$(table).DataTable(viewModel.dataTableConfig);
+}
+
+function renderRankChange(rp, roundIndex) {
+	if (roundIndex === 0) return '';
+
+	const change = rp.rankChange;
+	if (change === null || change === 0) return '';
+	const color = change > 0 ? '#28a745' : '#dc3545';
+	const arrow = change > 0 ? '↑' : '↓';
+	const absChange = Math.abs(change);
+	return `<span class="rank-change" style="color: ${color}; font-size: 0.75rem; margin-left: 4px; font-weight: bold;">${arrow}${absChange}</span>`;
 }
