@@ -3,9 +3,14 @@ import { prepareSummaryViewModel, prepareRoundViewModel, prepareProjectionsViewM
 export function renderPage(data) {
 	renderTiebreaker(data, $('#tiebreaker'));
 	renderSummary(data, $('#summaryTable'));
+	const cumulativePoints = {};
 	$.each(data.rounds, function (_, round) {
+		const priorOverall = round.number > 1 ? { ...cumulativePoints } : null;
 		let tableName = '#round' + round.number + 'Table';
-		renderRound(data.teams, round, $(tableName));
+		renderRound(data.teams, round, $(tableName), priorOverall);
+		for (const [person, summary] of Object.entries(round.summary?.summaries || {})) {
+			cumulativePoints[person] = (cumulativePoints[person] || 0) + summary.points;
+		}
 	});
 	renderProjections(data, $('#projectionsTable'));
 
@@ -58,8 +63,8 @@ export function renderSummary(data, table) {
 	$(table).DataTable(viewModel.dataTableConfig);
 }
 
-export function renderRound(teams, round, table) {
-	const viewModel = prepareRoundViewModel(teams, round);
+export function renderRound(teams, round, table, priorOverall = null) {
+	const viewModel = prepareRoundViewModel(teams, round, priorOverall);
 	if (!viewModel) {
 		console.log('No pick results for round ' + round.number);
 		return;
@@ -120,6 +125,7 @@ export function renderRound(teams, round, table) {
                 <th>Num Games Correct</th>
                 <th>Num Teams Correct</th>
                 <th>Num Bonuses Earned</th>
+                ${viewModel.hasPriorOverall ? '<th>Prev. Overall Pts</th>' : ''}
             </tr>
         </thead>
         <tbody>
@@ -153,6 +159,7 @@ export function renderRound(teams, round, table) {
                     <td>${p.gamesCorrect}</td>
                     <td>${p.teamsCorrect}</td>
                     <td>${p.bonusEarned}</td>
+                    ${viewModel.hasPriorOverall ? `<td>${p.priorOverall}</td>` : ''}
                 </tr>
             `,
 				)

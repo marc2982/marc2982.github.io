@@ -46,7 +46,7 @@ export function prepareSummaryViewModel(data) {
 	};
 }
 
-export function prepareRoundViewModel(teams, round) {
+export function prepareRoundViewModel(teams, round, priorOverall = null) {
 	const sortedSeries = [...round.serieses].sort((a, b) => (a.letter > b.letter ? 1 : -1));
 
 	if (!round.pickResults) {
@@ -74,6 +74,7 @@ export function prepareRoundViewModel(teams, round) {
 
 	return {
 		roundNumber: round.number,
+		hasPriorOverall: !!priorOverall,
 		series: sortedSeries.map((series) => {
 			const topIsTbd = !series.topSeed || series.topSeed === 'undefined' || series.topSeed.toUpperCase() === 'TBD';
 			const botIsTbd = !series.bottomSeed || series.bottomSeed === 'undefined' || series.bottomSeed.toUpperCase() === 'TBD';
@@ -127,6 +128,7 @@ export function prepareRoundViewModel(teams, round) {
 					};
 				}),
 				points: summary.points,
+				priorOverall: priorOverall ? (priorOverall[person] || 0) : null,
 				rank: summary.rank,
 				possiblePoints: summary.possiblePoints,
 				gamesCorrect: summary.gamesCorrect,
@@ -134,13 +136,14 @@ export function prepareRoundViewModel(teams, round) {
 				bonusEarned: summary.bonusEarned,
 			};
 		}),
-		dataTableConfig: getDataTableConfigForRound(sortedSeries.length),
+		dataTableConfig: getDataTableConfigForRound(sortedSeries.length, !!priorOverall),
 	};
 }
 
-function getDataTableConfigForRound(numSeries) {
+function getDataTableConfigForRound(numSeries, hasPriorOverall = false) {
 	const orderableTargets = Array.from({ length: numSeries }, (_, i) => i + 1);
 	const pointsTargets = [numSeries + 1, numSeries + 2];
+	const smallColTargets = hasPriorOverall ? [-1, -2, -3, -4, -5] : [-1, -2, -3, -4];
 
 	return {
 		paging: false,
@@ -152,7 +155,7 @@ function getDataTableConfigForRound(numSeries) {
 		columnDefs: [
 			{ targets: pointsTargets, className: 'dt-body-center dt-head-center points' },
 			{ orderable: false, targets: orderableTargets },
-			{ targets: [-1, -2, -3, -4], width: '5%' },
+			{ targets: smallColTargets, width: '5%' },
 			{ targets: '*', className: 'dt-body-center dt-head-center' },
 		],
 	};
