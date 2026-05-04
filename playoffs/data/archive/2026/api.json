@@ -68,7 +68,9 @@
       "topSeedWins": 3,
       "bottomSeedRank": 3,
       "bottomSeedRankAbbrev": "D3",
-      "bottomSeedWins": 3,
+      "bottomSeedWins": 4,
+      "winningTeamId": 8,
+      "losingTeamId": 14,
       "topSeedTeam": {
         "id": 14,
         "abbrev": "TBL",
@@ -400,7 +402,7 @@
       }
     },
     {
-      "seriesUrl": "/schedule/playoff-series/2026/series-i/tbd-vs-sabres",
+      "seriesUrl": "/schedule/playoff-series/2026/series-i/canadiens-vs-sabres",
       "seriesTitle": "2nd Round",
       "seriesAbbrev": "R2",
       "seriesLetter": "I",
@@ -408,8 +410,8 @@
       "topSeedRank": 1,
       "topSeedRankAbbrev": "D1",
       "topSeedWins": 0,
-      "bottomSeedRank": 1,
-      "bottomSeedRankAbbrev": "D1",
+      "bottomSeedRank": 3,
+      "bottomSeedRankAbbrev": "D3",
       "bottomSeedWins": 0,
       "topSeedTeam": {
         "id": 7,
@@ -429,19 +431,21 @@
         "darkLogo": "https://assets.nhle.com/logos/nhl/svg/BUF_dark.svg"
       },
       "bottomSeedTeam": {
-        "id": -1,
-        "abbrev": "TBD",
+        "id": 8,
+        "abbrev": "MTL",
         "name": {
-          "default": "TBD"
+          "default": "Montréal Canadiens",
+          "fr": "Canadiens de Montréal"
         },
         "commonName": {
-          "default": "TBD"
+          "default": "Canadiens"
         },
         "placeNameWithPreposition": {
-          "default": "TBD"
+          "default": "Montréal",
+          "fr": "de Montréal"
         },
-        "logo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-light.svg",
-        "darkLogo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-dark.svg"
+        "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg",
+        "darkLogo": "https://assets.nhle.com/logos/nhl/svg/MTL_dark.svg"
       }
     },
     {
@@ -499,7 +503,7 @@
       "playoffRound": 2,
       "topSeedRank": 1,
       "topSeedRankAbbrev": "D1",
-      "topSeedWins": 0,
+      "topSeedWins": 1,
       "bottomSeedRank": 3,
       "bottomSeedRankAbbrev": "D3",
       "bottomSeedWins": 0,

@@ -49,7 +49,7 @@
       "abbrev": "W"
     },
     "record": "4-0",
-    "seriesWins": 0,
+    "seriesWins": 1,
     "divisionAbbrev": "C",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg",
@@ -70,7 +70,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-06:00",
       "venueTimezone": "America/Denver",
-      "gameState": "FUT",
+      "gameState": "FINAL",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -135,7 +135,8 @@
           "default": "Minnesota",
           "fr": "du Minnesota"
         },
-        "abbrev": "MIN"
+        "abbrev": "MIN",
+        "score": 6
       },
       "homeTeam": {
         "id": 21,
@@ -149,10 +150,22 @@
           "default": "Colorado",
           "fr": "du Colorado"
         },
-        "abbrev": "COL"
+        "abbrev": "COL",
+        "score": 9
       },
       "gameCenterLink": "/gamecenter/min-vs-col/2026/05/03/2025030231",
-      "ticketsLink": "https://avs.social/26_LG_GMCNTR_PREVIEW_PO_RD2GM1"
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 1,
+        "bottomSeedWins": 0
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
     },
     {
       "id": 2025030232,
