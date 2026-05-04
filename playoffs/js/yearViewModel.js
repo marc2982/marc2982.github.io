@@ -1,3 +1,5 @@
+import { ScenarioAnalyzer } from './scenarioAnalyzer.js';
+
 export function prepareSummaryViewModel(data) {
 	return {
 		headers: [
@@ -72,6 +74,11 @@ export function prepareRoundViewModel(teams, round, priorOverall = null) {
 		}
 	}
 
+	const isScenarioEnabled = round.number > 1;
+	const scenarioAnalyzer = isScenarioEnabled ? new ScenarioAnalyzer() : null;
+	const volatility = isScenarioEnabled ? scenarioAnalyzer.analyzeRankVolatility(round, priorOverall) : {};
+	const leaders = round.summary.winners;
+
 	return {
 		roundNumber: round.number,
 		hasPriorOverall: !!priorOverall,
@@ -93,9 +100,45 @@ export function prepareRoundViewModel(teams, round, priorOverall = null) {
 		}),
 		picks: Object.entries(round.pickResults).map(([person, results]) => {
 			const summary = round.summary.summaries[person];
+			const personVolatility = volatility[person];
+			const isLeader = leaders.includes(person) && summary.points > 0;
+
+			// Calculate targets (people ahead you can catch) and threats (people behind who can catch you)
+			const targets = [];
+			const threats = [];
+			const myTotal = (priorOverall?.[person] || 0) + summary.points;
+
+			if (isScenarioEnabled) {
+				for (const [other, otherSummary] of Object.entries(round.summary.summaries)) {
+					if (other === person) continue;
+					const otherTotal = (priorOverall?.[other] || 0) + otherSummary.points;
+					
+					if (otherTotal >= myTotal) {
+						// Target
+						const analysis = scenarioAnalyzer.analyzeAllScenarios(person, other, round, priorOverall);
+						targets.push({ 
+							name: other, 
+							gap: otherTotal - myTotal, 
+							canCatch: analysis.canCatch,
+							isTied: otherTotal === myTotal,
+							analysis 
+						});
+					} else {
+						// Threat
+						const analysis = scenarioAnalyzer.analyzeAllScenarios(other, person, round, priorOverall);
+						threats.push({ 
+							name: other, 
+							gap: myTotal - otherTotal, 
+							canCatch: analysis.canCatch,
+							analysis 
+						});
+					}
+				}
+			}
+
 			return {
 				person: person,
-				isLeader: round.summary.winners.includes(person) && summary.points > 0,
+				isLeader: isLeader,
 				seriesPicks: sortedSeries.map((series) => {
 					const seriesResult = results[series.letter];
 					const pick = seriesResult?.pick || {};
@@ -130,6 +173,9 @@ export function prepareRoundViewModel(teams, round, priorOverall = null) {
 				points: summary.points,
 				priorOverall: priorOverall ? (priorOverall[person] || 0) : null,
 				rank: summary.rank,
+				rankRange: personVolatility?.rankRange,
+				targets: targets.sort((a, b) => a.gap - b.gap),
+				threats: threats.sort((a, b) => a.gap - b.gap),
 				possiblePoints: summary.possiblePoints,
 				gamesCorrect: summary.gamesCorrect,
 				teamsCorrect: summary.teamsCorrect,

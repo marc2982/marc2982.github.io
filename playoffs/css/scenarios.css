@@ -1,0 +1,168 @@
+.volatility {
+    font-size: 0.75rem;
+    color: #888;
+    margin-left: 4px;
+    font-weight: normal;
+}
+
+html.dark-mode .volatility {
+    color: #a0a0a0;
+}
+
+.clickable-row {
+    cursor: pointer;
+}
+
+.clickable-row:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+html.dark-mode .clickable-row:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.scenario-container {
+    padding: 12px;
+    background-color: #fcfcfc;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    text-align: left;
+    margin: 5px 0;
+    color: #333;
+    font-size: 0.8rem;
+}
+
+html.dark-mode .scenario-container {
+    background-color: #1a1a2e;
+    border-color: #2c3e50;
+    color: #e6e6e6;
+}
+
+.scenario-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.scenario-column h5 {
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 4px;
+}
+
+html.dark-mode .scenario-column h5 {
+    border-color: #333;
+}
+
+.scenario-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.scenario-item {
+    margin-bottom: 15px;
+    padding: 8px;
+    background: rgba(0,0,0,0.02);
+    border-radius: 4px;
+    border-left: 3px solid transparent;
+}
+
+html.dark-mode .scenario-item {
+    background: rgba(255,255,255,0.03);
+}
+
+.scenario-item-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.scenario-stats {
+    font-size: 0.7rem;
+    color: #e94560;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.high-impact {
+    font-size: 0.75rem;
+    color: #333;
+    margin-top: 2px;
+    padding: 4px;
+    background: #fff3cd;
+    border-radius: 3px;
+}
+
+html.dark-mode .high-impact {
+    background: #2c2514;
+    color: #ffdda1;
+}
+
+.path-container {
+    margin-top: 8px;
+}
+
+.path-label {
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #777;
+    margin-bottom: 2px;
+}
+
+html.dark-mode .path-label {
+    color: #999;
+}
+
+.scenario-item-path {
+    font-size: 0.75rem;
+    color: #666;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 2px;
+}
+
+html.dark-mode .scenario-item-path {
+    color: #aaa;
+}
+
+.path-step {
+    background: #eee;
+    padding: 1px 4px;
+    border-radius: 3px;
+    cursor: help;
+}
+
+html.dark-mode .path-step {
+    background: #2c3e50;
+}
+
+.path-result {
+    font-size: 0.75rem;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.gain-positive {
+    color: #28a745;
+}
+
+html.dark-mode .gain-positive {
+    color: #4cd137;
+}
+
+.can-catch-badge, .cant-catch-badge {
+    padding: 1px 4px;
+    border-radius: 4px;
+    font-size: 0.65rem;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.can-catch-badge { background-color: #28a745; color: white; }
+.cant-catch-badge { background-color: #6c757d; color: white; }
