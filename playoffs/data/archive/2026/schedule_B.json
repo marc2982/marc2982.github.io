@@ -779,11 +779,11 @@
           "fr": "de Tampa Bay"
         },
         "abbrev": "TBL",
-        "score": 0
+        "score": 1
       },
       "gameCenterLink": "/gamecenter/mtl-vs-tbl/2026/05/03/2025030127",
       "periodDescriptor": {
-        "number": 2,
+        "number": 3,
         "periodType": "REG",
         "maxRegulationPeriods": 3
       },
