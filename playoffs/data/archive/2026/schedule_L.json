@@ -24,7 +24,7 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "4-2",
+    "record": "4-3",
     "seriesWins": 0,
     "divisionAbbrev": "P",
     "seed": 3,
@@ -48,7 +48,7 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "4-2",
+    "record": "5-2",
     "seriesWins": 1,
     "divisionAbbrev": "P",
     "seed": 1,
@@ -70,7 +70,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-07:00",
       "venueTimezone": "US/Pacific",
-      "gameState": "FINAL",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
