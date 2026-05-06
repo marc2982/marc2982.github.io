@@ -70,7 +70,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "America/New_York",
-      "gameState": "FUT",
+      "gameState": "LIVE",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -128,7 +128,8 @@
           "default": "Montréal",
           "fr": "de Montréal"
         },
-        "abbrev": "MTL"
+        "abbrev": "MTL",
+        "score": 0
       },
       "homeTeam": {
         "id": 7,
@@ -142,10 +143,19 @@
           "default": "Buffalo",
           "fr": "de Buffalo"
         },
-        "abbrev": "BUF"
+        "abbrev": "BUF",
+        "score": 0
       },
       "gameCenterLink": "/gamecenter/mtl-vs-buf/2026/05/06/2025030211",
-      "ticketsLink": "https://www.nhl.com/sabres/tickets/"
+      "periodDescriptor": {
+        "number": 1,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 0,
+        "bottomSeedWins": 0
+      }
     },
     {
       "id": 2025030212,
