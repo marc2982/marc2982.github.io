@@ -24,8 +24,8 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "4-3",
-    "seriesWins": 0,
+    "record": "5-3",
+    "seriesWins": 1,
     "divisionAbbrev": "P",
     "seed": 3,
     "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg",
@@ -48,7 +48,7 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "5-2",
+    "record": "5-3",
     "seriesWins": 1,
     "divisionAbbrev": "P",
     "seed": 1,
@@ -160,7 +160,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-07:00",
       "venueTimezone": "US/Pacific",
-      "gameState": "LIVE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -219,7 +219,7 @@
           "fr": "d'Anaheim"
         },
         "abbrev": "ANA",
-        "score": 2
+        "score": 3
       },
       "homeTeam": {
         "id": 54,
@@ -234,7 +234,7 @@
           "fr": "de Vegas"
         },
         "abbrev": "VGK",
-        "score": 0
+        "score": 1
       },
       "gameCenterLink": "/gamecenter/ana-vs-vgk/2026/05/06/2025030242",
       "periodDescriptor": {
@@ -244,7 +244,10 @@
       },
       "seriesStatus": {
         "topSeedWins": 1,
-        "bottomSeedWins": 0
+        "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
       }
     },
     {
@@ -420,18 +423,39 @@
       "season": 20252026,
       "gameType": 3,
       "gameNumber": 5,
-      "ifNecessary": true,
+      "ifNecessary": false,
       "venue": {
         "default": "T-Mobile Arena"
       },
       "neutralSite": false,
-      "startTimeUTC": "2026-05-12T16:00:00Z",
+      "startTimeUTC": "2026-05-13T01:30:00Z",
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-07:00",
       "venueTimezone": "US/Pacific",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
+      "gameScheduleState": "OK",
       "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 283,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN360",
+          "sequenceNumber": 114
+        },
         {
           "id": 309,
           "market": "N",
