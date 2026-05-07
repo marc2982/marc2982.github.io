@@ -129,7 +129,7 @@
           "fr": "de Montréal"
         },
         "abbrev": "MTL",
-        "score": 0
+        "score": 1
       },
       "homeTeam": {
         "id": 7,
@@ -144,11 +144,11 @@
           "fr": "de Buffalo"
         },
         "abbrev": "BUF",
-        "score": 0
+        "score": 2
       },
       "gameCenterLink": "/gamecenter/mtl-vs-buf/2026/05/06/2025030211",
       "periodDescriptor": {
-        "number": 1,
+        "number": 2,
         "periodType": "REG",
         "maxRegulationPeriods": 3
       },
