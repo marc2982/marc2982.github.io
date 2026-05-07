@@ -160,7 +160,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-07:00",
       "venueTimezone": "US/Pacific",
-      "gameState": "FUT",
+      "gameState": "LIVE",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -218,7 +218,8 @@
           "default": "Anaheim",
           "fr": "d'Anaheim"
         },
-        "abbrev": "ANA"
+        "abbrev": "ANA",
+        "score": 2
       },
       "homeTeam": {
         "id": 54,
@@ -232,10 +233,19 @@
           "default": "Vegas",
           "fr": "de Vegas"
         },
-        "abbrev": "VGK"
+        "abbrev": "VGK",
+        "score": 0
       },
       "gameCenterLink": "/gamecenter/ana-vs-vgk/2026/05/06/2025030242",
-      "ticketsLink": "https://www.nhl.com/goldenknights/tickets/"
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 1,
+        "bottomSeedWins": 0
+      }
     },
     {
       "id": 2025030243,
