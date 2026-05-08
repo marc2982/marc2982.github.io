@@ -250,7 +250,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
-      "gameState": "PRE",
+      "gameState": "LIVE",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -309,7 +309,8 @@
           "default": "Carolina",
           "fr": "de la Caroline"
         },
-        "abbrev": "CAR"
+        "abbrev": "CAR",
+        "score": 1
       },
       "homeTeam": {
         "id": 4,
@@ -324,10 +325,19 @@
           "default": "Philadelphia",
           "fr": "de Philadelphie"
         },
-        "abbrev": "PHI"
+        "abbrev": "PHI",
+        "score": 1
       },
       "gameCenterLink": "/gamecenter/car-vs-phi/2026/05/07/2025030223",
-      "ticketsLink": "https://www.nhl.com/flyers/tickets/"
+      "periodDescriptor": {
+        "number": 2,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 2,
+        "bottomSeedWins": 0
+      }
     },
     {
       "id": 2025030224,
