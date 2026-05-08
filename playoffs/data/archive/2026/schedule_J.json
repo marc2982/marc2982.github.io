@@ -25,7 +25,7 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "4-4",
+    "record": "4-5",
     "seriesWins": 0,
     "divisionAbbrev": "M",
     "seed": 3,
@@ -50,8 +50,8 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "6-0",
-    "seriesWins": 2,
+    "record": "7-0",
+    "seriesWins": 3,
     "divisionAbbrev": "M",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
@@ -250,7 +250,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
-      "gameState": "LIVE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -310,7 +310,7 @@
           "fr": "de la Caroline"
         },
         "abbrev": "CAR",
-        "score": 1
+        "score": 4
       },
       "homeTeam": {
         "id": 4,
@@ -330,13 +330,16 @@
       },
       "gameCenterLink": "/gamecenter/car-vs-phi/2026/05/07/2025030223",
       "periodDescriptor": {
-        "number": 2,
+        "number": 3,
         "periodType": "REG",
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
-        "topSeedWins": 2,
+        "topSeedWins": 3,
         "bottomSeedWins": 0
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
       }
     },
     {
