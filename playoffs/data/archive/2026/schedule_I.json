@@ -24,8 +24,8 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "4-4",
-    "seriesWins": 0,
+    "record": "5-4",
+    "seriesWins": 1,
     "divisionAbbrev": "A",
     "seed": 3,
     "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg",
@@ -48,7 +48,7 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "5-2",
+    "record": "5-3",
     "seriesWins": 1,
     "divisionAbbrev": "A",
     "seed": 1,
@@ -174,7 +174,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "America/New_York",
-      "gameState": "LIVE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -226,7 +226,7 @@
           "fr": "de Montréal"
         },
         "abbrev": "MTL",
-        "score": 4
+        "score": 5
       },
       "homeTeam": {
         "id": 7,
@@ -251,7 +251,10 @@
       },
       "seriesStatus": {
         "topSeedWins": 1,
-        "bottomSeedWins": 0
+        "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
       }
     },
     {
@@ -413,7 +416,7 @@
       "season": 20252026,
       "gameType": 3,
       "gameNumber": 5,
-      "ifNecessary": true,
+      "ifNecessary": false,
       "venue": {
         "default": "KeyBank Center"
       },

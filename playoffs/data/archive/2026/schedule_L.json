@@ -24,7 +24,7 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "5-3",
+    "record": "5-4",
     "seriesWins": 1,
     "divisionAbbrev": "P",
     "seed": 3,
@@ -48,8 +48,8 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "5-3",
-    "seriesWins": 1,
+    "record": "6-3",
+    "seriesWins": 2,
     "divisionAbbrev": "P",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
@@ -264,7 +264,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-07:00",
       "venueTimezone": "America/Los_Angeles",
-      "gameState": "PRE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -322,7 +322,8 @@
           "default": "Vegas",
           "fr": "de Vegas"
         },
-        "abbrev": "VGK"
+        "abbrev": "VGK",
+        "score": 6
       },
       "homeTeam": {
         "id": 24,
@@ -336,10 +337,22 @@
           "default": "Anaheim",
           "fr": "d'Anaheim"
         },
-        "abbrev": "ANA"
+        "abbrev": "ANA",
+        "score": 2
       },
       "gameCenterLink": "/gamecenter/vgk-vs-ana/2026/05/08/2025030243",
-      "ticketsLink": "https://www.ticketmaster.com/event/0900647943EE5801?brand=nhl&wt.mc_id=NHL_LEAGUE_ANA_GAMECENTER_PREVIEW_PLAYOFFS_RD2_GM1&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_LEAGUE_ANA&utm_content=GAMECENTER_PREVIEW_PLAYOFFS_RD2_GM1"
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 2,
+        "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
     },
     {
       "id": 2025030244,
