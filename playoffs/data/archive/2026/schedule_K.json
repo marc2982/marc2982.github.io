@@ -25,7 +25,7 @@
       "abbrev": "W"
     },
     "record": "4-4",
-    "seriesWins": 0,
+    "seriesWins": 1,
     "divisionAbbrev": "C",
     "seed": 3,
     "logo": "https://assets.nhle.com/logos/nhl/svg/MIN_light.svg",
@@ -271,7 +271,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-05:00",
       "venueTimezone": "US/Central",
-      "gameState": "LIVE",
+      "gameState": "FINAL",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -352,7 +352,7 @@
           "fr": "du Minnesota"
         },
         "abbrev": "MIN",
-        "score": 4
+        "score": 5
       },
       "gameCenterLink": "/gamecenter/col-vs-min/2026/05/09/2025030233",
       "periodDescriptor": {
@@ -362,7 +362,10 @@
       },
       "seriesStatus": {
         "topSeedWins": 2,
-        "bottomSeedWins": 0
+        "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
       }
     },
     {
@@ -447,7 +450,7 @@
       "season": 20252026,
       "gameType": 3,
       "gameNumber": 5,
-      "ifNecessary": true,
+      "ifNecessary": false,
       "venue": {
         "default": "Ball Arena"
       },
