@@ -8,22 +8,28 @@
   "neededToWin": 4,
   "length": 0,
   "bottomSeedTeam": {
-    "id": -1,
+    "id": 12,
     "name": {
-      "default": "TBD"
+      "default": "Hurricanes"
     },
-    "abbrev": "TBD",
+    "abbrev": "CAR",
     "placeName": {
-      "default": "TBD"
+      "default": "Carolina",
+      "fr": "Caroline"
     },
     "placeNameWithPreposition": {
-      "default": "TBD"
+      "default": "Carolina",
+      "fr": "de la Caroline"
     },
-    "record": "0-0",
+    "conference": {
+      "name": "Eastern",
+      "abbrev": "E"
+    },
+    "record": "8-0",
     "seriesWins": 0,
     "seed": 1,
-    "logo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-light.svg",
-    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-dark.svg"
+    "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CAR_dark.svg"
   },
   "topSeedTeam": {
     "id": -1,
@@ -43,5 +49,15 @@
     "logo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-light.svg",
     "darkLogo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-dark.svg"
   },
-  "games": []
+  "games": [],
+  "fullCoverageUrl": {
+    "cs": "https://www.nhl.com/cs/playoffs/2026/series-m-coverage",
+    "de": "https://www.nhl.com/de/playoffs/2026/series-m-coverage",
+    "sv": "https://www.nhl.com/sv/playoffs/2026/series-m-coverage",
+    "fi": "https://www.nhl.com/fi/playoffs/2026/series-m-coverage",
+    "sk": "https://www.nhl.com/sk/playoffs/2026/series-m-coverage",
+    "en": "https://www.nhl.com/playoffs/2026/series-m-coverage",
+    "fr": "https://www.nhl.com/fr/playoffs/2026/series-m-coverage",
+    "es": "https://www.nhl.com/es/playoffs/2026/series-m-coverage"
+  }
 }

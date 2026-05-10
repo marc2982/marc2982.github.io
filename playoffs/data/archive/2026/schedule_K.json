@@ -271,7 +271,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-05:00",
       "venueTimezone": "US/Central",
-      "gameState": "FUT",
+      "gameState": "LIVE",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -336,7 +336,8 @@
           "default": "Colorado",
           "fr": "du Colorado"
         },
-        "abbrev": "COL"
+        "abbrev": "COL",
+        "score": 1
       },
       "homeTeam": {
         "id": 30,
@@ -350,10 +351,19 @@
           "default": "Minnesota",
           "fr": "du Minnesota"
         },
-        "abbrev": "MIN"
+        "abbrev": "MIN",
+        "score": 4
       },
       "gameCenterLink": "/gamecenter/col-vs-min/2026/05/09/2025030233",
-      "ticketsLink": "https://www.ticketmaster.com/event/06006478D361F22D?brand=nhl&wt.mc_id=NHL_LEAGUE_MIN_GAMECENTER_PREVIEW_PLAYOFFS_RD2_GM1&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_LEAGUE_MIN&utm_content=GAMECENTER_PREVIEW_PLAYOFFS_RD2_GM1"
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 2,
+        "bottomSeedWins": 0
+      }
     },
     {
       "id": 2025030234,
@@ -365,13 +375,34 @@
         "default": "Grand Casino Arena"
       },
       "neutralSite": false,
-      "startTimeUTC": "2026-05-11T16:00:00Z",
+      "startTimeUTC": "2026-05-12T00:00:00Z",
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-05:00",
       "venueTimezone": "US/Central",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
+      "gameScheduleState": "OK",
       "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
         {
           "id": 309,
           "market": "N",
@@ -421,13 +452,34 @@
         "default": "Ball Arena"
       },
       "neutralSite": false,
-      "startTimeUTC": "2026-05-13T16:00:00Z",
+      "startTimeUTC": "2026-05-14T00:00:00Z",
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-06:00",
       "venueTimezone": "America/Denver",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
+      "gameScheduleState": "OK",
       "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
         {
           "id": 385,
           "market": "N",
@@ -491,13 +543,34 @@
         "default": "Grand Casino Arena"
       },
       "neutralSite": false,
-      "startTimeUTC": "2026-05-15T16:00:00Z",
+      "startTimeUTC": "2026-05-16T00:00:00Z",
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-05:00",
       "venueTimezone": "US/Central",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
+      "gameScheduleState": "OK",
       "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
         {
           "id": 309,
           "market": "N",
