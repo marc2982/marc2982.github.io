@@ -25,7 +25,7 @@
       "abbrev": "W"
     },
     "record": "5-4",
-    "seriesWins": 1,
+    "seriesWins": 2,
     "divisionAbbrev": "P",
     "seed": 3,
     "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg",
@@ -368,7 +368,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-07:00",
       "venueTimezone": "America/Los_Angeles",
-      "gameState": "FUT",
+      "gameState": "FINAL",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -412,7 +412,8 @@
           "default": "Vegas",
           "fr": "de Vegas"
         },
-        "abbrev": "VGK"
+        "abbrev": "VGK",
+        "score": 3
       },
       "homeTeam": {
         "id": 24,
@@ -426,10 +427,22 @@
           "default": "Anaheim",
           "fr": "d'Anaheim"
         },
-        "abbrev": "ANA"
+        "abbrev": "ANA",
+        "score": 4
       },
       "gameCenterLink": "/gamecenter/vgk-vs-ana/2026/05/10/2025030244",
-      "ticketsLink": "https://www.ticketmaster.com/event/090064794AC55DDA?brand=nhl&wt.mc_id=NHL_LEAGUE_ANA_GAMECENTER_PREVIEW_PLAYOFFS_RD2_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_LEAGUE_ANA&utm_content=GAMECENTER_PREVIEW_PLAYOFFS_RD2_GM2"
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 2,
+        "bottomSeedWins": 2
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
     },
     {
       "id": 2025030245,
@@ -513,7 +526,7 @@
       "season": 20252026,
       "gameType": 3,
       "gameNumber": 6,
-      "ifNecessary": true,
+      "ifNecessary": false,
       "venue": {
         "default": "Honda Center"
       },
