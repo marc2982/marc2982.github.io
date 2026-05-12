@@ -382,7 +382,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-05:00",
       "venueTimezone": "US/Central",
-      "gameState": "FUT",
+      "gameState": "LIVE",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -426,7 +426,8 @@
           "default": "Colorado",
           "fr": "du Colorado"
         },
-        "abbrev": "COL"
+        "abbrev": "COL",
+        "score": 0
       },
       "homeTeam": {
         "id": 30,
@@ -440,10 +441,19 @@
           "default": "Minnesota",
           "fr": "du Minnesota"
         },
-        "abbrev": "MIN"
+        "abbrev": "MIN",
+        "score": 0
       },
       "gameCenterLink": "/gamecenter/col-vs-min/2026/05/11/2025030234",
-      "ticketsLink": "https://www.ticketmaster.com/event/06006478D366F231?brand=nhl&wt.mc_id=NHL_LEAGUE_MIN_GAMECENTER_PREVIEW_PLAYOFFS_RD2_GM2&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_LEAGUE_MIN&utm_content=GAMECENTER_PREVIEW_PLAYOFFS_RD2_GM2"
+      "periodDescriptor": {
+        "number": 1,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 2,
+        "bottomSeedWins": 1
+      }
     },
     {
       "id": 2025030235,
