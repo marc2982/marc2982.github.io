@@ -24,7 +24,7 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "5-4",
+    "record": "5-5",
     "seriesWins": 1,
     "divisionAbbrev": "C",
     "seed": 3,
@@ -48,8 +48,8 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "6-1",
-    "seriesWins": 2,
+    "record": "7-1",
+    "seriesWins": 3,
     "divisionAbbrev": "C",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg",
@@ -382,7 +382,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-05:00",
       "venueTimezone": "US/Central",
-      "gameState": "LIVE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -427,7 +427,7 @@
           "fr": "du Colorado"
         },
         "abbrev": "COL",
-        "score": 0
+        "score": 5
       },
       "homeTeam": {
         "id": 30,
@@ -442,17 +442,20 @@
           "fr": "du Minnesota"
         },
         "abbrev": "MIN",
-        "score": 0
+        "score": 2
       },
       "gameCenterLink": "/gamecenter/col-vs-min/2026/05/11/2025030234",
       "periodDescriptor": {
-        "number": 1,
+        "number": 3,
         "periodType": "REG",
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
-        "topSeedWins": 2,
+        "topSeedWins": 3,
         "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
       }
     },
     {
