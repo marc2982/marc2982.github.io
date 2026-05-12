@@ -525,19 +525,33 @@
         "default": "Centre Bell"
       },
       "neutralSite": false,
-      "startTimeUTC": "2026-05-16T16:00:00Z",
+      "startTimeUTC": "2026-05-17T00:00:00Z",
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "America/Montreal",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
+      "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
-          "id": 309,
+          "id": 4,
           "market": "N",
-          "countryCode": "US",
-          "network": "ESPN",
-          "sequenceNumber": 10
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
         },
         {
           "id": 384,
