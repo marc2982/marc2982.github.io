@@ -24,7 +24,7 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "6-4",
+    "record": "6-5",
     "seriesWins": 2,
     "divisionAbbrev": "A",
     "seed": 3,
@@ -48,8 +48,8 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "5-4",
-    "seriesWins": 1,
+    "record": "6-4",
+    "seriesWins": 2,
     "divisionAbbrev": "A",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/BUF_light.svg",
@@ -361,7 +361,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "America/Montreal",
-      "gameState": "LIVE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -406,7 +406,7 @@
           "fr": "de Buffalo"
         },
         "abbrev": "BUF",
-        "score": 2
+        "score": 3
       },
       "homeTeam": {
         "id": 8,
@@ -430,8 +430,11 @@
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
-        "topSeedWins": 1,
+        "topSeedWins": 2,
         "bottomSeedWins": 2
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
       }
     },
     {
@@ -530,7 +533,7 @@
       "season": 20252026,
       "gameType": 3,
       "gameNumber": 6,
-      "ifNecessary": true,
+      "ifNecessary": false,
       "venue": {
         "default": "Centre Bell"
       },
