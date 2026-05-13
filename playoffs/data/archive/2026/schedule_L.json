@@ -670,13 +670,6 @@
           "countryCode": "US",
           "network": "ESPN",
           "sequenceNumber": 10
-        },
-        {
-          "id": 384,
-          "market": "N",
-          "countryCode": "US",
-          "network": "ABC",
-          "sequenceNumber": 1
         }
       ],
       "awayTeam": {
