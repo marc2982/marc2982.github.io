@@ -24,7 +24,7 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "5-5",
+    "record": "5-6",
     "seriesWins": 1,
     "divisionAbbrev": "C",
     "seed": 3,
@@ -48,8 +48,8 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "7-1",
-    "seriesWins": 3,
+    "record": "8-1",
+    "seriesWins": 4,
     "divisionAbbrev": "C",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg",
@@ -472,7 +472,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-06:00",
       "venueTimezone": "America/Denver",
-      "gameState": "LIVE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -531,7 +531,7 @@
           "fr": "du Minnesota"
         },
         "abbrev": "MIN",
-        "score": 1
+        "score": 3
       },
       "homeTeam": {
         "id": 21,
@@ -546,165 +546,22 @@
           "fr": "du Colorado"
         },
         "abbrev": "COL",
-        "score": 0
+        "score": 4
       },
       "gameCenterLink": "/gamecenter/min-vs-col/2026/05/13/2025030235",
       "periodDescriptor": {
-        "number": 1,
-        "periodType": "REG",
+        "number": 4,
+        "periodType": "OT",
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
-        "topSeedWins": 3,
+        "topSeedWins": 4,
         "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "OT",
+        "otPeriods": 1
       }
-    },
-    {
-      "id": 2025030236,
-      "season": 20252026,
-      "gameType": 3,
-      "gameNumber": 6,
-      "ifNecessary": true,
-      "venue": {
-        "default": "Grand Casino Arena"
-      },
-      "neutralSite": false,
-      "startTimeUTC": "2026-05-16T00:00:00Z",
-      "easternUTCOffset": "-04:00",
-      "venueUTCOffset": "-05:00",
-      "venueTimezone": "US/Central",
-      "gameState": "FUT",
-      "gameScheduleState": "OK",
-      "tvBroadcasts": [
-        {
-          "id": 4,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "CBC",
-          "sequenceNumber": 101
-        },
-        {
-          "id": 281,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "TVAS",
-          "sequenceNumber": 120
-        },
-        {
-          "id": 282,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "SN",
-          "sequenceNumber": 107
-        },
-        {
-          "id": 309,
-          "market": "N",
-          "countryCode": "US",
-          "network": "ESPN",
-          "sequenceNumber": 10
-        }
-      ],
-      "awayTeam": {
-        "id": 21,
-        "commonName": {
-          "default": "Avalanche"
-        },
-        "placeName": {
-          "default": "Colorado"
-        },
-        "placeNameWithPreposition": {
-          "default": "Colorado",
-          "fr": "du Colorado"
-        },
-        "abbrev": "COL"
-      },
-      "homeTeam": {
-        "id": 30,
-        "commonName": {
-          "default": "Wild"
-        },
-        "placeName": {
-          "default": "Minnesota"
-        },
-        "placeNameWithPreposition": {
-          "default": "Minnesota",
-          "fr": "du Minnesota"
-        },
-        "abbrev": "MIN"
-      },
-      "gameCenterLink": "/gamecenter/col-vs-min/2026/05/15/2025030236",
-      "ticketsLink": "https://www.ticketmaster.com/event/06006478D36CF237?brand=nhl&wt.mc_id=NHL_LEAGUE_MIN_GAMECENTER_PREVIEW_PLAYOFFS_RD2_GM3&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_LEAGUE_MIN&utm_content=GAMECENTER_PREVIEW_PLAYOFFS_RD2_GM3"
-    },
-    {
-      "id": 2025030237,
-      "season": 20252026,
-      "gameType": 3,
-      "gameNumber": 7,
-      "ifNecessary": true,
-      "venue": {
-        "default": "Ball Arena"
-      },
-      "neutralSite": false,
-      "startTimeUTC": "2026-05-17T16:00:00Z",
-      "easternUTCOffset": "-04:00",
-      "venueUTCOffset": "-06:00",
-      "venueTimezone": "America/Denver",
-      "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [
-        {
-          "id": 385,
-          "market": "N",
-          "countryCode": "US",
-          "network": "TNT",
-          "sequenceNumber": 11
-        },
-        {
-          "id": 501,
-          "market": "N",
-          "countryCode": "US",
-          "network": "truTV",
-          "sequenceNumber": 14
-        },
-        {
-          "id": 578,
-          "market": "N",
-          "countryCode": "US",
-          "network": "HBO MAX",
-          "sequenceNumber": 19
-        }
-      ],
-      "awayTeam": {
-        "id": 30,
-        "commonName": {
-          "default": "Wild"
-        },
-        "placeName": {
-          "default": "Minnesota"
-        },
-        "placeNameWithPreposition": {
-          "default": "Minnesota",
-          "fr": "du Minnesota"
-        },
-        "abbrev": "MIN"
-      },
-      "homeTeam": {
-        "id": 21,
-        "commonName": {
-          "default": "Avalanche"
-        },
-        "placeName": {
-          "default": "Colorado"
-        },
-        "placeNameWithPreposition": {
-          "default": "Colorado",
-          "fr": "du Colorado"
-        },
-        "abbrev": "COL"
-      },
-      "gameCenterLink": "/gamecenter/min-vs-col/2026/05/17/2025030237",
-      "ticketsLink": "https://avs.social/26_LG_GMCNTR_PREVIEW_PO_RD2GM4"
     }
   ],
   "fullCoverageUrl": {
