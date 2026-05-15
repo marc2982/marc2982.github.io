@@ -1,29 +1,37 @@
 {
   "round": 3,
-  "roundAbbrev": "CF",
-  "roundLabel": "conference-finals",
+  "roundAbbrev": "WCF",
+  "roundLabel": "Western Conference Final",
+  "conferenceAbbrev": "W",
+  "conferenceName": "Western",
   "seriesLetter": "N",
   "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/2026-wcf-2494x266-en.png",
   "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/2026-wcf-2868x266-fr.png",
   "neededToWin": 4,
   "length": 7,
   "bottomSeedTeam": {
-    "id": -1,
+    "id": 54,
     "name": {
-      "default": "TBD"
+      "default": "Golden Knights"
     },
-    "abbrev": "TBD",
+    "abbrev": "VGK",
     "placeName": {
-      "default": "TBD"
+      "default": "Vegas"
     },
     "placeNameWithPreposition": {
-      "default": "TBD"
+      "default": "Vegas",
+      "fr": "de Vegas"
     },
-    "record": "0-0",
+    "conference": {
+      "name": "Western",
+      "abbrev": "W"
+    },
+    "record": "8-4",
     "seriesWins": 0,
+    "divisionAbbrev": "P",
     "seed": 1,
-    "logo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-light.svg",
-    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-dark.svg"
+    "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/VGK_dark.svg"
   },
   "topSeedTeam": {
     "id": 21,
@@ -44,6 +52,7 @@
     },
     "record": "8-1",
     "seriesWins": 0,
+    "divisionAbbrev": "C",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg",
     "darkLogo": "https://assets.nhle.com/logos/nhl/svg/COL_dark.svg"
@@ -64,20 +73,50 @@
       "venueUTCOffset": "-06:00",
       "venueTimezone": "America/Denver",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        }
+      ],
       "awayTeam": {
-        "id": -1,
+        "id": 54,
         "commonName": {
-          "default": "TBD"
+          "default": "Golden Knights"
         },
         "placeName": {
-          "default": "TBD"
+          "default": "Vegas"
         },
         "placeNameWithPreposition": {
-          "default": "TBD"
+          "default": "Vegas",
+          "fr": "de Vegas"
         },
-        "abbrev": "TBD"
+        "abbrev": "VGK"
       },
       "homeTeam": {
         "id": 21,
@@ -92,7 +131,9 @@
           "fr": "du Colorado"
         },
         "abbrev": "COL"
-      }
+      },
+      "gameCenterLink": "/gamecenter/vgk-vs-col/2026/05/20/2025030321",
+      "ticketsLink": "https://www.nhl.com/avalanche/tickets/"
     },
     {
       "id": 2025030322,
@@ -109,20 +150,50 @@
       "venueUTCOffset": "-06:00",
       "venueTimezone": "America/Denver",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        }
+      ],
       "awayTeam": {
-        "id": -1,
+        "id": 54,
         "commonName": {
-          "default": "TBD"
+          "default": "Golden Knights"
         },
         "placeName": {
-          "default": "TBD"
+          "default": "Vegas"
         },
         "placeNameWithPreposition": {
-          "default": "TBD"
+          "default": "Vegas",
+          "fr": "de Vegas"
         },
-        "abbrev": "TBD"
+        "abbrev": "VGK"
       },
       "homeTeam": {
         "id": 21,
@@ -137,7 +208,9 @@
           "fr": "du Colorado"
         },
         "abbrev": "COL"
-      }
+      },
+      "gameCenterLink": "/gamecenter/vgk-vs-col/2026/05/22/2025030322",
+      "ticketsLink": "https://www.nhl.com/avalanche/tickets/"
     },
     {
       "id": 2025030323,
@@ -145,10 +218,46 @@
       "gameType": 3,
       "gameNumber": 3,
       "ifNecessary": false,
+      "venue": {
+        "default": "T-Mobile Arena"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-05-25T00:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-07:00",
+      "venueTimezone": "US/Pacific",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        }
+      ],
       "awayTeam": {
         "id": 21,
         "commonName": {
@@ -164,18 +273,21 @@
         "abbrev": "COL"
       },
       "homeTeam": {
-        "id": -1,
+        "id": 54,
         "commonName": {
-          "default": "TBD"
+          "default": "Golden Knights"
         },
         "placeName": {
-          "default": "TBD"
+          "default": "Vegas"
         },
         "placeNameWithPreposition": {
-          "default": "TBD"
+          "default": "Vegas",
+          "fr": "de Vegas"
         },
-        "abbrev": "TBD"
-      }
+        "abbrev": "VGK"
+      },
+      "gameCenterLink": "/gamecenter/col-vs-vgk/2026/05/24/2025030323",
+      "ticketsLink": "https://www.nhl.com/goldenknights/tickets/"
     },
     {
       "id": 2025030324,
@@ -183,10 +295,46 @@
       "gameType": 3,
       "gameNumber": 4,
       "ifNecessary": false,
+      "venue": {
+        "default": "T-Mobile Arena"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-05-26T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-07:00",
+      "venueTimezone": "US/Pacific",
       "gameState": "FUT",
       "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        }
+      ],
       "awayTeam": {
         "id": 21,
         "commonName": {
@@ -202,18 +350,21 @@
         "abbrev": "COL"
       },
       "homeTeam": {
-        "id": -1,
+        "id": 54,
         "commonName": {
-          "default": "TBD"
+          "default": "Golden Knights"
         },
         "placeName": {
-          "default": "TBD"
+          "default": "Vegas"
         },
         "placeNameWithPreposition": {
-          "default": "TBD"
+          "default": "Vegas",
+          "fr": "de Vegas"
         },
-        "abbrev": "TBD"
-      }
+        "abbrev": "VGK"
+      },
+      "gameCenterLink": "/gamecenter/col-vs-vgk/2026/05/26/2025030324",
+      "ticketsLink": "https://www.nhl.com/goldenknights/tickets/"
     },
     {
       "id": 2025030325,
@@ -230,20 +381,50 @@
       "venueUTCOffset": "-06:00",
       "venueTimezone": "America/Denver",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        }
+      ],
       "awayTeam": {
-        "id": -1,
+        "id": 54,
         "commonName": {
-          "default": "TBD"
+          "default": "Golden Knights"
         },
         "placeName": {
-          "default": "TBD"
+          "default": "Vegas"
         },
         "placeNameWithPreposition": {
-          "default": "TBD"
+          "default": "Vegas",
+          "fr": "de Vegas"
         },
-        "abbrev": "TBD"
+        "abbrev": "VGK"
       },
       "homeTeam": {
         "id": 21,
@@ -258,7 +439,9 @@
           "fr": "du Colorado"
         },
         "abbrev": "COL"
-      }
+      },
+      "gameCenterLink": "/gamecenter/vgk-vs-col/2026/05/28/2025030325",
+      "ticketsLink": "https://www.nhl.com/avalanche/tickets/"
     },
     {
       "id": 2025030326,
@@ -266,10 +449,46 @@
       "gameType": 3,
       "gameNumber": 6,
       "ifNecessary": true,
+      "venue": {
+        "default": "T-Mobile Arena"
+      },
       "neutralSite": false,
+      "startTimeUTC": "2026-05-31T00:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-07:00",
+      "venueTimezone": "US/Pacific",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 384,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ABC",
+          "sequenceNumber": 1
+        }
+      ],
       "awayTeam": {
         "id": 21,
         "commonName": {
@@ -285,18 +504,21 @@
         "abbrev": "COL"
       },
       "homeTeam": {
-        "id": -1,
+        "id": 54,
         "commonName": {
-          "default": "TBD"
+          "default": "Golden Knights"
         },
         "placeName": {
-          "default": "TBD"
+          "default": "Vegas"
         },
         "placeNameWithPreposition": {
-          "default": "TBD"
+          "default": "Vegas",
+          "fr": "de Vegas"
         },
-        "abbrev": "TBD"
-      }
+        "abbrev": "VGK"
+      },
+      "gameCenterLink": "/gamecenter/col-vs-vgk/2026/05/30/2025030326",
+      "ticketsLink": "https://www.nhl.com/goldenknights/tickets/"
     },
     {
       "id": 2025030327,
@@ -313,20 +535,50 @@
       "venueUTCOffset": "-06:00",
       "venueTimezone": "America/Denver",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [],
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 309,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ESPN",
+          "sequenceNumber": 10
+        }
+      ],
       "awayTeam": {
-        "id": -1,
+        "id": 54,
         "commonName": {
-          "default": "TBD"
+          "default": "Golden Knights"
         },
         "placeName": {
-          "default": "TBD"
+          "default": "Vegas"
         },
         "placeNameWithPreposition": {
-          "default": "TBD"
+          "default": "Vegas",
+          "fr": "de Vegas"
         },
-        "abbrev": "TBD"
+        "abbrev": "VGK"
       },
       "homeTeam": {
         "id": 21,
@@ -341,7 +593,9 @@
           "fr": "du Colorado"
         },
         "abbrev": "COL"
-      }
+      },
+      "gameCenterLink": "/gamecenter/vgk-vs-col/2026/06/01/2025030327",
+      "ticketsLink": "https://www.nhl.com/avalanche/tickets/"
     }
   ],
   "fullCoverageUrl": {

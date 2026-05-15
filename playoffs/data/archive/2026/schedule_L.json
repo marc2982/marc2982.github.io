@@ -24,7 +24,7 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "6-5",
+    "record": "6-6",
     "seriesWins": 2,
     "divisionAbbrev": "P",
     "seed": 3,
@@ -48,8 +48,8 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "7-4",
-    "seriesWins": 3,
+    "record": "8-4",
+    "seriesWins": 4,
     "divisionAbbrev": "P",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
@@ -549,7 +549,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-07:00",
       "venueTimezone": "America/Los_Angeles",
-      "gameState": "CRIT",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -632,86 +632,12 @@
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
-        "topSeedWins": 3,
+        "topSeedWins": 4,
         "bottomSeedWins": 2
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
       }
-    },
-    {
-      "id": 2025030247,
-      "season": 20252026,
-      "gameType": 3,
-      "gameNumber": 7,
-      "ifNecessary": true,
-      "venue": {
-        "default": "T-Mobile Arena"
-      },
-      "neutralSite": false,
-      "startTimeUTC": "2026-05-16T21:00:00Z",
-      "easternUTCOffset": "-04:00",
-      "venueUTCOffset": "-07:00",
-      "venueTimezone": "US/Pacific",
-      "gameState": "FUT",
-      "gameScheduleState": "OK",
-      "tvBroadcasts": [
-        {
-          "id": 281,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "TVAS",
-          "sequenceNumber": 120
-        },
-        {
-          "id": 284,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "SN1",
-          "sequenceNumber": 113
-        },
-        {
-          "id": 290,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "SNP",
-          "sequenceNumber": 33
-        },
-        {
-          "id": 309,
-          "market": "N",
-          "countryCode": "US",
-          "network": "ESPN",
-          "sequenceNumber": 10
-        }
-      ],
-      "awayTeam": {
-        "id": 24,
-        "commonName": {
-          "default": "Ducks"
-        },
-        "placeName": {
-          "default": "Anaheim"
-        },
-        "placeNameWithPreposition": {
-          "default": "Anaheim",
-          "fr": "d'Anaheim"
-        },
-        "abbrev": "ANA"
-      },
-      "homeTeam": {
-        "id": 54,
-        "commonName": {
-          "default": "Golden Knights"
-        },
-        "placeName": {
-          "default": "Vegas"
-        },
-        "placeNameWithPreposition": {
-          "default": "Vegas",
-          "fr": "de Vegas"
-        },
-        "abbrev": "VGK"
-      },
-      "gameCenterLink": "/gamecenter/ana-vs-vgk/2026/05/16/2025030247",
-      "ticketsLink": ""
     }
   ],
   "fullCoverageUrl": {
