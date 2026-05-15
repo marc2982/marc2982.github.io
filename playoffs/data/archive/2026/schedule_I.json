@@ -24,8 +24,8 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "6-5",
-    "seriesWins": 2,
+    "record": "7-5",
+    "seriesWins": 3,
     "divisionAbbrev": "A",
     "seed": 3,
     "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg",
@@ -48,7 +48,7 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "6-4",
+    "record": "6-5",
     "seriesWins": 2,
     "divisionAbbrev": "A",
     "seed": 1,
@@ -451,7 +451,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "America/New_York",
-      "gameState": "LIVE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -510,7 +510,7 @@
           "fr": "de Montréal"
         },
         "abbrev": "MTL",
-        "score": 2
+        "score": 6
       },
       "homeTeam": {
         "id": 7,
@@ -529,13 +529,16 @@
       },
       "gameCenterLink": "/gamecenter/mtl-vs-buf/2026/05/14/2025030215",
       "periodDescriptor": {
-        "number": 2,
+        "number": 3,
         "periodType": "REG",
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
         "topSeedWins": 2,
-        "bottomSeedWins": 2
+        "bottomSeedWins": 3
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
       }
     },
     {

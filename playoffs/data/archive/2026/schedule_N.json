@@ -6,7 +6,7 @@
   "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/2026-wcf-2494x266-en.png",
   "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/2026-wcf-2868x266-fr.png",
   "neededToWin": 4,
-  "length": 0,
+  "length": 7,
   "bottomSeedTeam": {
     "id": -1,
     "name": {
@@ -48,7 +48,302 @@
     "logo": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg",
     "darkLogo": "https://assets.nhle.com/logos/nhl/svg/COL_dark.svg"
   },
-  "games": [],
+  "games": [
+    {
+      "id": 2025030321,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 1,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Ball Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-05-21T00:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-06:00",
+      "venueTimezone": "America/Denver",
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": -1,
+        "commonName": {
+          "default": "TBD"
+        },
+        "placeName": {
+          "default": "TBD"
+        },
+        "placeNameWithPreposition": {
+          "default": "TBD"
+        },
+        "abbrev": "TBD"
+      },
+      "homeTeam": {
+        "id": 21,
+        "commonName": {
+          "default": "Avalanche"
+        },
+        "placeName": {
+          "default": "Colorado"
+        },
+        "placeNameWithPreposition": {
+          "default": "Colorado",
+          "fr": "du Colorado"
+        },
+        "abbrev": "COL"
+      }
+    },
+    {
+      "id": 2025030322,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 2,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Ball Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-05-23T00:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-06:00",
+      "venueTimezone": "America/Denver",
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": -1,
+        "commonName": {
+          "default": "TBD"
+        },
+        "placeName": {
+          "default": "TBD"
+        },
+        "placeNameWithPreposition": {
+          "default": "TBD"
+        },
+        "abbrev": "TBD"
+      },
+      "homeTeam": {
+        "id": 21,
+        "commonName": {
+          "default": "Avalanche"
+        },
+        "placeName": {
+          "default": "Colorado"
+        },
+        "placeNameWithPreposition": {
+          "default": "Colorado",
+          "fr": "du Colorado"
+        },
+        "abbrev": "COL"
+      }
+    },
+    {
+      "id": 2025030323,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 3,
+      "ifNecessary": false,
+      "neutralSite": false,
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": 21,
+        "commonName": {
+          "default": "Avalanche"
+        },
+        "placeName": {
+          "default": "Colorado"
+        },
+        "placeNameWithPreposition": {
+          "default": "Colorado",
+          "fr": "du Colorado"
+        },
+        "abbrev": "COL"
+      },
+      "homeTeam": {
+        "id": -1,
+        "commonName": {
+          "default": "TBD"
+        },
+        "placeName": {
+          "default": "TBD"
+        },
+        "placeNameWithPreposition": {
+          "default": "TBD"
+        },
+        "abbrev": "TBD"
+      }
+    },
+    {
+      "id": 2025030324,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 4,
+      "ifNecessary": false,
+      "neutralSite": false,
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": 21,
+        "commonName": {
+          "default": "Avalanche"
+        },
+        "placeName": {
+          "default": "Colorado"
+        },
+        "placeNameWithPreposition": {
+          "default": "Colorado",
+          "fr": "du Colorado"
+        },
+        "abbrev": "COL"
+      },
+      "homeTeam": {
+        "id": -1,
+        "commonName": {
+          "default": "TBD"
+        },
+        "placeName": {
+          "default": "TBD"
+        },
+        "placeNameWithPreposition": {
+          "default": "TBD"
+        },
+        "abbrev": "TBD"
+      }
+    },
+    {
+      "id": 2025030325,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 5,
+      "ifNecessary": true,
+      "venue": {
+        "default": "Ball Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-05-29T00:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-06:00",
+      "venueTimezone": "America/Denver",
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": -1,
+        "commonName": {
+          "default": "TBD"
+        },
+        "placeName": {
+          "default": "TBD"
+        },
+        "placeNameWithPreposition": {
+          "default": "TBD"
+        },
+        "abbrev": "TBD"
+      },
+      "homeTeam": {
+        "id": 21,
+        "commonName": {
+          "default": "Avalanche"
+        },
+        "placeName": {
+          "default": "Colorado"
+        },
+        "placeNameWithPreposition": {
+          "default": "Colorado",
+          "fr": "du Colorado"
+        },
+        "abbrev": "COL"
+      }
+    },
+    {
+      "id": 2025030326,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 6,
+      "ifNecessary": true,
+      "neutralSite": false,
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": 21,
+        "commonName": {
+          "default": "Avalanche"
+        },
+        "placeName": {
+          "default": "Colorado"
+        },
+        "placeNameWithPreposition": {
+          "default": "Colorado",
+          "fr": "du Colorado"
+        },
+        "abbrev": "COL"
+      },
+      "homeTeam": {
+        "id": -1,
+        "commonName": {
+          "default": "TBD"
+        },
+        "placeName": {
+          "default": "TBD"
+        },
+        "placeNameWithPreposition": {
+          "default": "TBD"
+        },
+        "abbrev": "TBD"
+      }
+    },
+    {
+      "id": 2025030327,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 7,
+      "ifNecessary": true,
+      "venue": {
+        "default": "Ball Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-06-02T00:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-06:00",
+      "venueTimezone": "America/Denver",
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [],
+      "awayTeam": {
+        "id": -1,
+        "commonName": {
+          "default": "TBD"
+        },
+        "placeName": {
+          "default": "TBD"
+        },
+        "placeNameWithPreposition": {
+          "default": "TBD"
+        },
+        "abbrev": "TBD"
+      },
+      "homeTeam": {
+        "id": 21,
+        "commonName": {
+          "default": "Avalanche"
+        },
+        "placeName": {
+          "default": "Colorado"
+        },
+        "placeNameWithPreposition": {
+          "default": "Colorado",
+          "fr": "du Colorado"
+        },
+        "abbrev": "COL"
+      }
+    }
+  ],
   "fullCoverageUrl": {
     "cs": "https://www.nhl.com/cs/playoffs/2026/series-n-coverage",
     "de": "https://www.nhl.com/de/playoffs/2026/series-n-coverage",

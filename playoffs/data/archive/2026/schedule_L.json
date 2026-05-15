@@ -549,7 +549,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-07:00",
       "venueTimezone": "America/Los_Angeles",
-      "gameState": "FUT",
+      "gameState": "CRIT",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -607,7 +607,8 @@
           "default": "Vegas",
           "fr": "de Vegas"
         },
-        "abbrev": "VGK"
+        "abbrev": "VGK",
+        "score": 5
       },
       "homeTeam": {
         "id": 24,
@@ -621,10 +622,19 @@
           "default": "Anaheim",
           "fr": "d'Anaheim"
         },
-        "abbrev": "ANA"
+        "abbrev": "ANA",
+        "score": 1
       },
       "gameCenterLink": "/gamecenter/vgk-vs-ana/2026/05/14/2025030246",
-      "ticketsLink": "https://www.ticketmaster.com/event/090064794B775EB4?brand=nhl&wt.mc_id=NHL_LEAGUE_ANA_GAMECENTER_PREVIEW_PLAYOFFS_RD2_GM3&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_LEAGUE_ANA&utm_content=GAMECENTER_PREVIEW_PLAYOFFS_RD2_GM3"
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 3,
+        "bottomSeedWins": 2
+      }
     },
     {
       "id": 2025030247,
