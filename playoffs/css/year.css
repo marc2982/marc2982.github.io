@@ -325,6 +325,12 @@ table.table.table-striped td {
         font-size: 0.8rem;
     }
 
+    #makePicksLink {
+        right: 10px !important;
+        padding: 6px 10px !important;
+        font-size: 0.8rem !important;
+    }
+
     /* Make tables scrollable on mobile */
     .containing_table {
         display: block;
