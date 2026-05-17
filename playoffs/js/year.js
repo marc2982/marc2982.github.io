@@ -85,24 +85,58 @@ export function renderRound(teams, round, table, priorOverall = null) {
 		const submitted = viewModel.participants.filter(p => p.hasSubmitted);
 		const missing = viewModel.participants.filter(p => !p.hasSubmitted);
 
+		const numColumns = 1 + viewModel.series.length + 6 + (viewModel.hasPriorOverall ? 1 : 0);
+
 		$(table).html(`
-			<div class="censored-round">
-				<p class="censored-notice">\u{1F512} Picks are hidden until the round begins.</p>
-				<div class="censored-lists">
-					<div class="censored-group submitted">
-						<h4>Submitted (${submitted.length})</h4>
-						<ul>
-							${submitted.map(p => `<li>\u{1F92B} ${p.person}</li>`).join('')}
-						</ul>
-					</div>
-					<div class="censored-group missing">
-						<h4>Still Needed (${missing.length})</h4>
-						<ul>
-							${missing.map(p => `<li>\u{274C} ${p.person}</li>`).join('')}
-						</ul>
-					</div>
-				</div>
-			</div>
+			<thead>
+				<tr>
+					<th>&nbsp;</th>
+					${viewModel.series
+						.map(
+							(s) => `
+						<th>
+							<div class="matchup-header ${s.scoresTooltip ? 'has-tooltip' : ''}">
+								<div class="team-top ${s.topSeedIsWinner ? 'winner' : ''}">${s.topSeed} (${s.topSeedWins})</div>
+								<div class="team-bottom ${s.bottomSeedIsWinner ? 'winner' : ''}">${s.bottomSeed} (${s.bottomSeedWins})</div>
+								${s.nextGameDesc ? `<div class="next-game">${s.nextGameDesc}</div>` : ''}
+								${s.scoresTooltip ? `<div class="scores-tooltip">${s.scoresTooltip}</div>` : ''}
+							</div>
+						</th>
+					`,
+						)
+						.join('')}
+					<th>Total Points</th>
+					<th>Rank</th>
+					<th>Maximum Possible Points</th>
+					<th>Num Games Correct</th>
+					<th>Num Teams Correct</th>
+					<th>Num Bonuses Earned</th>
+					${viewModel.hasPriorOverall ? '<th>Prev. Overall Pts</th>' : ''}
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td colspan="${numColumns}" style="padding: 20px;">
+						<div class="censored-round">
+							<p class="censored-notice">\u{1F512} Picks are hidden until the round begins.</p>
+							<div class="censored-lists">
+								<div class="censored-group submitted">
+									<h4>Submitted (${submitted.length})</h4>
+									<ul>
+										${submitted.map(p => `<li>\u{1F92B} ${p.person}</li>`).join('')}
+									</ul>
+								</div>
+								<div class="censored-group missing">
+									<h4>Still Needed (${missing.length})</h4>
+									<ul>
+										${missing.map(p => `<li>\u{274C} ${p.person}</li>`).join('')}
+									</ul>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</tbody>
 		`);
 		return;
 	}

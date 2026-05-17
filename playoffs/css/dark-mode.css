@@ -98,7 +98,8 @@ html.dark-mode .censored-group {
 }
 
 html.dark-mode .censored-group h4,
-html.dark-mode .censored-group ul li {
+html.dark-mode .censored-group ul li,
+html.dark-mode .censored-notice {
     color: #e6e6e6;
 }
 

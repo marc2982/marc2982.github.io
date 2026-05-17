@@ -94,6 +94,23 @@ export function prepareRoundViewModel(teams, round, priorOverall = null) {
 			return {
 				roundNumber: round.number,
 				censored: true,
+				hasPriorOverall: !!priorOverall,
+				series: sortedSeries.map((series) => {
+					const topIsTbd = !series.topSeed || series.topSeed === 'undefined' || series.topSeed.toUpperCase() === 'TBD';
+					const botIsTbd = !series.bottomSeed || series.bottomSeed === 'undefined' || series.bottomSeed.toUpperCase() === 'TBD';
+					return {
+						letter: series.letter,
+						topSeed: topIsTbd ? (series.possibleTopSeeds?.join('/') || 'TBD') : series.topSeed,
+						topSeedWins: series.topSeedWins,
+						bottomSeed: botIsTbd ? (series.possibleBottomSeeds?.join('/') || 'TBD') : series.bottomSeed,
+						bottomSeedWins: series.bottomSeedWins,
+						topSeedIsWinner: series.topSeedWins === 4,
+						bottomSeedIsWinner: series.bottomSeedWins === 4,
+						nextGameDesc: series.getNextGameDesc(),
+						scoresTooltip: series.getScoresTooltip(),
+						isTbd: topIsTbd || botIsTbd
+					};
+				}),
 				participants: allPeople.map(person => ({
 					person,
 					hasSubmitted: submitted.has(person),
