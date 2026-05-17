@@ -6,7 +6,7 @@
   "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/2026-ecf-2444x266-en.png",
   "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/2026-ecf-3068x266-fr.png",
   "neededToWin": 4,
-  "length": 0,
+  "length": 7,
   "bottomSeedTeam": {
     "id": 12,
     "name": {
@@ -49,7 +49,603 @@
     "logo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-light.svg",
     "darkLogo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-dark.svg"
   },
-  "games": [],
+  "games": [
+    {
+      "id": 2025030311,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 1,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Lenovo Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-05-21T04:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        }
+      ],
+      "awayTeam": {
+        "id": -1,
+        "commonName": {
+          "default": "TBD"
+        },
+        "placeName": {
+          "default": "TBD"
+        },
+        "placeNameWithPreposition": {
+          "default": "TBD"
+        },
+        "abbrev": "TBD"
+      },
+      "homeTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR"
+      }
+    },
+    {
+      "id": 2025030312,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 2,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Lenovo Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-05-23T04:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        }
+      ],
+      "awayTeam": {
+        "id": -1,
+        "commonName": {
+          "default": "TBD"
+        },
+        "placeName": {
+          "default": "TBD"
+        },
+        "placeNameWithPreposition": {
+          "default": "TBD"
+        },
+        "abbrev": "TBD"
+      },
+      "homeTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR"
+      }
+    },
+    {
+      "id": 2025030313,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 3,
+      "ifNecessary": false,
+      "neutralSite": false,
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        }
+      ],
+      "awayTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR"
+      },
+      "homeTeam": {
+        "id": -1,
+        "commonName": {
+          "default": "TBD"
+        },
+        "placeName": {
+          "default": "TBD"
+        },
+        "placeNameWithPreposition": {
+          "default": "TBD"
+        },
+        "abbrev": "TBD"
+      }
+    },
+    {
+      "id": 2025030314,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 4,
+      "ifNecessary": false,
+      "neutralSite": false,
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        }
+      ],
+      "awayTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR"
+      },
+      "homeTeam": {
+        "id": -1,
+        "commonName": {
+          "default": "TBD"
+        },
+        "placeName": {
+          "default": "TBD"
+        },
+        "placeNameWithPreposition": {
+          "default": "TBD"
+        },
+        "abbrev": "TBD"
+      }
+    },
+    {
+      "id": 2025030315,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 5,
+      "ifNecessary": true,
+      "venue": {
+        "default": "Lenovo Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-05-29T04:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        }
+      ],
+      "awayTeam": {
+        "id": -1,
+        "commonName": {
+          "default": "TBD"
+        },
+        "placeName": {
+          "default": "TBD"
+        },
+        "placeNameWithPreposition": {
+          "default": "TBD"
+        },
+        "abbrev": "TBD"
+      },
+      "homeTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR"
+      }
+    },
+    {
+      "id": 2025030316,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 6,
+      "ifNecessary": true,
+      "neutralSite": false,
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        }
+      ],
+      "awayTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR"
+      },
+      "homeTeam": {
+        "id": -1,
+        "commonName": {
+          "default": "TBD"
+        },
+        "placeName": {
+          "default": "TBD"
+        },
+        "placeNameWithPreposition": {
+          "default": "TBD"
+        },
+        "abbrev": "TBD"
+      }
+    },
+    {
+      "id": 2025030317,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 7,
+      "ifNecessary": true,
+      "venue": {
+        "default": "Lenovo Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-06-02T04:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [
+        {
+          "id": 385,
+          "market": "N",
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        }
+      ],
+      "awayTeam": {
+        "id": -1,
+        "commonName": {
+          "default": "TBD"
+        },
+        "placeName": {
+          "default": "TBD"
+        },
+        "placeNameWithPreposition": {
+          "default": "TBD"
+        },
+        "abbrev": "TBD"
+      },
+      "homeTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR"
+      }
+    }
+  ],
   "fullCoverageUrl": {
     "cs": "https://www.nhl.com/cs/playoffs/2026/series-m-coverage",
     "de": "https://www.nhl.com/de/playoffs/2026/series-m-coverage",

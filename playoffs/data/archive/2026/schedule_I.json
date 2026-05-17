@@ -24,7 +24,7 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "7-5",
+    "record": "7-6",
     "seriesWins": 3,
     "divisionAbbrev": "A",
     "seed": 3,
@@ -48,8 +48,8 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "6-5",
-    "seriesWins": 2,
+    "record": "7-5",
+    "seriesWins": 3,
     "divisionAbbrev": "A",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/BUF_light.svg",
@@ -555,7 +555,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "America/Montreal",
-      "gameState": "PRE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -599,7 +599,8 @@
           "default": "Buffalo",
           "fr": "de Buffalo"
         },
-        "abbrev": "BUF"
+        "abbrev": "BUF",
+        "score": 8
       },
       "homeTeam": {
         "id": 8,
@@ -613,17 +614,29 @@
           "default": "Montréal",
           "fr": "de Montréal"
         },
-        "abbrev": "MTL"
+        "abbrev": "MTL",
+        "score": 3
       },
       "gameCenterLink": "/gamecenter/buf-vs-mtl/2026/05/16/2025030216",
-      "ticketsLink": "https://www.ticketmaster.com/event/3100648AD6FF9FFE?lang=en-ca&brand=nhl&wt.mc_id=NHL_LEAGUE_MTL_GAMECENTER_PREVIEW_PLAYOFFS_RD2_GM3&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_LEAGUE_MTL&utm_content=GAMECENTER_PREVIEW_PLAYOFFS_RD2_GM3"
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 3,
+        "bottomSeedWins": 3
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
     },
     {
       "id": 2025030217,
       "season": 20252026,
       "gameType": 3,
       "gameNumber": 7,
-      "ifNecessary": true,
+      "ifNecessary": false,
       "venue": {
         "default": "KeyBank Center"
       },
