@@ -152,12 +152,13 @@ function renderMatchups(seriesList, teamsObjects, targetRoundIdx, apiHandler) {
 	if (!isRoundOpen) {
 		if (chronologicalLeadSeries && chronologicalLeadSeries.startTimeUTC) {
 			const unlockDate = new Date(new Date(chronologicalLeadSeries.startTimeUTC).getTime() - 3 * 24 * 60 * 60 * 1000);
+			const weekdayStr = unlockDate.toLocaleString('default', { weekday: 'long' });
 			const monthStr = unlockDate.toLocaleString('default', { month: 'short' });
-			const dayStr = String(unlockDate.getDate()).padStart(2, '0');
+			const dayStr = unlockDate.getDate();
 			let hr = unlockDate.getHours();
 			const ampm = hr >= 12 ? 'pm' : 'am';
 			hr = hr % 12 || 12;
-			const formattedDate = `${unlockDate.getFullYear()}-${monthStr}-${dayStr} at ${hr}${ampm}`;
+			const formattedDate = `${weekdayStr}, ${monthStr} ${dayStr} @ ${hr}${ampm}`;
 
 			container.html(getNotOpenHtml(formattedDate));
 		} else {
