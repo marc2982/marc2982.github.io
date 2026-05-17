@@ -80,6 +80,17 @@ export function renderRound(teams, round, table, priorOverall = null) {
 		return;
 	}
 
+	// Add LLM Summary if it exists
+	$(table).siblings('.round-recap').remove();
+	if (viewModel.llmSummary) {
+		$(table).before(`
+			<div class="round-recap">
+				<h4>🤖 AI Round Recap</h4>
+				<p>${viewModel.llmSummary}</p>
+			</div>
+		`);
+	}
+
 	// Censored mode: round hasn't started, just show submission status
 	if (viewModel.censored) {
 		const submitted = viewModel.participants.filter(p => p.hasSubmitted);

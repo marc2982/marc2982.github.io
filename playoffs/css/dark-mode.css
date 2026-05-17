@@ -67,6 +67,20 @@ html.dark-mode .explanation h4 {
     color: #e6e6e6;
 }
 
+html.dark-mode .round-recap {
+    background-color: #1a2235;
+    border-color: #2c3e50;
+    border-left-color: #4da3ff;
+}
+
+html.dark-mode .round-recap h4 {
+    color: #66b3ff;
+}
+
+html.dark-mode .round-recap p {
+    color: #e6e6e6;
+}
+
 html.dark-mode #tiebreaker {
     background-color: #2c2514;
     border-color: #b8860b;

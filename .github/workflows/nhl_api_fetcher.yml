@@ -22,6 +22,11 @@ jobs:
             - name: Run Fetch Script
               run: node playoffs/scripts/fetch_nhl_api.mjs
 
+            - name: Generate Round Summaries
+              env:
+                  GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+              run: node playoffs/scripts/generate_round_summary.mjs
+
             - name: Commit and Push Changes
               run: |
                   git config --global user.name "github-actions[bot]"

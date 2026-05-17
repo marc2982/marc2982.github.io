@@ -127,6 +127,7 @@ export function prepareRoundViewModel(teams, round, priorOverall = null) {
 	return {
 		roundNumber: round.number,
 		hasPriorOverall: !!priorOverall,
+		llmSummary: round.llmSummary,
 		series: sortedSeries.map((series) => {
 			const topIsTbd = !series.topSeed || series.topSeed === 'undefined' || series.topSeed.toUpperCase() === 'TBD';
 			const botIsTbd = !series.bottomSeed || series.bottomSeed === 'undefined' || series.bottomSeed.toUpperCase() === 'TBD';

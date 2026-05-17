@@ -7,6 +7,7 @@ Welcome to the NHL Playoffs Pool! This is a completely free, automated, serverle
 - **Live Scoring & Tiebreakers:** Real-time point calculations against live NHL API data during the playoffs.
 - **Round-by-Round Breakdown:** View picks and points for every person, for every series, in every round.
 - **Projections:** "What-if" scenarios showing exactly who will win the pool (or get eliminated) based on every possible remaining series outcome.
+- **Automated AI Recaps:** Let a Gemini LLM automatically write fun, insightful summaries of everyone's picks vs the real results at the end of each round.
 - **Deep Metrics & Analysis:** Go back to any historical year instantly to see advanced statistics:
     - **Performance:** History of points, exact placements, and achievements across years.
     - **Pick Analysis:** Average points per round, loyalty vs bias, the "Mush" (most zero-point picks), etc.
@@ -89,6 +90,17 @@ If you want to alert your pool participants exactly when a round opens (3 days b
 2. Loop through your participants' email addresses and call `MailApp.sendEmail(email, "NHL Pool: Next Round Open", "Time to submit your picks!")`.
 3. Set a "Time-driven trigger" within the GAS dashboard to execute this function every morning.
    **_SMS Hack:_** You don't need paid Twilio credits to send text messages. Every major carrier provides an "Email-to-SMS" gateway (e.g. \`5551234567@vtext.com\` for Verizon, or \`@txt.att.net\` for AT&T). If you drop those specific carrier gateway addresses into your `MailApp` loop instead of standard emails, Google Apps Script will text their phones for free.
+
+### 5. Automated AI Round Recaps (Optional)
+
+The built-in GitHub Actions workflow has an automated script that runs when a playoff round is completely finished. It feeds the raw NHL results and everyone's pool picks to an LLM to generate a short, fun summary with an enthusiastic fan persona.
+
+To enable this completely free feature:
+1. Generate a free API key from Google AI Studio (Gemini).
+2. Go to your GitHub repository's **Settings** > **Secrets and variables** > **Actions**.
+3. Create a new Repository secret named `GEMINI_API_KEY` and paste your key.
+
+The site will now automatically write and publish AI Round Recaps! If you don't add the key, the site gracefully ignores this feature.
 
 ## 🧪 Testing & Local Development
 

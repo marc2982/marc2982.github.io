@@ -28,6 +28,19 @@ import { fetchJson } from './httpUtils.js';
 export async function render(year) {
 	try {
 		const data = await loadData(year);
+
+		// Load LLM summaries separately
+		try {
+			const summaries = await fetchJson(`./data/archive/${year}/summaries.json`);
+			if (summaries) {
+				data.rounds.forEach(r => {
+					r.llmSummary = summaries[`round${r.number}`];
+				});
+			}
+		} catch (e) {
+			// ignore if not found
+		}
+
 		renderPage(data);
 	} catch (err) {
 		if (err.message === 'PLAYOFFS_NOT_STARTED') {
