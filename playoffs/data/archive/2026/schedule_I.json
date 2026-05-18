@@ -645,7 +645,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "America/New_York",
-      "gameState": "FUT",
+      "gameState": "LIVE",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -689,7 +689,8 @@
           "default": "Montréal",
           "fr": "de Montréal"
         },
-        "abbrev": "MTL"
+        "abbrev": "MTL",
+        "score": 0
       },
       "homeTeam": {
         "id": 7,
@@ -703,10 +704,19 @@
           "default": "Buffalo",
           "fr": "de Buffalo"
         },
-        "abbrev": "BUF"
+        "abbrev": "BUF",
+        "score": 0
       },
       "gameCenterLink": "/gamecenter/mtl-vs-buf/2026/05/18/2025030217",
-      "ticketsLink": "https://www.ticketmaster.com/event/0000648DC374ECBC?brand=nhl&wt.mc_id=NHL_LEAGUE_BUF_GAMECENTER_PREVIEW_PLAYOFFS_RD2_GM4&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_LEAGUE_BUF&utm_content=GAMECENTER_PREVIEW_PLAYOFFS_RD2_GM4"
+      "periodDescriptor": {
+        "number": 1,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 3,
+        "bottomSeedWins": 3
+      }
     }
   ],
   "fullCoverageUrl": {
