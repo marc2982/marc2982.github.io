@@ -412,7 +412,9 @@
       "topSeedWins": 3,
       "bottomSeedRank": 3,
       "bottomSeedRankAbbrev": "D3",
-      "bottomSeedWins": 3,
+      "bottomSeedWins": 4,
+      "winningTeamId": 8,
+      "losingTeamId": 7,
       "topSeedTeam": {
         "id": 7,
         "abbrev": "BUF",
@@ -596,35 +598,22 @@
       }
     },
     {
-      "seriesUrl": "/schedule/playoff-series/2026/series-m/hurricanes-vs-tbd",
+      "seriesUrl": "/schedule/playoff-series/2026/series-m/canadiens-vs-hurricanes",
       "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/ecf-20232024-wordmark-en.png",
       "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/ecf-20232024-wordmark-fr.png",
-      "seriesTitle": "Conference Finals",
-      "seriesAbbrev": "CF",
+      "seriesTitle": "Eastern Conference Finals",
+      "seriesAbbrev": "ECF",
       "seriesLetter": "M",
+      "conferenceAbbrev": "E",
+      "conferenceName": "Eastern",
       "playoffRound": 3,
       "topSeedRank": 1,
       "topSeedRankAbbrev": "D1",
       "topSeedWins": 0,
-      "bottomSeedRank": 1,
-      "bottomSeedRankAbbrev": "D1",
+      "bottomSeedRank": 3,
+      "bottomSeedRankAbbrev": "D3",
       "bottomSeedWins": 0,
       "topSeedTeam": {
-        "id": -1,
-        "abbrev": "TBD",
-        "name": {
-          "default": "TBD"
-        },
-        "commonName": {
-          "default": "TBD"
-        },
-        "placeNameWithPreposition": {
-          "default": "TBD"
-        },
-        "logo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-light.svg",
-        "darkLogo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-dark.svg"
-      },
-      "bottomSeedTeam": {
         "id": 12,
         "abbrev": "CAR",
         "name": {
@@ -640,6 +629,23 @@
         },
         "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
         "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CAR_dark.svg"
+      },
+      "bottomSeedTeam": {
+        "id": 8,
+        "abbrev": "MTL",
+        "name": {
+          "default": "Montréal Canadiens",
+          "fr": "Canadiens de Montréal"
+        },
+        "commonName": {
+          "default": "Canadiens"
+        },
+        "placeNameWithPreposition": {
+          "default": "Montréal",
+          "fr": "de Montréal"
+        },
+        "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg",
+        "darkLogo": "https://assets.nhle.com/logos/nhl/svg/MTL_dark.svg"
       }
     },
     {

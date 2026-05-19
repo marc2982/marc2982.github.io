@@ -1,13 +1,39 @@
 {
   "round": 3,
-  "roundAbbrev": "CF",
-  "roundLabel": "conference-finals",
+  "roundAbbrev": "ECF",
+  "roundLabel": "Eastern Conference Final",
+  "conferenceAbbrev": "E",
+  "conferenceName": "Eastern",
   "seriesLetter": "M",
   "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/2026-ecf-2444x266-en.png",
   "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/2026-ecf-3068x266-fr.png",
   "neededToWin": 4,
   "length": 7,
   "bottomSeedTeam": {
+    "id": 8,
+    "name": {
+      "default": "Canadiens"
+    },
+    "abbrev": "MTL",
+    "placeName": {
+      "default": "Montréal"
+    },
+    "placeNameWithPreposition": {
+      "default": "Montréal",
+      "fr": "de Montréal"
+    },
+    "conference": {
+      "name": "Eastern",
+      "abbrev": "E"
+    },
+    "record": "8-6",
+    "seriesWins": 0,
+    "divisionAbbrev": "A",
+    "seed": 3,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/MTL_dark.svg"
+  },
+  "topSeedTeam": {
     "id": 12,
     "name": {
       "default": "Hurricanes"
@@ -27,27 +53,10 @@
     },
     "record": "8-0",
     "seriesWins": 0,
+    "divisionAbbrev": "M",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
     "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CAR_dark.svg"
-  },
-  "topSeedTeam": {
-    "id": -1,
-    "name": {
-      "default": "TBD"
-    },
-    "abbrev": "TBD",
-    "placeName": {
-      "default": "TBD"
-    },
-    "placeNameWithPreposition": {
-      "default": "TBD"
-    },
-    "record": "0-0",
-    "seriesWins": 0,
-    "seed": 1,
-    "logo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-light.svg",
-    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-dark.svg"
   },
   "games": [
     {
@@ -60,13 +69,34 @@
         "default": "Lenovo Center"
       },
       "neutralSite": false,
-      "startTimeUTC": "2026-05-21T04:00:00Z",
+      "startTimeUTC": "2026-05-22T00:00:00Z",
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
+      "gameScheduleState": "OK",
       "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
         {
           "id": 385,
           "market": "N",
@@ -87,41 +117,21 @@
           "countryCode": "US",
           "network": "HBO MAX",
           "sequenceNumber": 19
-        },
-        {
-          "id": 282,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "SN",
-          "sequenceNumber": 107
-        },
-        {
-          "id": 4,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "CBC",
-          "sequenceNumber": 101
-        },
-        {
-          "id": 281,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "TVAS",
-          "sequenceNumber": 120
         }
       ],
       "awayTeam": {
-        "id": -1,
+        "id": 8,
         "commonName": {
-          "default": "TBD"
+          "default": "Canadiens"
         },
         "placeName": {
-          "default": "TBD"
+          "default": "Montréal"
         },
         "placeNameWithPreposition": {
-          "default": "TBD"
+          "default": "Montréal",
+          "fr": "de Montréal"
         },
-        "abbrev": "TBD"
+        "abbrev": "MTL"
       },
       "homeTeam": {
         "id": 12,
@@ -137,7 +147,9 @@
           "fr": "de la Caroline"
         },
         "abbrev": "CAR"
-      }
+      },
+      "gameCenterLink": "/gamecenter/mtl-vs-car/2026/05/21/2025030311",
+      "ticketsLink": "https://www.nhl.com/hurricanes/tickets/"
     },
     {
       "id": 2025030312,
@@ -149,13 +161,34 @@
         "default": "Lenovo Center"
       },
       "neutralSite": false,
-      "startTimeUTC": "2026-05-23T04:00:00Z",
+      "startTimeUTC": "2026-05-23T23:00:00Z",
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
+      "gameScheduleState": "OK",
       "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
         {
           "id": 385,
           "market": "N",
@@ -176,41 +209,21 @@
           "countryCode": "US",
           "network": "HBO MAX",
           "sequenceNumber": 19
-        },
-        {
-          "id": 282,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "SN",
-          "sequenceNumber": 107
-        },
-        {
-          "id": 4,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "CBC",
-          "sequenceNumber": 101
-        },
-        {
-          "id": 281,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "TVAS",
-          "sequenceNumber": 120
         }
       ],
       "awayTeam": {
-        "id": -1,
+        "id": 8,
         "commonName": {
-          "default": "TBD"
+          "default": "Canadiens"
         },
         "placeName": {
-          "default": "TBD"
+          "default": "Montréal"
         },
         "placeNameWithPreposition": {
-          "default": "TBD"
+          "default": "Montréal",
+          "fr": "de Montréal"
         },
-        "abbrev": "TBD"
+        "abbrev": "MTL"
       },
       "homeTeam": {
         "id": 12,
@@ -226,7 +239,9 @@
           "fr": "de la Caroline"
         },
         "abbrev": "CAR"
-      }
+      },
+      "gameCenterLink": "/gamecenter/mtl-vs-car/2026/05/23/2025030312",
+      "ticketsLink": "https://www.nhl.com/hurricanes/tickets/"
     },
     {
       "id": 2025030313,
@@ -235,16 +250,37 @@
       "gameNumber": 3,
       "ifNecessary": false,
       "venue": {
-        "default": "TBD"
+        "default": "Centre Bell"
       },
       "neutralSite": false,
-      "startTimeUTC": "2026-05-25T04:00:00Z",
+      "startTimeUTC": "2026-05-26T00:00:00Z",
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
-      "venueTimezone": "America/New_York",
+      "venueTimezone": "America/Montreal",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
+      "gameScheduleState": "OK",
       "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
         {
           "id": 385,
           "market": "N",
@@ -265,27 +301,6 @@
           "countryCode": "US",
           "network": "HBO MAX",
           "sequenceNumber": 19
-        },
-        {
-          "id": 282,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "SN",
-          "sequenceNumber": 107
-        },
-        {
-          "id": 4,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "CBC",
-          "sequenceNumber": 101
-        },
-        {
-          "id": 281,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "TVAS",
-          "sequenceNumber": 120
         }
       ],
       "awayTeam": {
@@ -304,18 +319,21 @@
         "abbrev": "CAR"
       },
       "homeTeam": {
-        "id": -1,
+        "id": 8,
         "commonName": {
-          "default": "TBD"
+          "default": "Canadiens"
         },
         "placeName": {
-          "default": "TBD"
+          "default": "Montréal"
         },
         "placeNameWithPreposition": {
-          "default": "TBD"
+          "default": "Montréal",
+          "fr": "de Montréal"
         },
-        "abbrev": "TBD"
-      }
+        "abbrev": "MTL"
+      },
+      "gameCenterLink": "/gamecenter/car-vs-mtl/2026/05/25/2025030313",
+      "ticketsLink": "https://www.nhl.com/canadiens/tickets/"
     },
     {
       "id": 2025030314,
@@ -324,16 +342,37 @@
       "gameNumber": 4,
       "ifNecessary": false,
       "venue": {
-        "default": "TBD"
+        "default": "Centre Bell"
       },
       "neutralSite": false,
-      "startTimeUTC": "2026-05-27T04:00:00Z",
+      "startTimeUTC": "2026-05-28T00:00:00Z",
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
-      "venueTimezone": "America/New_York",
+      "venueTimezone": "America/Montreal",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
+      "gameScheduleState": "OK",
       "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
         {
           "id": 385,
           "market": "N",
@@ -354,27 +393,6 @@
           "countryCode": "US",
           "network": "HBO MAX",
           "sequenceNumber": 19
-        },
-        {
-          "id": 282,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "SN",
-          "sequenceNumber": 107
-        },
-        {
-          "id": 4,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "CBC",
-          "sequenceNumber": 101
-        },
-        {
-          "id": 281,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "TVAS",
-          "sequenceNumber": 120
         }
       ],
       "awayTeam": {
@@ -393,18 +411,21 @@
         "abbrev": "CAR"
       },
       "homeTeam": {
-        "id": -1,
+        "id": 8,
         "commonName": {
-          "default": "TBD"
+          "default": "Canadiens"
         },
         "placeName": {
-          "default": "TBD"
+          "default": "Montréal"
         },
         "placeNameWithPreposition": {
-          "default": "TBD"
+          "default": "Montréal",
+          "fr": "de Montréal"
         },
-        "abbrev": "TBD"
-      }
+        "abbrev": "MTL"
+      },
+      "gameCenterLink": "/gamecenter/car-vs-mtl/2026/05/27/2025030314",
+      "ticketsLink": "https://www.nhl.com/canadiens/tickets/"
     },
     {
       "id": 2025030315,
@@ -416,41 +437,13 @@
         "default": "Lenovo Center"
       },
       "neutralSite": false,
-      "startTimeUTC": "2026-05-29T04:00:00Z",
+      "startTimeUTC": "2026-05-30T00:00:00Z",
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
+      "gameScheduleState": "OK",
       "tvBroadcasts": [
-        {
-          "id": 385,
-          "market": "N",
-          "countryCode": "US",
-          "network": "TNT",
-          "sequenceNumber": 11
-        },
-        {
-          "id": 501,
-          "market": "N",
-          "countryCode": "US",
-          "network": "truTV",
-          "sequenceNumber": 14
-        },
-        {
-          "id": 578,
-          "market": "N",
-          "countryCode": "US",
-          "network": "HBO MAX",
-          "sequenceNumber": 19
-        },
-        {
-          "id": 282,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "SN",
-          "sequenceNumber": 107
-        },
         {
           "id": 4,
           "market": "N",
@@ -464,54 +457,14 @@
           "countryCode": "CA",
           "network": "TVAS",
           "sequenceNumber": 120
-        }
-      ],
-      "awayTeam": {
-        "id": -1,
-        "commonName": {
-          "default": "TBD"
         },
-        "placeName": {
-          "default": "TBD"
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
         },
-        "placeNameWithPreposition": {
-          "default": "TBD"
-        },
-        "abbrev": "TBD"
-      },
-      "homeTeam": {
-        "id": 12,
-        "commonName": {
-          "default": "Hurricanes"
-        },
-        "placeName": {
-          "default": "Carolina",
-          "fr": "Caroline"
-        },
-        "placeNameWithPreposition": {
-          "default": "Carolina",
-          "fr": "de la Caroline"
-        },
-        "abbrev": "CAR"
-      }
-    },
-    {
-      "id": 2025030316,
-      "season": 20252026,
-      "gameType": 3,
-      "gameNumber": 6,
-      "ifNecessary": true,
-      "venue": {
-        "default": "TBD"
-      },
-      "neutralSite": false,
-      "startTimeUTC": "2026-05-31T04:00:00Z",
-      "easternUTCOffset": "-04:00",
-      "venueUTCOffset": "-04:00",
-      "venueTimezone": "America/New_York",
-      "gameState": "FUT",
-      "gameScheduleState": "TBD",
-      "tvBroadcasts": [
         {
           "id": 385,
           "market": "N",
@@ -532,6 +485,63 @@
           "countryCode": "US",
           "network": "HBO MAX",
           "sequenceNumber": 19
+        }
+      ],
+      "awayTeam": {
+        "id": 8,
+        "commonName": {
+          "default": "Canadiens"
+        },
+        "placeName": {
+          "default": "Montréal"
+        },
+        "placeNameWithPreposition": {
+          "default": "Montréal",
+          "fr": "de Montréal"
+        },
+        "abbrev": "MTL"
+      },
+      "homeTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR"
+      },
+      "gameCenterLink": "/gamecenter/mtl-vs-car/2026/05/29/2025030315",
+      "ticketsLink": "https://www.nhl.com/hurricanes/tickets/"
+    },
+    {
+      "id": 2025030316,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 6,
+      "ifNecessary": true,
+      "venue": {
+        "default": "Centre Bell"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-05-31T16:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "America/Montreal",
+      "gameState": "FUT",
+      "gameScheduleState": "TBD",
+      "tvBroadcasts": [
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
         },
         {
           "id": 282,
@@ -541,11 +551,25 @@
           "sequenceNumber": 107
         },
         {
-          "id": 281,
+          "id": 385,
           "market": "N",
-          "countryCode": "CA",
-          "network": "TVAS",
-          "sequenceNumber": 120
+          "countryCode": "US",
+          "network": "TNT",
+          "sequenceNumber": 11
+        },
+        {
+          "id": 501,
+          "market": "N",
+          "countryCode": "US",
+          "network": "truTV",
+          "sequenceNumber": 14
+        },
+        {
+          "id": 578,
+          "market": "N",
+          "countryCode": "US",
+          "network": "HBO MAX",
+          "sequenceNumber": 19
         }
       ],
       "awayTeam": {
@@ -564,18 +588,21 @@
         "abbrev": "CAR"
       },
       "homeTeam": {
-        "id": -1,
+        "id": 8,
         "commonName": {
-          "default": "TBD"
+          "default": "Canadiens"
         },
         "placeName": {
-          "default": "TBD"
+          "default": "Montréal"
         },
         "placeNameWithPreposition": {
-          "default": "TBD"
+          "default": "Montréal",
+          "fr": "de Montréal"
         },
-        "abbrev": "TBD"
-      }
+        "abbrev": "MTL"
+      },
+      "gameCenterLink": "/gamecenter/car-vs-mtl/2026/05/31/2025030316",
+      "ticketsLink": "https://www.nhl.com/canadiens/tickets/"
     },
     {
       "id": 2025030317,
@@ -587,13 +614,34 @@
         "default": "Lenovo Center"
       },
       "neutralSite": false,
-      "startTimeUTC": "2026-06-02T04:00:00Z",
+      "startTimeUTC": "2026-06-03T00:00:00Z",
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
       "gameState": "FUT",
-      "gameScheduleState": "TBD",
+      "gameScheduleState": "OK",
       "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
         {
           "id": 385,
           "market": "N",
@@ -614,41 +662,21 @@
           "countryCode": "US",
           "network": "HBO MAX",
           "sequenceNumber": 19
-        },
-        {
-          "id": 282,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "SN",
-          "sequenceNumber": 107
-        },
-        {
-          "id": 4,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "CBC",
-          "sequenceNumber": 101
-        },
-        {
-          "id": 281,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "TVAS",
-          "sequenceNumber": 120
         }
       ],
       "awayTeam": {
-        "id": -1,
+        "id": 8,
         "commonName": {
-          "default": "TBD"
+          "default": "Canadiens"
         },
         "placeName": {
-          "default": "TBD"
+          "default": "Montréal"
         },
         "placeNameWithPreposition": {
-          "default": "TBD"
+          "default": "Montréal",
+          "fr": "de Montréal"
         },
-        "abbrev": "TBD"
+        "abbrev": "MTL"
       },
       "homeTeam": {
         "id": 12,
@@ -664,7 +692,9 @@
           "fr": "de la Caroline"
         },
         "abbrev": "CAR"
-      }
+      },
+      "gameCenterLink": "/gamecenter/mtl-vs-car/2026/06/02/2025030317",
+      "ticketsLink": "https://www.nhl.com/hurricanes/tickets/"
     }
   ],
   "fullCoverageUrl": {
