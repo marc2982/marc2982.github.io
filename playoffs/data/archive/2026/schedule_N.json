@@ -26,8 +26,8 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "9-4",
-    "seriesWins": 1,
+    "record": "10-4",
+    "seriesWins": 2,
     "divisionAbbrev": "P",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
@@ -50,7 +50,7 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "8-2",
+    "record": "8-3",
     "seriesWins": 0,
     "divisionAbbrev": "C",
     "seed": 1,
@@ -162,7 +162,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-06:00",
       "venueTimezone": "America/Denver",
-      "gameState": "PRE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -206,7 +206,8 @@
           "default": "Vegas",
           "fr": "de Vegas"
         },
-        "abbrev": "VGK"
+        "abbrev": "VGK",
+        "score": 3
       },
       "homeTeam": {
         "id": 21,
@@ -220,10 +221,22 @@
           "default": "Colorado",
           "fr": "du Colorado"
         },
-        "abbrev": "COL"
+        "abbrev": "COL",
+        "score": 1
       },
       "gameCenterLink": "/gamecenter/vgk-vs-col/2026/05/22/2025030322",
-      "ticketsLink": "https://avs.social/26_LG_GMCNTR_PREVIEW_PO_RD3GM2"
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 0,
+        "bottomSeedWins": 2
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
     },
     {
       "id": 2025030323,
