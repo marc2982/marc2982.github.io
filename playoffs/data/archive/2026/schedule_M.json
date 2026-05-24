@@ -26,7 +26,7 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "9-6",
+    "record": "9-7",
     "seriesWins": 1,
     "divisionAbbrev": "A",
     "seed": 3,
@@ -51,8 +51,8 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "8-1",
-    "seriesWins": 0,
+    "record": "9-1",
+    "seriesWins": 1,
     "divisionAbbrev": "M",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
@@ -178,7 +178,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
-      "gameState": "LIVE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -237,7 +237,7 @@
           "fr": "de Montréal"
         },
         "abbrev": "MTL",
-        "score": 1
+        "score": 2
       },
       "homeTeam": {
         "id": 12,
@@ -253,17 +253,21 @@
           "fr": "de la Caroline"
         },
         "abbrev": "CAR",
-        "score": 1
+        "score": 3
       },
       "gameCenterLink": "/gamecenter/mtl-vs-car/2026/05/23/2025030312",
       "periodDescriptor": {
-        "number": 2,
-        "periodType": "REG",
+        "number": 4,
+        "periodType": "OT",
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
-        "topSeedWins": 0,
+        "topSeedWins": 1,
         "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "OT",
+        "otPeriods": 1
       }
     },
     {
@@ -455,7 +459,7 @@
       "season": 20252026,
       "gameType": 3,
       "gameNumber": 5,
-      "ifNecessary": true,
+      "ifNecessary": false,
       "venue": {
         "default": "Lenovo Center"
       },
