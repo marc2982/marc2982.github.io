@@ -252,7 +252,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-07:00",
       "venueTimezone": "US/Pacific",
-      "gameState": "PRE",
+      "gameState": "LIVE",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -296,7 +296,8 @@
           "default": "Colorado",
           "fr": "du Colorado"
         },
-        "abbrev": "COL"
+        "abbrev": "COL",
+        "score": 3
       },
       "homeTeam": {
         "id": 54,
@@ -310,10 +311,19 @@
           "default": "Vegas",
           "fr": "de Vegas"
         },
-        "abbrev": "VGK"
+        "abbrev": "VGK",
+        "score": 3
       },
       "gameCenterLink": "/gamecenter/col-vs-vgk/2026/05/24/2025030323",
-      "ticketsLink": ""
+      "periodDescriptor": {
+        "number": 2,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 0,
+        "bottomSeedWins": 2
+      }
     },
     {
       "id": 2025030324,
