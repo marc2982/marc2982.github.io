@@ -26,8 +26,8 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "10-4",
-    "seriesWins": 2,
+    "record": "11-4",
+    "seriesWins": 3,
     "divisionAbbrev": "P",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
@@ -50,7 +50,7 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "8-3",
+    "record": "8-4",
     "seriesWins": 0,
     "divisionAbbrev": "C",
     "seed": 1,
@@ -252,7 +252,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-07:00",
       "venueTimezone": "US/Pacific",
-      "gameState": "LIVE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -312,17 +312,20 @@
           "fr": "de Vegas"
         },
         "abbrev": "VGK",
-        "score": 3
+        "score": 5
       },
       "gameCenterLink": "/gamecenter/col-vs-vgk/2026/05/24/2025030323",
       "periodDescriptor": {
-        "number": 2,
+        "number": 3,
         "periodType": "REG",
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
         "topSeedWins": 0,
-        "bottomSeedWins": 2
+        "bottomSeedWins": 3
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
       }
     },
     {
