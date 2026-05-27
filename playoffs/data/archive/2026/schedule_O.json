@@ -8,6 +8,18 @@
   "neededToWin": 4,
   "length": 0,
   "bottomSeedTeam": {
+    "id": -1,
+    "name": {
+      "default": "TBD"
+    },
+    "abbrev": "TBD",
+    "placeName": {
+      "default": "TBD"
+    },
+    "placeNameWithPreposition": {
+      "default": "TBD"
+    },
+    "record": "0-0",
     "seriesWins": 0,
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-light.svg",
@@ -36,5 +48,15 @@
     "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
     "darkLogo": "https://assets.nhle.com/logos/nhl/svg/VGK_dark.svg"
   },
-  "games": []
+  "games": [],
+  "fullCoverageUrl": {
+    "cs": "https://www.nhl.com/cs/playoffs/2026/series-o-coverage",
+    "de": "https://www.nhl.com/de/playoffs/2026/series-o-coverage",
+    "sv": "https://www.nhl.com/sv/playoffs/2026/series-o-coverage",
+    "fi": "https://www.nhl.com/fi/playoffs/2026/series-o-coverage",
+    "sk": "https://www.nhl.com/sk/playoffs/2026/series-o-coverage",
+    "en": "https://www.nhl.com/playoffs/2026/series-o-coverage",
+    "fr": "https://www.nhl.com/fr/playoffs/2026/series-o-coverage",
+    "es": "https://www.nhl.com/es/playoffs/2026/series-o-coverage"
+  }
 }
