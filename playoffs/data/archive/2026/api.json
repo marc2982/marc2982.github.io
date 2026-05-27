@@ -664,6 +664,8 @@
       "bottomSeedRank": 1,
       "bottomSeedRankAbbrev": "D1",
       "bottomSeedWins": 4,
+      "winningTeamId": 54,
+      "losingTeamId": 21,
       "topSeedTeam": {
         "id": 21,
         "abbrev": "COL",
