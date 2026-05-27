@@ -27,7 +27,7 @@
       "abbrev": "W"
     },
     "record": "11-4",
-    "seriesWins": 3,
+    "seriesWins": 4,
     "divisionAbbrev": "P",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
@@ -342,7 +342,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-07:00",
       "venueTimezone": "US/Pacific",
-      "gameState": "LIVE",
+      "gameState": "FINAL",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -387,7 +387,7 @@
           "fr": "du Colorado"
         },
         "abbrev": "COL",
-        "score": 0
+        "score": 1
       },
       "homeTeam": {
         "id": 54,
@@ -402,249 +402,21 @@
           "fr": "de Vegas"
         },
         "abbrev": "VGK",
-        "score": 1
+        "score": 2
       },
       "gameCenterLink": "/gamecenter/col-vs-vgk/2026/05/26/2025030324",
       "periodDescriptor": {
-        "number": 1,
+        "number": 3,
         "periodType": "REG",
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
         "topSeedWins": 0,
-        "bottomSeedWins": 3
+        "bottomSeedWins": 4
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
       }
-    },
-    {
-      "id": 2025030325,
-      "season": 20252026,
-      "gameType": 3,
-      "gameNumber": 5,
-      "ifNecessary": true,
-      "venue": {
-        "default": "Ball Arena"
-      },
-      "neutralSite": false,
-      "startTimeUTC": "2026-05-29T00:00:00Z",
-      "easternUTCOffset": "-04:00",
-      "venueUTCOffset": "-06:00",
-      "venueTimezone": "America/Denver",
-      "gameState": "FUT",
-      "gameScheduleState": "OK",
-      "tvBroadcasts": [
-        {
-          "id": 4,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "CBC",
-          "sequenceNumber": 101
-        },
-        {
-          "id": 281,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "TVAS",
-          "sequenceNumber": 120
-        },
-        {
-          "id": 282,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "SN",
-          "sequenceNumber": 107
-        },
-        {
-          "id": 309,
-          "market": "N",
-          "countryCode": "US",
-          "network": "ESPN",
-          "sequenceNumber": 10
-        }
-      ],
-      "awayTeam": {
-        "id": 54,
-        "commonName": {
-          "default": "Golden Knights"
-        },
-        "placeName": {
-          "default": "Vegas"
-        },
-        "placeNameWithPreposition": {
-          "default": "Vegas",
-          "fr": "de Vegas"
-        },
-        "abbrev": "VGK"
-      },
-      "homeTeam": {
-        "id": 21,
-        "commonName": {
-          "default": "Avalanche"
-        },
-        "placeName": {
-          "default": "Colorado"
-        },
-        "placeNameWithPreposition": {
-          "default": "Colorado",
-          "fr": "du Colorado"
-        },
-        "abbrev": "COL"
-      },
-      "gameCenterLink": "/gamecenter/vgk-vs-col/2026/05/28/2025030325",
-      "ticketsLink": "https://avs.social/26_LG_GMCNTR_PREVIEW_PO_RD3GM3"
-    },
-    {
-      "id": 2025030326,
-      "season": 20252026,
-      "gameType": 3,
-      "gameNumber": 6,
-      "ifNecessary": true,
-      "venue": {
-        "default": "T-Mobile Arena"
-      },
-      "neutralSite": false,
-      "startTimeUTC": "2026-05-31T00:00:00Z",
-      "easternUTCOffset": "-04:00",
-      "venueUTCOffset": "-07:00",
-      "venueTimezone": "US/Pacific",
-      "gameState": "FUT",
-      "gameScheduleState": "OK",
-      "tvBroadcasts": [
-        {
-          "id": 4,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "CBC",
-          "sequenceNumber": 101
-        },
-        {
-          "id": 281,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "TVAS",
-          "sequenceNumber": 120
-        },
-        {
-          "id": 282,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "SN",
-          "sequenceNumber": 107
-        },
-        {
-          "id": 384,
-          "market": "N",
-          "countryCode": "US",
-          "network": "ABC",
-          "sequenceNumber": 1
-        }
-      ],
-      "awayTeam": {
-        "id": 21,
-        "commonName": {
-          "default": "Avalanche"
-        },
-        "placeName": {
-          "default": "Colorado"
-        },
-        "placeNameWithPreposition": {
-          "default": "Colorado",
-          "fr": "du Colorado"
-        },
-        "abbrev": "COL"
-      },
-      "homeTeam": {
-        "id": 54,
-        "commonName": {
-          "default": "Golden Knights"
-        },
-        "placeName": {
-          "default": "Vegas"
-        },
-        "placeNameWithPreposition": {
-          "default": "Vegas",
-          "fr": "de Vegas"
-        },
-        "abbrev": "VGK"
-      },
-      "gameCenterLink": "/gamecenter/col-vs-vgk/2026/05/30/2025030326",
-      "ticketsLink": ""
-    },
-    {
-      "id": 2025030327,
-      "season": 20252026,
-      "gameType": 3,
-      "gameNumber": 7,
-      "ifNecessary": true,
-      "venue": {
-        "default": "Ball Arena"
-      },
-      "neutralSite": false,
-      "startTimeUTC": "2026-06-02T00:00:00Z",
-      "easternUTCOffset": "-04:00",
-      "venueUTCOffset": "-06:00",
-      "venueTimezone": "America/Denver",
-      "gameState": "FUT",
-      "gameScheduleState": "OK",
-      "tvBroadcasts": [
-        {
-          "id": 4,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "CBC",
-          "sequenceNumber": 101
-        },
-        {
-          "id": 281,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "TVAS",
-          "sequenceNumber": 120
-        },
-        {
-          "id": 282,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "SN",
-          "sequenceNumber": 107
-        },
-        {
-          "id": 309,
-          "market": "N",
-          "countryCode": "US",
-          "network": "ESPN",
-          "sequenceNumber": 10
-        }
-      ],
-      "awayTeam": {
-        "id": 54,
-        "commonName": {
-          "default": "Golden Knights"
-        },
-        "placeName": {
-          "default": "Vegas"
-        },
-        "placeNameWithPreposition": {
-          "default": "Vegas",
-          "fr": "de Vegas"
-        },
-        "abbrev": "VGK"
-      },
-      "homeTeam": {
-        "id": 21,
-        "commonName": {
-          "default": "Avalanche"
-        },
-        "placeName": {
-          "default": "Colorado"
-        },
-        "placeNameWithPreposition": {
-          "default": "Colorado",
-          "fr": "du Colorado"
-        },
-        "abbrev": "COL"
-      },
-      "gameCenterLink": "/gamecenter/vgk-vs-col/2026/06/01/2025030327",
-      "ticketsLink": "https://avs.social/26_LG_GMCNTR_PREVIEW_PO_RD3GM4"
     }
   ],
   "fullCoverageUrl": {

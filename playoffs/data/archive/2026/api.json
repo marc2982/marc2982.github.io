@@ -663,7 +663,7 @@
       "topSeedWins": 0,
       "bottomSeedRank": 1,
       "bottomSeedRankAbbrev": "D1",
-      "bottomSeedWins": 3,
+      "bottomSeedWins": 4,
       "topSeedTeam": {
         "id": 21,
         "abbrev": "COL",
@@ -700,6 +700,7 @@
       }
     },
     {
+      "seriesUrl": "/schedule/playoff-series/2026/series-o/tbd-vs-goldenknights",
       "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/scp-20252026-cup.png",
       "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/scp-20252026-cup.png",
       "seriesTitle": "Stanley Cup Final",
@@ -711,7 +712,39 @@
       "topSeedWins": 0,
       "bottomSeedRank": 1,
       "bottomSeedRankAbbrev": "D1",
-      "bottomSeedWins": 0
+      "bottomSeedWins": 0,
+      "topSeedTeam": {
+        "id": 54,
+        "abbrev": "VGK",
+        "name": {
+          "default": "Vegas Golden Knights",
+          "fr": "Golden Knights de Vegas"
+        },
+        "commonName": {
+          "default": "Golden Knights"
+        },
+        "placeNameWithPreposition": {
+          "default": "Vegas",
+          "fr": "de Vegas"
+        },
+        "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
+        "darkLogo": "https://assets.nhle.com/logos/nhl/svg/VGK_dark.svg"
+      },
+      "bottomSeedTeam": {
+        "id": -1,
+        "abbrev": "TBD",
+        "name": {
+          "default": "TBD"
+        },
+        "commonName": {
+          "default": "TBD"
+        },
+        "placeNameWithPreposition": {
+          "default": "TBD"
+        },
+        "logo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-light.svg",
+        "darkLogo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-dark.svg"
+      }
     }
   ]
 }
