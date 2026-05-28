@@ -192,6 +192,30 @@ export async function loadAndProcessCsvs(year, dataPath = `./data/archive/${year
 		if (parents) {
 			series.possibleTopSeeds = api.getPossibleWinners(parents[0]);
 			series.possibleBottomSeeds = api.getPossibleWinners(parents[1]);
+
+			// Fix NHL API assigning wrong top/bottom based on clinch order
+			if (series.topSeed && series.topSeed !== 'TBD' && series.topSeed !== 'undefined') {
+				if (!series.possibleTopSeeds.includes(series.topSeed) && series.possibleBottomSeeds.includes(series.topSeed)) {
+					const temp = series.topSeed;
+					series.topSeed = series.bottomSeed;
+					series.bottomSeed = temp;
+					
+					const tempWins = series.topSeedWins;
+					series.topSeedWins = series.bottomSeedWins;
+					series.bottomSeedWins = tempWins;
+				}
+			}
+			if (series.bottomSeed && series.bottomSeed !== 'TBD' && series.bottomSeed !== 'undefined') {
+				if (!series.possibleBottomSeeds.includes(series.bottomSeed) && series.possibleTopSeeds.includes(series.bottomSeed)) {
+					const temp = series.topSeed;
+					series.topSeed = series.bottomSeed;
+					series.bottomSeed = temp;
+					
+					const tempWins = series.topSeedWins;
+					series.topSeedWins = series.bottomSeedWins;
+					series.bottomSeedWins = tempWins;
+				}
+			}
 		}
 	}
 

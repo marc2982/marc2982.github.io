@@ -259,6 +259,16 @@ export function prepareProjectionsViewModel(data) {
 		return { hasData: false, message: 'No projections data' };
 	}
 
+	const round4 = data.rounds.find(r => r.number === 4);
+	if (round4 && round4.expectedParticipants) {
+		const submitted = new Set(Object.keys(round4.pickResults || {}));
+		const expectedArr = round4.expectedParticipants || [];
+		const isEveryoneIn = expectedArr.length > 0 && expectedArr.every(person => submitted.has(person));
+		if (!isEveryoneIn) {
+			return { hasData: false, message: '\u{1F512} Projections are hidden until all Round 4 picks are submitted.' };
+		}
+	}
+
 	const sortedGames = Object.keys(data.projections)
 		.map((key) => Number(key))
 		.sort((a, b) => a - b);

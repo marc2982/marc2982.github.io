@@ -71,7 +71,7 @@ async function run() {
             return `${s.topSeedTeam.abbrev} vs ${s.bottomSeedTeam.abbrev}: ${winner} won in ${games} games.`;
         }).join('\n');
 
-        const prompt = `You are an enthusiastic hockey fan acting as a commentator for a family playoff pool. 
+        const prompt = `You are a brutally honest hockey fan and commentator for a family playoff pool. 
 The NHL playoffs Round ${roundNum} has just finished!
 
 Here are the series results:
@@ -82,7 +82,7 @@ ${picksData}
 
 Write a short, punchy 1 to 3 line summary of the round. 
 Highlight any exciting or interesting outcomes (e.g. an unlikely pick paid off, someone completely blew it, or everyone agreed on a series). 
-Keep it fun and engaging with a tiny bit of snark for anyone who really dropped the ball, but don't overdo it. Focus on the human participants and their picks compared to the real results.
+Keep it dry, witty, and highly roast-oriented for anyone who completely blew their picks. Skip the cringey enthusiasm, and deliver a sharp summary of the human participants' performance compared to the real results.
 Do not output markdown bolding, just plain text.`;
 
         const summary = await generateGeminiResponse(prompt);
