@@ -52,7 +52,7 @@
       "abbrev": "E"
     },
     "record": "10-1",
-    "seriesWins": 2,
+    "seriesWins": 3,
     "divisionAbbrev": "M",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
@@ -390,7 +390,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "America/Montreal",
-      "gameState": "LIVE",
+      "gameState": "FINAL",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -450,7 +450,7 @@
           "fr": "de la Caroline"
         },
         "abbrev": "CAR",
-        "score": 0
+        "score": 4
       },
       "homeTeam": {
         "id": 8,
@@ -469,13 +469,16 @@
       },
       "gameCenterLink": "/gamecenter/car-vs-mtl/2026/05/27/2025030314",
       "periodDescriptor": {
-        "number": 1,
+        "number": 3,
         "periodType": "REG",
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
-        "topSeedWins": 2,
+        "topSeedWins": 3,
         "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
       }
     },
     {
