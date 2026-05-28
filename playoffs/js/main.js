@@ -31,7 +31,10 @@ export async function render(year) {
 
 		// Load LLM summaries separately
 		try {
-			const summaries = await fetchJson(`./data/archive/${year}/summaries.json`);
+			const urlParams = new URLSearchParams(window.location.search);
+			const branch = urlParams.get('branch');
+			const basePath = branch ? `https://raw.githubusercontent.com/marc2982/marc2982.github.io/${branch}/playoffs/data/archive/` : `./data/archive/`;
+			const summaries = await fetchJson(`${basePath}${year}/summaries.json`, true);
 			if (summaries) {
 				data.rounds.forEach(r => {
 					r.llmSummary = summaries[`round${r.number}`];
