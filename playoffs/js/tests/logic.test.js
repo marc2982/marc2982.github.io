@@ -231,15 +231,17 @@ export async function runTests() {
 		assert(status === PickStatus.INCORRECT, 'Should be eliminated since we reached game 6');
 	});
 
-	test('Scoring', 'Games status validation (impossible via team specificity)', () => {
+	test('Scoring', 'Games status validation (series length still possible despite team losing)', () => {
 		const calc = new PickResultCalculator();
 		// Series: CAR (top) vs OTT (bottom). CAR leads 1-0.
 		const series = Series.create({ topSeed: 'CAR', bottomSeed: 'OTT', topSeedWins: 1, bottomSeedWins: 0 });
 		
-		// Theodore picks OTT in 4. Impossible because CAR already has 1 win.
-		// Min games for OTT to win is now 5.
-		const pickImpossible = Pick.create({ team: 'OTT', games: 4 });
-		assert(calc.getGamesStatus(pickImpossible, null, series) === PickStatus.INCORRECT, 'OTT in 4 should be impossible if CAR has 1 win');
+		// Theodore picks OTT in 4. OTT cannot win in 4 anymore because CAR has 1 win.
+		// However, a 4-game series is still possible (if CAR sweeps 4-0).
+		// Because points are awarded for correctly guessing the series length independently of the team,
+		// predicting 4 games is STILL mathematically possible.
+		const pickImpossibleForTeam = Pick.create({ team: 'OTT', games: 4 });
+		assert(calc.getGamesStatus(pickImpossibleForTeam, null, series) === PickStatus.UNKNOWN, '4 game series is still possible if CAR sweeps, so games status should be UNKNOWN');
 
 		// Same scenario, but pick is CAR in 4. Still possible.
 		const pickPossible = Pick.create({ team: 'CAR', games: 4 });
