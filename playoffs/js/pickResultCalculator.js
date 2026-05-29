@@ -24,6 +24,7 @@ export class PickResultCalculator {
 				const possiblePoints = winner
 					? points
 					: this.calculatePossiblePoints(activePick, series, scoring, teamStatus, gamesStatus);
+				const earnedBonusPoints = teamStatus === PickStatus.CORRECT && gamesStatus === PickStatus.CORRECT;
 				if (!pickResults[person]) {
 					pickResults[person] = {};
 				}
@@ -34,6 +35,7 @@ export class PickResultCalculator {
 					gamesStatus: gamesStatus,
 					points: points,
 					possiblePoints: possiblePoints,
+					earnedBonusPoints: earnedBonusPoints,
 				});
 			}
 		}
