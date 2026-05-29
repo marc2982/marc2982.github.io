@@ -206,12 +206,32 @@ export async function runTests() {
 		assert(possible === 2, 'Should only have 2 possible points (from games) remaining');
 	});
 
-	test('Scoring', 'Team status validation', () => {
+	test('Scoring', 'Team status validation (correct team)', () => {
 		const calc = new PickResultCalculator();
 		const pick = Pick.create({ team: 'FLA' });
 		const winner = Winner.create({ team: 'FLA' });
-		const status = calc.getTeamStatus(pick, winner);
+		const status = calc.getTeamStatus(pick, winner, Series.create({}));
 		assert(status === PickStatus.CORRECT, 'Team should be correct');
+	});
+
+	test('Scoring', 'Team status validation (early incorrect via finalized seeds)', () => {
+		const calc = new PickResultCalculator();
+		const series = Series.create({ topSeed: 'FLA', bottomSeed: 'BOS' });
+		const pick = Pick.create({ team: 'NYR' }); // Not in the series!
+		
+		// Even though the series is ongoing (winner is null), we know NYR can't win.
+		const status = calc.getTeamStatus(pick, null, series);
+		assert(status === PickStatus.INCORRECT, 'Team status should be INCORRECT early because NYR is not playing');
+	});
+
+	test('Scoring', 'Team status validation (unknown when TBD is present)', () => {
+		const calc = new PickResultCalculator();
+		const series = Series.create({ topSeed: 'FLA', bottomSeed: 'TBD' });
+		const pick = Pick.create({ team: 'NYR' });
+		
+		// NYR could be the TBD team, so it's unknown.
+		const status = calc.getTeamStatus(pick, null, series);
+		assert(status === PickStatus.UNKNOWN, 'Team status should be UNKNOWN because NYR could be the TBD seed');
 	});
 
 	test('Scoring', 'Games status validation (finished series)', () => {

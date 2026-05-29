@@ -18,7 +18,7 @@ export class PickResultCalculator {
 				}
 
 				const winner = series.getWinner();
-				const teamStatus = this.getTeamStatus(activePick, winner);
+				const teamStatus = this.getTeamStatus(activePick, winner, series);
 				const gamesStatus = this.getGamesStatus(activePick, winner, series);
 				const points = this.getPoints(scoring, teamStatus, gamesStatus);
 				const possiblePoints = winner
@@ -49,7 +49,17 @@ export class PickResultCalculator {
 		return predicate(pick, winner) ? PickStatus.CORRECT : PickStatus.INCORRECT;
 	}
 
-	getTeamStatus(pick, winner) {
+	getTeamStatus(pick, winner, series) {
+		if (winner === null) {
+			const isTopFinal = series.topSeed && series.topSeed !== 'TBD';
+			const isBottomFinal = series.bottomSeed && series.bottomSeed !== 'TBD';
+			if (isTopFinal && isBottomFinal) {
+				if (pick.team !== series.topSeed && pick.team !== series.bottomSeed) {
+					return PickStatus.INCORRECT;
+				}
+			}
+			return PickStatus.UNKNOWN;
+		}
 		return this.getPickStatus(pick, winner, (p, w) => p.team === w.team);
 	}
 
