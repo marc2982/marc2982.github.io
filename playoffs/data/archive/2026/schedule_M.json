@@ -26,7 +26,7 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "9-9",
+    "record": "9-10",
     "seriesWins": 1,
     "divisionAbbrev": "A",
     "seed": 3,
@@ -51,8 +51,8 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "11-1",
-    "seriesWins": 3,
+    "record": "12-1",
+    "seriesWins": 4,
     "divisionAbbrev": "M",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
@@ -495,7 +495,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
-      "gameState": "LIVE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -554,7 +554,7 @@
           "fr": "de Montréal"
         },
         "abbrev": "MTL",
-        "score": 0
+        "score": 1
       },
       "homeTeam": {
         "id": 12,
@@ -570,195 +570,21 @@
           "fr": "de la Caroline"
         },
         "abbrev": "CAR",
-        "score": 0
+        "score": 6
       },
       "gameCenterLink": "/gamecenter/mtl-vs-car/2026/05/29/2025030315",
       "periodDescriptor": {
-        "number": 1,
+        "number": 3,
         "periodType": "REG",
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
-        "topSeedWins": 3,
+        "topSeedWins": 4,
         "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
       }
-    },
-    {
-      "id": 2025030316,
-      "season": 20252026,
-      "gameType": 3,
-      "gameNumber": 6,
-      "ifNecessary": true,
-      "venue": {
-        "default": "Centre Bell"
-      },
-      "neutralSite": false,
-      "startTimeUTC": "2026-05-31T23:30:00Z",
-      "easternUTCOffset": "-04:00",
-      "venueUTCOffset": "-04:00",
-      "venueTimezone": "America/Montreal",
-      "gameState": "FUT",
-      "gameScheduleState": "OK",
-      "tvBroadcasts": [
-        {
-          "id": 281,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "TVAS",
-          "sequenceNumber": 120
-        },
-        {
-          "id": 282,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "SN",
-          "sequenceNumber": 107
-        },
-        {
-          "id": 385,
-          "market": "N",
-          "countryCode": "US",
-          "network": "TNT",
-          "sequenceNumber": 11
-        },
-        {
-          "id": 501,
-          "market": "N",
-          "countryCode": "US",
-          "network": "truTV",
-          "sequenceNumber": 14
-        },
-        {
-          "id": 578,
-          "market": "N",
-          "countryCode": "US",
-          "network": "HBO MAX",
-          "sequenceNumber": 19
-        }
-      ],
-      "awayTeam": {
-        "id": 12,
-        "commonName": {
-          "default": "Hurricanes"
-        },
-        "placeName": {
-          "default": "Carolina",
-          "fr": "Caroline"
-        },
-        "placeNameWithPreposition": {
-          "default": "Carolina",
-          "fr": "de la Caroline"
-        },
-        "abbrev": "CAR"
-      },
-      "homeTeam": {
-        "id": 8,
-        "commonName": {
-          "default": "Canadiens"
-        },
-        "placeName": {
-          "default": "Montréal"
-        },
-        "placeNameWithPreposition": {
-          "default": "Montréal",
-          "fr": "de Montréal"
-        },
-        "abbrev": "MTL"
-      },
-      "gameCenterLink": "/gamecenter/car-vs-mtl/2026/05/31/2025030316",
-      "ticketsLink": "https://www.ticketmaster.ca/event/3100648AD70CA019?lang=en-ca&brand=nhl&wt.mc_id=NHL_LEAGUE_MTL_GAMECENTER_PREVIEW_PLAYOFFS_RD3_GM3&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_LEAGUE_MTL&utm_content=GAMECENTER_PREVIEW_PLAYOFFS_RD3_GM3"
-    },
-    {
-      "id": 2025030317,
-      "season": 20252026,
-      "gameType": 3,
-      "gameNumber": 7,
-      "ifNecessary": true,
-      "venue": {
-        "default": "Lenovo Center"
-      },
-      "neutralSite": false,
-      "startTimeUTC": "2026-06-03T00:00:00Z",
-      "easternUTCOffset": "-04:00",
-      "venueUTCOffset": "-04:00",
-      "venueTimezone": "US/Eastern",
-      "gameState": "FUT",
-      "gameScheduleState": "OK",
-      "tvBroadcasts": [
-        {
-          "id": 4,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "CBC",
-          "sequenceNumber": 101
-        },
-        {
-          "id": 281,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "TVAS",
-          "sequenceNumber": 120
-        },
-        {
-          "id": 282,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "SN",
-          "sequenceNumber": 107
-        },
-        {
-          "id": 385,
-          "market": "N",
-          "countryCode": "US",
-          "network": "TNT",
-          "sequenceNumber": 11
-        },
-        {
-          "id": 501,
-          "market": "N",
-          "countryCode": "US",
-          "network": "truTV",
-          "sequenceNumber": 14
-        },
-        {
-          "id": 578,
-          "market": "N",
-          "countryCode": "US",
-          "network": "HBO MAX",
-          "sequenceNumber": 19
-        }
-      ],
-      "awayTeam": {
-        "id": 8,
-        "commonName": {
-          "default": "Canadiens"
-        },
-        "placeName": {
-          "default": "Montréal"
-        },
-        "placeNameWithPreposition": {
-          "default": "Montréal",
-          "fr": "de Montréal"
-        },
-        "abbrev": "MTL"
-      },
-      "homeTeam": {
-        "id": 12,
-        "commonName": {
-          "default": "Hurricanes"
-        },
-        "placeName": {
-          "default": "Carolina",
-          "fr": "Caroline"
-        },
-        "placeNameWithPreposition": {
-          "default": "Carolina",
-          "fr": "de la Caroline"
-        },
-        "abbrev": "CAR"
-      },
-      "gameCenterLink": "/gamecenter/mtl-vs-car/2026/06/02/2025030317",
-      "ticketsLink": "https://www.ticketmaster.com/event/2D00646AAE76EF98?brand=nhl&wt.mc_id=NHL_LEAGUE_CAR_GAMECENTER_PREVIEW_PLAYOFFS_RD3_GM4&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_LEAGUE_CAR&utm_content=GAMECENTER_PREVIEW_PLAYOFFS_RD3_GM4"
     }
   ],
   "fullCoverageUrl": {

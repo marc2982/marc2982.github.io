@@ -6,26 +6,8 @@
   "seriesLogo": "https://assets.nhle.com/logos/playoffs/png/2026-scf-generic-1753x266-en.png",
   "seriesLogoFr": "https://assets.nhle.com/logos/playoffs/png/2026-scf-generic-2395x266-fr.png",
   "neededToWin": 4,
-  "length": 0,
+  "length": 7,
   "bottomSeedTeam": {
-    "id": -1,
-    "name": {
-      "default": "TBD"
-    },
-    "abbrev": "TBD",
-    "placeName": {
-      "default": "TBD"
-    },
-    "placeNameWithPreposition": {
-      "default": "TBD"
-    },
-    "record": "0-0",
-    "seriesWins": 0,
-    "seed": 1,
-    "logo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-light.svg",
-    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/team-tbd-dark.svg"
-  },
-  "topSeedTeam": {
     "id": 54,
     "name": {
       "default": "Golden Knights"
@@ -44,11 +26,584 @@
     },
     "record": "12-4",
     "seriesWins": 0,
+    "divisionAbbrev": "P",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
     "darkLogo": "https://assets.nhle.com/logos/nhl/svg/VGK_dark.svg"
   },
-  "games": [],
+  "topSeedTeam": {
+    "id": 12,
+    "name": {
+      "default": "Hurricanes"
+    },
+    "abbrev": "CAR",
+    "placeName": {
+      "default": "Carolina",
+      "fr": "Caroline"
+    },
+    "placeNameWithPreposition": {
+      "default": "Carolina",
+      "fr": "de la Caroline"
+    },
+    "conference": {
+      "name": "Eastern",
+      "abbrev": "E"
+    },
+    "record": "12-1",
+    "seriesWins": 0,
+    "divisionAbbrev": "M",
+    "seed": 1,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CAR_dark.svg"
+  },
+  "games": [
+    {
+      "id": 2025030411,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 1,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Lenovo Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-06-03T00:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "FUT",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 384,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ABC",
+          "sequenceNumber": 1
+        }
+      ],
+      "awayTeam": {
+        "id": 54,
+        "commonName": {
+          "default": "Golden Knights"
+        },
+        "placeName": {
+          "default": "Vegas"
+        },
+        "placeNameWithPreposition": {
+          "default": "Vegas",
+          "fr": "de Vegas"
+        },
+        "abbrev": "VGK"
+      },
+      "homeTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR"
+      },
+      "gameCenterLink": "/gamecenter/vgk-vs-car/2026/06/02/2025030411",
+      "ticketsLink": "https://www.nhl.com/hurricanes/tickets/"
+    },
+    {
+      "id": 2025030412,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 2,
+      "ifNecessary": false,
+      "venue": {
+        "default": "Lenovo Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-06-05T00:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "FUT",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 384,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ABC",
+          "sequenceNumber": 1
+        }
+      ],
+      "awayTeam": {
+        "id": 54,
+        "commonName": {
+          "default": "Golden Knights"
+        },
+        "placeName": {
+          "default": "Vegas"
+        },
+        "placeNameWithPreposition": {
+          "default": "Vegas",
+          "fr": "de Vegas"
+        },
+        "abbrev": "VGK"
+      },
+      "homeTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR"
+      },
+      "gameCenterLink": "/gamecenter/vgk-vs-car/2026/06/04/2025030412",
+      "ticketsLink": "https://www.nhl.com/hurricanes/tickets/"
+    },
+    {
+      "id": 2025030413,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 3,
+      "ifNecessary": false,
+      "venue": {
+        "default": "T-Mobile Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-06-07T00:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-07:00",
+      "venueTimezone": "US/Pacific",
+      "gameState": "FUT",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 384,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ABC",
+          "sequenceNumber": 1
+        }
+      ],
+      "awayTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR"
+      },
+      "homeTeam": {
+        "id": 54,
+        "commonName": {
+          "default": "Golden Knights"
+        },
+        "placeName": {
+          "default": "Vegas"
+        },
+        "placeNameWithPreposition": {
+          "default": "Vegas",
+          "fr": "de Vegas"
+        },
+        "abbrev": "VGK"
+      },
+      "gameCenterLink": "/gamecenter/car-vs-vgk/2026/06/06/2025030413",
+      "ticketsLink": "https://www.nhl.com/goldenknights/tickets/"
+    },
+    {
+      "id": 2025030414,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 4,
+      "ifNecessary": false,
+      "venue": {
+        "default": "T-Mobile Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-06-10T00:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-07:00",
+      "venueTimezone": "US/Pacific",
+      "gameState": "FUT",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 384,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ABC",
+          "sequenceNumber": 1
+        }
+      ],
+      "awayTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR"
+      },
+      "homeTeam": {
+        "id": 54,
+        "commonName": {
+          "default": "Golden Knights"
+        },
+        "placeName": {
+          "default": "Vegas"
+        },
+        "placeNameWithPreposition": {
+          "default": "Vegas",
+          "fr": "de Vegas"
+        },
+        "abbrev": "VGK"
+      },
+      "gameCenterLink": "/gamecenter/car-vs-vgk/2026/06/09/2025030414",
+      "ticketsLink": "https://www.nhl.com/goldenknights/tickets/"
+    },
+    {
+      "id": 2025030415,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 5,
+      "ifNecessary": true,
+      "venue": {
+        "default": "Lenovo Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-06-12T00:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "FUT",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 384,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ABC",
+          "sequenceNumber": 1
+        }
+      ],
+      "awayTeam": {
+        "id": 54,
+        "commonName": {
+          "default": "Golden Knights"
+        },
+        "placeName": {
+          "default": "Vegas"
+        },
+        "placeNameWithPreposition": {
+          "default": "Vegas",
+          "fr": "de Vegas"
+        },
+        "abbrev": "VGK"
+      },
+      "homeTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR"
+      },
+      "gameCenterLink": "/gamecenter/vgk-vs-car/2026/06/11/2025030415",
+      "ticketsLink": "https://www.nhl.com/hurricanes/tickets/"
+    },
+    {
+      "id": 2025030416,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 6,
+      "ifNecessary": true,
+      "venue": {
+        "default": "T-Mobile Arena"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-06-15T00:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-07:00",
+      "venueTimezone": "US/Pacific",
+      "gameState": "FUT",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 384,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ABC",
+          "sequenceNumber": 1
+        }
+      ],
+      "awayTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR"
+      },
+      "homeTeam": {
+        "id": 54,
+        "commonName": {
+          "default": "Golden Knights"
+        },
+        "placeName": {
+          "default": "Vegas"
+        },
+        "placeNameWithPreposition": {
+          "default": "Vegas",
+          "fr": "de Vegas"
+        },
+        "abbrev": "VGK"
+      },
+      "gameCenterLink": "/gamecenter/car-vs-vgk/2026/06/14/2025030416",
+      "ticketsLink": "https://www.nhl.com/goldenknights/tickets/"
+    },
+    {
+      "id": 2025030417,
+      "season": 20252026,
+      "gameType": 3,
+      "gameNumber": 7,
+      "ifNecessary": true,
+      "venue": {
+        "default": "Lenovo Center"
+      },
+      "neutralSite": false,
+      "startTimeUTC": "2026-06-18T00:00:00Z",
+      "easternUTCOffset": "-04:00",
+      "venueUTCOffset": "-04:00",
+      "venueTimezone": "US/Eastern",
+      "gameState": "FUT",
+      "gameScheduleState": "OK",
+      "tvBroadcasts": [
+        {
+          "id": 4,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "CBC",
+          "sequenceNumber": 101
+        },
+        {
+          "id": 281,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "TVAS",
+          "sequenceNumber": 120
+        },
+        {
+          "id": 282,
+          "market": "N",
+          "countryCode": "CA",
+          "network": "SN",
+          "sequenceNumber": 107
+        },
+        {
+          "id": 384,
+          "market": "N",
+          "countryCode": "US",
+          "network": "ABC",
+          "sequenceNumber": 1
+        }
+      ],
+      "awayTeam": {
+        "id": 54,
+        "commonName": {
+          "default": "Golden Knights"
+        },
+        "placeName": {
+          "default": "Vegas"
+        },
+        "placeNameWithPreposition": {
+          "default": "Vegas",
+          "fr": "de Vegas"
+        },
+        "abbrev": "VGK"
+      },
+      "homeTeam": {
+        "id": 12,
+        "commonName": {
+          "default": "Hurricanes"
+        },
+        "placeName": {
+          "default": "Carolina",
+          "fr": "Caroline"
+        },
+        "placeNameWithPreposition": {
+          "default": "Carolina",
+          "fr": "de la Caroline"
+        },
+        "abbrev": "CAR"
+      },
+      "gameCenterLink": "/gamecenter/vgk-vs-car/2026/06/17/2025030417",
+      "ticketsLink": "https://www.nhl.com/hurricanes/tickets/"
+    }
+  ],
   "fullCoverageUrl": {
     "cs": "https://www.nhl.com/cs/playoffs/2026/series-o-coverage",
     "de": "https://www.nhl.com/de/playoffs/2026/series-o-coverage",
