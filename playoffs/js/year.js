@@ -379,20 +379,16 @@ export function renderProjections(data, table) {
 							(cell) => `
                         <td class="${cell.cssClass}">
                             <div class="projection-box">
-                                <table style="width: 100%">
-                                    <tbody>
-                                        <tr>
-                                            <td style="width: 50%">1st: ${cell.first.join()}</td>
-                                            <td style="width: 50%" rowspan=3>Loser(s): ${cell.losers.join()}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2nd: ${cell.second.join()}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3rd: ${cell.third.join()}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="projection-content">
+                                    <div class="projection-winners">
+                                        ${cell.first.length ? `<div class="place-row"><span class="place gold">1st${cell.first.length > 1 ? ' (tie)' : ''}:</span> <span class="names">${cell.first.join(', ')}</span></div>` : ''}
+                                        ${cell.second.length ? `<div class="place-row"><span class="place silver">2nd${cell.second.length > 1 ? ' (tie)' : ''}:</span> <span class="names">${cell.second.join(', ')}</span></div>` : ''}
+                                        ${cell.third.length ? `<div class="place-row"><span class="place bronze">3rd${cell.third.length > 1 ? ' (tie)' : ''}:</span> <span class="names">${cell.third.join(', ')}</span></div>` : ''}
+                                    </div>
+                                    <div class="projection-losers">
+                                        ${cell.losers.length ? `<div class="place-row"><span class="place">Loser(s):</span> <span class="names">${cell.losers.join(', ')}</span></div>` : ''}
+                                    </div>
+                                </div>
                             </div>
                         </td>
                     `,

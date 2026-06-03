@@ -287,8 +287,25 @@ html.dark-mode .scores-tooltip::before {
     border-bottom-color: #0f1526;
 }
 
+html.dark-mode #projectionsTable td, html.dark-mode #projectionsTable th {
+    border: none !important;
+    background: transparent !important;
+}
+
 html.dark-mode .projection-box {
-    border-color: #2c3e50;
-    background-color: #16213e;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    border-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+html.dark-mode .projection-winners {
+    border-right-color: #2c3e50;
+}
+
+html.dark-mode .place.gold { color: #ffd700; }
+html.dark-mode .place.silver { color: #adb5bd; }
+html.dark-mode .place.bronze { color: #d99a5b; }
+
+html.dark-mode .names {
+    color: #e6e6e6;
 }
