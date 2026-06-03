@@ -90,6 +90,19 @@ body {
 
 .containing_table td {
     padding: 0px;
+    overflow: visible;
+}
+
+.round-points-cell {
+    position: relative;
+}
+
+.round-points-cell .points-wrap {
+    display: inline-block;
+    width: 3em;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+    font-weight: bold;
 }
 
 /* Custom row hover - replaces Bootstrap table-hover */
@@ -192,6 +205,10 @@ body {
 
 .round_total {
     text-align: center;
+}
+
+.rank-change {
+    flex-shrink: 0;
 }
 
 .stats-cell {

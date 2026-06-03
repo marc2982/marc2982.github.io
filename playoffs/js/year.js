@@ -62,7 +62,7 @@ export function renderSummary(data, table) {
 					(row) => `
                 <tr ${row.isLeader ? "class='leader'" : ''}>
                     <th>${row.person}</th>
-                    ${row.roundPoints.map((rp, idx) => `<td>${rp.points}${renderRankChange(rp, idx)}</td>`).join('')}
+                    ${row.roundPoints.map((rp, idx) => `<td class="round-points-cell"><span class="points-wrap">${rp.points}</span>${renderRankChange(rp, idx)}</td>`).join('')}
                     <td class="stats-divider stats-cell">${row.totalPoints}</td>
                     <td class="stats-cell">${row.rank}</td>
                     <td class="stats-cell">${row.possiblePoints}</td>
@@ -416,7 +416,10 @@ function renderRankChange(rp, roundIndex) {
 	const change = rp.rankChange;
 	if (change === null || change === 0) return '';
 	const color = change > 0 ? '#28a745' : '#dc3545';
+	const bgColor = change > 0 ? 'rgba(40, 167, 69, 0.15)' : 'rgba(220, 53, 69, 0.15)';
 	const arrow = change > 0 ? '↑' : '↓';
 	const absChange = Math.abs(change);
-	return `<span class="rank-change" style="color: ${color}; font-size: 0.75rem; margin-left: 4px; font-weight: bold;">${arrow}${absChange}</span>`;
+	const direction = change > 0 ? 'Up' : 'Down';
+	const tooltip = `Rank ${direction} ${absChange} (now #${rp.rank})`;
+	return `<span class="rank-change" title="${tooltip}" style="position: absolute; left: calc(50% + 1.5em + 2px); top: 50%; transform: translateY(-50%); color: ${color}; background: ${bgColor}; font-size: 0.65rem; font-weight: bold; padding: 1px 4px; border-radius: 8px; cursor: help; white-space: nowrap; font-variant-numeric: tabular-nums;">R ${arrow}${absChange}</span>`;
 }
