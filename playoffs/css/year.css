@@ -627,6 +627,30 @@ body {
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
+/* Actual outcome: thicker border + checkmark badge */
+#projectionsTable td.correct .projection-box {
+    border: 2px solid #28a745;
+    position: relative;
+}
+
+#projectionsTable td.correct .projection-box::after {
+    content: '\2713';
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 20px;
+    height: 20px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
 .projection-content {
     display: flex;
     justify-content: space-between;
