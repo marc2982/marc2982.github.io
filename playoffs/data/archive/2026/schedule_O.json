@@ -71,7 +71,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
-      "gameState": "FUT",
+      "gameState": "LIVE",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -115,7 +115,8 @@
           "default": "Vegas",
           "fr": "de Vegas"
         },
-        "abbrev": "VGK"
+        "abbrev": "VGK",
+        "score": 3
       },
       "homeTeam": {
         "id": 12,
@@ -130,10 +131,19 @@
           "default": "Carolina",
           "fr": "de la Caroline"
         },
-        "abbrev": "CAR"
+        "abbrev": "CAR",
+        "score": 3
       },
       "gameCenterLink": "/gamecenter/vgk-vs-car/2026/06/02/2025030411",
-      "ticketsLink": "https://www.ticketmaster.com/event/2D00646AAEB0F01C?brand=nhl&wt.mc_id=NHL_LEAGUE_CAR_GAMECENTER_PREVIEW_PLAYOFFS_RD4_GM1&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_LEAGUE_CAR&utm_content=GAMECENTER_PREVIEW_PLAYOFFS_RD4_GM1"
+      "periodDescriptor": {
+        "number": 2,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 0,
+        "bottomSeedWins": 0
+      }
     },
     {
       "id": 2025030412,
