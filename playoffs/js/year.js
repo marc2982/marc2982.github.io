@@ -378,7 +378,7 @@ export function renderProjections(data, table) {
 						.map(
 							(cell) => `
                         <td class="${cell.cssClass}">
-                            <div>
+                            <div class="projection-box">
                                 <table style="width: 100%">
                                     <tbody>
                                         <tr>

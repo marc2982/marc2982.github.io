@@ -520,3 +520,13 @@ table.table.table-striped td {
     color: #28a745;
     font-weight: bold;
 }
+
+/* Projection Box Styles */
+.projection-box {
+    border: 2px solid #dee2e6;
+    border-radius: 6px;
+    padding: 6px;
+    margin: 4px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}

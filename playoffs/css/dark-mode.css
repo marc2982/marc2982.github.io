@@ -286,3 +286,9 @@ html.dark-mode .scores-tooltip {
 html.dark-mode .scores-tooltip::before {
     border-bottom-color: #0f1526;
 }
+
+html.dark-mode .projection-box {
+    border-color: #2c3e50;
+    background-color: #16213e;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
