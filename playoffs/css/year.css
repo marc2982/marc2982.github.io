@@ -519,6 +519,12 @@ body {
     padding: 2px 0;
 }
 
+/* Ensure matchup th layers above sticky first column */
+.containing_table th.matchup-th {
+    position: relative;
+    z-index: 3;
+}
+
 .team-top, .team-bottom {
     white-space: nowrap;
 }

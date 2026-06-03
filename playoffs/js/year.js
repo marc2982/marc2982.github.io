@@ -110,9 +110,9 @@ export function renderRound(teams, round, table, priorOverall = null) {
 					<th>&nbsp;</th>
 					${viewModel.series
 						.map(
-							(s) => `
-						<th>
-							<div class="matchup-header ${s.scoresTooltip ? 'has-tooltip' : ''}">
+						(s) => `
+					<th class="matchup-th">
+						<div class="matchup-header ${s.scoresTooltip ? 'has-tooltip' : ''}">
 								<div class="team-top ${s.topSeedIsWinner ? 'winner' : ''}">${s.topSeed} (${s.topSeedWins})</div>
 								<div class="team-bottom ${s.bottomSeedIsWinner ? 'winner' : ''}">${s.bottomSeed} (${s.bottomSeedWins})</div>
 								${s.nextGameDesc ? `<div class="next-game">${s.nextGameDesc}</div>` : ''}
@@ -165,7 +165,7 @@ export function renderRound(teams, round, table, priorOverall = null) {
                 ${viewModel.series
 					.map(
 						(s) => `
-                    <th>
+                    <th class="matchup-th">
                         <div class="matchup-header ${s.scoresTooltip ? 'has-tooltip' : ''}">
                             <div class="team-top ${s.topSeedIsWinner ? 'winner' : ''}">${s.topSeed} (${
 						s.topSeedWins
