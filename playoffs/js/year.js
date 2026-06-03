@@ -201,7 +201,7 @@ export function renderRound(teams, round, table, priorOverall = null) {
 									? `<img src="${cp.teamLogo}" alt="${cp.teamName}" />`
 									: (pick.isTBD ? '<span style="color:#999;font-weight:bold;font-size:0.8rem;margin-top:10px;display:inline-block;">TBD</span>' : '&nbsp;');
 								const opponentHtml = cp.opponent ? `<div style="font-size:0.65rem;color:var(--bs-body-color);margin-top:1px;">vs ${cp.opponent}</div>` : '';
-								return `<div class="pick" style="${scaleStyle}"><div class="img_container ${pick.teamStatus}">${teamHtml}${opponentHtml}</div><div class="games ${pick.gamesStatus}">${cp.games}</div></div>`;
+								return `<div class="pick pick-box" style="${scaleStyle}"><div class="img_container ${pick.teamStatus}">${teamHtml}${opponentHtml}</div><div class="games ${pick.gamesStatus}">${cp.games}</div></div>`;
 							}).join('')}
                             </div>
                         </td>

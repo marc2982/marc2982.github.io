@@ -33,7 +33,7 @@ body {
 }
 
 .containing_table td, table th {
-    border: 1px solid black;
+    border: none;
     vertical-align: middle;
     height: 50px;
 }
@@ -77,7 +77,7 @@ table.table.table-striped td {
     height: 100%;
     text-align: center;
     display: flex;
-    align-items: center;
+    align-items: stretch;
 }
 
 #round1 .pick div,
@@ -94,16 +94,24 @@ table.table.table-striped td {
 #round2 .pick .img_container,
 #round3 .pick .img_container,
 #round4 .pick .img_container {
-    width: 80%;
-    height: 100%;
+    width: 75%;
+    padding: 6px 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #round1 .pick .games,
 #round2 .pick .games,
 #round3 .pick .games,
 #round4 .pick .games {
-    width: 20%;
-    height: 100%;
+    width: 25%;
+    padding: 6px 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid rgba(222, 226, 230, 0.4);
 }
 
 /* Pick cells in projections table - keep centered */
@@ -147,16 +155,14 @@ table.table.table-striped td {
     color: black;
     font-weight: bold;
     vertical-align: middle;
-    height: 100%;
-    width: 100%;
 }
 
 .correct {
-    background-color: #66B666 !important;
+    background-color: rgba(102, 182, 102, 0.65) !important;
 }
 
 .incorrect {
-    background-color: #EB7676 !important;
+    background-color: rgba(235, 118, 118, 0.65) !important;
 }
 
 .winning_seed {
@@ -591,4 +597,26 @@ table.table.table-striped td {
 .names {
     color: #495057;
     font-weight: 500;
+}
+
+/* Pick Box Styles */
+.pick-box {
+    border: 1px solid rgba(222, 226, 230, 0.8);
+    border-radius: 8px;
+    margin: 4px;
+    background-color: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    padding: 0;
+    overflow: hidden;
+}
+
+.pick-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
