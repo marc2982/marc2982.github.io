@@ -538,6 +538,8 @@ body {
     margin-top: 4px;
     font-style: italic;
     border: 1px solid #dee2e6;
+    position: relative;
+    z-index: 3;
 }
 
 /* Custom Tooltip */
@@ -684,6 +686,8 @@ body {
 .pick-box:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    position: relative;
+    z-index: 1;
 }
 
 /* Scoring Tab */
