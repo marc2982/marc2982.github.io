@@ -51,6 +51,17 @@ html.dark-mode .containing_table {
     box-shadow: 0 4px 12px rgba(0,0,0,0.5);
 }
 
+html.dark-mode .containing_table thead th {
+    background-color: rgba(22, 33, 62, 0.95);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+    color: #a0b0c0;
+}
+
+html.dark-mode .containing_table th:first-child,
+html.dark-mode .containing_table td:first-child {
+    background-color: rgba(15, 21, 38, 0.95);
+}
+
 html.dark-mode .containing_table td, 
 html.dark-mode table th {
     border: none;
@@ -117,14 +128,10 @@ html.dark-mode .censored-notice {
     color: #e6e6e6;
 }
 
-html.dark-mode .table-striped>tbody>tr:nth-of-type(odd)>* {
-    color: #e6e6e6;
-    background-color: rgba(255,255,255,0.05);
-}
-
-html.dark-mode .table-hover>tbody>tr:hover>* {
-    color: #e6e6e6;
-    background-color: rgba(255,255,255,0.1);
+/* Custom row hover - replaces Bootstrap table-hover */
+html.dark-mode .containing_table tbody tr:hover td,
+html.dark-mode .containing_table tbody tr:hover th {
+    background-color: rgba(255,255,255,0.08);
 }
 
 /* DataTables specific */
@@ -167,10 +174,13 @@ html.dark-mode .incorrect {
     color: white;
 }
 
-html.dark-mode .leader,
 html.dark-mode .leader td,
 html.dark-mode .leader th {
-    background-color: #5d4037 !important; /* darker highlight instead of bright yellow */
+    background-color: rgba(255, 215, 0, 0.1) !important;
+}
+html.dark-mode .leader td:first-child,
+html.dark-mode .leader th:first-child {
+    box-shadow: inset 4px 0 0 #b8860b;
 }
 
 /* Overrides for picks.html */

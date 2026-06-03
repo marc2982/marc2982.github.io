@@ -18,16 +18,10 @@ export function prepareSummaryViewModel(data) {
 
 	return {
 		headers: [
-			'Round 1',
-			'Round 2',
-			'Round 3',
-			'Round 4',
-			'Total Points',
-			'Rank',
-			'Maximum Possible Points',
-			'Num Games Correct',
-			'Num Teams Correct',
-			'Num Bonuses Earned',
+			'R1',
+			'R2',
+			'R3',
+			'R4',
 		],
 		rows: Object.entries(data.personSummaries).map(([person, summary]) => ({
 			person: person,

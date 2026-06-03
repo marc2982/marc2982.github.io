@@ -48,6 +48,12 @@ export function renderSummary(data, table) {
             <tr>
                 <th>&nbsp;</th>
                 ${viewModel.headers.map((h) => `<th>${h}</th>`).join('')}
+                <th class="stats-divider">Total</th>
+                <th>Rank</th>
+                <th>Max Possible</th>
+                <th>Games ✓</th>
+                <th>Teams ✓</th>
+                <th>Bonus</th>
             </tr>
         </thead>
         <tbody>
@@ -57,12 +63,12 @@ export function renderSummary(data, table) {
                 <tr ${row.isLeader ? "class='leader'" : ''}>
                     <th>${row.person}</th>
                     ${row.roundPoints.map((rp, idx) => `<td>${rp.points}${renderRankChange(rp, idx)}</td>`).join('')}
-                    <td>${row.totalPoints}</td>
-                    <td>${row.rank}</td>
-                    <td>${row.possiblePoints}</td>
-                    <td>${row.gamesCorrect}</td>
-                    <td>${row.teamsCorrect}</td>
-                    <td>${row.bonusEarned}</td>
+                    <td class="stats-divider stats-cell">${row.totalPoints}</td>
+                    <td class="stats-cell">${row.rank}</td>
+                    <td class="stats-cell">${row.possiblePoints}</td>
+                    <td class="stats-cell">${row.gamesCorrect}</td>
+                    <td class="stats-cell">${row.teamsCorrect}</td>
+                    <td class="stats-cell">${row.bonusEarned}</td>
                 </tr>
             `,
 				)
@@ -116,13 +122,13 @@ export function renderRound(teams, round, table, priorOverall = null) {
 					`,
 						)
 						.join('')}
-					<th>Total Points</th>
+					<th class="stats-divider">Total</th>
 					<th>Rank</th>
-					<th>Maximum Possible Points</th>
-					<th>Num Games Correct</th>
-					<th>Num Teams Correct</th>
-					<th>Num Bonuses Earned</th>
-					${viewModel.hasPriorOverall ? '<th>Prev. Overall Pts</th>' : ''}
+					<th>Max Possible</th>
+					<th>Games ✓</th>
+					<th>Teams ✓</th>
+					<th>Bonus</th>
+					${viewModel.hasPriorOverall ? '<th>Prev. Overall</th>' : ''}
 				</tr>
 			</thead>
 			<tbody>
@@ -174,13 +180,13 @@ export function renderRound(teams, round, table, priorOverall = null) {
                 `,
 					)
 					.join('')}
-                <th>Total Points</th>
+                <th class="stats-divider">Total</th>
                 <th>Rank</th>
-                <th>Maximum Possible Points</th>
-                <th>Num Games Correct</th>
-                <th>Num Teams Correct</th>
-                <th>Num Bonuses Earned</th>
-                ${viewModel.hasPriorOverall ? '<th>Prev. Overall Pts</th>' : ''}
+                <th>Max Possible</th>
+                <th>Games ✓</th>
+                <th>Teams ✓</th>
+                <th>Bonus</th>
+                ${viewModel.hasPriorOverall ? '<th>Prev. Overall</th>' : ''}
             </tr>
         </thead>
         <tbody>
@@ -208,16 +214,16 @@ export function renderRound(teams, round, table, priorOverall = null) {
                     `,
 						)
 						.join('')}
-                    <td>${p.points}</td>
-                    <td>
+                    <td class="stats-divider stats-cell">${p.points}</td>
+                    <td class="stats-cell">
 						${p.rank}
 						${p.rankRange ? `<span class="volatility">(${p.rankRange[0]}-${p.rankRange[1]})</span>` : ''}
 					</td>
-                    <td>${p.possiblePoints}</td>
-                    <td>${p.gamesCorrect}</td>
-                    <td>${p.teamsCorrect}</td>
-                    <td>${p.bonusEarned}</td>
-                    ${viewModel.hasPriorOverall ? `<td>${p.priorOverall}</td>` : ''}
+                    <td class="stats-cell">${p.possiblePoints}</td>
+                    <td class="stats-cell">${p.gamesCorrect}</td>
+                    <td class="stats-cell">${p.teamsCorrect}</td>
+                    <td class="stats-cell">${p.bonusEarned}</td>
+                    ${viewModel.hasPriorOverall ? `<td class="stats-cell">${p.priorOverall}</td>` : ''}
                 </tr>
             `,
 				)
