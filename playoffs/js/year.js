@@ -254,7 +254,7 @@ function formatScenario(pickData) {
 			<div class="scenario-column">
 				<h5>${title}</h5>
 				<ul class="scenario-list">
-					${list.slice(0, 3).map(item => {
+					${list.map(item => {
 						let badgeClass = 'cant-catch-badge';
 						let badgeText = isTarget ? 'Locked' : 'Safe';
 						
