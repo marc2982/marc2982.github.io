@@ -24,8 +24,8 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "12-4",
-    "seriesWins": 0,
+    "record": "13-4",
+    "seriesWins": 1,
     "divisionAbbrev": "P",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
@@ -49,7 +49,7 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "12-1",
+    "record": "12-2",
     "seriesWins": 0,
     "divisionAbbrev": "M",
     "seed": 1,
@@ -71,7 +71,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
-      "gameState": "LIVE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -116,7 +116,7 @@
           "fr": "de Vegas"
         },
         "abbrev": "VGK",
-        "score": 3
+        "score": 5
       },
       "homeTeam": {
         "id": 12,
@@ -132,17 +132,20 @@
           "fr": "de la Caroline"
         },
         "abbrev": "CAR",
-        "score": 3
+        "score": 4
       },
       "gameCenterLink": "/gamecenter/vgk-vs-car/2026/06/02/2025030411",
       "periodDescriptor": {
-        "number": 2,
+        "number": 3,
         "periodType": "REG",
         "maxRegulationPeriods": 3
       },
       "seriesStatus": {
         "topSeedWins": 0,
-        "bottomSeedWins": 0
+        "bottomSeedWins": 1
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
       }
     },
     {
