@@ -83,7 +83,7 @@ export function renderRound(teams, round, table, priorOverall = null) {
 	// Add LLM Summary if it exists
 	$(table).siblings('.round-recap').remove();
 	if (viewModel.llmSummary) {
-		$(table).before(`
+		$(table).siblings('h2').after(`
 			<div class="round-recap">
 				<h4>🤖 AI Round Recap</h4>
 				<p>${viewModel.llmSummary}</p>

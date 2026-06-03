@@ -625,3 +625,17 @@ table.table.table-striped td {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
+
+/* Scoring Tab */
+.scoring-tab {
+    display: inline-block;
+    background-color: white;
+    padding: 6px 16px;
+    border-radius: 8px 8px 0 0;
+    font-size: 0.8rem;
+    color: #495057;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+}

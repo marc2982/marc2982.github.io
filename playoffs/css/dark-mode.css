@@ -319,3 +319,9 @@ html.dark-mode .pick-box {
 html.dark-mode .pick-box .games {
     border-left-color: rgba(255, 255, 255, 0.1);
 }
+
+html.dark-mode .scoring-tab {
+    background-color: #16213e;
+    color: #e6e6e6;
+    border-color: rgba(255, 255, 255, 0.1);
+}
