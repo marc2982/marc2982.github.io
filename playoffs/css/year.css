@@ -651,6 +651,16 @@ body {
     box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
+/* Ruled-out outcomes: faded out */
+#projectionsTable td.incorrect .projection-box {
+    opacity: 0.3;
+}
+
+#projectionsTable td.incorrect .projection-box:hover {
+    transform: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
 .projection-content {
     display: flex;
     justify-content: space-between;
