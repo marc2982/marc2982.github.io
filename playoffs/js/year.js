@@ -215,7 +215,7 @@ export function renderRound(teams, round, table, priorOverall = null) {
 						)
 						.join('')}
                     <td class="stats-divider stats-cell">${p.points}</td>
-                    <td class="stats-cell">
+                    <td class="stats-cell rank-cell">
 						${p.rank}
 						${!viewModel.roundIsOver && p.rankRange && p.rankRange[0] !== p.rankRange[1] ? `
 							<span class="rank-volatility best" title="Best possible rank">↑${p.rankRange[0]}</span>

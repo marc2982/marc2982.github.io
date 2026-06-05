@@ -183,6 +183,11 @@ html.dark-mode .leader th:first-child {
     box-shadow: inset 4px 0 0 #b8860b;
 }
 
+html.dark-mode .leader .rank-cell {
+    background-color: rgba(255, 215, 0, 0.12) !important;
+    color: #ffd700;
+}
+
 /* Overrides for picks.html */
 html.dark-mode .intro-card {
     background-color: #16213e;
