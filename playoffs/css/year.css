@@ -449,6 +449,11 @@ body {
         padding: 10px 12px;
         margin-bottom: 12px;
     }
+
+    /* Hide rank change pills on mobile — no room */
+    .rank-change {
+        display: none;
+    }
 }
 
 /* Censored picks (pre-round) */
