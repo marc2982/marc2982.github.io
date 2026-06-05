@@ -220,6 +220,26 @@ body {
     font-size: 0.9rem;
 }
 
+.rank-volatility {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: bold;
+    padding: 1px 4px;
+    border-radius: 8px;
+    margin-left: 4px;
+    white-space: nowrap;
+}
+
+.rank-volatility.best {
+    color: #28a745;
+    background: rgba(40, 167, 69, 0.15);
+}
+
+.rank-volatility.worst {
+    color: #dc3545;
+    background: rgba(220, 53, 69, 0.15);
+}
+
 .games {
     color: black;
     font-weight: bold;

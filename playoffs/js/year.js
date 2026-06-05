@@ -217,7 +217,10 @@ export function renderRound(teams, round, table, priorOverall = null) {
                     <td class="stats-divider stats-cell">${p.points}</td>
                     <td class="stats-cell">
 						${p.rank}
-						${p.rankRange ? `<span class="volatility">(${p.rankRange[0]}-${p.rankRange[1]})</span>` : ''}
+						${!viewModel.roundIsOver && p.rankRange && p.rankRange[0] !== p.rankRange[1] ? `
+							<span class="rank-volatility best" title="Best possible rank">↑${p.rankRange[0]}</span>
+							<span class="rank-volatility worst" title="Worst possible rank">↓${p.rankRange[1]}</span>
+						` : ''}
 					</td>
                     <td class="stats-cell">${p.possiblePoints}</td>
                     <td class="stats-cell">${p.gamesCorrect}</td>

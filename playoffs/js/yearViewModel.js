@@ -117,9 +117,11 @@ export function prepareRoundViewModel(teams, round, priorOverall = null) {
 	const scenarioAnalyzer = isScenarioEnabled ? new ScenarioAnalyzer() : null;
 	const volatility = isScenarioEnabled ? scenarioAnalyzer.analyzeRankVolatility(round, priorOverall) : {};
 	const leaders = round.summary.winners;
+	const roundIsOver = sortedSeries.every(s => s.isOver());
 
 	return {
 		roundNumber: round.number,
+		roundIsOver,
 		hasPriorOverall: !!priorOverall,
 		llmSummary: round.llmSummary,
 		series: sortedSeries.map((series) => {
