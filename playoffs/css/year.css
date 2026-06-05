@@ -203,6 +203,12 @@ body {
     box-shadow: inset 4px 0 0 #ffd700;
 }
 
+/* Rank column: subtle tint to make it stand out as the key stat */
+.rank-cell {
+    background-color: rgba(0, 0, 0, 0.03);
+    font-weight: 600;
+}
+
 .leader .rank-cell {
     background-color: rgba(255, 215, 0, 0.15) !important;
     font-weight: bolder;

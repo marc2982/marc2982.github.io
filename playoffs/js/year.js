@@ -64,7 +64,7 @@ export function renderSummary(data, table) {
                     <th>${row.person}</th>
                     ${row.roundPoints.map((rp, idx) => `<td class="round-points-cell"><span class="points-wrap">${rp.points}</span>${renderRankChange(rp, idx)}</td>`).join('')}
                     <td class="stats-divider stats-cell">${row.totalPoints}</td>
-                    <td class="stats-cell">${row.rank}</td>
+                    <td class="stats-cell rank-cell">${row.rank}</td>
                     <td class="stats-cell">${row.possiblePoints}</td>
                     <td class="stats-cell">${row.gamesCorrect}</td>
                     <td class="stats-cell">${row.teamsCorrect}</td>
