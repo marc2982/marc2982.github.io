@@ -211,6 +211,10 @@ body {
     flex-shrink: 0;
 }
 
+.rank-change::before {
+    content: 'R ';
+}
+
 .stats-cell {
     font-variant-numeric: tabular-nums;
     font-size: 0.9rem;
@@ -450,9 +454,14 @@ body {
         margin-bottom: 12px;
     }
 
-    /* Hide rank change pills on mobile — no room */
-    .rank-change {
+    /* Slimmer rank change pills on mobile — hide "R " prefix */
+    .rank-change::before {
         display: none;
+    }
+
+    .rank-change {
+        font-size: 0.6rem;
+        padding: 1px 3px;
     }
 }
 

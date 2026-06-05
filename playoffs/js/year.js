@@ -421,5 +421,5 @@ function renderRankChange(rp, roundIndex) {
 	const absChange = Math.abs(change);
 	const direction = change > 0 ? 'Up' : 'Down';
 	const tooltip = `Rank ${direction} ${absChange} (now #${rp.rank})`;
-	return `<span class="rank-change" title="${tooltip}" style="position: absolute; left: calc(50% + 1.5em + 2px); top: 50%; transform: translateY(-50%); color: ${color}; background: ${bgColor}; font-size: 0.65rem; font-weight: bold; padding: 1px 4px; border-radius: 8px; cursor: help; white-space: nowrap; font-variant-numeric: tabular-nums;">R ${arrow}${absChange}</span>`;
+	return `<span class="rank-change" title="${tooltip}" style="position: absolute; left: calc(50% + 1.5em + 2px); top: 50%; transform: translateY(-50%); color: ${color}; background: ${bgColor}; font-size: 0.65rem; font-weight: bold; padding: 1px 4px; border-radius: 8px; cursor: help; white-space: nowrap; font-variant-numeric: tabular-nums;">${arrow}${absChange}</span>`;
 }
