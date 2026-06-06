@@ -628,18 +628,6 @@ function calculateFunStats(data) {
 		});
 	}
 
-	// Biggest upset (lowest seed beating highest seed)
-	// This is a simplified version - we could make it more sophisticated
-	const round1Series = data.rounds[0]?.serieses || [];
-	if (round1Series.length > 0) {
-		stats.push({
-			icon: '.upset',
-			value: 'See bracket',
-			label: 'Check Series Results',
-			holder: ''
-		});
-	}
-
 	return stats;
 }
 
