@@ -601,14 +601,15 @@ function calculateFunStats(data) {
 		holder: maxGamesPerson
 	});
 
-	// Perfect picks (team + games + bonus)
+	// Perfect picks (team + games correct = bonus)
+	// Note: earnedBonusPoints field is unreliable in saved data, so we check both statuses directly
 	let perfectPicks = 0;
 	let perfectPerson = '';
 	data.rounds.forEach(round => {
 		Object.entries(round.pickResults).forEach(([person, results]) => {
 			let personPerfect = 0;
 			Object.values(results).forEach(result => {
-				if (result.teamStatus === 'CORRECT' && result.gamesStatus === 'CORRECT' && result.earnedBonusPoints) {
+				if (result.teamStatus === 'CORRECT' && result.gamesStatus === 'CORRECT') {
 					personPerfect++;
 				}
 			});
@@ -619,33 +620,41 @@ function calculateFunStats(data) {
 		});
 	});
 
-	if (perfectPicks > 0) {
-		stats.push({
-			icon: '✨',
-			value: `${perfectPicks} picks`,
-			label: 'Most Perfect Picks',
-			holder: perfectPerson
-		});
-	}
+	stats.push({
+		icon: '✨',
+		value: `${perfectPicks} pick${perfectPicks !== 1 ? 's' : ''}`,
+		label: 'Most Perfect Picks',
+		holder: perfectPerson || '-'
+	});
 
-	// Most bonuses earned
+	// Most bonuses earned (recalculate from pick results since saved data may be unreliable)
+	const bonusCounts = {};
+	data.rounds.forEach(round => {
+		Object.entries(round.pickResults).forEach(([person, results]) => {
+			if (!bonusCounts[person]) bonusCounts[person] = 0;
+			Object.values(results).forEach(result => {
+				if (result.teamStatus === 'CORRECT' && result.gamesStatus === 'CORRECT') {
+					bonusCounts[person]++;
+				}
+			});
+		});
+	});
+
 	let maxBonuses = 0;
 	let maxBonusesPerson = '';
-	Object.entries(data.personSummaries).forEach(([person, summary]) => {
-		if (summary.bonusEarned > maxBonuses) {
-			maxBonuses = summary.bonusEarned;
+	Object.entries(bonusCounts).forEach(([person, count]) => {
+		if (count > maxBonuses) {
+			maxBonuses = count;
 			maxBonusesPerson = person;
 		}
 	});
 
-	if (maxBonuses > 0) {
-		stats.push({
-			icon: '🎁',
-			value: `${maxBonuses} bonus${maxBonuses > 1 ? 'es' : ''}`,
-			label: 'Most Bonuses Earned',
-			holder: maxBonusesPerson
-		});
-	}
+	stats.push({
+		icon: '🎁',
+		value: `${maxBonuses} bonus${maxBonuses !== 1 ? 'es' : ''}`,
+		label: 'Most Bonuses Earned',
+		holder: maxBonusesPerson || '-'
+	});
 
 	// Round 1 upsets (bottom seed beating top seed)
 	const round1Series = data.rounds[0]?.serieses || [];
