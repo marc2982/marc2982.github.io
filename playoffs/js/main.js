@@ -39,6 +39,7 @@ export async function render(year) {
 				data.rounds.forEach(r => {
 					r.llmSummary = summaries[`round${r.number}`];
 				});
+				data.overallSummary = summaries.overall;
 			}
 		} catch (e) {
 			// ignore if not found

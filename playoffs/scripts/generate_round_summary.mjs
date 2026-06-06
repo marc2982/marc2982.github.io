@@ -94,6 +94,69 @@ Do not output markdown bolding, just plain text.`;
             console.error("Failed to generate summary from Gemini.");
         }
     }
+
+    // Generate overall summary after all rounds are complete
+    if (!summaries.overall) {
+        const allRoundsComplete = [1, 2, 3, 4].every(r => summaries[`round${r}`]);
+        if (allRoundsComplete) {
+            console.log('Generating overall playoff summary...');
+
+            // Load yearly summary data
+            const yearlySummaryPath = path.join(playoffsDir, 'data', 'summaries', `${currentYear}.json`);
+            let yearlyData = {};
+            if (fs.existsSync(yearlySummaryPath)) {
+                yearlyData = JSON.parse(fs.readFileSync(yearlySummaryPath, 'utf8'));
+            }
+
+            // Get final standings
+            const personSummaries = yearlyData.personSummaries || {};
+            const sortedPeople = Object.entries(personSummaries)
+                .sort(([, a], [, b]) => b.points - a.points);
+            
+            const winner = sortedPeople[0];
+            const loser = sortedPeople[sortedPeople.length - 1];
+
+            // Get all series results
+            const allSeries = [];
+            const rounds = yearlyData.rounds || [];
+            rounds.forEach(round => {
+                (round.serieses || []).forEach(series => {
+                    const winTeam = series.topSeedWins === 4 ? series.topSeed : series.bottomSeed;
+                    const loseTeam = series.topSeedWins === 4 ? series.bottomSeed : series.topSeed;
+                    allSeries.push({
+                        round: round.number,
+                        winner: winTeam,
+                        loser: loseTeam,
+                        games: series.topSeedWins + series.bottomSeedWins
+                    });
+                });
+            });
+
+            const cupWinner = allSeries.find(s => s.round === 4)?.winner || 'Unknown';
+
+            const overallPrompt = `You are a brutally honest hockey fan and commentator for a family playoff pool. 
+The ${currentYear} NHL playoffs have concluded!
+
+Stanley Cup Champion: ${cupWinner}
+
+Final Pool Standings:
+${sortedPeople.map(([name, data], i) => `${i + 1}. ${name}: ${data.points} pts (${data.teamsCorrect} teams, ${data.gamesCorrect} games correct)`).join('\n')}
+
+Pool Winner: ${winner[0]} with ${winner[1].points} points
+Pool Loser: ${loser[0]} with ${loser[1].points} points
+
+Write a 3-5 sentence summary of the entire playoffs. Tell the story of the winner's dominant performance, roast the loser, and highlight anyone else who stood out (great picks, terrible picks, close races, etc.). Keep it dry, witty, and highly roast-oriented. Do not output markdown bolding, just plain text.`;
+
+            const overallSummary = await generateGeminiResponse(overallPrompt);
+            if (overallSummary) {
+                summaries.overall = overallSummary.trim();
+                fs.writeFileSync(summariesPath, JSON.stringify(summaries, null, 2));
+                console.log(`Saved overall summary:`, overallSummary.trim());
+            } else {
+                console.error("Failed to generate overall summary from Gemini.");
+            }
+        }
+    }
 }
 
 async function generateGeminiResponse(prompt) {

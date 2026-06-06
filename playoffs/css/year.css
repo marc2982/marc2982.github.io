@@ -862,6 +862,32 @@ body {
     margin-top: 5px;
 }
 
+/* Overall Summary */
+.overall-summary {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-left: 4px solid rgba(255, 255, 255, 0.5);
+}
+
+.overall-summary h3 {
+    margin: 0 0 15px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.overall-summary p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    opacity: 0.95;
+}
+
 /* Podium */
 .podium {
     display: flex;

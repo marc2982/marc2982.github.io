@@ -476,6 +476,13 @@ export function renderYearlySummary(data, container) {
 			</div>
 		</div>
 
+		${data.overallSummary ? `
+		<div class="overall-summary">
+			<h3>Playoff Recap</h3>
+			<p>${data.overallSummary}</p>
+		</div>
+		` : ''}
+
 		<div class="podium">
 			<div class="podium-item second">
 				<div class="podium-place">2nd</div>
