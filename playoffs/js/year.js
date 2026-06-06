@@ -628,6 +628,19 @@ function calculateFunStats(data) {
 		});
 	}
 
+	// Round 1 upsets (bottom seed beating top seed)
+	const round1Series = data.rounds[0]?.serieses || [];
+	const round1Upsets = round1Series.filter(s => s.bottomSeedWins === 4);
+	if (round1Upsets.length > 0) {
+		const upsetTeams = round1Upsets.map(s => s.bottomSeed).join(', ');
+		stats.push({
+			icon: '😤',
+			value: `${round1Upsets.length} upset${round1Upsets.length > 1 ? 's' : ''}`,
+			label: 'Round 1 Upsets',
+			holder: upsetTeams
+		});
+	}
+
 	return stats;
 }
 
