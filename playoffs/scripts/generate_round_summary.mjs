@@ -5,6 +5,17 @@ import path from 'path';
 const ROUND_SERIES_COUNT = { 1: 8, 2: 4, 3: 2, 4: 1 };
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
+// Parse command line args: --start=YYYY --end=YYYY or --year=YYYY
+function parseArgs() {
+    const args = process.argv.slice(2);
+    const result = {};
+    for (const arg of args) {
+        const [key, value] = arg.split('=');
+        result[key.replace('--', '')] = value;
+    }
+    return result;
+}
+
 async function run() {
     if (!GEMINI_API_KEY) {
         console.warn("GEMINI_API_KEY is not set. Skipping LLM summary generation.");
@@ -13,25 +24,59 @@ async function run() {
 
     const cwd = process.cwd();
     const playoffsDir = cwd.endsWith('playoffs') ? cwd : path.join(cwd, 'playoffs');
+    const args = parseArgs();
 
-    const yearsPath = path.join(playoffsDir, 'data', 'years.json');
-    if (!fs.existsSync(yearsPath)) {
-        console.warn(`years.json not found at ${yearsPath}`);
+    // Determine which years to process
+    let yearsToProcess = [];
+    if (args.year) {
+        // Single year mode
+        yearsToProcess = [parseInt(args.year)];
+    } else if (args.start && args.end) {
+        // Range mode
+        const start = parseInt(args.start);
+        const end = parseInt(args.end);
+        for (let y = start; y >= end; y--) {
+            yearsToProcess.push(y);
+        }
+    } else {
+        // Default: current year only
+        const yearsPath = path.join(playoffsDir, 'data', 'years.json');
+        if (!fs.existsSync(yearsPath)) {
+            console.warn(`years.json not found at ${yearsPath}`);
+            return;
+        }
+        const years = JSON.parse(fs.readFileSync(yearsPath, 'utf8'));
+        yearsToProcess = [years[0]];
+    }
+
+    console.log(`Processing years: ${yearsToProcess.join(', ')}`);
+
+    for (const currentYear of yearsToProcess) {
+        await processYear(currentYear, playoffsDir);
+    }
+}
+
+async function processYear(currentYear, playoffsDir) {
+    console.log(`\n=== Processing ${currentYear} ===`);
+    const archiveDir = path.join(playoffsDir, 'data', 'archive', currentYear.toString());
+
+    // Check if archive directory exists
+    if (!fs.existsSync(archiveDir)) {
+        console.log(`No archive directory for ${currentYear}, skipping.`);
         return;
     }
 
-    const years = JSON.parse(fs.readFileSync(yearsPath, 'utf8'));
-    const currentYear = years[0];
-    const archiveDir = path.join(playoffsDir, 'data', 'archive', currentYear);
-
     const apiJsonPath = path.join(archiveDir, 'api.json');
     if (!fs.existsSync(apiJsonPath)) {
-        console.warn("No api.json found yet.");
+        console.log(`No api.json for ${currentYear}, skipping.`);
         return;
     }
 
     const apiData = JSON.parse(fs.readFileSync(apiJsonPath, 'utf8'));
-    if (!apiData.series) return;
+    if (!apiData.series) {
+        console.log(`No series data for ${currentYear}, skipping.`);
+        return;
+    }
 
     // Load or initialize summaries
     const summariesPath = path.join(archiveDir, 'summaries.json');
@@ -43,6 +88,7 @@ async function run() {
     for (let roundNum = 1; roundNum <= 4; roundNum++) {
         const roundKey = `round${roundNum}`;
         if (summaries[roundKey]) {
+            console.log(`Round ${roundNum} already summarized, skipping.`);
             continue; // Already summarized
         }
 
@@ -72,7 +118,7 @@ async function run() {
         }).join('\n');
 
         const prompt = `You are a brutally honest hockey fan and commentator for a family playoff pool. 
-The NHL playoffs Round ${roundNum} has just finished!
+The NHL playoffs Round ${roundNum} of ${currentYear} has just finished!
 
 Here are the series results:
 ${seriesInfo}
@@ -90,8 +136,10 @@ Do not output markdown bolding, just plain text.`;
             summaries[roundKey] = summary.trim();
             fs.writeFileSync(summariesPath, JSON.stringify(summaries, null, 2));
             console.log(`Saved summary for Round ${roundNum}:`, summary.trim());
+            // Small delay to avoid rate limiting
+            await new Promise(r => setTimeout(r, 1000));
         } else {
-            console.error("Failed to generate summary from Gemini.");
+            console.error(`Failed to generate summary for Round ${roundNum} (${currentYear}).`);
         }
     }
 
@@ -99,7 +147,7 @@ Do not output markdown bolding, just plain text.`;
     if (!summaries.overall) {
         const allRoundsComplete = [1, 2, 3, 4].every(r => summaries[`round${r}`]);
         if (allRoundsComplete) {
-            console.log('Generating overall playoff summary...');
+            console.log(`Generating overall summary for ${currentYear}...`);
 
             // Load yearly summary data
             const yearlySummaryPath = path.join(playoffsDir, 'data', 'summaries', `${currentYear}.json`);
@@ -151,11 +199,16 @@ Write a 3-5 sentence summary of the entire playoffs. Tell the story of the winne
             if (overallSummary) {
                 summaries.overall = overallSummary.trim();
                 fs.writeFileSync(summariesPath, JSON.stringify(summaries, null, 2));
-                console.log(`Saved overall summary:`, overallSummary.trim());
+                console.log(`Saved overall summary for ${currentYear}:`, overallSummary.trim());
+                await new Promise(r => setTimeout(r, 1000));
             } else {
-                console.error("Failed to generate overall summary from Gemini.");
+                console.error(`Failed to generate overall summary for ${currentYear}.`);
             }
+        } else {
+            console.log(`Not all rounds have summaries for ${currentYear}, skipping overall.`);
         }
+    } else {
+        console.log(`Overall summary already exists for ${currentYear}, skipping.`);
     }
 }
 
