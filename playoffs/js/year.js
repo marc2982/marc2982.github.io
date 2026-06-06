@@ -627,35 +627,6 @@ function calculateFunStats(data) {
 		holder: perfectPerson || '-'
 	});
 
-	// Most bonuses earned (recalculate from pick results since saved data may be unreliable)
-	const bonusCounts = {};
-	data.rounds.forEach(round => {
-		Object.entries(round.pickResults).forEach(([person, results]) => {
-			if (!bonusCounts[person]) bonusCounts[person] = 0;
-			Object.values(results).forEach(result => {
-				if (result.teamStatus === 'CORRECT' && result.gamesStatus === 'CORRECT') {
-					bonusCounts[person]++;
-				}
-			});
-		});
-	});
-
-	let maxBonuses = 0;
-	let maxBonusesPerson = '';
-	Object.entries(bonusCounts).forEach(([person, count]) => {
-		if (count > maxBonuses) {
-			maxBonuses = count;
-			maxBonusesPerson = person;
-		}
-	});
-
-	stats.push({
-		icon: '🎁',
-		value: `${maxBonuses} bonus${maxBonuses !== 1 ? 'es' : ''}`,
-		label: 'Most Bonuses Earned',
-		holder: maxBonusesPerson || '-'
-	});
-
 	// Round 1 upsets (bottom seed beating top seed)
 	const round1Series = data.rounds[0]?.serieses || [];
 	const round1Upsets = round1Series.filter(s => s.bottomSeedWins === 4);
