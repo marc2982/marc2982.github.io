@@ -603,21 +603,25 @@ function calculateFunStats(data) {
 
 	// Perfect picks (team + games correct = bonus)
 	// Note: earnedBonusPoints field is unreliable in saved data, so we check both statuses directly
-	let perfectPicks = 0;
-	let perfectPerson = '';
+	const perfectCounts = {};
 	data.rounds.forEach(round => {
 		Object.entries(round.pickResults).forEach(([person, results]) => {
-			let personPerfect = 0;
+			if (!perfectCounts[person]) perfectCounts[person] = 0;
 			Object.values(results).forEach(result => {
 				if (result.teamStatus === 'CORRECT' && result.gamesStatus === 'CORRECT') {
-					personPerfect++;
+					perfectCounts[person]++;
 				}
 			});
-			if (personPerfect > perfectPicks) {
-				perfectPicks = personPerfect;
-				perfectPerson = person;
-			}
 		});
+	});
+
+	let perfectPicks = 0;
+	let perfectPerson = '';
+	Object.entries(perfectCounts).forEach(([person, count]) => {
+		if (count > perfectPicks) {
+			perfectPicks = count;
+			perfectPerson = person;
+		}
 	});
 
 	stats.push({
