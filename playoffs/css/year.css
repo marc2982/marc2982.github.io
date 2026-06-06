@@ -789,3 +789,370 @@ body {
     z-index: 1;
     box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
 }
+
+/* Yearly Summary Styles */
+.yearly-summary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    padding: 30px;
+    margin: 20px 0;
+    color: white;
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+}
+
+.yearly-summary-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.yearly-summary-header h2 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Winner Announcement */
+.winner-announcement {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.winner-trophy {
+    font-size: 5rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.winner-info {
+    text-align: center;
+}
+
+.winner-info h3 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.9;
+}
+
+.winner-name {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.winner-points {
+    font-size: 1.5rem;
+    font-weight: 600;
+    opacity: 0.9;
+    margin-top: 5px;
+}
+
+/* Podium */
+.podium {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 15px;
+    margin-bottom: 40px;
+    padding: 20px;
+}
+
+.podium-item {
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    min-width: 120px;
+}
+
+.podium-item.first {
+    background: linear-gradient(135deg, #ffd700 0%, #ffb700 100%);
+    color: #333;
+    transform: scale(1.1);
+    box-shadow: 0 8px 24px rgba(255, 215, 0, 0.4);
+    order: 2;
+}
+
+.podium-item.second {
+    background: linear-gradient(135deg, #c0c0c0 0%, #a8a8a8 100%);
+    color: #333;
+    order: 1;
+}
+
+.podium-item.third {
+    background: linear-gradient(135deg, #cd7f32 0%, #b87333 100%);
+    color: #333;
+    order: 3;
+}
+
+.podium-place {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.podium-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.podium-points {
+    font-size: 1rem;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+/* Series Overview */
+.series-overview {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.series-overview h3 {
+    margin: 0 0 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.series-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.series-round h4 {
+    margin: 0 0 15px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+.series-matchup {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.series-winner {
+    font-weight: bold;
+    color: #90EE90;
+    flex: 1;
+    text-align: left;
+}
+
+.series-score {
+    font-weight: bold;
+    padding: 0 10px;
+    opacity: 0.9;
+}
+
+.series-loser {
+    color: rgba(255, 255, 255, 0.6);
+    flex: 1;
+    text-align: right;
+}
+
+/* Fun Stats */
+.fun-stats {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.fun-stats h3 {
+    margin: 0 0 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 10px;
+}
+
+.stat-holder {
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    display: inline-block;
+}
+
+/* Cup Winner */
+.cup-winner {
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(135deg, #ffd700 0%, #ffb700 100%);
+    border-radius: 12px;
+    color: #333;
+    box-shadow: 0 8px 24px rgba(255, 215, 0, 0.4);
+}
+
+.cup-winner h3 {
+    margin: 0 0 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.cup-logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.cup-team {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Team logos in series results */
+.team-logo-small {
+    width: 28px;
+    height: 28px;
+    margin: 0 6px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+.series-team {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+
+.series-team.winner {
+    justify-content: flex-start;
+    color: #90EE90;
+}
+
+.series-team.loser {
+    justify-content: flex-end;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Mobile Responsiveness for Yearly Summary */
+@media (max-width: 768px) {
+    .yearly-summary {
+        padding: 20px;
+        margin: 10px 0;
+    }
+
+    .yearly-summary-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .winner-announcement {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .winner-trophy {
+        font-size: 4rem;
+    }
+
+    .winner-name {
+        font-size: 2rem;
+    }
+
+    .podium {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .podium-item.first {
+        order: 1;
+        transform: none;
+    }
+
+    .podium-item.second {
+        order: 2;
+    }
+
+    .podium-item.third {
+        order: 3;
+    }
+
+    .series-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cup-team {
+        font-size: 2rem;
+    }
+}

@@ -1,6 +1,7 @@
 import { prepareSummaryViewModel, prepareRoundViewModel, prepareProjectionsViewModel } from './yearViewModel.js';
 
 export function renderPage(data) {
+	renderYearlySummary(data, $('#yearlySummary'));
 	renderTiebreaker(data, $('#tiebreaker'));
 	renderSummary(data, $('#summaryTable'));
 	const cumulativePoints = {};
@@ -411,6 +412,235 @@ export function renderProjections(data, table) {
     `);
 
 	$(table).DataTable(viewModel.dataTableConfig);
+}
+
+export function renderYearlySummary(data, container) {
+	// Check if playoffs are complete (all 4 rounds have series that are over)
+	const allRoundsComplete = data.rounds.every(round => 
+		round.serieses.every(series => series.isOver())
+	);
+
+	if (!allRoundsComplete || !data.personSummaries || Object.keys(data.personSummaries).length === 0) {
+		container.hide();
+		return;
+	}
+
+	// Get sorted participants by total points
+	const participants = Object.entries(data.personSummaries)
+		.map(([person, summary]) => ({
+			person,
+			...summary
+		}))
+		.sort((a, b) => b.points - a.points);
+
+	const winner = participants[0];
+	const second = participants[1];
+	const third = participants[2];
+
+	// Calculate fun stats
+	const funStats = calculateFunStats(data);
+
+	// Get all series results
+	const allSeries = [];
+	data.rounds.forEach(round => {
+		round.serieses.forEach(series => {
+			allSeries.push({
+				round: round.number,
+				letter: series.letter,
+				topSeed: series.topSeed,
+				bottomSeed: series.bottomSeed,
+				topSeedWins: series.topSeedWins,
+				bottomSeedWins: series.bottomSeedWins,
+				winner: series.topSeedWins === 4 ? series.topSeed : series.bottomSeed,
+				loser: series.topSeedWins === 4 ? series.bottomSeed : series.topSeed
+			});
+		});
+	});
+
+	// Get cup winner (winner of Round 4 - the Stanley Cup Final)
+	const finalSeries = allSeries.find(s => s.round === 4);
+	const cupWinner = finalSeries ? finalSeries.winner : 'Unknown';
+
+	// Build HTML
+	container.html(`
+		<div class="yearly-summary-header">
+			<h2>${data.year} Playoff Pool Summary</h2>
+		</div>
+
+		<div class="winner-announcement">
+			<div class="winner-trophy">🏆</div>
+			<div class="winner-info">
+				<h3>Pool Winner</h3>
+				<div class="winner-name">${winner.person}</div>
+				<div class="winner-points">${winner.points} points</div>
+			</div>
+		</div>
+
+		<div class="podium">
+			<div class="podium-item second">
+				<div class="podium-place">2nd</div>
+				<div class="podium-name">${second.person}</div>
+				<div class="podium-points">${second.points} pts</div>
+			</div>
+			<div class="podium-item first">
+				<div class="podium-place">1st</div>
+				<div class="podium-name">${winner.person}</div>
+				<div class="podium-points">${winner.points} pts</div>
+			</div>
+			<div class="podium-item third">
+				<div class="podium-place">3rd</div>
+				<div class="podium-name">${third.person}</div>
+				<div class="podium-points">${third.points} pts</div>
+			</div>
+		</div>
+
+		<div class="fun-stats">
+			<h3>Fun Stats</h3>
+			<div class="stats-grid">
+				${funStats.map(stat => `
+					<div class="stat-card">
+						<div class="stat-icon">${stat.icon}</div>
+						<div class="stat-value">${stat.value}</div>
+						<div class="stat-label">${stat.label}</div>
+						<div class="stat-holder">${stat.holder}</div>
+					</div>
+				`).join('')}
+			</div>
+		</div>
+
+		<div class="series-overview">
+			<h3>Series Results</h3>
+			<div class="series-grid">
+				${[1, 2, 3, 4].map(round => `
+					<div class="series-round">
+						<h4>Round ${round}</h4>
+						${allSeries.filter(s => s.round === round).map(series => `
+							<div class="series-matchup">
+								<div class="series-team winner">
+									${data.teams[series.winner]?.logo ? `<img src="${data.teams[series.winner].logo}" alt="${series.winner}" class="team-logo-small" />` : ''}
+									<span>${series.winner}</span>
+								</div>
+								<span class="series-score">${series.topSeedWins}-${series.bottomSeedWins}</span>
+								<div class="series-team loser">
+									<span>${series.loser}</span>
+									${data.teams[series.loser]?.logo ? `<img src="${data.teams[series.loser].logo}" alt="${series.loser}" class="team-logo-small" />` : ''}
+								</div>
+							</div>
+						`).join('')}
+					</div>
+				`).join('')}
+			</div>
+		</div>
+
+		<div class="cup-winner">
+			<h3>Stanley Cup Champion</h3>
+			${data.teams[cupWinner]?.logo ? `<img src="${data.teams[cupWinner].logo}" alt="${cupWinner}" class="cup-logo" />` : ''}
+			<div class="cup-team">${cupWinner}</div>
+		</div>
+	`);
+
+	container.show();
+}
+
+function calculateFunStats(data) {
+	const stats = [];
+
+	// Most points in a single round
+	let maxRoundPoints = 0;
+	let maxRoundPerson = '';
+	let maxRoundNumber = 0;
+
+	data.rounds.forEach(round => {
+		Object.entries(round.summary.summaries).forEach(([person, summary]) => {
+			if (summary.points > maxRoundPoints) {
+				maxRoundPoints = summary.points;
+				maxRoundPerson = person;
+				maxRoundNumber = round.number;
+			}
+		});
+	});
+
+	stats.push({
+		icon: '🔥',
+		value: `${maxRoundPoints} pts`,
+		label: `Best Single Round (R${maxRoundNumber})`,
+		holder: maxRoundPerson
+	});
+
+	// Most teams correct overall
+	let maxTeams = 0;
+	let maxTeamsPerson = '';
+	Object.entries(data.personSummaries).forEach(([person, summary]) => {
+		if (summary.teamsCorrect > maxTeams) {
+			maxTeams = summary.teamsCorrect;
+			maxTeamsPerson = person;
+		}
+	});
+
+	stats.push({
+		icon: '🎯',
+		value: `${maxTeams} teams`,
+		label: 'Most Teams Correct',
+		holder: maxTeamsPerson
+	});
+
+	// Most games correct overall
+	let maxGames = 0;
+	let maxGamesPerson = '';
+	Object.entries(data.personSummaries).forEach(([person, summary]) => {
+		if (summary.gamesCorrect > maxGames) {
+			maxGames = summary.gamesCorrect;
+			maxGamesPerson = person;
+		}
+	});
+
+	stats.push({
+		icon: '📅',
+		value: `${maxGames} games`,
+		label: 'Most Games Correct',
+		holder: maxGamesPerson
+	});
+
+	// Perfect picks (team + games + bonus)
+	let perfectPicks = 0;
+	let perfectPerson = '';
+	data.rounds.forEach(round => {
+		Object.entries(round.pickResults).forEach(([person, results]) => {
+			let personPerfect = 0;
+			Object.values(results).forEach(result => {
+				if (result.teamStatus === 'CORRECT' && result.gamesStatus === 'CORRECT' && result.earnedBonusPoints) {
+					personPerfect++;
+				}
+			});
+			if (personPerfect > perfectPicks) {
+				perfectPicks = personPerfect;
+				perfectPerson = person;
+			}
+		});
+	});
+
+	if (perfectPicks > 0) {
+		stats.push({
+			icon: '✨',
+			value: `${perfectPicks} picks`,
+			label: 'Most Perfect Picks',
+			holder: perfectPerson
+		});
+	}
+
+	// Biggest upset (lowest seed beating highest seed)
+	// This is a simplified version - we could make it more sophisticated
+	const round1Series = data.rounds[0]?.serieses || [];
+	if (round1Series.length > 0) {
+		stats.push({
+			icon: '.upset',
+			value: 'See bracket',
+			label: 'Check Series Results',
+			holder: ''
+		});
+	}
+
+	return stats;
 }
 
 function renderRankChange(rp, roundIndex) {
