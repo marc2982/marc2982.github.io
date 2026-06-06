@@ -155,14 +155,27 @@ body {
 	font-weight: 600;
 }
 
-.containing_table td:first-child a {
-	color: #0033a0;
-	text-decoration: none;
-	font-weight: 600;
+/* Clickable row styling */
+.clickable-row {
+	cursor: pointer;
+	transition: background-color 0.15s ease;
 }
 
-.containing_table td:first-child a:hover {
-	text-decoration: underline;
+.clickable-row:hover td {
+	background-color: rgba(102, 126, 234, 0.08) !important;
+}
+
+/* Year badge styling */
+.year-badge {
+	display: inline-block;
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	color: white;
+	padding: 4px 12px;
+	border-radius: 12px;
+	font-weight: 600;
+	font-size: 0.95rem;
+	letter-spacing: 0.5px;
+	box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
 }
 
 /* Loser column — dimmer text */

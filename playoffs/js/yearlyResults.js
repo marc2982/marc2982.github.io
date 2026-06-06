@@ -105,11 +105,14 @@ export async function yearlyResults(resultsTable) {
 			}
 
 			const hasLink = yearData.year >= 1997 && yearData.year !== 2005 && yearData.year !== 2013;
-			var yearHtml = hasLink
-				? '<a href="year.html?year=' + yearData.year + '">' + yearData.year + ' </a>'
-				: yearData.year;
+			if (hasLink) {
+				row.classList.add('clickable-row');
+				row.addEventListener('click', () => {
+					window.location.href = 'year.html?year=' + yearData.year;
+				});
+			}
 			
-			row.insertCell().outerHTML = '<td>' + yearHtml + '</td>';
+			row.insertCell().outerHTML = '<td><span class="year-badge">' + yearData.year + '</span></td>';
 			const statusHtml = isLockout ? (TEAMS[cupWinner] || cupWinner) : poolWinnersHtml;
 			row.insertCell().outerHTML = '<td class="' + (shouldSpan ? 'status-span' : '') + '">' + statusHtml + '</td>';
 			row.insertCell().outerHTML = '<td>' + (shouldSpan ? '' : poolLosers.join(', ')) + '</td>';
