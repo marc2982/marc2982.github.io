@@ -628,6 +628,25 @@ function calculateFunStats(data) {
 		});
 	}
 
+	// Most bonuses earned
+	let maxBonuses = 0;
+	let maxBonusesPerson = '';
+	Object.entries(data.personSummaries).forEach(([person, summary]) => {
+		if (summary.bonusEarned > maxBonuses) {
+			maxBonuses = summary.bonusEarned;
+			maxBonusesPerson = person;
+		}
+	});
+
+	if (maxBonuses > 0) {
+		stats.push({
+			icon: '🎁',
+			value: `${maxBonuses} bonus${maxBonuses > 1 ? 'es' : ''}`,
+			label: 'Most Bonuses Earned',
+			holder: maxBonusesPerson
+		});
+	}
+
 	// Round 1 upsets (bottom seed beating top seed)
 	const round1Series = data.rounds[0]?.serieses || [];
 	const round1Upsets = round1Series.filter(s => s.bottomSeedWins === 4);
