@@ -90,28 +90,98 @@ body {
 	font-weight: bold;
 }
 
-/* Table Styles */
-table.dataTable {
+/* Containing Table — matches year page style */
+.containing_table {
+	border-collapse: separate;
+	border-spacing: 0;
 	width: 100% !important;
-	margin-top: 15px;
+	background-color: white;
+	border-radius: 6px;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
-table.dataTable td {
-	font-size: 16px;
-	padding: 12px 8px;
-	text-align: left !important;
+/* Force DataTables wrapper to full width */
+.dt-container {
+	width: 100% !important;
 }
 
-table.dataTable th {
-	font-weight: 600;
+.dt-container .dt-layout-row {
+	width: 100% !important;
+}
+
+.containing_table tr:first-child th:first-child {
+	border-top-left-radius: 6px;
+}
+.containing_table tr:first-child th:last-child {
+	border-top-right-radius: 6px;
+}
+.containing_table tr:last-child td:first-child {
+	border-bottom-left-radius: 6px;
+}
+.containing_table tr:last-child td:last-child {
+	border-bottom-right-radius: 6px;
+}
+
+.containing_table td, .containing_table th {
+	border: none;
+	vertical-align: middle;
+	height: 44px;
+	padding: 0 8px;
+	text-align: center !important;
+}
+
+/* Frosted glass header */
+.containing_table thead th {
+	background-color: rgba(248, 249, 250, 0.85);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	border-bottom: 2px solid rgba(222, 226, 230, 0.6);
+	font-size: 0.85rem;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
 	color: #495057;
-	text-align: left !important;
+	padding: 10px 8px;
+	text-align: center !important;
+}
+
+/* Custom row hover */
+.containing_table tbody tr:hover td {
+	background-color: rgba(0, 0, 0, 0.04);
+	transition: background-color 0.15s ease;
+}
+
+/* Year column */
+.containing_table td:first-child {
+	font-weight: 600;
+}
+
+.containing_table td:first-child a {
+	color: #0033a0;
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.containing_table td:first-child a:hover {
+	text-decoration: underline;
+}
+
+/* Loser column — dimmer text */
+.containing_table td:nth-child(3) {
+	color: #868e96;
+}
+
+/* Cup Winner column */
+.containing_table td:nth-child(4) {
+	font-weight: 500;
 }
 
 /* Special Row Styles */
 .year-dimmed {
-	opacity: 0.6;
-	background-color: #fafafa !important;
+	opacity: 0.4;
+}
+
+.year-dimmed td {
+	background-color: rgba(0, 0, 0, 0.02) !important;
 }
 
 .status-span {
@@ -146,8 +216,12 @@ table.dataTable th {
 		padding: 15px;
 	}
 
-	table.dataTable td {
+	.containing_table td, .containing_table th {
+		height: 38px;
+		padding: 0 6px;
+	}
+
+	.containing_table td {
 		font-size: 14px;
-		padding: 8px 6px;
 	}
 }

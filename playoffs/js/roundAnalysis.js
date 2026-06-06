@@ -112,7 +112,7 @@ function buildRoundDifficultyTable(container, stats) {
 	);
 	$section.append($explanation);
 
-	const $table = $('<table class="stripe"></table>');
+	const $table = $('<table class="containing_table"></table>');
 	const $thead = $(
 		'<thead><tr><th>Person</th><th>R1 %</th><th>R2 %</th><th>R3 %</th><th>R4 %</th><th>Total %</th></tr></thead>',
 	);
@@ -144,7 +144,7 @@ function buildRoundDifficultyTable(container, stats) {
 	$section.append($table);
 	container.append($section);
 
-	$table.DataTable({ info: false, paging: false, searching: false, order: [[5, 'desc']] });
+	$table.DataTable({ info: false, paging: false, searching: false, autoWidth: false, order: [[5, 'desc']] });
 }
 
 function buildBonusEfficiencyTable(container, stats) {
@@ -154,7 +154,7 @@ function buildBonusEfficiencyTable(container, stats) {
 	);
 	$section.append($explanation);
 
-	const $table = $('<table class="stripe"></table>');
+	const $table = $('<table class="containing_table"></table>');
 	const $thead = $(
 		'<thead><tr><th>Person</th><th>R1 %</th><th>R2 %</th><th>R3 %</th><th>R4 %</th><th>Total %</th></tr></thead>',
 	);
@@ -186,7 +186,7 @@ function buildBonusEfficiencyTable(container, stats) {
 	$section.append($table);
 	container.append($section);
 
-	$table.DataTable({ info: false, paging: false, searching: false, order: [[5, 'desc']] });
+	$table.DataTable({ info: false, paging: false, searching: false, autoWidth: false, order: [[5, 'desc']] });
 }
 
 function buildSweepPredictionTable(container, stats) {
@@ -194,7 +194,7 @@ function buildSweepPredictionTable(container, stats) {
 	const $explanation = $('<p class="table-explanation">Accuracy when predicting a 4-game sweep.</p>');
 	$section.append($explanation);
 
-	const $table = $('<table class="stripe"></table>');
+	const $table = $('<table class="containing_table"></table>');
 	const $thead = $(
 		'<thead><tr><th>Person</th><th>Predicted Sweeps</th><th>Correct</th><th>Accuracy</th></tr></thead>',
 	);
@@ -214,7 +214,7 @@ function buildSweepPredictionTable(container, stats) {
 	$section.append($table);
 	container.append($section);
 
-	$table.DataTable({ info: false, paging: false, searching: false, order: [[3, 'desc']] });
+	$table.DataTable({ info: false, paging: false, searching: false, autoWidth: false, order: [[3, 'desc']] });
 }
 
 function buildGame7PredictionTable(container, stats) {
@@ -222,7 +222,7 @@ function buildGame7PredictionTable(container, stats) {
 	const $explanation = $('<p class="table-explanation">Accuracy when predicting a 7-game series.</p>');
 	$section.append($explanation);
 
-	const $table = $('<table class="stripe"></table>');
+	const $table = $('<table class="containing_table"></table>');
 	const $thead = $('<thead><tr><th>Person</th><th>Predicted G7s</th><th>Correct</th><th>Accuracy</th></tr></thead>');
 	$table.append($thead);
 
@@ -240,5 +240,5 @@ function buildGame7PredictionTable(container, stats) {
 	$section.append($table);
 	container.append($section);
 
-	$table.DataTable({ info: false, paging: false, searching: false, order: [[3, 'desc']] });
+	$table.DataTable({ info: false, paging: false, searching: false, autoWidth: false, order: [[3, 'desc']] });
 }

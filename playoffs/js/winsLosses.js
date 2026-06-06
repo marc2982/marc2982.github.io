@@ -54,6 +54,6 @@ export async function winsLosses(winsLossesTable) {
 		order: [[1, 'desc']],
 		paging: false,
 		searching: false,
-		// stripeClasses: ['stripe-1', 'stripe-2']
+		autoWidth: false,
 	});
 }

@@ -15,7 +15,7 @@ export function createSection(container, title, explanationText) {
 }
 
 export function createTable(headers) {
-	const $table = $('<table class="stripe"></table>');
+	const $table = $('<table class="containing_table"></table>');
 	const $thead = $('<thead></thead>');
 	const $headerRow = $('<tr></tr>');
 
@@ -37,6 +37,7 @@ export function initDataTable($table, options = {}) {
 		info: false,
 		paging: false,
 		searching: false,
+		autoWidth: false,
 	};
 	$table.DataTable({ ...defaultOptions, ...options });
 }
