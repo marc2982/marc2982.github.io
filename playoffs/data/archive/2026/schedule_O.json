@@ -25,7 +25,7 @@
       "abbrev": "W"
     },
     "record": "13-5",
-    "seriesWins": 1,
+    "seriesWins": 2,
     "divisionAbbrev": "P",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
@@ -254,7 +254,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-07:00",
       "venueTimezone": "US/Pacific",
-      "gameState": "PRE",
+      "gameState": "FINAL",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -299,7 +299,8 @@
           "default": "Carolina",
           "fr": "de la Caroline"
         },
-        "abbrev": "CAR"
+        "abbrev": "CAR",
+        "score": 4
       },
       "homeTeam": {
         "id": 54,
@@ -313,10 +314,24 @@
           "default": "Vegas",
           "fr": "de Vegas"
         },
-        "abbrev": "VGK"
+        "abbrev": "VGK",
+        "score": 5
       },
       "gameCenterLink": "/gamecenter/car-vs-vgk/2026/06/06/2025030413",
-      "ticketsLink": ""
+      "periodDescriptor": {
+        "number": 5,
+        "periodType": "OT",
+        "otPeriods": 2,
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 1,
+        "bottomSeedWins": 2
+      },
+      "gameOutcome": {
+        "lastPeriodType": "OT",
+        "otPeriods": 2
+      }
     },
     {
       "id": 2025030414,
