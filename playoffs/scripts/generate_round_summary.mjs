@@ -136,8 +136,8 @@ Do not output markdown bolding, just plain text.`;
             summaries[roundKey] = summary.trim();
             fs.writeFileSync(summariesPath, JSON.stringify(summaries, null, 2));
             console.log(`Saved summary for Round ${roundNum}:`, summary.trim());
-            // Small delay to avoid rate limiting
-            await new Promise(r => setTimeout(r, 1000));
+            // Delay to stay under Gemini free tier rate limit (5 RPM)
+            await new Promise(r => setTimeout(r, 20000));
         } else {
             console.error(`Failed to generate summary for Round ${roundNum} (${currentYear}).`);
         }
@@ -200,7 +200,7 @@ Write a 3-5 sentence summary of the entire playoffs. Tell the story of the winne
                 summaries.overall = overallSummary.trim();
                 fs.writeFileSync(summariesPath, JSON.stringify(summaries, null, 2));
                 console.log(`Saved overall summary for ${currentYear}:`, overallSummary.trim());
-                await new Promise(r => setTimeout(r, 1000));
+                await new Promise(r => setTimeout(r, 20000));
             } else {
                 console.error(`Failed to generate overall summary for ${currentYear}.`);
             }
@@ -212,28 +212,41 @@ Write a 3-5 sentence summary of the entire playoffs. Tell the story of the winne
     }
 }
 
-async function generateGeminiResponse(prompt) {
+async function generateGeminiResponse(prompt, retries = 3) {
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
-    try {
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                contents: [{ parts: [{ text: prompt }] }],
-                generationConfig: { temperature: 0.7 }
-            })
-        });
+    for (let attempt = 1; attempt <= retries; attempt++) {
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    contents: [{ parts: [{ text: prompt }] }],
+                    generationConfig: { temperature: 0.7 }
+                })
+            });
 
-        if (!response.ok) {
-            console.error("Gemini API Error:", response.status, await response.text());
+            if (!response.ok) {
+                const errorBody = await response.text();
+                if ((response.status === 429 || response.status === 503) && attempt < retries) {
+                    const retryDelay = response.status === 429 ? 60000 : 5000;
+                    console.error(`Gemini API ${response.status} on attempt ${attempt}/${retries}, retrying in ${retryDelay / 1000}s...`);
+                    await new Promise(r => setTimeout(r, retryDelay));
+                    continue;
+                }
+                console.error("Gemini API Error:", response.status, errorBody);
+                return null;
+            }
+
+            const data = await response.json();
+            return data.candidates[0].content.parts[0].text;
+        } catch (e) {
+            console.error("Fetch error:", e);
+            if (attempt < retries) {
+                await new Promise(r => setTimeout(r, 5000));
+                continue;
+            }
             return null;
         }
-
-        const data = await response.json();
-        return data.candidates[0].content.parts[0].text;
-    } catch (e) {
-        console.error("Fetch error:", e);
-        return null;
     }
 }
 
