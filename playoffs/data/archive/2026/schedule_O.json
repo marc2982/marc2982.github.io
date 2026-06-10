@@ -347,7 +347,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-07:00",
       "venueTimezone": "US/Pacific",
-      "gameState": "FUT",
+      "gameState": "LIVE",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -392,7 +392,8 @@
           "default": "Carolina",
           "fr": "de la Caroline"
         },
-        "abbrev": "CAR"
+        "abbrev": "CAR",
+        "score": 3
       },
       "homeTeam": {
         "id": 54,
@@ -406,10 +407,19 @@
           "default": "Vegas",
           "fr": "de Vegas"
         },
-        "abbrev": "VGK"
+        "abbrev": "VGK",
+        "score": 2
       },
       "gameCenterLink": "/gamecenter/car-vs-vgk/2026/06/09/2025030414",
-      "ticketsLink": ""
+      "periodDescriptor": {
+        "number": 2,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 1,
+        "bottomSeedWins": 2
+      }
     },
     {
       "id": 2025030415,
