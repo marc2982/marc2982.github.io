@@ -1,6 +1,8 @@
 name: Backfill Round Summaries
 
 on:
+  schedule:
+    - cron: '0 10 * * *' # Daily at 10:00 UTC
   workflow_dispatch:
     inputs:
       start_year:
@@ -33,13 +35,13 @@ jobs:
       - name: Generate Round Summaries
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          MAX_API_CALLS: ${{ inputs.max_api_calls }}
-        run: node playoffs/scripts/generate_round_summary.mjs --start=${{ inputs.start_year }} --end=${{ inputs.end_year }}
+          MAX_API_CALLS: ${{ inputs.max_api_calls || '15' }}
+        run: node playoffs/scripts/generate_round_summary.mjs --start=${{ inputs.start_year || '1997' }} --end=${{ inputs.end_year || '2025' }}
 
       - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add playoffs/data/archive/
-          git commit -m "[Auto] Backfill round summaries for ${{ inputs.start_year }}-${{ inputs.end_year }}" || exit 0
+          git commit -m "[Auto] Backfill round summaries" || exit 0
           git push
