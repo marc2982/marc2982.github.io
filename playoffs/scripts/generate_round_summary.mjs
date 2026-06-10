@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { execSync } from 'child_process';
 
 // Define the threshold for a round being "complete"
 const ROUND_SERIES_COUNT = { 1: 8, 2: 4, 3: 2, 4: 1 };
@@ -63,6 +64,21 @@ async function run() {
     }
 
     console.log(`\nDone. API calls made this run: ${apiCallsMade}/${MAX_API_CALLS}`);
+}
+
+async function commitYear(year, playoffsDir) {
+    try {
+        const archiveDir = path.join(playoffsDir, 'data', 'archive', year.toString());
+        const summariesPath = path.join(archiveDir, 'summaries.json');
+        if (!fs.existsSync(summariesPath)) return;
+
+        execSync('git add playoffs/data/archive/', { cwd: path.join(playoffsDir, '..') });
+        execSync(`git commit -m "[Auto] Round summaries for ${year}"`, { cwd: path.join(playoffsDir, '..'), stdio: 'pipe' });
+        execSync('git push', { cwd: path.join(playoffsDir, '..'), stdio: 'pipe' });
+        console.log(`Committed and pushed summaries for ${year}`);
+    } catch (e) {
+        // commit fails if no changes — that's fine
+    }
 }
 
 async function processYear(currentYear, playoffsDir) {
@@ -231,6 +247,8 @@ Write a 3-5 sentence summary of the entire playoffs. Tell the story of the winne
     } else {
         console.log(`Overall summary already exists for ${currentYear}, skipping.`);
     }
+
+    await commitYear(currentYear, playoffsDir);
 }
 
 async function generateGeminiResponse(prompt, retries = 3) {
