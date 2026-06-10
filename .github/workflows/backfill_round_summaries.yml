@@ -1,0 +1,40 @@
+name: Backfill Round Summaries
+
+on:
+  workflow_dispatch:
+    inputs:
+      start_year:
+        description: 'Start year (inclusive)'
+        default: '1997'
+        type: string
+      end_year:
+        description: 'End year (inclusive)'
+        default: '2025'
+        type: string
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate Round Summaries
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: node playoffs/scripts/generate_round_summary.mjs --start=${{ inputs.start_year }} --end=${{ inputs.end_year }}
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add playoffs/data/archive/
+          git commit -m "[Auto] Backfill round summaries for ${{ inputs.start_year }}-${{ inputs.end_year }}" || exit 0
+          git push
