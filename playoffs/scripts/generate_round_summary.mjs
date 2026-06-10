@@ -16,6 +16,9 @@ function parseArgs() {
     return result;
 }
 
+let apiCallsMade = 0;
+const MAX_API_CALLS = parseInt(process.env.MAX_API_CALLS || '15');
+
 async function run() {
     if (!GEMINI_API_KEY) {
         console.warn("GEMINI_API_KEY is not set. Skipping LLM summary generation.");
@@ -52,8 +55,14 @@ async function run() {
     console.log(`Processing years: ${yearsToProcess.join(', ')}`);
 
     for (const currentYear of yearsToProcess) {
+        if (apiCallsMade >= MAX_API_CALLS) {
+            console.log(`\nReached max API calls (${MAX_API_CALLS}), stopping.`);
+            break;
+        }
         await processYear(currentYear, playoffsDir);
     }
+
+    console.log(`\nDone. API calls made this run: ${apiCallsMade}/${MAX_API_CALLS}`);
 }
 
 async function processYear(currentYear, playoffsDir) {
@@ -86,6 +95,11 @@ async function processYear(currentYear, playoffsDir) {
     }
 
     for (let roundNum = 1; roundNum <= 4; roundNum++) {
+        if (apiCallsMade >= MAX_API_CALLS) {
+            console.log(`Reached max API calls (${MAX_API_CALLS}), stopping. Re-run to continue.`);
+            return;
+        }
+
         const roundKey = `round${roundNum}`;
         if (summaries[roundKey]) {
             console.log(`Round ${roundNum} already summarized, skipping.`);
@@ -133,6 +147,7 @@ Do not output markdown bolding, just plain text.`;
 
         const summary = await generateGeminiResponse(prompt);
         if (summary) {
+            apiCallsMade++;
             summaries[roundKey] = summary.trim();
             fs.writeFileSync(summariesPath, JSON.stringify(summaries, null, 2));
             console.log(`Saved summary for Round ${roundNum}:`, summary.trim());
@@ -145,6 +160,11 @@ Do not output markdown bolding, just plain text.`;
 
     // Generate overall summary after all rounds are complete
     if (!summaries.overall) {
+        if (apiCallsMade >= MAX_API_CALLS) {
+            console.log(`Reached max API calls (${MAX_API_CALLS}), stopping. Re-run to continue.`);
+            return;
+        }
+
         const allRoundsComplete = [1, 2, 3, 4].every(r => summaries[`round${r}`]);
         if (allRoundsComplete) {
             console.log(`Generating overall summary for ${currentYear}...`);
@@ -197,6 +217,7 @@ Write a 3-5 sentence summary of the entire playoffs. Tell the story of the winne
 
             const overallSummary = await generateGeminiResponse(overallPrompt);
             if (overallSummary) {
+                apiCallsMade++;
                 summaries.overall = overallSummary.trim();
                 fs.writeFileSync(summariesPath, JSON.stringify(summaries, null, 2));
                 console.log(`Saved overall summary for ${currentYear}:`, overallSummary.trim());
