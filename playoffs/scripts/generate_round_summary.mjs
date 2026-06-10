@@ -35,7 +35,7 @@ async function run() {
         // Range mode
         const start = parseInt(args.start);
         const end = parseInt(args.end);
-        for (let y = start; y >= end; y--) {
+        for (let y = start; y <= end; y++) {
             yearsToProcess.push(y);
         }
     } else {
