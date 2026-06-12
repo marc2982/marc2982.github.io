@@ -24,7 +24,7 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "14-6",
+    "record": "14-7",
     "seriesWins": 2,
     "divisionAbbrev": "P",
     "seed": 1,
@@ -49,8 +49,8 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "14-3",
-    "seriesWins": 2,
+    "record": "15-3",
+    "seriesWins": 3,
     "divisionAbbrev": "M",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
@@ -438,7 +438,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-04:00",
       "venueTimezone": "US/Eastern",
-      "gameState": "PRE",
+      "gameState": "FINAL",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -482,7 +482,8 @@
           "default": "Vegas",
           "fr": "de Vegas"
         },
-        "abbrev": "VGK"
+        "abbrev": "VGK",
+        "score": 2
       },
       "homeTeam": {
         "id": 12,
@@ -497,10 +498,22 @@
           "default": "Carolina",
           "fr": "de la Caroline"
         },
-        "abbrev": "CAR"
+        "abbrev": "CAR",
+        "score": 4
       },
       "gameCenterLink": "/gamecenter/vgk-vs-car/2026/06/11/2025030415",
-      "ticketsLink": "https://www.ticketmaster.com/event/2D00646AAEBAF03A?brand=nhl&wt.mc_id=NHL_LEAGUE_CAR_GAMECENTER_PREVIEW_PLAYOFFS_RD4_GM3&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_LEAGUE_CAR&utm_content=GAMECENTER_PREVIEW_PLAYOFFS_RD4_GM3"
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "seriesStatus": {
+        "topSeedWins": 3,
+        "bottomSeedWins": 2
+      },
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
     },
     {
       "id": 2025030416,
