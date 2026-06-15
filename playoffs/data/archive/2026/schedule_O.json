@@ -24,7 +24,7 @@
       "name": "Western",
       "abbrev": "W"
     },
-    "record": "14-7",
+    "record": "14-8",
     "seriesWins": 2,
     "divisionAbbrev": "P",
     "seed": 1,
@@ -49,8 +49,8 @@
       "name": "Eastern",
       "abbrev": "E"
     },
-    "record": "15-3",
-    "seriesWins": 3,
+    "record": "16-3",
+    "seriesWins": 4,
     "divisionAbbrev": "M",
     "seed": 1,
     "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
@@ -529,7 +529,7 @@
       "easternUTCOffset": "-04:00",
       "venueUTCOffset": "-07:00",
       "venueTimezone": "US/Pacific",
-      "gameState": "PRE",
+      "gameState": "OFF",
       "gameScheduleState": "OK",
       "tvBroadcasts": [
         {
@@ -574,7 +574,8 @@
           "default": "Carolina",
           "fr": "de la Caroline"
         },
-        "abbrev": "CAR"
+        "abbrev": "CAR",
+        "score": 3
       },
       "homeTeam": {
         "id": 54,
@@ -588,88 +589,22 @@
           "default": "Vegas",
           "fr": "de Vegas"
         },
-        "abbrev": "VGK"
+        "abbrev": "VGK",
+        "score": 0
       },
       "gameCenterLink": "/gamecenter/car-vs-vgk/2026/06/14/2025030416",
-      "ticketsLink": ""
-    },
-    {
-      "id": 2025030417,
-      "season": 20252026,
-      "gameType": 3,
-      "gameNumber": 7,
-      "ifNecessary": true,
-      "venue": {
-        "default": "Lenovo Center"
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
       },
-      "neutralSite": false,
-      "startTimeUTC": "2026-06-18T00:00:00Z",
-      "easternUTCOffset": "-04:00",
-      "venueUTCOffset": "-04:00",
-      "venueTimezone": "US/Eastern",
-      "gameState": "FUT",
-      "gameScheduleState": "OK",
-      "tvBroadcasts": [
-        {
-          "id": 4,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "CBC",
-          "sequenceNumber": 101
-        },
-        {
-          "id": 281,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "TVAS",
-          "sequenceNumber": 120
-        },
-        {
-          "id": 282,
-          "market": "N",
-          "countryCode": "CA",
-          "network": "SN",
-          "sequenceNumber": 107
-        },
-        {
-          "id": 384,
-          "market": "N",
-          "countryCode": "US",
-          "network": "ABC",
-          "sequenceNumber": 1
-        }
-      ],
-      "awayTeam": {
-        "id": 54,
-        "commonName": {
-          "default": "Golden Knights"
-        },
-        "placeName": {
-          "default": "Vegas"
-        },
-        "placeNameWithPreposition": {
-          "default": "Vegas",
-          "fr": "de Vegas"
-        },
-        "abbrev": "VGK"
+      "seriesStatus": {
+        "topSeedWins": 4,
+        "bottomSeedWins": 2
       },
-      "homeTeam": {
-        "id": 12,
-        "commonName": {
-          "default": "Hurricanes"
-        },
-        "placeName": {
-          "default": "Carolina",
-          "fr": "Caroline"
-        },
-        "placeNameWithPreposition": {
-          "default": "Carolina",
-          "fr": "de la Caroline"
-        },
-        "abbrev": "CAR"
-      },
-      "gameCenterLink": "/gamecenter/vgk-vs-car/2026/06/17/2025030417",
-      "ticketsLink": "https://www.ticketmaster.com/event/2D00646AAEBFF048?brand=nhl&wt.mc_id=NHL_LEAGUE_CAR_GAMECENTER_PREVIEW_PLAYOFFS_RD4_GM4&utm_source=NHL.com&utm_medium=client&utm_campaign=NHL_LEAGUE_CAR&utm_content=GAMECENTER_PREVIEW_PLAYOFFS_RD4_GM4"
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
     }
   ],
   "fullCoverageUrl": {

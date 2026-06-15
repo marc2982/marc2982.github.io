@@ -713,10 +713,12 @@
       "playoffRound": 4,
       "topSeedRank": 1,
       "topSeedRankAbbrev": "D1",
-      "topSeedWins": 3,
+      "topSeedWins": 4,
       "bottomSeedRank": 1,
       "bottomSeedRankAbbrev": "D1",
       "bottomSeedWins": 2,
+      "winningTeamId": 12,
+      "losingTeamId": 54,
       "topSeedTeam": {
         "id": 12,
         "abbrev": "CAR",
