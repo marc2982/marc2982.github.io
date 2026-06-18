@@ -17,6 +17,10 @@ on:
         description: 'Max Gemini API calls per run (free tier limit is 20/day)'
         default: '15'
         type: string
+      regenerate_overall:
+        description: 'Regenerate overall year summaries'
+        default: false
+        type: boolean
 
 jobs:
   backfill:
@@ -36,7 +40,12 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           MAX_API_CALLS: ${{ inputs.max_api_calls || '15' }}
-        run: node playoffs/scripts/generate_round_summary.mjs --start=${{ inputs.start_year || '1997' }} --end=${{ inputs.end_year || '2025' }}
+        run: |
+          FLAGS=""
+          if [ "${{ inputs.regenerate_overall }}" = "true" ]; then
+            FLAGS="--regenerate-overall"
+          fi
+          node playoffs/scripts/generate_round_summary.mjs --start=${{ inputs.start_year || '1997' }} --end=${{ inputs.end_year || '2025' }} $FLAGS
 
       - name: Commit and Push Changes
         run: |
