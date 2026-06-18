@@ -655,10 +655,27 @@
   },
   "2026": {
     "year": 2026,
-    "poolWinner": "In Progress",
-    "poolLoser": null,
-    "cupWinner": null,
-    "points": {}
+    "poolWinner": "Derrick",
+    "poolLoser": "Benedict",
+    "cupWinner": "CAR",
+    "tiebreaker": null,
+    "points": {
+      "Derrick": 42,
+      "Nickall": 40,
+      "Stephanie": 35,
+      "Ryan": 35,
+      "Jamie": 31,
+      "Jaclyn": 31,
+      "Marc": 30,
+      "Robin": 28,
+      "Glenda": 26,
+      "Kiersten": 25,
+      "Nathan": 23,
+      "Theodore": 23,
+      "Jake": 22,
+      "Sophie": 21,
+      "Benedict": 15
+    }
   },
   "3000": {
     "year": 3000,
