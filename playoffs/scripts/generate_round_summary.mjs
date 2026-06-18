@@ -174,8 +174,8 @@ Do not output markdown bolding, just plain text.`;
         }
     }
 
-    	// Generate overall summary after all rounds are complete
-	if (!summaries.overall || args['regenerate-overall'] === 'true' || args['regenerate-overall'] === true) {
+	// Generate overall summary after all rounds are complete
+	if (!summaries.overall || (args['regenerate-overall'] && summaries.overall_version !== 2)) {
 		if (apiCallsMade >= MAX_API_CALLS) {
 			console.log(`Reached max API calls (${MAX_API_CALLS}), stopping. Re-run to continue.`);
 			return;
@@ -262,6 +262,7 @@ Write a 3-5 sentence summary of the entire playoffs. Tell the story of the winne
 			if (overallSummary) {
 				apiCallsMade++;
 				summaries.overall = overallSummary.trim();
+				summaries.overall_version = 2;
 				fs.writeFileSync(summariesPath, JSON.stringify(summaries, null, 2));
 				console.log(`Saved overall summary for ${currentYear}:`, overallSummary.trim());
 
