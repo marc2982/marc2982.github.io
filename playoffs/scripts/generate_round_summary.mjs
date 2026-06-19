@@ -539,6 +539,12 @@ function getHistoricalContext(summariesDir, currentYear) {
             playerStr += `Last year (${lastYear}), they scored ${stats.pointsByYear[lastYear]} points.`;
         }
 
+        if (stats.pointsByYear && Object.keys(stats.pointsByYear).length > 0) {
+            const yearEntries = Object.entries(stats.pointsByYear).sort(([a], [b]) => a - b);
+            const pointsStr = yearEntries.map(([y, pts]) => `${y}:${pts}`).join(', ');
+            playerStr += ` Points by year: ${pointsStr}`;
+        }
+
         contextStr += playerStr + "\n";
     }
 
