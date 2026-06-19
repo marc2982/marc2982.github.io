@@ -20,6 +20,8 @@ function parseArgs() {
 let apiCallsMade = 0;
 const MAX_API_CALLS = parseInt(process.env.MAX_API_CALLS || '15');
 
+let rateLimited = false;
+
 async function run() {
     if (!GEMINI_API_KEY) {
         console.warn("GEMINI_API_KEY is not set. Skipping LLM summary generation.");
@@ -58,6 +60,10 @@ async function run() {
     for (const currentYear of yearsToProcess) {
         if (apiCallsMade >= MAX_API_CALLS) {
             console.log(`\nReached max API calls (${MAX_API_CALLS}), stopping.`);
+            break;
+        }
+        if (rateLimited) {
+            console.log(`\nRate limited, stopping.`);
             break;
         }
         await processYear(currentYear, playoffsDir, args);
@@ -303,6 +309,7 @@ Write a 3-5 sentence summary of the entire playoffs. Tell the story of the winne
 }
 
 async function generateGeminiResponse(prompt, retries = 3) {
+    if (rateLimited) return null;
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
     for (let attempt = 1; attempt <= retries; attempt++) {
         try {
@@ -324,6 +331,7 @@ async function generateGeminiResponse(prompt, retries = 3) {
                     continue;
                 }
                 console.error("Gemini API Error:", response.status, errorBody);
+                if (response.status === 429) rateLimited = true;
                 return null;
             }
 
