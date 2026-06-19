@@ -238,7 +238,7 @@ Do not output markdown bolding, just plain text.`;
 
 			// Load historical summaries for context
 			const summariesDir = path.join(playoffsDir, 'data', 'summaries');
-			historicalContext = getHistoricalContext(summariesDir, currentYear);
+			const historicalContext = getHistoricalContext(summariesDir, currentYear);
 
 			const overallPrompt = `You are a brutally honest hockey fan and commentator for a family playoff pool. 
 The ${currentYear} NHL playoffs have concluded!
