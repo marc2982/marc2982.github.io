@@ -60,7 +60,7 @@ async function run() {
             console.log(`\nReached max API calls (${MAX_API_CALLS}), stopping.`);
             break;
         }
-        await processYear(currentYear, playoffsDir);
+        await processYear(currentYear, playoffsDir, args);
     }
 
     console.log(`\nDone. API calls made this run: ${apiCallsMade}/${MAX_API_CALLS}`);
@@ -81,7 +81,7 @@ async function commitYear(year, playoffsDir) {
     }
 }
 
-async function processYear(currentYear, playoffsDir) {
+async function processYear(currentYear, playoffsDir, args) {
     console.log(`\n=== Processing ${currentYear} ===`);
     const archiveDir = path.join(playoffsDir, 'data', 'archive', currentYear.toString());
 
