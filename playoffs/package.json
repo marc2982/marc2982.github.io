@@ -6,7 +6,8 @@
   "scripts": {
     "test": "node scripts/run_tests.mjs",
     "start": "http-server . -c-1",
-    "lint": "eslint js/ scripts/"
+    "lint": "eslint js/ scripts/",
+    "historical": "node scripts/build_historical_stats.mjs"
   },
   "keywords": [],
   "author": "",

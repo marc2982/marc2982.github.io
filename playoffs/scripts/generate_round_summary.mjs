@@ -497,48 +497,25 @@ function calculateStandings(apiData, archiveDir) {
     return standings;
 }
 
-// Extracts historical win/loss/points stats from <year>.json summary files
+// Builds historical context string from pre-computed historical_stats.json
 function getHistoricalContext(summariesDir, currentYear) {
-    const playerStats = {};
-
-    const years = [];
-    for (let y = 1997; y < currentYear; y++) {
-        if (y === 2005) continue;
-        const summaryPath = path.join(summariesDir, `${y}.json`);
-        if (fs.existsSync(summaryPath)) {
-            years.push(y);
-        }
+    const statsPath = path.join(summariesDir, 'historical_stats.json');
+    if (!fs.existsSync(statsPath)) {
+        console.warn('historical_stats.json not found, skipping historical context');
+        return '';
     }
 
-    for (const y of years) {
-        const summary = JSON.parse(fs.readFileSync(path.join(summariesDir, `${y}.json`), 'utf8'));
-
-        const winners = Array.isArray(summary.winners) ? summary.winners : (summary.winners ? [summary.winners] : []);
-        for (const w of winners) {
-            if (!playerStats[w]) playerStats[w] = { wins: [], losses: [], pointsByYear: {} };
-            playerStats[w].wins.push(y);
-        }
-
-        const losers = Array.isArray(summary.losers) ? summary.losers : (summary.losers ? [summary.losers] : []);
-        for (const l of losers) {
-            if (!playerStats[l]) playerStats[l] = { wins: [], losses: [], pointsByYear: {} };
-            playerStats[l].losses.push(y);
-        }
-
-        if (summary.personSummaries) {
-            for (const [person, data] of Object.entries(summary.personSummaries)) {
-                if (!playerStats[person]) playerStats[person] = { wins: [], losses: [], pointsByYear: {} };
-                playerStats[person].pointsByYear[y] = data.points;
-            }
-        }
-    }
+    const { players } = JSON.parse(fs.readFileSync(statsPath, 'utf8'));
+    const lastYear = currentYear - 1;
 
     let contextStr = "\nHistorical Pool Stats and Context (use these to make the summary interesting, e.g. pointing out long droughts, back-to-back winners, total championships, or historical rivalries):\n";
-    for (const [player, stats] of Object.entries(playerStats)) {
+    for (const [name, stats] of Object.entries(players)) {
         const winCount = stats.wins.length;
         const lossCount = stats.losses.length;
-        
-        let playerStr = `- ${player}: `;
+        const secondCount = stats.seconds.length;
+        const thirdCount = stats.thirds.length;
+
+        let playerStr = `- ${name}: `;
         if (winCount > 0) {
             playerStr += `Has won ${winCount} championship${winCount > 1 ? 's' : ''} (${stats.wins.join(', ')}). `;
         } else {
@@ -546,11 +523,19 @@ function getHistoricalContext(summariesDir, currentYear) {
         }
 
         if (lossCount > 0) {
-            playerStr += `Has finished in last place ${lossCount} time${lossCount > 1 ? 's' : ''} (${stats.losses.join(', ')}). `;
+            playerStr += `Has finished last ${lossCount} time${lossCount > 1 ? 's' : ''} (${stats.losses.join(', ')}). `;
+        }
+        if (secondCount > 0) {
+            playerStr += `Has come in second ${secondCount} time${secondCount > 1 ? 's' : ''} (${stats.seconds.join(', ')}). `;
+        }
+        if (thirdCount > 0) {
+            playerStr += `Has come in third ${thirdCount} time${thirdCount > 1 ? 's' : ''} (${stats.thirds.join(', ')}). `;
+        }
+        if (stats.yearsPlayed > 0 && winCount === 0) {
+            playerStr += `Has participated for ${stats.yearsPlayed} years without a championship. `;
         }
 
-        const lastYear = currentYear - 1;
-        if (stats.pointsByYear[lastYear] !== undefined) {
+        if (stats.pointsByYear && stats.pointsByYear[lastYear] !== undefined) {
             playerStr += `Last year (${lastYear}), they scored ${stats.pointsByYear[lastYear]} points.`;
         }
 
