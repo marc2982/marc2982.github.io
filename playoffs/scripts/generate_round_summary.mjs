@@ -236,14 +236,9 @@ Do not output markdown bolding, just plain text.`;
 				cupWinner = scfSeries.topSeedWins === 4 ? scfSeries.topSeedTeam.abbrev : scfSeries.bottomSeedTeam.abbrev;
 			}
 
-			// Load historical index for context and updating
-			const yearlyIndexPath = path.join(playoffsDir, 'data', 'summaries', 'yearly_index.json');
-			let yearlyIndex = {};
-			let historicalContext = "";
-			if (fs.existsSync(yearlyIndexPath)) {
-				yearlyIndex = JSON.parse(fs.readFileSync(yearlyIndexPath, 'utf8'));
-				historicalContext = getHistoricalContext(yearlyIndex, currentYear);
-			}
+			// Load historical summaries for context
+			const summariesDir = path.join(playoffsDir, 'data', 'summaries');
+			historicalContext = getHistoricalContext(summariesDir, currentYear);
 
 			const overallPrompt = `You are a brutally honest hockey fan and commentator for a family playoff pool. 
 The ${currentYear} NHL playoffs have concluded!
@@ -272,6 +267,11 @@ Write a 3-5 sentence summary of the entire playoffs. Tell the story of the winne
 					pointsMap[name] = data.points;
 				}
 
+				const yearlyIndexPath = path.join(playoffsDir, 'data', 'summaries', 'yearly_index.json');
+				let yearlyIndex = {};
+				if (fs.existsSync(yearlyIndexPath)) {
+					yearlyIndex = JSON.parse(fs.readFileSync(yearlyIndexPath, 'utf8'));
+				}
 				yearlyIndex[currentYear.toString()] = {
 					year: currentYear,
 					poolWinner: winnerName,
@@ -440,12 +440,20 @@ function calculateStandings(apiData, archiveDir) {
                 const bottomAbbrev = series.bottomSeedTeam?.abbrev || '';
                 const bottomName = series.bottomSeedTeam?.name?.default || '';
 
+                const LEGACY_ABBREVS = {
+                    BUFF: 'BUF', CAL: 'CGY', CLB: 'CBJ', LA: 'LAK', LV: 'VGK',
+                    MON: 'MTL', NAS: 'NSH', NASH: 'NSH', NJ: 'NJD',
+                    PHE: 'PHX', PHO: 'PHX', PITT: 'PIT', SJ: 'SJS',
+                    TB: 'TBL', WAS: 'WSH', WASH: 'WSH',
+                };
+
                 const norm = (s) => (s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
                 let cleanPick = pickTeamRaw.trim();
                 const parenIdx = cleanPick.indexOf('(');
                 if (parenIdx !== -1) {
                     cleanPick = cleanPick.substring(0, parenIdx).trim();
                 }
+                cleanPick = LEGACY_ABBREVS[cleanPick.toUpperCase()] || cleanPick;
 
                 const cleanPickNorm = norm(cleanPick);
                 const topAbbrevNorm = norm(topAbbrev);
@@ -489,40 +497,38 @@ function calculateStandings(apiData, archiveDir) {
     return standings;
 }
 
-// Extracts historical win/loss/points stats from yearly_index.json
-function getHistoricalContext(yearlyIndex, currentYear) {
+// Extracts historical win/loss/points stats from <year>.json summary files
+function getHistoricalContext(summariesDir, currentYear) {
     const playerStats = {};
 
-    const years = Object.keys(yearlyIndex)
-        .map(y => parseInt(y, 10))
-        .filter(y => y < currentYear && y !== 3000 && y !== 2005)
-        .sort((a, b) => a - b);
+    const years = [];
+    for (let y = 1997; y < currentYear; y++) {
+        if (y === 2005) continue;
+        const summaryPath = path.join(summariesDir, `${y}.json`);
+        if (fs.existsSync(summaryPath)) {
+            years.push(y);
+        }
+    }
 
     for (const y of years) {
-        const data = yearlyIndex[y.toString()];
-        if (!data) continue;
+        const summary = JSON.parse(fs.readFileSync(path.join(summariesDir, `${y}.json`), 'utf8'));
 
-        const winners = Array.isArray(data.poolWinner) 
-            ? data.poolWinner 
-            : (data.poolWinner ? [data.poolWinner] : []);
+        const winners = Array.isArray(summary.winners) ? summary.winners : (summary.winners ? [summary.winners] : []);
         for (const w of winners) {
-            if (w === "In Progress" || w === "TBD") continue;
             if (!playerStats[w]) playerStats[w] = { wins: [], losses: [], pointsByYear: {} };
             playerStats[w].wins.push(y);
         }
 
-        const losers = Array.isArray(data.poolLoser)
-            ? data.poolLoser
-            : (data.poolLoser ? [data.poolLoser] : []);
+        const losers = Array.isArray(summary.losers) ? summary.losers : (summary.losers ? [summary.losers] : []);
         for (const l of losers) {
             if (!playerStats[l]) playerStats[l] = { wins: [], losses: [], pointsByYear: {} };
             playerStats[l].losses.push(y);
         }
 
-        if (data.points) {
-            for (const [player, pts] of Object.entries(data.points)) {
-                if (!playerStats[player]) playerStats[player] = { wins: [], losses: [], pointsByYear: {} };
-                playerStats[player].pointsByYear[y] = pts;
+        if (summary.personSummaries) {
+            for (const [person, data] of Object.entries(summary.personSummaries)) {
+                if (!playerStats[person]) playerStats[person] = { wins: [], losses: [], pointsByYear: {} };
+                playerStats[person].pointsByYear[y] = data.points;
             }
         }
     }
