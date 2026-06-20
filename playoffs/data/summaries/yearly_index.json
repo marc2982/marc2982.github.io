@@ -381,300 +381,342 @@
   },
   "2014": {
     "year": 2014,
-    "poolWinner": "Nathan",
-    "poolLoser": "Nickall",
+    "poolWinner": "Ryan, Stephanie",
+    "poolLoser": [
+      "Jamie",
+      "Jaclyn",
+      "Marc",
+      "Nickall"
+    ],
     "cupWinner": "LAK",
     "tiebreaker": {
       "leaders": [
-        "Nathan"
+        "Ryan",
+        "Stephanie"
       ],
-      "winner": "Nathan"
+      "winner": "Ryan, Stephanie"
     },
     "points": {
-      "Derrick": 28,
-      "Jamie": 36,
-      "Jaclyn": 41,
-      "Marc": 39,
-      "Nathan": 55,
-      "Nickall": 25,
-      "Ryan": 54,
-      "Stephanie": 49
+      "Derrick": 4,
+      "Jamie": 0,
+      "Jaclyn": 0,
+      "Marc": 0,
+      "Nathan": 4,
+      "Nickall": 0,
+      "Ryan": 15,
+      "Stephanie": 15
     }
   },
   "2015": {
     "year": 2015,
-    "poolWinner": "Nathan",
-    "poolLoser": "Glenda",
+    "poolWinner": "Jaclyn",
+    "poolLoser": [
+      "Benedict",
+      "Glenda",
+      "Ryan"
+    ],
     "cupWinner": "CHI",
-    "tiebreaker": {
-      "leaders": [
-        "Nathan"
-      ],
-      "winner": "Nathan"
-    },
+    "tiebreaker": null,
     "points": {
-      "Benedict": 27,
-      "Derrick": 39,
-      "Glenda": 20,
-      "Jaclyn": 31,
-      "Jake": 32,
-      "Jamie": 31,
-      "Marc": 38,
-      "Nathan": 50,
-      "Nickall": 28,
-      "Ryan": 31,
-      "Stephanie": 25
+      "Benedict": 0,
+      "Derrick": 5,
+      "Glenda": 0,
+      "Jaclyn": 15,
+      "Jake": 4,
+      "Jamie": 5,
+      "Marc": 5,
+      "Nathan": 4,
+      "Nickall": 5,
+      "Ryan": 0,
+      "Stephanie": 4
     }
   },
   "2016": {
     "year": 2016,
-    "poolWinner": "Stephanie",
-    "poolLoser": "Derrick",
+    "poolWinner": "Jaclyn, Nickall, Stephanie",
+    "poolLoser": [
+      "Nathan",
+      "Ryan"
+    ],
     "cupWinner": "PIT",
     "tiebreaker": {
       "leaders": [
+        "Jaclyn",
+        "Nickall",
         "Stephanie"
       ],
-      "winner": "Stephanie"
+      "winner": "Jaclyn, Nickall, Stephanie"
     },
     "points": {
-      "Benedict": 35,
-      "Derrick": 21,
-      "Glenda": 31,
-      "Jaclyn": 43,
-      "Jake": 28,
-      "Jamie": 27,
-      "Marc": 36,
-      "Nathan": 40,
-      "Nickall": 51,
-      "Robin": 45,
-      "Ryan": 41,
-      "Stephanie": 63
+      "Benedict": 5,
+      "Derrick": 5,
+      "Glenda": 4,
+      "Jaclyn": 15,
+      "Jake": 4,
+      "Jamie": 4,
+      "Marc": 4,
+      "Nathan": 0,
+      "Nickall": 15,
+      "Robin": 5,
+      "Ryan": 0,
+      "Stephanie": 15
     }
   },
   "2017": {
     "year": 2017,
-    "poolWinner": "Glenda",
-    "poolLoser": "Jake",
+    "poolWinner": "Glenda, Jaclyn",
+    "poolLoser": [
+      "Nickall",
+      "Robin",
+      "Stephanie"
+    ],
     "cupWinner": "PIT",
     "tiebreaker": {
       "leaders": [
         "Glenda",
-        "Marc"
+        "Jaclyn"
       ],
-      "winner": "Glenda"
+      "winner": "Glenda, Jaclyn"
     },
     "points": {
-      "Benedict": 33,
-      "Derrick": 50,
-      "Glenda": 55,
-      "Jaclyn": 50,
-      "Jake": 21,
-      "Jamie": 28,
-      "Kiersten": 39,
-      "Marc": 55,
-      "Nathan": 47,
-      "Nickall": 21,
-      "Robin": 32,
-      "Ryan": 37,
-      "Stephanie": 37
+      "Benedict": 4,
+      "Derrick": 5,
+      "Glenda": 15,
+      "Jaclyn": 15,
+      "Jake": 4,
+      "Jamie": 4,
+      "Kiersten": 4,
+      "Marc": 4,
+      "Nathan": 5,
+      "Nickall": 0,
+      "Robin": 0,
+      "Ryan": 5,
+      "Stephanie": 0
     }
   },
   "2018": {
     "year": 2018,
-    "poolWinner": "Ryan",
-    "poolLoser": "Robin",
+    "poolWinner": "Glenda",
+    "poolLoser": [
+      "Benedict",
+      "Jamie",
+      "Kiersten",
+      "Nathan",
+      "Nickall",
+      "Robin",
+      "Ryan",
+      "Stephanie"
+    ],
     "cupWinner": "WSH",
-    "tiebreaker": {
-      "leaders": [
-        "Ryan"
-      ],
-      "winner": "Ryan"
-    },
+    "tiebreaker": null,
     "points": {
-      "Benedict": 28,
-      "Derrick": 42,
-      "Glenda": 48,
-      "Jaclyn": 23,
-      "Jake": 33,
-      "Jamie": 21,
-      "Kiersten": 18,
-      "Marc": 41,
-      "Nathan": 31,
-      "Nickall": 33,
-      "Robin": 12,
-      "Ryan": 59,
-      "Stephanie": 28
+      "Benedict": 0,
+      "Derrick": 4,
+      "Glenda": 5,
+      "Jaclyn": 4,
+      "Jake": 4,
+      "Jamie": 0,
+      "Kiersten": 0,
+      "Marc": 4,
+      "Nathan": 0,
+      "Nickall": 0,
+      "Robin": 0,
+      "Ryan": 0,
+      "Stephanie": 0
     }
   },
   "2019": {
     "year": 2019,
-    "poolWinner": "Nathan",
-    "poolLoser": "Marc",
+    "poolWinner": "Jaclyn, Jake, Nathan, Benedict",
+    "poolLoser": [
+      "Ryan",
+      "Glenda",
+      "Kiersten",
+      "Marc",
+      "Theodore"
+    ],
     "cupWinner": "STL",
     "tiebreaker": {
       "leaders": [
-        "Nathan"
+        "Jaclyn",
+        "Jake",
+        "Nathan",
+        "Benedict"
       ],
-      "winner": "Nathan"
+      "winner": "Jaclyn, Jake, Nathan, Benedict"
     },
     "points": {
-      "Stephanie": 19,
-      "Jaclyn": 24,
-      "Jake": 18,
-      "Robin": 26,
-      "Ryan": 18,
-      "Nathan": 66,
-      "Derrick": 28,
-      "Glenda": 26,
-      "Kiersten": 25,
-      "Benedict": 35,
-      "Marc": 16,
-      "Theodore": 19,
-      "Jamie": 35,
-      "Nickall": 24
+      "Stephanie": 4,
+      "Jaclyn": 5,
+      "Jake": 5,
+      "Robin": 4,
+      "Ryan": 0,
+      "Nathan": 5,
+      "Derrick": 4,
+      "Glenda": 0,
+      "Kiersten": 0,
+      "Benedict": 5,
+      "Marc": 0,
+      "Theodore": 0,
+      "Jamie": 4,
+      "Nickall": 4
     }
   },
   "2020": {
     "year": 2020,
     "poolWinner": "Nathan",
-    "poolLoser": "Robin",
+    "poolLoser": [
+      "Stephanie",
+      "Jaclyn",
+      "Theodore",
+      "Ryan"
+    ],
     "cupWinner": "TBL",
-    "tiebreaker": {
-      "leaders": [
-        "Nathan"
-      ],
-      "winner": "Nathan"
-    },
+    "tiebreaker": null,
     "points": {
-      "Nathan": 54,
-      "Nickall": 30,
-      "Stephanie": 19,
-      "Jaclyn": 34,
-      "Theodore": 14,
-      "Derrick": 37,
-      "Jake": 31,
-      "Jamie": 30,
-      "Benedict": 41,
-      "Robin": 12,
-      "Ryan": 20,
-      "Glenda": 40,
-      "Marc": 30,
-      "Kiersten": 27
+      "Nathan": 15,
+      "Nickall": 5,
+      "Stephanie": 0,
+      "Jaclyn": 0,
+      "Theodore": 0,
+      "Derrick": 4,
+      "Jake": 4,
+      "Jamie": 4,
+      "Benedict": 4,
+      "Robin": 4,
+      "Ryan": 0,
+      "Glenda": 5,
+      "Marc": 4,
+      "Kiersten": 4
     }
   },
   "2021": {
     "year": 2021,
     "poolWinner": "Stephanie",
-    "poolLoser": "Kiersten",
+    "poolLoser": [
+      "Theodore",
+      "Benedict",
+      "Derrick",
+      "Jake",
+      "Kiersten",
+      "Robin"
+    ],
     "cupWinner": "TBL",
-    "tiebreaker": {
-      "leaders": [
-        "Stephanie"
-      ],
-      "winner": "Stephanie"
-    },
+    "tiebreaker": null,
     "points": {
-      "Stephanie": 58,
-      "Marc": 44,
-      "Theodore": 28,
-      "Jamie": 32,
-      "Benedict": 18,
-      "Derrick": 33,
-      "Jake": 29,
-      "Kiersten": 16,
-      "Robin": 16,
-      "Jaclyn": 33,
-      "Nathan": 24,
-      "Ryan": 36,
-      "Glenda": 33,
-      "Nickall": 39
+      "Stephanie": 18,
+      "Marc": 7,
+      "Theodore": 0,
+      "Jamie": 16,
+      "Benedict": 0,
+      "Derrick": 0,
+      "Jake": 0,
+      "Kiersten": 0,
+      "Robin": 0,
+      "Jaclyn": 7,
+      "Nathan": 7,
+      "Ryan": 8,
+      "Glenda": 3,
+      "Nickall": 7
     }
   },
   "2022": {
     "year": 2022,
-    "poolWinner": "Stephanie",
-    "poolLoser": "Glenda",
+    "poolWinner": "Stephanie, Jaclyn, Robin, Benedict, Nickall",
+    "poolLoser": [
+      "Nathan",
+      "Ryan",
+      "Kiersten"
+    ],
     "cupWinner": "COL",
     "tiebreaker": {
       "leaders": [
-        "Stephanie"
+        "Stephanie",
+        "Jaclyn",
+        "Robin",
+        "Benedict",
+        "Nickall"
       ],
-      "winner": "Stephanie"
+      "winner": "Stephanie, Jaclyn, Robin, Benedict, Nickall"
     },
     "points": {
-      "Stephanie": 54,
-      "Nathan": 24,
-      "Marc": 40,
-      "Derrick": 32,
-      "Glenda": 22,
-      "Jaclyn": 48,
-      "Theodore": 26,
-      "Robin": 33,
-      "Jake": 30,
-      "Ryan": 30,
-      "Jamie": 38,
-      "Benedict": 42,
-      "Nickall": 39,
-      "Kiersten": 42
+      "Stephanie": 15,
+      "Nathan": 0,
+      "Marc": 4,
+      "Derrick": 4,
+      "Glenda": 5,
+      "Jaclyn": 15,
+      "Theodore": 4,
+      "Robin": 15,
+      "Jake": 4,
+      "Ryan": 0,
+      "Jamie": 4,
+      "Benedict": 15,
+      "Nickall": 15,
+      "Kiersten": 0
     }
   },
   "2023": {
     "year": 2023,
-    "poolWinner": "Nathan",
-    "poolLoser": "Jake",
+    "poolWinner": "Sophie, Benedict",
+    "poolLoser": [
+      "Theodore",
+      "Derrick",
+      "Kiersten",
+      "Jake",
+      "Robin"
+    ],
     "cupWinner": "VGK",
     "tiebreaker": {
       "leaders": [
-        "Nathan"
+        "Sophie",
+        "Benedict"
       ],
-      "winner": "Nathan"
+      "winner": "Sophie, Benedict"
     },
     "points": {
-      "Marc": 24,
-      "Nathan": 57,
-      "Stephanie": 38,
-      "Sophie": 25,
-      "Theodore": 41,
-      "Jamie": 31,
-      "Derrick": 25,
-      "Benedict": 49,
-      "Glenda": 48,
-      "Jaclyn": 43,
-      "Kiersten": 26,
-      "Jake": 18,
-      "Ryan": 41,
-      "Robin": 33,
-      "Nickall": 37
+      "Marc": 4,
+      "Nathan": 4,
+      "Stephanie": 4,
+      "Sophie": 15,
+      "Theodore": 0,
+      "Jamie": 4,
+      "Derrick": 0,
+      "Benedict": 15,
+      "Glenda": 4,
+      "Jaclyn": 4,
+      "Kiersten": 0,
+      "Jake": 0,
+      "Ryan": 5,
+      "Robin": 0,
+      "Nickall": 4
     }
   },
   "2024": {
     "year": 2024,
     "poolWinner": "Glenda",
-    "poolLoser": "Jake",
+    "poolLoser": [
+      "Jake",
+      "Sophie"
+    ],
     "cupWinner": "FLA",
-    "tiebreaker": {
-      "leaders": [
-        "Glenda"
-      ],
-      "winner": "Glenda"
-    },
+    "tiebreaker": null,
     "points": {
-      "Marc": 43,
-      "Jamie": 40,
-      "Nathan": 58,
-      "Jaclyn": 34,
-      "Glenda": 63,
-      "Derrick": 48,
-      "Benedict": 40,
-      "Kiersten": 45,
-      "Ryan": 37,
-      "Jake": 32,
-      "Robin": 36,
-      "Theodore": 37,
-      "Sophie": 36,
-      "Stephanie": 41,
-      "Nickall": 36
+      "Marc": 25,
+      "Jamie": 23,
+      "Nathan": 35,
+      "Jaclyn": 17,
+      "Glenda": 49,
+      "Derrick": 31,
+      "Benedict": 26,
+      "Kiersten": 24,
+      "Ryan": 20,
+      "Jake": 13,
+      "Robin": 24,
+      "Theodore": 25,
+      "Sophie": 13,
+      "Stephanie": 24,
+      "Nickall": 31
     }
   },
   "2025": {
@@ -682,12 +724,7 @@
     "poolWinner": "Glenda",
     "poolLoser": "Nickall",
     "cupWinner": "FLA",
-    "tiebreaker": {
-      "leaders": [
-        "Glenda"
-      ],
-      "winner": "Glenda"
-    },
+    "tiebreaker": null,
     "points": {
       "Jamie": 26,
       "Marc": 41,
