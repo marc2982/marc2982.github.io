@@ -1,8 +1,8 @@
 name: Backfill Round Summaries
 
 on:
-  schedule:
-    - cron: '0 10 * * *' # Daily at 10:00 UTC
+  # schedule:
+  #   - cron: '0 10 * * *' # Daily at 10:00 UTC
   workflow_dispatch:
     inputs:
       start_year:
