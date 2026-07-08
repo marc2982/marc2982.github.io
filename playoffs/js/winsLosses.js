@@ -26,8 +26,8 @@ export async function winsLosses(winsLossesTable) {
 		const poolWinner = yearData.poolWinner;
 		const poolLoser = yearData.poolLoser;
 
-		const poolWinners = Array.isArray(poolWinner) ? poolWinner : [poolWinner];
-		const poolLosers = Array.isArray(poolLoser) ? poolLoser : [poolLoser];
+		const poolWinners = Array.isArray(poolWinner) ? poolWinner : (poolWinner ? poolWinner.split(',').map(s => s.trim()) : []);
+		const poolLosers = Array.isArray(poolLoser) ? poolLoser : (poolLoser ? poolLoser.split(',').map(s => s.trim()) : []);
 
 		poolWinners.forEach((winner) => {
 			if (!winner || winner === '-') return;

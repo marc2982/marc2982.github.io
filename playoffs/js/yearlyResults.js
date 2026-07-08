@@ -93,8 +93,8 @@ export async function yearlyResults(resultsTable) {
 			const isLockout = cupWinner === 'LOCKOUT';
 			const shouldSpan = isCurrentProgress || isLockout;
 
-			const poolWinners = Array.isArray(poolWinner) ? poolWinner : [poolWinner];
-			const poolLosers = Array.isArray(poolLoser) ? poolLoser : [poolLoser];
+			const poolWinners = Array.isArray(poolWinner) ? poolWinner : (poolWinner ? poolWinner.split(',').map(s => s.trim()) : []);
+			const poolLosers = Array.isArray(poolLoser) ? poolLoser : (poolLoser ? poolLoser.split(',').map(s => s.trim()) : []);
 			const poolWinnersHtml = isCurrentProgress
 				? `<span id="progress-state-${yearData.year}">In Progress</span>`
 				: poolWinners.join(', ');
