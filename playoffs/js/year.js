@@ -437,6 +437,9 @@ export function renderYearlySummary(data, container) {
 	const second = participants[1];
 	const third = participants[2];
 
+	const minPoints = participants[participants.length - 1].points;
+	const losers = participants.filter(p => p.points === minPoints);
+
 	// Calculate fun stats
 	const funStats = calculateFunStats(data);
 
@@ -498,6 +501,15 @@ export function renderYearlySummary(data, container) {
 				<div class="podium-place">3rd</div>
 				<div class="podium-name">${third.person}</div>
 				<div class="podium-points">${third.points} pts</div>
+			</div>
+		</div>
+
+		<div class="loser-announcement">
+			<div class="loser-icon">💩</div>
+			<div class="loser-info">
+				<h3>Last Place</h3>
+				<div class="loser-name">${losers.map(l => l.person).join(', ')}</div>
+				<div class="loser-points">${minPoints} pts</div>
 			</div>
 		</div>
 
