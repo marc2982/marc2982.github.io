@@ -64,3 +64,10 @@ Calculating hundreds of picks from CSVs + NHL API on the fly for old years is sl
 2. `picks.js` derives `CURRENT_YEAR` from the date (September onward = next year); check it when the season boundary changes.
 3. After the playoffs, run `npm run index` (or let the workflow finalise it), then build `data/summaries/<year>.json` via `builder.html` so the analysis tabs include the year.
 4. `data/summaries/yearly_index.json` has no trailing newline and a year `3000` test entry; keep both.
+
+## Round / overall summaries (roasts)
+`data/archive/<year>/summaries.json` holds `round1..round4`, `overall`, `overall_version`. Facts are computed by code, never by the model:
+- `scripts/lib/history.mjs` + `trends.mjs` + `summaryFacts.mjs` build a verified fact sheet (scored picks, standings, and cross-round / cross-year trends such as "wrong Cup winner N years in a row"). Only prior years are used, so there is no future leakage.
+- Claude workflow: `node scripts/export_summary_facts.mjs --year=YYYY [--round=1..4|overall] [--compact]`, write a draft JSON, then `node scripts/apply_summaries.mjs --year=YYYY --file=draft.json` (validates keys, rejects `**` bold, sets `overall_version`).
+- Gemini workflow (still supported): `scripts/generate_round_summary.mjs` (used by the workflows) feeds the same fact sheet to Gemini. `--regenerate-rounds` / `--regenerate-overall` force a rewrite; the overall is only regenerated when `overall_version` is below `OVERALL_VERSION` (3).
+

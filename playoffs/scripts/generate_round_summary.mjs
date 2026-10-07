@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
 import { calculateYearSummary, indexEntryFromSummary } from './lib/yearSummary.mjs';
-import { buildRoundFacts } from './lib/roundFacts.mjs';
+import { buildFactsText } from './lib/summaryFacts.mjs';
 
 // Define the threshold for a round being "complete"
 const ROUND_SERIES_COUNT = { 1: 8, 2: 4, 3: 2, 4: 1 };
@@ -147,8 +147,7 @@ async function processYear(currentYear, playoffsDir, args) {
         console.log(`Generating summary for Round ${roundNum} (${currentYear})...`);
 
         // Score everything in code; the model only writes the roast.
-        const { rounds } = await calculateYearSummary(currentYear, archiveDir);
-        const facts = buildRoundFacts(rounds, roundNum);
+        const facts = await buildFactsText(playoffsDir, currentYear, roundNum);
 
         const prompt = `You are a brutally honest hockey fan and commentator for a family playoff pool.
 The NHL playoffs Round ${roundNum} of ${currentYear} has just finished!
@@ -158,7 +157,7 @@ Everything below has already been scored for you. Scoring: a correct team earns 
 ${facts}
 
 Write a short, punchy 1 to 3 line summary of the round.
-Highlight any exciting or interesting outcomes (e.g. an unlikely pick paid off, someone completely blew it, or everyone agreed on a series).
+Highlight any exciting or interesting outcomes (e.g. an unlikely pick paid off, someone completely blew it, or everyone agreed on a series). Use the NOTABLE TRENDS (cross-round and cross-year streaks) when one is genuinely funny or striking.
 Keep it dry, witty, and highly roast-oriented for anyone who completely blew their picks. Skip the cringey enthusiasm, and deliver a sharp summary of the human participants' performance compared to the real results.
 STRICT RULES: only state facts and numbers that appear above or follow directly from them (e.g. "picked every series in 4 games" is fine if every listed pick says "in 4"). Never invent streaks, history, or point totals. If someone has "NO PICK", you may mention they skipped it.
 Do not output markdown bolding, just plain text.`;
@@ -211,22 +210,22 @@ Do not output markdown bolding, just plain text.`;
 			const loserName = [].concat(indexEntry.poolLoser).join(', ');
 			const cupWinner = indexEntry.cupWinner;
 
-			// Load historical summaries for context
-			const summariesDir = path.join(playoffsDir, 'data', 'summaries');
-			const historicalContext = getHistoricalContext(summariesDir, currentYear);
+			// The fact sheet reads official results from the index, so write this year's entry first.
+			const indexPath = path.join(playoffsDir, 'data', 'summaries', 'yearly_index.json');
+			const indexNow = fs.existsSync(indexPath) ? JSON.parse(fs.readFileSync(indexPath, 'utf8')) : {};
+			indexNow[currentYear.toString()] = indexEntry;
+			fs.writeFileSync(indexPath, JSON.stringify(indexNow, null, 2));
 
-			const overallPrompt = `You are a brutally honest hockey fan and commentator for a family playoff pool. 
+			const overallFacts = await buildFactsText(playoffsDir, currentYear, 'overall');
+			const overallPrompt = `You are a brutally honest hockey fan and commentator for a family playoff pool.
 The ${currentYear} NHL playoffs have concluded!
 
-Stanley Cup Champion: ${cupWinner}
+Everything below is verified ground truth (already scored by code):
 
-Final Pool Standings:
-${sortedPeople.map(([name, data], i) => `${i + 1}. ${name}: ${data.points} pts (${data.teamsCorrect} teams, ${data.gamesCorrect} games correct)`).join('\n')}
+${overallFacts}
 
-Pool Winner: ${winnerName} with ${maxPoints} points
-Pool Loser: ${loserName} with ${minPoints} points
-${historicalContext}
-Write a 3-5 sentence summary of the entire playoffs. Tell the story of the winner's dominant performance, roast the loser, and highlight anyone else who stood out (great picks, terrible picks, close races, etc.). Keep it dry, witty, and highly roast-oriented. Do not output markdown bolding, just plain text.`;
+Write a 3-5 sentence summary of the entire playoffs. Tell the story of the winner's performance, roast the loser, and weave in the most striking NOTABLE TRENDS (long streaks, droughts, cross-year patterns, comebacks). Keep it dry, witty, and highly roast-oriented.
+STRICT RULES: only state facts and numbers that appear above or follow directly from them. Never invent history. Do not output markdown bolding, just plain text.`;
 
 			const overallSummary = await generateGeminiResponse(overallPrompt);
 			if (overallSummary) {
@@ -303,61 +302,6 @@ async function generateGeminiResponse(prompt, retries = 3) {
             return null;
         }
     }
-}
-
-// Map to standardize names
-// Builds historical context string from pre-computed historical_stats.json
-function getHistoricalContext(summariesDir, currentYear) {
-    const statsPath = path.join(summariesDir, 'historical_stats.json');
-    if (!fs.existsSync(statsPath)) {
-        console.warn('historical_stats.json not found, skipping historical context');
-        return '';
-    }
-
-    const { players } = JSON.parse(fs.readFileSync(statsPath, 'utf8'));
-    const lastYear = currentYear - 1;
-
-    let contextStr = "\nHistorical Pool Stats and Context (use these to make the summary interesting, e.g. pointing out long droughts, back-to-back winners, total championships, or historical rivalries):\n";
-    for (const [name, stats] of Object.entries(players)) {
-        const winCount = stats.wins.length;
-        const lossCount = stats.losses.length;
-        const secondCount = stats.seconds.length;
-        const thirdCount = stats.thirds.length;
-
-        let playerStr = `- ${name}: `;
-        if (winCount > 0) {
-            playerStr += `Has won ${winCount} championship${winCount > 1 ? 's' : ''} (${stats.wins.join(', ')}). `;
-        } else {
-            playerStr += `Has never won a championship. `;
-        }
-
-        if (lossCount > 0) {
-            playerStr += `Has finished last ${lossCount} time${lossCount > 1 ? 's' : ''} (${stats.losses.join(', ')}). `;
-        }
-        if (secondCount > 0) {
-            playerStr += `Has come in second ${secondCount} time${secondCount > 1 ? 's' : ''} (${stats.seconds.join(', ')}). `;
-        }
-        if (thirdCount > 0) {
-            playerStr += `Has come in third ${thirdCount} time${thirdCount > 1 ? 's' : ''} (${stats.thirds.join(', ')}). `;
-        }
-        if (stats.yearsPlayed > 0 && winCount === 0) {
-            playerStr += `Has participated for ${stats.yearsPlayed} years without a championship. `;
-        }
-
-        if (stats.pointsByYear && stats.pointsByYear[lastYear] !== undefined) {
-            playerStr += `Last year (${lastYear}), they scored ${stats.pointsByYear[lastYear]} points.`;
-        }
-
-        if (stats.pointsByYear && Object.keys(stats.pointsByYear).length > 0) {
-            const yearEntries = Object.entries(stats.pointsByYear).sort(([a], [b]) => a - b);
-            const pointsStr = yearEntries.map(([y, pts]) => `${y}:${pts}`).join(', ');
-            playerStr += ` Points by year: ${pointsStr}`;
-        }
-
-        contextStr += playerStr + "\n";
-    }
-
-    return contextStr;
 }
 
 run().catch(console.error);

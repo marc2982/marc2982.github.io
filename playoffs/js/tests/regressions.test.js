@@ -239,6 +239,18 @@ export async function runRegressionTests() {
 		assertEq(Object.keys(new PicksImporter(seriesRepo, teamRepo).processRows(csv, 1)), []);
 	});
 
+	test('PicksImporter', 'resolved matchup beats possible-seed match (crossed series letters, e.g. 2021 R3)', () => {
+		const m = mkSeries({ letter: 'M', topSeed: 'VGK', bottomSeed: 'MTL' });
+		const n = mkSeries({ letter: 'N', topSeed: 'TBL', bottomSeed: 'NYI' });
+		m.possibleTopSeeds = ['COL']; m.possibleBottomSeeds = ['TBL', 'NYI'];
+		n.possibleTopSeeds = ['VGK']; n.possibleBottomSeeds = ['MTL'];
+		const repo = { getSeries: (l) => ({ M: m, N: n })[l] || null };
+		const csv = 'Timestamp,Name,Team,Games,Team,Games\n1,Jamie,MTL,5,TBL,7\n';
+		const picks = new PicksImporter(repo, teamRepo).processRows(csv, 3);
+		assertEq(picks.Jamie.M.map((p) => p.team), ['MTL']);
+		assertEq(picks.Jamie.N.map((p) => p.team), ['TBL']);
+	});
+
 	test('PicksImporter', 'legacy abbreviation TB maps to TBL via the real repo', () => {
 		const repo = new NhlTeamRepository({ TBL: { short: 'TBL', name: 'Tampa Bay Lightning' } });
 		const csv = 'Timestamp,Name,Team,Games\n2025-01-01,OldSchool,TB,6\n';

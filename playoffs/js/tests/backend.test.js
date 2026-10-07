@@ -176,9 +176,19 @@ export async function runBackendTests() {
 		const { rounds } = await calculateYearSummary(2024, path.join(root, 'data/archive/2024'));
 		const facts = buildRoundFacts(rounds, 1);
 		const line = facts.split('\n').find((l) => l.startsWith('- Theodore:'));
-		assert(line.includes('12 round pts'), line);
-		assert((line.match(/ in 4 /g) || []).length === 8, 'all eight picks are in 4 games');
+		assert(line.includes('12 rd'), line);
+		assert((line.match(/: \w+ in 4 \(/g) || []).length === 8, 'all eight picks are in 4 games');
 		assert(facts.includes('Round high: 23 pts'), 'round high should be 23');
+	});
+
+	test('Trends', 'Ryan wrong-Cup streak is found and as-of facts never leak later years', async () => {
+		const path = await import('node:path');
+		const url = await import('node:url');
+		const root = path.join(path.dirname(url.fileURLToPath(import.meta.url)), '../..');
+		const { buildFactsText } = await import(path.join(root, 'scripts/lib/summaryFacts.mjs'));
+		const facts = await buildFactsText(root, 2024, 'overall', { compact: true });
+		assert(/Ryan has picked the wrong Stanley Cup winner 10 years in a row/.test(facts), 'missing Ryan streak');
+		assert(!/2025|2026/.test(facts), 'future years leaked into 2024 facts');
 	});
 
 	return finish();

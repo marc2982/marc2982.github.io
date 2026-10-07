@@ -65,20 +65,20 @@ export class PicksImporter {
 					const team = this.teamRepo.getTeam(teamName);
 					if (!team) continue;
 
-					// Match the series containing the picked team AND the optionally specified opponent
-					const series = seriesInRound.find((s) => {
+					// Match the series containing the picked team AND the optionally specified opponent.
+					// Resolved matchups win over "possible" seeds: in some years the API's series letters
+					// cross brackets, so a possible-seed match could grab the wrong series.
+					const matches = (s, exact) => {
 						if (!s) return false;
-						const hasTeam = s.topSeed === team.short || s.bottomSeed === team.short || 
-										(s.possibleTopSeeds && s.possibleTopSeeds.includes(team.short)) || 
-										(s.possibleBottomSeeds && s.possibleBottomSeeds.includes(team.short));
-						if (!hasTeam) return false;
-						if (opponent) {
-							return s.topSeed === opponent || s.bottomSeed === opponent ||
-								   (s.possibleTopSeeds && s.possibleTopSeeds.includes(opponent)) ||
-								   (s.possibleBottomSeeds && s.possibleBottomSeeds.includes(opponent));
-						}
-						return true;
-					});
+						const has = (code) =>
+							s.topSeed === code ||
+							s.bottomSeed === code ||
+							(!exact &&
+								((s.possibleTopSeeds && s.possibleTopSeeds.includes(code)) ||
+									(s.possibleBottomSeeds && s.possibleBottomSeeds.includes(code))));
+						return has(team.short) && (!opponent || has(opponent));
+					};
+					const series = seriesInRound.find((s) => matches(s, true)) || seriesInRound.find((s) => matches(s, false));
 
 					if (!series) {
 						// Only warn if they didn't specify an opponent... if they specified

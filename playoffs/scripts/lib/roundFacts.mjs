@@ -23,7 +23,8 @@ function describePick(result, series) {
  * @param {number} roundNum  1-based
  * @returns {string}
  */
-export function buildRoundFacts(rounds, roundNum) {
+/** compact=true prints picks as TEAMgamesTG, e.g. FLA5T- = right team, wrong games. */
+export function buildRoundFacts(rounds, roundNum, { compact = false } = {}) {
 	const round = rounds[roundNum - 1];
 	const letters = round.serieses.map((s) => s.letter);
 
@@ -53,8 +54,12 @@ export function buildRoundFacts(rounds, roundNum) {
 		const results = round.pickResults[person];
 		const picked = letters.filter((l) => results[l]?.pick);
 		const missing = letters.filter((l) => !results[l]?.pick);
-		const detail = picked.map((l) => describePick(results[l], round.serieses.find((s) => s.letter === l)));
-		let line = `- ${person}: ${roundPoints[person]} round pts, ${totals[person]} total pts. ${detail.join('; ')}`;
+		const detail = picked.map((l) =>
+			compact
+				? `${results[l].pick.team}${results[l].pick.games}${results[l].teamStatus === 'CORRECT' ? 'T' : '-'}${results[l].gamesStatus === 'CORRECT' ? 'G' : '-'}`
+				: describePick(results[l], round.serieses.find((s) => s.letter === l)),
+		);
+		let line = `- ${person}: ${roundPoints[person]} rd, ${totals[person]} total. ${detail.join(compact ? ' ' : '; ')}`;
 		if (missing.length) line += `. NO PICK for series ${missing.join(', ')}`;
 		lines.push(line);
 	}
