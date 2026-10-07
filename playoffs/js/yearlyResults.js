@@ -1,6 +1,8 @@
 import { TEAMS } from './constants.js';
 import { fetchJson, fetchText } from './httpUtils.js';
 import { showGlobalError } from './errorOverlay.js';
+import { getRealYears, toNameList } from './common.js';
+import { escapeHtml as esc } from './html.js';
 
 // Detects current season phase and updates the progress-state span.
 async function updateProgressState(year) {
@@ -67,10 +69,7 @@ export async function yearlyResults(resultsTable) {
 		const yearlyIndex = await fetchJson('./data/summaries/yearly_index.json');
 
 		// Convert to array and sort by year descending
-		const years = Object.entries(yearlyIndex)
-			.map(([year, data]) => ({ year: parseInt(year), ...data }))
-			.filter(data => data.year !== 3000)
-			.sort((a, b) => b.year - a.year);
+		const years = getRealYears(yearlyIndex).sort((a, b) => b.year - a.year);
 
 		let thead = document.createElement('thead');
 		resultsTable.append(thead);
@@ -93,11 +92,11 @@ export async function yearlyResults(resultsTable) {
 			const isLockout = cupWinner === 'LOCKOUT';
 			const shouldSpan = isCurrentProgress || isLockout;
 
-			const poolWinners = Array.isArray(poolWinner) ? poolWinner : (poolWinner ? poolWinner.split(',').map(s => s.trim()) : []);
-			const poolLosers = Array.isArray(poolLoser) ? poolLoser : (poolLoser ? poolLoser.split(',').map(s => s.trim()) : []);
+			const poolWinners = toNameList(poolWinner);
+			const poolLosers = toNameList(poolLoser);
 			const poolWinnersHtml = isCurrentProgress
 				? `<span id="progress-state-${yearData.year}">In Progress</span>`
-				: poolWinners.join(', ');
+				: esc(poolWinners.join(', '));
 
 			var row = tbody.insertRow();
 			if (isLockout) {
@@ -113,10 +112,10 @@ export async function yearlyResults(resultsTable) {
 			}
 			
 			row.insertCell().outerHTML = '<td><span class="year-badge">' + yearData.year + '</span></td>';
-			const statusHtml = isLockout ? (TEAMS[cupWinner] || cupWinner) : poolWinnersHtml;
+			const statusHtml = isLockout ? esc(TEAMS[cupWinner] || cupWinner) : poolWinnersHtml;
 			row.insertCell().outerHTML = '<td class="' + (shouldSpan ? 'status-span' : '') + '">' + statusHtml + '</td>';
-			row.insertCell().outerHTML = '<td>' + (shouldSpan ? '' : poolLosers.join(', ')) + '</td>';
-			row.insertCell().outerHTML = '<td>' + (shouldSpan ? '' : (TEAMS[cupWinner] || cupWinner)) + '</td>';
+			row.insertCell().outerHTML = '<td>' + (shouldSpan ? '' : esc(poolLosers.join(', '))) + '</td>';
+			row.insertCell().outerHTML = '<td>' + (shouldSpan ? '' : esc(TEAMS[cupWinner] || cupWinner)) + '</td>';
 
 			if (isCurrentProgress) {
 				updateProgressState(yearData.year);

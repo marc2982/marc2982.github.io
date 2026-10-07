@@ -1,11 +1,12 @@
 import { PEOPLE } from './constants.js';
-import { loadYearlyIndex, calculateCareerStats } from './common.js';
+import { loadYearlyIndex, calculateCareerStats, getRealYears, IN_PROGRESS } from './common.js';
+import { escapeHtml as esc } from './html.js';
 import { createSection } from './tableUtils.js';
 
 export async function headToHead(container) {
 	// Load yearly index for stats
 	const yearlyIndex = await loadYearlyIndex();
-	const years = Object.values(yearlyIndex).sort((a, b) => a.year - b.year);
+	const years = getRealYears(yearlyIndex).filter((y) => y.poolWinner !== IN_PROGRESS);
 	container.empty();
 
 	// Build UI
@@ -18,8 +19,8 @@ export async function headToHead(container) {
 	const $select2 = $('<select class="person-select" id="h2h-p2"></select>');
 
 	PEOPLE.forEach((p) => {
-		$select1.append(`<option value="${p}">${p}</option>`);
-		$select2.append(`<option value="${p}">${p}</option>`);
+		$select1.append(`<option value="${esc(p)}">${esc(p)}</option>`);
+		$select2.append(`<option value="${esc(p)}">${esc(p)}</option>`);
 	});
 
 	// Set defaults (first two people)
@@ -226,7 +227,7 @@ function calculateHeadToHead(p1, p2, years) {
 		const s1 = y.points?.[p1];
 		const s2 = y.points?.[p2];
 
-		if (s1 !== undefined && s2 !== undefined) {
+		if (s1 > 0 && s2 > 0) {
 			if (s1 > s2) p1Wins++;
 			else if (s2 > s1) p2Wins++;
 			else ties++;
@@ -243,7 +244,7 @@ function calculateClosestFinishes(p1, p2, years) {
 		const s1 = y.points?.[p1];
 		const s2 = y.points?.[p2];
 
-		if (s1 !== undefined && s2 !== undefined) {
+		if (s1 > 0 && s2 > 0) {
 			finishes.push({
 				year: y.year,
 				p1Score: s1,
@@ -333,9 +334,9 @@ function buildCompetitionMargins(years) {
 		$bigBody.append(`
 			<tr>
 				<td class="centered-cell">${m.year}</td>
-				<td class="centered-cell stat-win">${m.winner}</td>
+				<td class="centered-cell stat-win">${esc(m.winner)}</td>
 				<td class="centered-cell">${m.winnerScore}</td>
-				<td class="centered-cell">${m.runnerUp}</td>
+				<td class="centered-cell">${esc(m.runnerUp)}</td>
 				<td class="centered-cell">${m.runnerUpScore}</td>
 				<td class="centered-cell text-bold">${m.margin} pts</td>
 			</tr>
@@ -364,9 +365,9 @@ function buildCompetitionMargins(years) {
 		$smallBody.append(`
 			<tr>
 				<td class="centered-cell">${m.year}</td>
-				<td class="centered-cell stat-win">${m.winner}</td>
+				<td class="centered-cell stat-win">${esc(m.winner)}</td>
 				<td class="centered-cell">${m.winnerScore}</td>
-				<td class="centered-cell">${m.runnerUp}</td>
+				<td class="centered-cell">${esc(m.runnerUp)}</td>
 				<td class="centered-cell">${m.runnerUpScore}</td>
 				<td class="centered-cell text-bold">${m.margin} pts</td>
 			</tr>

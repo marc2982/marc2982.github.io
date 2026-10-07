@@ -1,84 +1,69 @@
+import { escapeHtml as esc } from './html.js';
 import { TEAMS } from './constants.js';
 import { loadAllYearsDetailed } from './common.js';
 import { createSection, createTable, initDataTable } from './tableUtils.js';
 
-export async function teamAnalysis(container) {
-	// Load all years data
-	const { results } = await loadAllYearsDetailed();
-	container.empty();
-
-	// Initialize team stats
+/**
+ * Pure aggregation of team pick stats across loaded years.
+ * @param {{summary: object}[]} results
+ * @returns {{teamStatsArray: object[], conferenceStats: object}}
+ */
+export function aggregateTeamStats(results) {
 	const teamStats = {};
-	Object.keys(TEAMS).forEach((teamCode) => {
-		teamStats[teamCode] = {
-			code: teamCode,
-			name: TEAMS[teamCode],
-			timesPicked: 0,
-			timesWon: 0,
-			timesLost: 0,
-			totalPoints: 0, // Points earned when picked
-			conference: getConference(teamCode),
-		};
-	});
-
-	// Conference tracking
 	const conferenceStats = {
 		Eastern: { picked: 0, correct: 0 },
 		Western: { picked: 0, correct: 0 },
 	};
 
-	// Process each year's full summary
 	results.forEach(({ summary }) => {
-		// Process each round
 		summary.rounds?.forEach((round) => {
-			// Process each series
-			round.serieses?.forEach((series) => {
+			Object.values(round.pickResults || {}).forEach((seriesResults) => {
+				Object.values(seriesResults).forEach((result) => {
+					const pickedTeam = result?.pick?.team;
+					if (!pickedTeam) return;
 
-				// Process pick results for each person
-				Object.entries(round.pickResults || {}).forEach(([_person, seriesResults]) => {
-					const result = seriesResults[series.letter];
-					if (!result?.pick?.team) return;
+					if (!teamStats[pickedTeam]) {
+						teamStats[pickedTeam] = {
+							code: pickedTeam,
+							name: summary.teams?.[pickedTeam]?.name || TEAMS[pickedTeam] || pickedTeam,
+							timesPicked: 0,
+							timesWon: 0,
+							timesLost: 0,
+							totalPoints: 0,
+							conference: getConference(pickedTeam),
+						};
+					}
+					const t = teamStats[pickedTeam];
+					t.timesPicked++;
+					t.totalPoints += result.points || 0;
 
-					const pickedTeam = result.pick.team;
-					if (!teamStats[pickedTeam]) return;
-
-					// Track picks
-					teamStats[pickedTeam].timesPicked++;
-
-					// Track conference
-					const conf = teamStats[pickedTeam].conference;
+					const conf = t.conference;
 					if (conf) {
 						conferenceStats[conf].picked++;
-						if (result.teamStatus === 'CORRECT') {
-							conferenceStats[conf].correct++;
-						}
+						if (result.teamStatus === 'CORRECT') conferenceStats[conf].correct++;
 					}
 
-					// Track wins/losses
-					if (result.teamStatus === 'CORRECT') {
-						teamStats[pickedTeam].timesWon++;
-						// Award points: 1 for team + 2 for games (if correct) + 3 for bonus (if both correct)
-						let points = 1;
-						if (result.gamesStatus === 'CORRECT') {
-							points += 2 + 3; // games + bonus
-						}
-						teamStats[pickedTeam].totalPoints += points;
-					} else if (result.teamStatus === 'INCORRECT') {
-						teamStats[pickedTeam].timesLost++;
-					}
+					if (result.teamStatus === 'CORRECT') t.timesWon++;
+					else if (result.teamStatus === 'INCORRECT') t.timesLost++;
 				});
 			});
 		});
 	});
 
-	// Calculate derived stats
-	const teamStatsArray = Object.values(teamStats).filter((t) => t.timesPicked > 0);
+	const teamStatsArray = Object.values(teamStats);
 	teamStatsArray.forEach((team) => {
-		team.winRate = team.timesPicked > 0 ? (team.timesWon / team.timesPicked) * 100 : 0;
-		team.avgPoints = team.timesPicked > 0 ? team.totalPoints / team.timesPicked : 0;
+		team.winRate = (team.timesWon / team.timesPicked) * 100;
+		team.avgPoints = team.totalPoints / team.timesPicked;
 	});
+	return { teamStatsArray, conferenceStats };
+}
 
-	// Build tables
+export async function teamAnalysis(container) {
+	const { results } = await loadAllYearsDetailed();
+	container.empty();
+
+	const { teamStatsArray, conferenceStats } = aggregateTeamStats(results);
+
 	buildMostPickedTable(container, teamStatsArray);
 	buildMostSuccessfulTable(container, teamStatsArray);
 	buildBiggestBustsTable(container, teamStatsArray);
@@ -100,7 +85,7 @@ function buildMostPickedTable(container, stats) {
 	sorted.forEach((team, index) => {
 		const $row = $('<tr></tr>');
 		$row.append(`<td>${index + 1}</td>`);
-		$row.append(`<td>${team.name}</td>`);
+		$row.append(`<td>${esc(team.name)}</td>`);
 		$row.append(`<td>${team.timesPicked}</td>`);
 		$row.append(`<td>${team.winRate.toFixed(1)}%</td>`);
 		$tbody.append($row);
@@ -128,7 +113,7 @@ function buildMostSuccessfulTable(container, stats) {
 	sorted.forEach((team, index) => {
 		const $row = $('<tr></tr>');
 		$row.append(`<td>${index + 1}</td>`);
-		$row.append(`<td>${team.name}</td>`);
+		$row.append(`<td>${esc(team.name)}</td>`);
 		$row.append(`<td style="font-weight: bold; color: green;">${team.winRate.toFixed(1)}%</td>`);
 		$row.append(`<td>${team.timesWon}-${team.timesLost}</td>`);
 		$row.append(`<td>${team.avgPoints.toFixed(1)}</td>`);
@@ -157,7 +142,7 @@ function buildBiggestBustsTable(container, stats) {
 	sorted.forEach((team, index) => {
 		const $row = $('<tr></tr>');
 		$row.append(`<td>${index + 1}</td>`);
-		$row.append(`<td>${team.name}</td>`);
+		$row.append(`<td>${esc(team.name)}</td>`);
 		$row.append(`<td style="font-weight: bold; color: red;">${team.winRate.toFixed(1)}%</td>`);
 		$row.append(`<td>${team.timesWon}-${team.timesLost}</td>`);
 		$row.append(`<td>${team.timesPicked}</td>`);
@@ -234,6 +219,7 @@ function getConference(teamCode) {
 		'VAN',
 		'VGK',
 		'SEA',
+		'UTA',
 	];
 
 	if (eastern.includes(teamCode)) return 'Eastern';

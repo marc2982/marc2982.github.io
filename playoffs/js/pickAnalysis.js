@@ -1,5 +1,5 @@
 import { PEOPLE, TEAMS } from './constants.js';
-import { loadAllYearsDetailed, isPerfectPick, isBonusEarned } from './common.js';
+import { loadAllYearsDetailed, isPerfectPick } from './common.js';
 import { createSection, createTable, initDataTable } from './tableUtils.js';
 
 export function aggregatePickStats(results, yearlyIndex) {
@@ -18,7 +18,6 @@ export function aggregatePickStats(results, yearlyIndex) {
 			cupWinnerCorrect: 0,
 			cupWinnerPicks: 0,
 			upsetPicks: 0,
-			upsetPicksCorrect: 0,
 			upsetPicksCorrect: 0,
 			// New Stats
 			totalGamesPredicted: 0,
@@ -72,7 +71,7 @@ export function aggregatePickStats(results, yearlyIndex) {
 					// Track bonus points
 					// earnedBonusPoints field is unreliable in data, so we check if both team and games are correct
 					// Standard scoring: Team (1) + Games (2) + Bonus (3) = 6 points
-					if (isBonusEarned(result)) {
+					if (isPerfectPick(result)) {
 						stats[person].bonusEarned++;
 					}
 

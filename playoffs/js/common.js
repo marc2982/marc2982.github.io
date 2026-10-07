@@ -14,29 +14,45 @@ export async function loadYearlyIndex() {
 	return await fetchJson('./data/summaries/yearly_index.json');
 }
 
+export const TEST_YEAR = 3000;
+export const IN_PROGRESS = 'In Progress';
+
+/** Index entries for real, completed-or-current years (excludes the 3000 test entry). */
+export function getRealYears(yearlyIndex) {
+	return Object.entries(yearlyIndex)
+		.map(([year, data]) => ({ ...data, year: parseInt(year, 10) }))
+		.filter((d) => d.year > 0 && d.year !== TEST_YEAR)
+		.sort((a, b) => a.year - b.year);
+}
+
+/** Normalise "A, B*" / ['A','B'] / null into a clean name array. */
+export function toNameList(value) {
+	if (value === null || value === undefined) return [];
+	const list = Array.isArray(value) ? value : String(value).split(',');
+	return list
+		.map((n) => String(n).replace(/\*/g, '').trim())
+		.filter((n) => n && n !== '-');
+}
+
 export async function loadAllYearsDetailed() {
 	const yearlyIndex = await loadYearlyIndex();
-	const yearList = Object.keys(yearlyIndex).filter((y) => parseInt(y) > 0);
-	const results = [];
-
-	for (const year of yearList) {
-		try {
-			const summary = await fetchJson(`./data/summaries/${year}.json`);
-			results.push({ year, summary, indexData: yearlyIndex[year] });
-		} catch (error) {
-			console.warn(`Failed to load ${year}.json:`, error);
-		}
-	}
-	return { yearlyIndex, yearList, results };
+	const yearList = getRealYears(yearlyIndex).map((y) => String(y.year));
+	const loaded = await Promise.all(
+		yearList.map(async (year) => {
+			try {
+				const summary = await fetchJson(`./data/summaries/${year}.json`);
+				return { year, summary, indexData: yearlyIndex[year] };
+			} catch (error) {
+				console.warn(`Failed to load ${year}.json:`, error);
+				return null;
+			}
+		}),
+	);
+	return { yearlyIndex, yearList, results: loaded.filter(Boolean) };
 }
 
 export function isPerfectPick(result) {
 	return result.teamStatus === 'CORRECT' && result.gamesStatus === 'CORRECT';
-}
-
-export function isBonusEarned(result) {
-	// Current rule: Bonus is earned if Team + Games are correct
-	return isPerfectPick(result);
 }
 
 export function calculateCareerStats(years) {
@@ -71,20 +87,18 @@ export function calculateCareerStats(years) {
 
 	// Process each year
 	years.forEach((yearData) => {
-		if (!yearData.points) return;
+		if (!yearData.points || yearData.year === TEST_YEAR || yearData.poolWinner === IN_PROGRESS) return;
 
-		// Track who won and lost this year
-		const winners = Array.isArray(yearData.poolWinner) ? yearData.poolWinner : [yearData.poolWinner];
-		const losers = Array.isArray(yearData.poolLoser) ? yearData.poolLoser : [yearData.poolLoser];
+		const winners = toNameList(yearData.poolWinner);
+		const losers = toNameList(yearData.poolLoser);
 
-		// Get all participants sorted by points (for podium)
+		// Deterministic ranking: by points desc; among tied leaders the pool winner (tiebreak) ranks first.
 		const participants = Object.entries(yearData.points)
 			.filter(([_person, points]) => points > 0)
-			.sort((a, b) => b[1] - a[1]);
+			.sort((a, b) => b[1] - a[1] || (winners.includes(b[0]) ? 1 : 0) - (winners.includes(a[0]) ? 1 : 0) || a[0].localeCompare(b[0]));
 
 		// Process points
-		Object.entries(yearData.points).forEach(([person, points]) => {
-			if (points === undefined || points === null || points === 0) return;
+		participants.forEach(([person, points], rank) => {
 			initPerson(person);
 
 			stats[person].totalPoints += points;
@@ -102,8 +116,7 @@ export function calculateCareerStats(years) {
 			}
 
 			// Podium finishes (top 3)
-			const rank = participants.findIndex(([p]) => p === person);
-			if (rank >= 0 && rank < 3) {
+			if (rank < 3) {
 				stats[person].podiumFinishes++;
 			}
 
@@ -130,10 +143,7 @@ export function calculateCareerStats(years) {
 			}
 		});
 
-		// Process Wins/Losses for ALL known people (to update streaks correctly even if they missed a year? No, strictly only for participants content)
-		// But streaks logic in original code iterated everyone.
-		// Let's iterate all people we've seen so far or just the participants + winners/losers.
-		// Safe approach: iterate our 'stats' keys which grows as we see people.
+		// Iterate everyone seen so far so streaks reset for years they miss.
 		Object.values(stats).forEach((s) => {
 			const isWinner = winners.includes(s.name);
 			const isLoser = losers.includes(s.name);

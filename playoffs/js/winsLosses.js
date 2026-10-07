@@ -1,12 +1,14 @@
+import { escapeHtml as esc } from './html.js';
 import { PEOPLE } from './constants.js';
 import { fetchJson } from './httpUtils.js';
+import { getRealYears, toNameList, IN_PROGRESS } from './common.js';
 
 export async function winsLosses(winsLossesTable) {
 	// Load yearly index
 	const yearlyIndex = await fetchJson('./data/summaries/yearly_index.json');
 
 	// Convert to array
-	const years = Object.values(yearlyIndex).filter(y => y.year !== 3000);
+	const years = getRealYears(yearlyIndex);
 
 	let thead = document.createElement('thead');
 	winsLossesTable.append(thead);
@@ -23,28 +25,18 @@ export async function winsLosses(winsLossesTable) {
 	let losers = {};
 
 	years.forEach((yearData) => {
-		const poolWinner = yearData.poolWinner;
-		const poolLoser = yearData.poolLoser;
-
-		const poolWinners = Array.isArray(poolWinner) ? poolWinner : (poolWinner ? poolWinner.split(',').map(s => s.trim()) : []);
-		const poolLosers = Array.isArray(poolLoser) ? poolLoser : (poolLoser ? poolLoser.split(',').map(s => s.trim()) : []);
-
-		poolWinners.forEach((winner) => {
-			if (!winner || winner === '-') return;
-			let name = winner.replace('*', '');
+		if (yearData.poolWinner === IN_PROGRESS) return;
+		toNameList(yearData.poolWinner).forEach((name) => {
 			winners[name] = (winners[name] ?? 0) + 1;
 		});
-
-		poolLosers.forEach((loser) => {
-			if (!loser || loser === '-') return;
-			let name = loser.replace('*', '');
+		toNameList(yearData.poolLoser).forEach((name) => {
 			losers[name] = (losers[name] ?? 0) + 1;
 		});
 	});
 
 	PEOPLE.forEach((person) => {
 		var row = tbody.insertRow(); // insert in reverse order
-		row.insertCell().outerHTML = '<td>' + person + '</td>';
+		row.insertCell().outerHTML = '<td>' + esc(person) + '</td>';
 		row.insertCell().outerHTML = '<td>' + (winners[person] ?? 0) + '</td>';
 		row.insertCell().outerHTML = '<td>' + (losers[person] ?? 0) + '</td>';
 	});

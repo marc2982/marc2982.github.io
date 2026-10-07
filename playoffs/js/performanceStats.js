@@ -1,10 +1,11 @@
-import { loadYearlyIndex, calculateCareerStats } from './common.js';
+import { loadYearlyIndex, calculateCareerStats, getRealYears, IN_PROGRESS } from './common.js';
+import { escapeHtml as esc } from './html.js';
 import { createSection, createTable, initDataTable } from './tableUtils.js';
 
 export async function performanceStats(container) {
 	// Load yearly index
 	const yearlyIndex = await loadYearlyIndex();
-	const years = Object.values(yearlyIndex).sort((a, b) => a.year - b.year);
+	const years = getRealYears(yearlyIndex).filter((y) => y.poolWinner !== IN_PROGRESS);
 	container.empty();
 
 	// Calculate stats using shared logic
@@ -45,7 +46,7 @@ function buildHeartbreakTable(container, stats) {
 		}
 
 		const $row = $('<tr></tr>');
-		$row.append(`<td>${s.name}</td>`);
+		$row.append(`<td>${esc(s.name)}</td>`);
 		$row.append(`<td>${s.silverMedals}</td>`);
 		$row.append(`<td>${s.bronzeMedals}</td>`);
 		$row.append(`<td data-order="${closestLossValue}">${closestLossDisplay}</td>`);
@@ -318,7 +319,7 @@ function buildAchievementsTable(container, stats) {
 
 	stats.forEach((s) => {
 		const $row = $('<tr></tr>');
-		$row.append(`<td>${s.name}</td>`);
+		$row.append(`<td>${esc(s.name)}</td>`);
 		$row.append(`<td>${s.wins}</td>`);
 		$row.append(`<td>${s.losses}</td>`);
 		$row.append(`<td>${s.podiumFinishes}</td>`);
@@ -343,7 +344,7 @@ function buildOverallPerformanceTable(container, stats) {
 
 	stats.forEach((s) => {
 		const $row = $('<tr></tr>');
-		$row.append(`<td>${s.name}</td>`);
+		$row.append(`<td>${esc(s.name)}</td>`);
 		$row.append(`<td>${(s.totalPoints / s.yearsParticipated).toFixed(1)}</td>`);
 		$row.append(`<td>${s.bestScore} (${s.bestYear})</td>`);
 		$row.append(`<td>${s.worstScore} (${s.worstYear})</td>`);
@@ -369,7 +370,7 @@ function buildAdvancedMetricsTable(container, stats) {
 	stats.forEach((s) => {
 		const winRate = s.yearsParticipated > 0 ? ((s.wins / s.yearsParticipated) * 100).toFixed(1) : '0.0';
 		const $row = $('<tr></tr>');
-		$row.append(`<td>${s.name}</td>`);
+		$row.append(`<td>${esc(s.name)}</td>`);
 		$row.append(`<td>${s.consistencyScore.toFixed(1)}</td>`);
 		$row.append(`<td>${winRate}%</td>`);
 		$tbody.append($row);
