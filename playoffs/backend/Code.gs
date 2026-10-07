@@ -137,6 +137,9 @@ function doPost(e) {
 	try {
 		const data = JSON.parse(e.postData.contents);
 
+		// 0. Health probe (no passcode, reveals nothing sensitive): is the GitHub token valid and when does it expire?
+		if (data.action === 'health') return respond(checkHealth());
+
 		// 1. Security Check
 		const receivedPass = (data.passcode || '').toString().trim();
 		if (receivedPass !== PASSCODE.trim()) {
@@ -238,6 +241,23 @@ function doPost(e) {
 		return respond({ result: 'error', error: err.toString() });
 	} finally {
 		lock.releaseLock();
+	}
+}
+
+/** Reports whether the GitHub token works and its expiry date (GitHub sends it for fine-grained tokens). */
+function checkHealth() {
+	if (!GITHUB_TOKEN) return { result: 'success', github: 'no-token', tokenExpires: null };
+	try {
+		const res = UrlFetchApp.fetch(`https://api.github.com/repos/${GITHUB_REPO_OWNER}/${GITHUB_REPO_NAME}`, {
+			headers: { Authorization: 'token ' + GITHUB_TOKEN, Accept: 'application/vnd.github.v3+json' },
+			muteHttpExceptions: true,
+		});
+		const code = res.getResponseCode();
+		const headers = (res.getHeaders && res.getHeaders()) || {};
+		const expiry = headers['github-authentication-token-expiration'] || headers['Github-Authentication-Token-Expiration'] || null;
+		return { result: 'success', github: code === 200 ? 'ok' : 'error-' + code, tokenExpires: expiry };
+	} catch (err) {
+		return { result: 'success', github: 'error', tokenExpires: null };
 	}
 }
 

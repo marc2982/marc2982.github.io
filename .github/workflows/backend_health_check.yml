@@ -1,0 +1,39 @@
+name: Backend Health Check
+
+# Weekly check that the Apps Script backend is up and its GitHub token is valid and not about to expire.
+# Like the other workflows this can stay disabled in the off-season; enable it when the playoffs start.
+on:
+  schedule:
+    - cron: '17 14 * * 1' # Mondays 14:17 UTC
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probe backend
+        env:
+          BACKEND_URL: https://script.google.com/macros/s/AKfycbxdrVz7n_EXpeaB6RyLbw85_Vp9gl5GiNn2eEdM6lPhuLWj52UW4Iw1RlcB1KjnQa_z9g/exec
+        run: |
+          resp=$(curl -sSL --max-time 60 -X POST -d '{"action":"health"}' "$BACKEND_URL")
+          echo "Response: $resp"
+          python3 - "$resp" <<'PY'
+          import json, sys, datetime
+          try:
+              r = json.loads(sys.argv[1])
+          except Exception:
+              sys.exit("Backend did not return JSON (is the deployment URL current / access set to Anyone?)")
+          if r.get("result") != "success":
+              sys.exit(f"Backend error: {r}")
+          if r.get("github") != "ok":
+              sys.exit(f"GitHub token problem: {r.get('github')} (token expired or revoked?)")
+          exp = r.get("tokenExpires")
+          if exp:
+              d = datetime.datetime.strptime(exp.replace(" UTC", ""), "%Y-%m-%d %H:%M:%S")
+              days = (d - datetime.datetime.utcnow()).days
+              print(f"Token expires {exp} ({days} days)")
+              if days < 45:
+                  sys.exit(f"GitHub token expires in {days} days ({exp}). Regenerate it and update GITHUB_TOKEN in Apps Script properties.")
+          else:
+              print("No expiry header (classic token or none set).")
+          PY

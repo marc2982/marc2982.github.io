@@ -115,6 +115,10 @@ If someone misses the lock and the group is fine with it, pick one:
     ```
     Use `TEAM:games`, one per series; for overlapping-round (contingency) picks use `NYR@BOS:7`. It validates the picks, refuses duplicates and appends a row to `data/archive/<year>/roundN.csv`. Commit and push to publish. Editing that CSV by hand works too.
 
+### 7. Backend Health Check
+
+`.github/workflows/backend_health_check.yml` runs weekly (and on demand) and calls the backend's `health` action, which reports whether the GitHub token works and when it expires. The run fails, and GitHub emails you, if the backend is down, the token is invalid, or it expires within 45 days. Enable it with your other workflows when the playoffs start. When the backend is redeployed with a new ID, update `GOOGLE_SCRIPT_URL` in `js/config.js` and `BACKEND_URL` in that workflow. When the token is renewed, update `GITHUB_TOKEN` in the Apps Script properties.
+
 ## 🧪 Testing & Local Development
 
 Due to strict browser CORS policies regarding ES6 Modules, you cannot simply double-click `tests.html` or `index.html` from your file explorer. You must run it through a local web server.

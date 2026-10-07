@@ -41,6 +41,9 @@ async function loadBackend(stubs = {}) {
 					const code = stubs.githubPutCode ?? 200;
 					return { getResponseCode: () => code, getContentText: () => 'err' };
 				}
+				if (url.endsWith('/marc2982.github.io')) {
+					return { getResponseCode: () => stubs.githubRepoCode ?? 200, getContentText: () => '{}', getHeaders: () => ({ 'github-authentication-token-expiration': '2027-01-01 00:00:00 UTC' }) };
+				}
 				if (url.includes('api-web.nhle.com')) {
 					if (stubs.nhlCode) return { getResponseCode: () => stubs.nhlCode, getContentText: () => '' };
 					const start = stubs.seriesStart || '2999-01-01T00:00:00Z';
@@ -129,6 +132,15 @@ export async function runBackendTests() {
 		const r = post(api, { ...good, passcode: '' });
 		assertEq(r.result, 'error');
 		assertEq(log.githubPuts.length, 0);
+	});
+
+	test('Backend doPost', 'health probe works without a passcode and reports token state', async () => {
+		const { api } = await loadBackend({ githubRepoCode: 200 });
+		const r = post(api, { action: 'health' });
+		assertEq(r.result, 'success');
+		assertEq(r.github, 'ok');
+		const { api: api2 } = await loadBackend({ githubRepoCode: 401 });
+		assertEq(post(api2, { action: 'health' }).github, 'error-401');
 	});
 
 	test('Backend doPost', 'wrong passcode rejected', async () => {
