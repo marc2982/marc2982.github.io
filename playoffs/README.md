@@ -102,6 +102,19 @@ To enable this completely free feature:
 
 The site will now automatically write and publish AI Round Recaps! If you don't add the key, the site gracefully ignores this feature.
 
+### 6. Round Locking & Late Picks
+
+The backend (`backend/Code.gs`) rejects any pick for a series whose first game has already started. Start times come from the NHL API, and if that lookup fails the submission is refused rather than let through. After editing `Code.gs`, you must paste it into the Apps Script project and redeploy (Deploy > Manage deployments > edit > New version) for changes to take effect.
+
+If someone misses the lock and the group is fine with it, pick one:
+
+1. **Late pass (they submit themselves).** In Apps Script go to Settings > Script Properties and add a property `LATE_PASSES` with a comma-separated list of `year:round:name`, for example `2026:2:jake,2026:3:ryan`. That person then opens `picks.html?late=1`, which shows started series as pickable. The server only accepts it if their name is listed. Remove the entry afterwards.
+2. **Add it yourself (no backend needed).** From the `playoffs/` folder run:
+    ```bash
+    node scripts/add_picks.mjs --year=2026 --round=2 --name=Jake MTL:6 CAR:5 COL:6 VGK:7
+    ```
+    Use `TEAM:games`, one per series; for overlapping-round (contingency) picks use `NYR@BOS:7`. It validates the picks, refuses duplicates and appends a row to `data/archive/<year>/roundN.csv`. Commit and push to publish. Editing that CSV by hand works too.
+
 ## 🧪 Testing & Local Development
 
 Due to strict browser CORS policies regarding ES6 Modules, you cannot simply double-click `tests.html` or `index.html` from your file explorer. You must run it through a local web server.
@@ -117,7 +130,7 @@ Due to strict browser CORS policies regarding ES6 Modules, you cannot simply dou
 The codebase includes various ways to test:
 
 - **Browser Tests (`tests.html`):** Uses a custom straightforward test suite to test utility functions, calculators, and parsers.
-- **E2E Backend Test (`e2e-tests.html`):** Use this hidden page to execute a full mock timeline of a playoffs using a dummy "Year 3000". It will natively test time-travel locking, Google Apps Script submissions, and Points Permutations logic against real local dependencies.
+- **E2E Backend Test (`e2e-tests.html`, manual, needs the passcode):** Submits real picks for a dummy "Year 3000" to the deployed Google Apps Script and checks the passcode, series validation, duplicate blocking and the GitHub/Sheet writes. This is its only unique value: it proves the _deployed_ backend works. Its time-travel and scoring steps run against local mock data and overlap the unit tests. It cannot test the round lock, because the backend skips the lock for year 3000. Run it after every Code.gs redeploy.
 - **Code Quality:** Run `npm run lint` to execute the ESLint compiler against the Javascript logic to check for code smells.
 
 ### 🔮 Possible Future E2E Improvements

@@ -98,11 +98,22 @@ export async function runSimulation(passcode, log) {
     }
     log('All picks accepted by backend.', 'success');
 
+    // Deployed-version check: only the current Code.gs requires a series letter on every pick
+    log('Scenario: Pick without series letter is rejected (confirms latest Code.gs is deployed)', 'info');
+    const noSeriesRes = await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        body: JSON.stringify({ passcode, year, round: 1, name: 'Dave_NoSeries', picks: [{ winner: 'FLA', games: 6 }] })
+    }).then(r => r.json());
+    if (noSeriesRes.result !== 'error') {
+        throw new Error('Backend accepted a pick with no series letter. Redeploy backend/Code.gs.');
+    }
+    log('Series validation active.', 'success');
+
     // Double Entry check
     log('Scenario: Double Entry Prevention', 'info');
     const doubleEntryRes = await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
-        body: JSON.stringify({ passcode, year, round: 1, name: 'Alice_Perfect', picks: [] })
+        body: JSON.stringify({ passcode, year, round: 1, name: 'Alice_Perfect', picks: [{ series: 'A', winner: 'FLA', games: 6 }] })
     }).then(r => r.json());
     if (doubleEntryRes.result !== 'error' || !doubleEntryRes.error.includes('Duplicate')) {
         throw new Error('Backend failed to catch double entry!');
