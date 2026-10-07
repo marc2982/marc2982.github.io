@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Probe backend
         env:
-          BACKEND_URL: https://script.google.com/macros/s/AKfycbxdrVz7n_EXpeaB6RyLbw85_Vp9gl5GiNn2eEdM6lPhuLWj52UW4Iw1RlcB1KjnQa_z9g/exec
+          BACKEND_URL: https://script.google.com/macros/s/AKfycbznd65hDy8JktDPAnJoB6LLKjzXHcz6iEW30Q_yXZq91AWcVaKgwJojAL-jxT1Ck4zkkw/exec
         run: |
           resp=$(curl -sSL --max-time 60 -d '{"action":"health"}' "$BACKEND_URL")
           echo "Response: $resp"
