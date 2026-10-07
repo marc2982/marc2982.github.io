@@ -167,5 +167,19 @@ export async function runBackendTests() {
 		assertEq(log.lockReleased, 1);
 	});
 
+	test('Round facts', 'pre-scored facts match real data (2024 R1: Theodore all-4-games, 12 pts)', async () => {
+		const path = await import('node:path');
+		const url = await import('node:url');
+		const root = path.join(path.dirname(url.fileURLToPath(import.meta.url)), '../..');
+		const { calculateYearSummary } = await import(path.join(root, 'scripts/lib/yearSummary.mjs'));
+		const { buildRoundFacts } = await import(path.join(root, 'scripts/lib/roundFacts.mjs'));
+		const { rounds } = await calculateYearSummary(2024, path.join(root, 'data/archive/2024'));
+		const facts = buildRoundFacts(rounds, 1);
+		const line = facts.split('\n').find((l) => l.startsWith('- Theodore:'));
+		assert(line.includes('12 round pts'), line);
+		assert((line.match(/ in 4 /g) || []).length === 8, 'all eight picks are in 4 games');
+		assert(facts.includes('Round high: 23 pts'), 'round high should be 23');
+	});
+
 	return finish();
 }

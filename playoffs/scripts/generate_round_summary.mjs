@@ -2,10 +2,13 @@ import fs from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
 import { calculateYearSummary, indexEntryFromSummary } from './lib/yearSummary.mjs';
+import { buildRoundFacts } from './lib/roundFacts.mjs';
 
 // Define the threshold for a round being "complete"
 const ROUND_SERIES_COUNT = { 1: 8, 2: 4, 3: 2, 4: 1 };
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+// Bump to regenerate every year's overall summary on the next --regenerate-overall run.
+const OVERALL_VERSION = 3;
 
 // Parse command line args: --start=YYYY --end=YYYY or --year=YYYY
 function parseArgs() {
@@ -125,7 +128,7 @@ async function processYear(currentYear, playoffsDir, args) {
         }
 
         const roundKey = `round${roundNum}`;
-        if (summaries[roundKey]) {
+        if (summaries[roundKey] && !args['regenerate-rounds']) {
             console.log(`Round ${roundNum} already summarized, skipping.`);
             continue; // Already summarized
         }
@@ -143,30 +146,21 @@ async function processYear(currentYear, playoffsDir, args) {
         // Round just finished! Let's generate a summary.
         console.log(`Generating summary for Round ${roundNum} (${currentYear})...`);
 
-        let picksData = "Picks data not found.";
-        const csvPath = path.join(archiveDir, `round${roundNum}.csv`);
-        if (fs.existsSync(csvPath)) {
-            picksData = fs.readFileSync(csvPath, 'utf8');
-        }
+        // Score everything in code; the model only writes the roast.
+        const { rounds } = await calculateYearSummary(currentYear, archiveDir);
+        const facts = buildRoundFacts(rounds, roundNum);
 
-        const seriesInfo = roundSeries.map(s => {
-            const winner = s.topSeedWins === 4 ? s.topSeedTeam.abbrev : s.bottomSeedTeam.abbrev;
-            const games = s.topSeedWins + s.bottomSeedWins;
-            return `${s.topSeedTeam.abbrev} vs ${s.bottomSeedTeam.abbrev}: ${winner} won in ${games} games.`;
-        }).join('\n');
-
-        const prompt = `You are a brutally honest hockey fan and commentator for a family playoff pool. 
+        const prompt = `You are a brutally honest hockey fan and commentator for a family playoff pool.
 The NHL playoffs Round ${roundNum} of ${currentYear} has just finished!
 
-Here are the series results:
-${seriesInfo}
+Everything below has already been scored for you. Scoring: a correct team earns team points, and a correct number of games earns games points (independently of the team); getting both earns a bonus. Treat the numbers as ground truth.
 
-Here are the raw CSV picks submitted by the pool participants (columns are Name, Team, Games, Team, Games, etc.):
-${picksData}
+${facts}
 
-Write a short, punchy 1 to 3 line summary of the round. 
-Highlight any exciting or interesting outcomes (e.g. an unlikely pick paid off, someone completely blew it, or everyone agreed on a series). 
+Write a short, punchy 1 to 3 line summary of the round.
+Highlight any exciting or interesting outcomes (e.g. an unlikely pick paid off, someone completely blew it, or everyone agreed on a series).
 Keep it dry, witty, and highly roast-oriented for anyone who completely blew their picks. Skip the cringey enthusiasm, and deliver a sharp summary of the human participants' performance compared to the real results.
+STRICT RULES: only state facts and numbers that appear above or follow directly from them (e.g. "picked every series in 4 games" is fine if every listed pick says "in 4"). Never invent streaks, history, or point totals. If someone has "NO PICK", you may mention they skipped it.
 Do not output markdown bolding, just plain text.`;
 
         const summary = await generateGeminiResponse(prompt);
@@ -183,7 +177,7 @@ Do not output markdown bolding, just plain text.`;
     }
 
 	// Generate overall summary after all rounds are complete
-	if (!summaries.overall || (args['regenerate-overall'] && summaries.overall_version !== 2)) {
+	if (!summaries.overall || (args['regenerate-overall'] && summaries.overall_version !== OVERALL_VERSION)) {
 		if (apiCallsMade >= MAX_API_CALLS) {
 			console.log(`Reached max API calls (${MAX_API_CALLS}), stopping. Re-run to continue.`);
 			return;
@@ -238,7 +232,7 @@ Write a 3-5 sentence summary of the entire playoffs. Tell the story of the winne
 			if (overallSummary) {
 				apiCallsMade++;
 				summaries.overall = overallSummary.trim();
-				summaries.overall_version = 2;
+				summaries.overall_version = OVERALL_VERSION;
 				fs.writeFileSync(summariesPath, JSON.stringify(summaries, null, 2));
 				console.log(`Saved overall summary for ${currentYear}:`, overallSummary.trim());
 

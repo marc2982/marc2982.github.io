@@ -17,6 +17,10 @@ on:
         description: 'Max Gemini API calls per run (free tier limit is 20/day)'
         default: '15'
         type: string
+      regenerate_rounds:
+        description: 'Regenerate per-round summaries (overwrites existing)'
+        default: false
+        type: boolean
       regenerate_overall:
         description: 'Regenerate overall year summaries'
         default: false
@@ -48,6 +52,9 @@ jobs:
           FLAGS=""
           if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ inputs.regenerate_overall }}" = "true" ]; then
             FLAGS="--regenerate-overall"
+          fi
+          if [ "${{ inputs.regenerate_rounds }}" = "true" ]; then
+            FLAGS="$FLAGS --regenerate-rounds"
           fi
           node playoffs/scripts/generate_round_summary.mjs --start=${{ inputs.start_year || '1997' }} --end=${{ inputs.end_year || '2025' }} $FLAGS
 
