@@ -76,7 +76,6 @@ export class NhlApiHandler {
 				const series = this.series[index];
 				const schedule = await this.dataLoader.fetchSeriesSchedule(this.year, letter);
 				if (schedule && schedule.games && schedule.games.length > 0) {
-					// Series objects are immutable (dataclass), so we must create a copy
 					// Find the first game that hasn't finished yet
 					const nextGame = schedule.games.find(
 						(g) => g.gameState === 'FUT' || g.gameState === 'LIVE' || g.gameState === 'PRE' || g.gameState === 'CRIT' || g.gameState === 'FINAL'

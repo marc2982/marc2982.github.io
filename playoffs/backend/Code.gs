@@ -19,103 +19,149 @@ const FILE_NAME_TEMPLATE = '{year} Bryan Family Hockey Draft Picks';
 // Ensure you set GITHUB_TOKEN in Script Properties (Settings > Script Properties)
 const GITHUB_TOKEN = PropertiesService.getScriptProperties().getProperty('GITHUB_TOKEN');
 
+// --- VALIDATION (pure functions; unit tested in js/tests/backend.test.js) ---
+const WINNER_PATTERN = /^[A-Z]{2,3}( \(vs [A-Z]{2,3}\))?$/;
+const TEST_YEAR = 3000;
+
+/**
+ * Validates and normalises an incoming submission.
+ * @returns {{ok: boolean, error?: string, value?: {year:number, round:number, name:string, picks:{winner:string, games:number}[]}}}
+ */
+function validateSubmission(data) {
+	if (!data || typeof data !== 'object') return { ok: false, error: 'Invalid request' };
+
+	const year = Number(data.year);
+	if (!Number.isInteger(year) || year < 1990 || year > TEST_YEAR) return { ok: false, error: 'Invalid year' };
+
+	const round = Number(data.round);
+	if (!Number.isInteger(round) || round < 1 || round > 4) return { ok: false, error: 'Invalid round' };
+
+	const name = typeof data.name === 'string' ? data.name.trim() : '';
+	if (!name || name.length > 40 || /[,\r\n"]/.test(name)) return { ok: false, error: 'Invalid name' };
+
+	if (!Array.isArray(data.picks) || data.picks.length < 1 || data.picks.length > 8) {
+		return { ok: false, error: 'Invalid picks' };
+	}
+	const picks = [];
+	for (const p of data.picks) {
+		const winner = p && typeof p.winner === 'string' ? p.winner.trim() : '';
+		const games = p ? Number(p.games) : NaN;
+		if (!WINNER_PATTERN.test(winner)) return { ok: false, error: 'Invalid pick: ' + winner };
+		if (!Number.isInteger(games) || games < 4 || games > 7) return { ok: false, error: 'Invalid games for ' + winner };
+		picks.push({ winner, games });
+	}
+	return { ok: true, value: { year, round, name, picks } };
+}
+
+/** Builds the CSV row: Timestamp, Name, Team, Games, ... */
+function buildCsvRow(timestampStr, name, picks) {
+	const row = [timestampStr, name];
+	picks.forEach((p) => {
+		row.push(p.winner);
+		row.push(p.games);
+	});
+	return row;
+}
+
+/** True if the CSV text already has a row for this name (case-insensitive, 2nd column). */
+function csvHasName(csvText, name) {
+	const target = name.trim().toLowerCase();
+	return String(csvText || '')
+		.split(/\r?\n/)
+		.slice(1)
+		.some((line) => (line.split(',')[1] || '').trim().toLowerCase() === target);
+}
+
+function duplicateError(name, roundNum) {
+	return { result: 'error', error: `Duplicate: ${name} has already submitted for round ${roundNum}!` };
+}
+
 function doPost(e) {
 	const lock = LockService.getScriptLock();
-	lock.tryLock(10000); // 10s timeout
+	if (!lock.tryLock(10000)) {
+		return respond({ result: 'error', error: 'Server busy, please try again in a moment.' });
+	}
 
 	try {
 		const data = JSON.parse(e.postData.contents);
 
 		// 1. Security Check
 		const receivedPass = (data.passcode || '').toString().trim();
-		const expectedPass = PASSCODE.trim();
-
-		if (receivedPass !== expectedPass) {
-			console.warn(`Invalid Passcode attempt. Received: "${receivedPass}"`);
+		if (receivedPass !== PASSCODE.trim()) {
+			console.warn('Invalid passcode attempt');
 			return respond({ result: 'error', error: 'Invalid Passcode' });
 		}
 
-		// 2. Prepare Data
-		const year = data.year || 2026;
-		const roundNum = data.round || 1;
-		const name = data.name;
-		const timestamp = new Date();
-		const timestampStr = Utilities.formatDate(timestamp, 'GMT', 'M/d/yyyy H:mm:ss');
-
-		// 2.5 SPECIAL TEST ACTION
+		// 2. Special test action
 		if (data.action === 'clearTestYear') {
-			if (year !== 3000) return respond({ result: 'error', error: 'Can only clear year 3000' });
+			if (Number(data.year) !== TEST_YEAR) return respond({ result: 'error', error: 'Can only clear year 3000' });
 			try {
 				const folder = DriveApp.getFoldersByName(DRIVE_FOLDER_NAME).next();
-				const files = folder.getFilesByName(FILE_NAME_TEMPLATE.replace('{year}', year));
+				const files = folder.getFilesByName(FILE_NAME_TEMPLATE.replace('{year}', TEST_YEAR));
 				if (files.hasNext()) files.next().setTrashed(true);
-				
-				// Optional: Clear GitHub index
-				removeYearFromIndex(year);
-			} catch (e) {
-				console.error('Failed to clear test year:', e);
+				removeYearFromIndex(TEST_YEAR);
+			} catch (err) {
+				console.error('Failed to clear test year:', err);
+				return respond({ result: 'error', error: 'Failed to clear test year: ' + err });
 			}
 			return respond({ result: 'success', details: 'Year 3000 cleared' });
 		}
 
-		// 3. Security 1: Check for Duplicates in the backup sheet
-		// This prevents low-effort spamming or accidental double-clicks.
+		// 3. Validate
+		const checked = validateSubmission(data);
+		if (!checked.ok) return respond({ result: 'error', error: checked.error });
+		const { year, round: roundNum, name, picks } = checked.value;
+
+		const timestampStr = Utilities.formatDate(new Date(), 'GMT', 'M/d/yyyy H:mm:ss');
+		const csvRow = buildCsvRow(timestampStr, name, picks);
 		const sheetName = `round${roundNum}`;
+
+		// 4. Duplicate check against the backup sheet (case-insensitive)
+		let ss = null;
 		try {
-			const ss = getOrCreateYearlySpreadsheet(year);
-			if (ss) {
-				let sheet = ss.getSheetByName(sheetName);
-				if (sheet) {
-					const existingData = sheet.getDataRange().getValues();
-					for (let i = 1; i < existingData.length; i++) {
-						// Column B is Name (index 1)
-						if (existingData[i][1] === name) {
-							return respond({
-								result: 'error',
-								error: `Duplicate: ${name} has already submitted for round ${roundNum}!`,
-							});
-						}
+			ss = getOrCreateYearlySpreadsheet(year);
+			const sheet = ss && ss.getSheetByName(sheetName);
+			if (sheet) {
+				const target = name.toLowerCase();
+				const existing = sheet.getDataRange().getValues();
+				for (let i = 1; i < existing.length; i++) {
+					if (String(existing[i][1]).trim().toLowerCase() === target) {
+						return respond(duplicateError(name, roundNum));
 					}
 				}
 			}
-		} catch (e) {
-			console.warn('Duplicate check skipped (sheet error)', e);
+		} catch (sheetErr) {
+			console.warn('Sheet duplicate check skipped', sheetErr);
 		}
 
-		// Format CSV row (Timestamp, Name, Team, Games, Team, Games...)
-		let csvRow = [timestampStr, name];
-		data.picks.forEach((p) => {
-			csvRow.push(p.winner);
-			csvRow.push(p.games);
-		});
+		// 5. Commit to GitHub first (source of truth); it also rejects duplicates found in the CSV.
+		if (GITHUB_TOKEN) {
+			const filePath = `playoffs/data/archive/${year}/round${roundNum}.csv`;
+			try {
+				updateGitHubFile(filePath, csvRow.join(','), `Picks submission: ${name}`, name);
+			} catch (ghErr) {
+				if (ghErr && ghErr.isDuplicate) return respond(duplicateError(name, roundNum));
+				throw ghErr;
+			}
+			ensureYearInIndex(year);
+		} else {
+			console.warn('GITHUB_TOKEN not set; picks only saved to the backup sheet');
+		}
 
-		// 3. Backup to Google Sheet (Organized by year and round)
+		// 6. Backup to Google Sheet (best effort, only after the commit succeeded)
 		try {
-			const ss = getOrCreateYearlySpreadsheet(year);
 			if (ss) {
 				let sheet = ss.getSheetByName(sheetName);
 				if (!sheet) {
 					sheet = ss.insertSheet(sheetName);
-					// Header: Timestamp, Name, Team, Games, Team, Games...
-					let headers = ['Timestamp', 'Name'];
-					for (let i = 0; i < data.picks.length; i++) {
-						headers.push('Team', 'Games');
-					}
+					const headers = ['Timestamp', 'Name'];
+					for (let i = 0; i < picks.length; i++) headers.push('Team', 'Games');
 					sheet.appendRow(headers);
 				}
 				sheet.appendRow(csvRow);
 			}
 		} catch (sheetErr) {
 			console.error('Sheet backup failed:', sheetErr);
-		}
-
-		// 4. Update GitHub
-		if (GITHUB_TOKEN) {
-			const filePath = `playoffs/data/archive/${year}/round${roundNum}.csv`;
-			updateGitHubFile(filePath, csvRow.join(','), `Picks submission: ${name}`);
-
-			// 5. Ensure year is in the home page index
-			ensureYearInIndex(year);
 		}
 
 		return respond({ result: 'success' });
@@ -130,7 +176,7 @@ function doPost(e) {
 /**
  * Updates or creates a file in the GitHub repository.
  */
-function updateGitHubFile(path, newRow, message) {
+function updateGitHubFile(path, newRow, message, name) {
 	const url = `https://api.github.com/repos/${GITHUB_REPO_OWNER}/${GITHUB_REPO_NAME}/contents/${path}`;
 	const headers = {
 		Authorization: 'token ' + GITHUB_TOKEN,
@@ -148,7 +194,14 @@ function updateGitHubFile(path, newRow, message) {
 			const json = JSON.parse(response.getContentText());
 			sha = json.sha;
 			existingContent = Utilities.newBlob(Utilities.base64Decode(json.content)).getDataAsString();
-		} else if (response.getResponseCode() === 404) {
+			if (name && csvHasName(existingContent, name)) {
+				const dup = new Error('Duplicate submission');
+				dup.isDuplicate = true;
+				throw dup;
+			}
+		} else if (response.getResponseCode() !== 404) {
+			throw new Error('GitHub read failed: ' + response.getResponseCode());
+		} else {
 			// File doesn't exist yet, create a dynamic header based on the incoming row
 			const rowArray = newRow.split(',');
 			let header = 'Timestamp,Your name';
@@ -159,7 +212,10 @@ function updateGitHubFile(path, newRow, message) {
 			existingContent = header + '\n';
 		}
 	} catch (e) {
+		if (e && e.isDuplicate) throw e;
 		console.error('Error fetching file from GitHub:', e);
+		// Never overwrite a file we could not read.
+		throw new Error('Could not read existing picks file from GitHub');
 	}
 
 	// Append the new row
@@ -272,8 +328,11 @@ function removeYearFromIndex(year) {
 			sha: fileData.sha,
 			branch: GITHUB_BRANCH,
 		};
-		UrlFetchApp.fetch(url, { method: 'PUT', headers: headers, payload: JSON.stringify(payload), contentType: 'application/json' });
-	} catch(e) {}
+		const res = UrlFetchApp.fetch(url, { method: 'PUT', headers: headers, payload: JSON.stringify(payload), contentType: 'application/json', muteHttpExceptions: true });
+		if (res.getResponseCode() >= 300) console.error('removeYearFromIndex PUT failed:', res.getContentText());
+	} catch (e) {
+		console.error('removeYearFromIndex failed:', e);
+	}
 }
 
 function respond(obj) {

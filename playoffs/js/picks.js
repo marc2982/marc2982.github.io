@@ -1,3 +1,4 @@
+import { escapeHtml as esc } from './html.js';
 import { GOOGLE_SCRIPT_URL, DEBUG_MODE } from './config.js';
 import { DataLoader } from './dataLoader.js';
 import { NhlApiHandler } from './nhlApiHandler.js';
@@ -22,7 +23,7 @@ async function init() {
 	// Populate Names
 	const nameSelect = $('#username');
 	PEOPLE.forEach((name) => {
-		nameSelect.append(`<option value="${name}">${name}</option>`);
+		nameSelect.append(`<option value="${esc(name)}">${esc(name)}</option>`);
 	});
 
 	const loader = new DataLoader(CURRENT_YEAR);
@@ -233,34 +234,34 @@ function renderMatchupCard(series, topTeamShort, topTeam, bottomTeamShort, botto
 		? '<div class="contingency-badge" style="background: #e2f3ff; font-size: 0.7em; padding: 2px 5px; border-radius: 4px; color: #004085; display: inline-block; margin-left:8px;">Projected</div>'
 		: '';
 
-	const desc = isContingency ? `${topTeamShort} vs ${bottomTeamShort}` : series.getShortDesc();
+	const desc = isContingency ? `${esc(topTeamShort)} vs ${esc(bottomTeamShort)}` : series.getShortDesc();
 
 	return `
         <div class="matchup ${hasStarted ? 'locked' : ''} ${isContingency ? 'contingency' : ''}" 
-             data-series="${series.letter}" 
+             data-series="${esc(series.letter)}" 
              data-contingency="${isContingency}"
-             data-top="${topTeamShort}"
-             data-bot="${bottomTeamShort}"
+             data-top="${esc(topTeamShort)}"
+             data-bot="${esc(bottomTeamShort)}"
              ${disabledClass}>
             <div class="matchup-header">
                 <span>${desc} ${contingencyBadge}</span>
-                <span>${isContingency ? 'Draft ' : ''}Series ${series.letter} ${lockBadge}</span>
+                <span>${isContingency ? 'Draft ' : ''}Series ${esc(series.letter)} ${lockBadge}</span>
             </div>
             <div class="teams">
-                <div class="team" data-team="${topTeamShort}">
+                <div class="team" data-team="${esc(topTeamShort)}">
                     <div class="team-logo">
-                        <img src="${topTeam.logo}" alt="${topTeamShort}" onerror="this.style.display='none'">
+                        <img src="${esc(topTeam.logo)}" alt="${esc(topTeamShort)}" onerror="this.style.display='none'">
                     </div>
-                    <span class="team-name">${topTeamShort}</span>
-                    <span class="team-seed">${topTeam.rank}</span>
+                    <span class="team-name">${esc(topTeamShort)}</span>
+                    <span class="team-seed">${esc(topTeam.rank)}</span>
                 </div>
                 <div class="vs">VS</div>
-                <div class="team" data-team="${bottomTeamShort}">
+                <div class="team" data-team="${esc(bottomTeamShort)}">
                     <div class="team-logo">
-                         <img src="${bottomTeam.logo}" alt="${bottomTeamShort}" onerror="this.style.display='none'">
+                         <img src="${esc(bottomTeam.logo)}" alt="${esc(bottomTeamShort)}" onerror="this.style.display='none'">
                     </div>
-                    <span class="team-name">${bottomTeamShort}</span>
-                    <span class="team-seed">${bottomTeam.rank}</span>
+                    <span class="team-name">${esc(bottomTeamShort)}</span>
+                    <span class="team-seed">${esc(bottomTeam.rank)}</span>
                 </div>
             </div>
             <div class="prediction-options">
@@ -341,7 +342,7 @@ async function handleSubmit() {
 	const picks = [];
 	let isValid = true;
 
-	$('.matchup').each(function () {
+	$('.matchup:not(.locked)').each(function () {
 		const seriesLetter = $(this).data('series');
 		const isContingency = $(this).data('contingency');
 		const topTeam = $(this).data('top');
@@ -366,6 +367,11 @@ async function handleSubmit() {
 			games: selectedGames,
 		});
 	});
+
+	if (picks.length === 0 && isValid) {
+		showStatus('There are no open matchups to pick.', 'error');
+		return;
+	}
 
 	if (!isValid) {
 		showStatus('Please make a selection (Winner + Games) for EVERY series.', 'error');
@@ -412,16 +418,15 @@ async function handleSubmit() {
 			showStatus('Success! Your picks have been submitted.', 'success');
 			success = true;
 		} else {
-			showStatus('Error: ' + json.error, 'error');
+			showStatus('Error: ' + (json.error || 'Unknown error'), 'error');
 		}
 	} catch (e) {
 		console.error(e);
-		// If using no-cors or if network fails
+		// The request may or may not have reached the server; resubmitting is safe because the server rejects duplicates.
 		showStatus(
-			'Submitted! (Note: If you are seeing this, check with Admin to confirm it went through. You might have a network issue or CORS issue.)',
-			'success',
+			'Could not confirm your submission (network or server error). Please try again; if it says you already submitted, you are all set.',
+			'error',
 		);
-		success = true;
 	} finally {
 		if (!success) {
 			btn.prop('disabled', false).text('Submit Picks');

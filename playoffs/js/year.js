@@ -1,26 +1,16 @@
 import { prepareSummaryViewModel, prepareRoundViewModel, prepareProjectionsViewModel } from './yearViewModel.js';
+import { escapeHtml as esc } from './html.js';
 
 export function renderPage(data) {
 	renderYearlySummary(data, $('#yearlySummary'));
 	renderTiebreaker(data, $('#tiebreaker'));
 	renderSummary(data, $('#summaryTable'));
-	const cumulativePoints = {};
+	const priorOverall = {};
 	$.each(data.rounds, function (_, round) {
-		const priorOverall = {};
-		if (round.number > 1) {
-			data.rounds.forEach(r => {
-				if (r.number < round.number) {
-					Object.entries(r.summary.summaries).forEach(([person, summary]) => {
-						priorOverall[person] = (priorOverall[person] || 0) + summary.points;
-					});
-				}
-			});
-		}
-
-		let tableName = '#round' + round.number + 'Table';
-		renderRound(data.teams, round, $(tableName), priorOverall);
+		const tableName = '#round' + round.number + 'Table';
+		renderRound(data.teams, round, $(tableName), { ...priorOverall });
 		for (const [person, summary] of Object.entries(round.summary?.summaries || {})) {
-			cumulativePoints[person] = (cumulativePoints[person] || 0) + summary.points;
+			priorOverall[person] = (priorOverall[person] || 0) + summary.points;
 		}
 	});
 	renderProjections(data, $('#projectionsTable'));
@@ -62,7 +52,7 @@ export function renderSummary(data, table) {
 				.map(
 					(row) => `
                 <tr ${row.isLeader ? "class='leader'" : ''}>
-                    <th>${row.person}</th>
+                    <th>${esc(row.person)}</th>
                     ${row.roundPoints.map((rp, idx) => `<td class="round-points-cell"><span class="points-wrap">${rp.points}</span>${renderRankChange(rp, idx)}</td>`).join('')}
                     <td class="stats-divider stats-cell">${row.totalPoints}</td>
                     <td class="stats-cell rank-cell">${row.rank}</td>
@@ -93,7 +83,7 @@ export function renderRound(teams, round, table, priorOverall = null) {
 		$(table).siblings('h2').after(`
 			<div class="round-recap">
 				<h4>🤖 AI Round Recap</h4>
-				<p>${viewModel.llmSummary}</p>
+				<p>${esc(viewModel.llmSummary)}</p>
 			</div>
 		`);
 	}
@@ -114,9 +104,9 @@ export function renderRound(teams, round, table, priorOverall = null) {
 						(s) => `
 					<th class="matchup-th">
 						<div class="matchup-header ${s.scoresTooltip ? 'has-tooltip' : ''}">
-								<div class="team-top ${s.topSeedIsWinner ? 'winner' : ''}">${s.topSeed} (${s.topSeedWins})</div>
-								<div class="team-bottom ${s.bottomSeedIsWinner ? 'winner' : ''}">${s.bottomSeed} (${s.bottomSeedWins})</div>
-								${s.nextGameDesc ? `<div class="next-game">${s.nextGameDesc}</div>` : ''}
+								<div class="team-top ${s.topSeedIsWinner ? 'winner' : ''}">${esc(s.topSeed)} (${s.topSeedWins})</div>
+								<div class="team-bottom ${s.bottomSeedIsWinner ? 'winner' : ''}">${esc(s.bottomSeed)} (${s.bottomSeedWins})</div>
+								${s.nextGameDesc ? `<div class="next-game">${esc(s.nextGameDesc)}</div>` : ''}
 								${s.scoresTooltip ? `<div class="scores-tooltip">${s.scoresTooltip}</div>` : ''}
 							</div>
 						</th>
@@ -141,13 +131,13 @@ export function renderRound(teams, round, table, priorOverall = null) {
 								<div class="censored-group submitted">
 									<h4>Submitted (${submitted.length})</h4>
 									<ul>
-										${submitted.map(p => `<li>\u{1F92B} ${p.person}</li>`).join('')}
+										${submitted.map(p => `<li>\u{1F92B} ${esc(p.person)}</li>`).join('')}
 									</ul>
 								</div>
 								<div class="censored-group missing">
 									<h4>Still Needed (${missing.length})</h4>
 									<ul>
-										${missing.map(p => `<li>\u{274C} ${p.person}</li>`).join('')}
+										${missing.map(p => `<li>\u{274C} ${esc(p.person)}</li>`).join('')}
 									</ul>
 								</div>
 							</div>
@@ -168,13 +158,13 @@ export function renderRound(teams, round, table, priorOverall = null) {
 						(s) => `
                     <th class="matchup-th">
                         <div class="matchup-header ${s.scoresTooltip ? 'has-tooltip' : ''}">
-                            <div class="team-top ${s.topSeedIsWinner ? 'winner' : ''}">${s.topSeed} (${
+                            <div class="team-top ${s.topSeedIsWinner ? 'winner' : ''}">${esc(s.topSeed)} (${
 						s.topSeedWins
 					})</div>
-                            <div class="team-bottom ${s.bottomSeedIsWinner ? 'winner' : ''}">${s.bottomSeed} (${
+                            <div class="team-bottom ${s.bottomSeedIsWinner ? 'winner' : ''}">${esc(s.bottomSeed)} (${
 						s.bottomSeedWins
 					})</div>
-                            ${s.nextGameDesc ? `<div class="next-game">${s.nextGameDesc}</div>` : ''}
+                            ${s.nextGameDesc ? `<div class="next-game">${esc(s.nextGameDesc)}</div>` : ''}
                             ${s.scoresTooltip ? `<div class="scores-tooltip">${s.scoresTooltip}</div>` : ''}
                         </div>
                     </th>
@@ -195,7 +185,7 @@ export function renderRound(teams, round, table, priorOverall = null) {
 				.map(
 					(p) => `
                 <tr class="${p.isLeader ? 'leader' : ''} clickable-row">
-                    <th>${p.person}</th>
+                    <th>${esc(p.person)}</th>
                     ${p.seriesPicks
 						.map(
 							(pick) => `
@@ -205,9 +195,9 @@ export function renderRound(teams, round, table, priorOverall = null) {
 								const isMulti = pick.picksData.length > 1;
 								const scaleStyle = isMulti ? 'transform:scale(0.85);margin:-8px 0;' : '';
 								const teamHtml = cp.teamShort
-									? `<img src="${cp.teamLogo}" alt="${cp.teamName}" />`
+									? `<img src="${esc(cp.teamLogo)}" alt="${esc(cp.teamName)}" />`
 									: (pick.isTBD ? '<span style="color:#999;font-weight:bold;font-size:0.8rem;margin-top:10px;display:inline-block;">TBD</span>' : '&nbsp;');
-								const opponentHtml = cp.opponent ? `<div style="font-size:0.65rem;color:var(--bs-body-color);margin-top:1px;">vs ${cp.opponent}</div>` : '';
+								const opponentHtml = cp.opponent ? `<div style="font-size:0.65rem;color:var(--bs-body-color);margin-top:1px;">vs ${esc(cp.opponent)}</div>` : '';
 								return `<div class="pick pick-box" style="${scaleStyle}"><div class="img_container ${pick.teamStatus}">${teamHtml}${opponentHtml}</div><div class="games ${pick.gamesStatus}">${cp.games}</div></div>`;
 							}).join('')}
                             </div>
@@ -256,6 +246,10 @@ export function renderRound(teams, round, table, priorOverall = null) {
 
 function formatScenario(pickData) {
 	const { targets, threats, person } = pickData;
+
+	if (pickData.scenariosPending) {
+		return `<div class="scenario-container"><p>Scenarios will be available once every matchup in this round is set.</p></div>`;
+	}
 	
 	const renderList = (list, title, isTarget) => {
 		if (list.length === 0) return `<div class="scenario-column"><h5>${title}</h5><p>None</p></div>`;
@@ -283,11 +277,11 @@ function formatScenario(pickData) {
 						if (analysis.canCatch && !item.isTied) {
 							const primaryImpact = analysis.highImpact[0];
 							const impactHtml = primaryImpact 
-								? `<div class="high-impact"><b>High Impact:</b> ${primaryImpact.team}${primaryImpact.type === 'OUTCOME' ? ` in ${primaryImpact.games}` : ''} (${Math.round(primaryImpact.frequency * 100)}% of paths)</div>`
+								? `<div class="high-impact"><b>High Impact:</b> ${esc(primaryImpact.team)}${primaryImpact.type === 'OUTCOME' ? ` in ${primaryImpact.games}` : ''} (${Math.round(primaryImpact.frequency * 100)}% of paths)</div>`
 								: '';
 							statsHtml = `
 								<div class="scenario-stats">
-									${analysis.successCount} / ${analysis.totalCount} different ways to ${isTarget ? 'overtake' : 'be overtaken'} - ${successRate}% chance
+									${analysis.successCount} / ${analysis.totalCount} possible outcomes ${isTarget ? 'let you overtake' : 'let them overtake you'} (${successRate}% of scenarios)
 									${impactHtml}
 								</div>
 							`;
@@ -300,8 +294,8 @@ function formatScenario(pickData) {
 							let leadText = '';
 							if (relativeLead > 0) {
 								leadText = isTarget 
-									? `${person} would lead ${item.name} by ${relativeLead} pt${relativeLead === 1 ? '' : 's'}`
-									: `${item.name} would lead ${person} by ${relativeLead} pt${relativeLead === 1 ? '' : 's'}`;
+									? `${esc(person)} would lead ${esc(item.name)} by ${relativeLead} pt${relativeLead === 1 ? '' : 's'}`
+									: `${esc(item.name)} would lead ${esc(person)} by ${relativeLead} pt${relativeLead === 1 ? '' : 's'}`;
 							} else {
 								leadText = `Result would be a tie`;
 							}
@@ -311,7 +305,7 @@ function formatScenario(pickData) {
 									<div class="path-label">${label}:</div>
 									<div class="scenario-item-path">
 										${pathObj.path.map(p => `
-											<span class="path-step" title="${p.seriesDesc}">${p.seriesLetter}: ${p.outcome.team} (${p.outcome.games})</span>
+											<span class="path-step" title="${esc(p.seriesDesc)}">${p.seriesLetter}: ${esc(p.outcome.team)} (${p.outcome.games})</span>
 										`).join('')}
 									</div>
 									<div class="path-result">Result: ${leadText}</div>
@@ -329,7 +323,7 @@ function formatScenario(pickData) {
 						return `
 							<li class="scenario-item">
 								<div class="scenario-item-header">
-									<span>${item.name} (Gap: ${item.gap} pt${item.gap === 1 ? '' : 's'})</span>
+									<span>${esc(item.name)} (Gap: ${item.gap} pt${item.gap === 1 ? '' : 's'})</span>
 									<span class="${badgeClass}">${badgeText}</span>
 								</div>
 								${statsHtml}
@@ -345,8 +339,8 @@ function formatScenario(pickData) {
 	return `
 		<div class="scenario-container">
 			<div class="scenario-grid">
-				${renderList(targets, `Targets for ${person}`, true)}
-				${renderList(threats, `Threats to ${person}`, false)}
+				${renderList(targets, `Targets for ${esc(person)}`, true)}
+				${renderList(threats, `Threats to ${esc(person)}`, false)}
 			</div>
 		</div>
 	`;
@@ -370,7 +364,7 @@ export function renderProjections(data, table) {
 						(team) => `
                     <th>
                         <div class="pick">
-                            ${team.logo ? `<img src="${team.logo}" alt="${team.name}" />` : '&nbsp;'}
+                            ${team.logo ? `<img src="${esc(team.logo)}" alt="${esc(team.name)}" />` : '&nbsp;'}
                         </div>
                     </th>
                 `,
@@ -391,12 +385,12 @@ export function renderProjections(data, table) {
                             <div class="projection-box">
                                 <div class="projection-content">
                                     <div class="projection-winners">
-                                        ${cell.first.length ? `<div class="place-row"><span class="place gold">1st${cell.first.length > 1 ? ' (tie)' : ''}:</span> <span class="names">${cell.first.join(', ')}</span></div>` : ''}
-                                        ${cell.second.length ? `<div class="place-row"><span class="place silver">2nd${cell.second.length > 1 ? ' (tie)' : ''}:</span> <span class="names">${cell.second.join(', ')}</span></div>` : ''}
-                                        ${cell.third.length ? `<div class="place-row"><span class="place bronze">3rd${cell.third.length > 1 ? ' (tie)' : ''}:</span> <span class="names">${cell.third.join(', ')}</span></div>` : ''}
+                                        ${cell.first.length ? `<div class="place-row"><span class="place gold">1st${cell.first.length > 1 ? ' (tie)' : ''}:</span> <span class="names">${cell.first.map(esc).join(', ')}</span></div>` : ''}
+                                        ${cell.second.length ? `<div class="place-row"><span class="place silver">2nd${cell.second.length > 1 ? ' (tie)' : ''}:</span> <span class="names">${cell.second.map(esc).join(', ')}</span></div>` : ''}
+                                        ${cell.third.length ? `<div class="place-row"><span class="place bronze">3rd${cell.third.length > 1 ? ' (tie)' : ''}:</span> <span class="names">${cell.third.map(esc).join(', ')}</span></div>` : ''}
                                     </div>
                                     <div class="projection-losers">
-                                        ${cell.losers.length ? `<div class="place-row"><span class="place">Loser(s):</span> <span class="names">${cell.losers.join(', ')}</span></div>` : ''}
+                                        ${cell.losers.length ? `<div class="place-row"><span class="place">Loser(s):</span> <span class="names">${cell.losers.map(esc).join(', ')}</span></div>` : ''}
                                     </div>
                                 </div>
                             </div>
@@ -467,14 +461,14 @@ export function renderYearlySummary(data, container) {
 	// Build HTML
 	container.html(`
 		<div class="yearly-summary-header">
-			<h2>${data.year} Playoff Pool Summary</h2>
+			<h2>${esc(data.year)} Playoff Pool Summary</h2>
 		</div>
 
 		<div class="winner-announcement">
 			<div class="winner-trophy">🏆</div>
 			<div class="winner-info">
 				<h3>Pool Winner</h3>
-				<div class="winner-name">${winner.person}</div>
+				<div class="winner-name">${esc(winner.person)}</div>
 				<div class="winner-points">${winner.points} points</div>
 			</div>
 		</div>
@@ -482,24 +476,24 @@ export function renderYearlySummary(data, container) {
 		${data.overallSummary ? `
 		<div class="overall-summary">
 			<h3>Playoff Recap</h3>
-			<p>${data.overallSummary}</p>
+			<p>${esc(data.overallSummary)}</p>
 		</div>
 		` : ''}
 
 		<div class="podium">
 			<div class="podium-item second">
 				<div class="podium-place">2nd</div>
-				<div class="podium-name">${second.person}</div>
+				<div class="podium-name">${esc(second.person)}</div>
 				<div class="podium-points">${second.points} pts</div>
 			</div>
 			<div class="podium-item first">
 				<div class="podium-place">1st</div>
-				<div class="podium-name">${winner.person}</div>
+				<div class="podium-name">${esc(winner.person)}</div>
 				<div class="podium-points">${winner.points} pts</div>
 			</div>
 			<div class="podium-item third">
 				<div class="podium-place">3rd</div>
-				<div class="podium-name">${third.person}</div>
+				<div class="podium-name">${esc(third.person)}</div>
 				<div class="podium-points">${third.points} pts</div>
 			</div>
 		</div>
@@ -508,7 +502,7 @@ export function renderYearlySummary(data, container) {
 			<div class="loser-icon">💩</div>
 			<div class="loser-info">
 				<h3>Last Place</h3>
-				<div class="loser-name">${losers.map(l => l.person).join(', ')}</div>
+				<div class="loser-name">${losers.map(l => esc(l.person)).join(', ')}</div>
 				<div class="loser-points">${minPoints} pts</div>
 			</div>
 		</div>
@@ -519,9 +513,9 @@ export function renderYearlySummary(data, container) {
 				${funStats.map(stat => `
 					<div class="stat-card">
 						<div class="stat-icon">${stat.icon}</div>
-						<div class="stat-value">${stat.value}</div>
-						<div class="stat-label">${stat.label}</div>
-						<div class="stat-holder">${stat.holder}</div>
+						<div class="stat-value">${esc(stat.value)}</div>
+						<div class="stat-label">${esc(stat.label)}</div>
+						<div class="stat-holder">${esc(stat.holder)}</div>
 					</div>
 				`).join('')}
 			</div>
@@ -536,13 +530,13 @@ export function renderYearlySummary(data, container) {
 						${allSeries.filter(s => s.round === round).map(series => `
 							<div class="series-matchup">
 								<div class="series-team winner">
-									${data.teams[series.winner]?.logo ? `<img src="${data.teams[series.winner].logo}" alt="${series.winner}" class="team-logo-small" />` : ''}
-									<span>${series.winner}</span>
+									${data.teams[series.winner]?.logo ? `<img src="${esc(data.teams[series.winner].logo)}" alt="${esc(series.winner)}" class="team-logo-small" />` : ''}
+									<span>${esc(series.winner)}</span>
 								</div>
 								<span class="series-score">${series.topSeedWins}-${series.bottomSeedWins}</span>
 								<div class="series-team loser">
-									<span>${series.loser}</span>
-									${data.teams[series.loser]?.logo ? `<img src="${data.teams[series.loser].logo}" alt="${series.loser}" class="team-logo-small" />` : ''}
+									<span>${esc(series.loser)}</span>
+									${data.teams[series.loser]?.logo ? `<img src="${esc(data.teams[series.loser].logo)}" alt="${esc(series.loser)}" class="team-logo-small" />` : ''}
 								</div>
 							</div>
 						`).join('')}
@@ -553,8 +547,8 @@ export function renderYearlySummary(data, container) {
 
 		<div class="cup-winner">
 			<h3>Stanley Cup Champion</h3>
-			${data.teams[cupWinner]?.logo ? `<img src="${data.teams[cupWinner].logo}" alt="${cupWinner}" class="cup-logo" />` : ''}
-			<div class="cup-team">${cupWinner}</div>
+			${data.teams[cupWinner]?.logo ? `<img src="${esc(data.teams[cupWinner].logo)}" alt="${esc(cupWinner)}" class="cup-logo" />` : ''}
+			<div class="cup-team">${esc(cupWinner)}</div>
 		</div>
 	`);
 

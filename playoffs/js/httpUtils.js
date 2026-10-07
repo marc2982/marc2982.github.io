@@ -1,5 +1,5 @@
 async function fetchWithCacheBusting(url, bustCache) {
-	const finalUrl = bustCache ? `${url}?timestamp=${new Date().getTime()}` : url;
+	const finalUrl = bustCache ? `${url}${url.includes('?') ? '&' : '?'}timestamp=${Date.now()}` : url;
 	const response = await fetch(finalUrl);
 
 	if (!response.ok) {
