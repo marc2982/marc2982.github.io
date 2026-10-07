@@ -1,0 +1,137 @@
+/* year.html: standings bars, collapsible sections, sticky jump bar */
+:root {
+    --st-r0: #4dabf7;
+    --st-r1: #51cf66;
+    --st-r2: #fcc419;
+    --st-r3: #ff8787;
+}
+
+/* Jump bar */
+.jump-bar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 10px;
+    margin: 0 -5px 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+    background: rgba(248, 249, 250, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    scrollbar-width: none;
+}
+.jump-bar[hidden] { display: none; }
+.jump-bar::-webkit-scrollbar { display: none; }
+
+.jump-bar a,
+.jump-bar button {
+    flex: none;
+    border: 0;
+    border-radius: 999px;
+    padding: 6px 14px;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #495057;
+    background: rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+}
+.jump-bar a:hover,
+.jump-bar button:hover { background: rgba(0, 0, 0, 0.12); }
+.jump-bar a.active { background: #4c6ef5; color: #fff; }
+.jump-bar .jump-all {
+    margin-left: auto;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+html.dark-mode .jump-bar {
+    background: rgba(20, 22, 34, 0.92);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+html.dark-mode .jump-bar a,
+html.dark-mode .jump-bar button { background: rgba(255, 255, 255, 0.08); color: #cfd4e4; }
+html.dark-mode .jump-bar a:hover,
+html.dark-mode .jump-bar button:hover { background: rgba(255, 255, 255, 0.16); }
+html.dark-mode .jump-bar a.active { background: #4c6ef5; color: #fff; }
+html.dark-mode .jump-bar .jump-all { background: transparent; border-color: rgba(255, 255, 255, 0.25); }
+
+/* Standings card */
+#standings { scroll-margin-top: 60px; }
+.st-card {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-left: 4px solid #4c6ef5;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.st-card h3 {
+    margin: 0 0 10px;
+    font-size: 1.05rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0.75;
+}
+.st-row {
+    display: grid;
+    grid-template-columns: 28px 140px 1fr 44px;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 0;
+}
+.st-rank { text-align: right; font-weight: 700; opacity: 0.6; }
+.st-row.top .st-rank { color: #e8a500; opacity: 1; }
+.st-bar {
+    display: flex;
+    height: 18px;
+    border-radius: 5px;
+    overflow: hidden;
+    background: rgba(128, 128, 128, 0.12);
+    min-width: 2px;
+}
+.st-bar i { display: block; height: 100%; }
+.st-total { text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; }
+.st-legend { display: flex; gap: 12px; margin-top: 8px; font-size: 0.75rem; opacity: 0.8; }
+.st-legend b { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px; }
+.st-bar .r0, .st-legend .r0 { background: var(--st-r0); }
+.st-bar .r1, .st-legend .r1 { background: var(--st-r1); }
+.st-bar .r2, .st-legend .r2 { background: var(--st-r2); }
+.st-bar .r3, .st-legend .r3 { background: var(--st-r3); }
+
+html.dark-mode .st-card {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.1);
+    border-left-color: #4c6ef5;
+}
+
+/* Collapsible sections: header and AI recap stay visible, the table hides */
+#summary, #round1, #round2, #round3, #round4, #projections { scroll-margin-top: 60px; }
+
+.collapse-toggle { cursor: pointer; user-select: none; display: flex; justify-content: space-between; align-items: center; }
+.collapse-toggle::after {
+    content: '▾';
+    font-size: 0.8em;
+    opacity: 0.6;
+    transition: transform 0.2s ease;
+}
+.collapsed > .collapse-toggle::after { transform: rotate(-90deg); }
+.collapse-toggle:focus-visible { outline: 2px solid #4c6ef5; outline-offset: 2px; }
+.collapsed > :not(h2):not(.round-recap) { display: none !important; }
+.collapsed > h2 { margin-bottom: 0; }
+.collapsed > .round-recap { margin: 12px 0 0; }
+
+@media (max-width: 700px) {
+    .st-row { grid-template-columns: 22px minmax(0, 1fr) 36px; row-gap: 3px; }
+    .st-row .st-who { grid-column: 2; grid-row: 1; }
+    .st-row .st-total { grid-column: 3; grid-row: 1; }
+    .st-row .st-rank { grid-row: 1 / 3; align-self: start; }
+    .st-row .st-bar { grid-column: 2 / 4; grid-row: 2; }
+    .st-card { padding: 12px; }
+}

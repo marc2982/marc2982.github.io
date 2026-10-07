@@ -1,4 +1,4 @@
-import { prepareRoundViewModel } from '../yearViewModel.js';
+import { prepareRoundViewModel, prepareStandingsViewModel } from '../yearViewModel.js';
 import { Series } from '../models.js';
 
 function mockSeries(data) {
@@ -201,6 +201,26 @@ export async function runTests() {
 		const alicePick = viewModel.picks[0].seriesPicks[0];
 		assert(alicePick.picksData[0].opponent === 'VAN', `Expected opponent to be 'VAN', got ${alicePick.picksData[0].opponent}`);
 		assert(alicePick.picksData[1].opponent === 'LAK', `Expected opponent to be 'LAK', got ${alicePick.picksData[1].opponent}`);
+	});
+
+	test('Standings ViewModel', 'ranks, per-round points and bar widths', () => {
+		const data = {
+			rounds: [
+				{ summary: { summaries: { Al: { points: 5 }, Bo: { points: 10 }, Cy: { points: 10 } } } },
+				{ summary: { summaries: { Al: { points: 15 }, Bo: { points: 0 }, Cy: { points: 5 } } } },
+			],
+			personSummaries: {
+				Al: { points: 20, rank: 1, possiblePoints: 20 },
+				Bo: { points: 10, rank: 3, possiblePoints: 10 },
+				Cy: { points: 15, rank: 2, possiblePoints: 15 },
+			},
+			tiebreakInfo: { winner: 'Al' },
+		};
+		const vm = prepareStandingsViewModel(data);
+		assert(vm.rows.map((r) => r.person).join() === 'Al,Cy,Bo', 'sorted by rank: ' + vm.rows.map((r) => r.person));
+		assert(vm.rows[0].rounds.join() === '5,15', 'round points');
+		assert(vm.rows[0].widthPct === 100 && vm.rows[2].widthPct === 50, 'widths ' + vm.rows.map((r) => r.widthPct));
+		assert(vm.roundCount === 2 && vm.max === 20, 'meta');
 	});
 
 	return results;

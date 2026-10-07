@@ -3,6 +3,20 @@ import { excelRank } from './common.js';
 import { isTeamKnown } from './models.js';
 
 
+/** Standings for the bar chart: one row per person, ranked, with per-round points and bar width as % of the leader. */
+export function prepareStandingsViewModel(data) {
+	const rows = prepareSummaryViewModel(data).rows.map((r) => ({
+		person: r.person,
+		rank: r.rank,
+		total: r.totalPoints,
+		rounds: r.roundPoints.map((rp) => rp.points),
+	}));
+	rows.sort((a, b) => a.rank - b.rank || b.total - a.total || a.person.localeCompare(b.person));
+	const max = Math.max(1, ...rows.map((r) => r.total));
+	rows.forEach((r) => (r.widthPct = Math.round((r.total / max) * 1000) / 10));
+	return { rows, max, roundCount: rows[0]?.rounds.length || 0 };
+}
+
 export function prepareSummaryViewModel(data) {
 	const roundRankMaps = [];
 	const cumulativePoints = {};

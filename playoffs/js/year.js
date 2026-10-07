@@ -1,8 +1,11 @@
 import { prepareSummaryViewModel, prepareRoundViewModel, prepareProjectionsViewModel } from './yearViewModel.js';
 import { escapeHtml as esc } from './html.js';
+import { renderStandings } from './yearStandings.js';
+import { setupYearLayout } from './yearLayout.js';
 
 export function renderPage(data) {
 	renderYearlySummary(data, $('#yearlySummary'));
+	renderStandings(data, $('#standings'));
 	renderTiebreaker(data, $('#tiebreaker'));
 	renderSummary(data, $('#summaryTable'));
 	const priorOverall = {};
@@ -18,6 +21,7 @@ export function renderPage(data) {
 	// Hide loading spinner and show content after all rendering is complete
 	$('#loading').hide();
 	$('#main-content').fadeIn();
+	setupYearLayout();
 }
 
 export function renderTiebreaker(data, div) {
