@@ -3,7 +3,7 @@ import { Pick, ALL_SERIES } from './models.js';
 // Minimal CSV parser that works in both browser and Node (no CDN dependency).
 // Handles quoted fields and comma-separated values.
 function parseCsvString(csvString) {
-	return csvString.trim().split('\n').map(line => {
+	return csvString.trim().split(/\r?\n/).map(line => {
 		const row = [];
 		let current = '';
 		let inQuotes = false;
@@ -24,23 +24,6 @@ export class PicksImporter {
 		this.teamRepo = teamRepo;
 	}
 
-	async readCsv(dataDir, round) {
-		const filename = `${dataDir}/round${round}.csv`;
-		const { loadCsv } = await import('./csvProcessor.js');
-		try {
-			const data = await loadCsv(filename);
-			// loadCsv returns string[][] already parsed; serialise back to a simple CSV
-			// string so processRows can handle both paths uniformly.
-			const csvString = data.map(row => row.join(',')).join('\n');
-			return this.processRows(csvString, round);
-		} catch (err) {
-			if (err.message === 'NOT_FOUND') {
-				return {};
-			}
-			throw err;
-		}
-	}
-
 	processRows(csvString, round) {
 		const data = parseCsvString(csvString);
 		const picks = {};
@@ -52,7 +35,13 @@ export class PicksImporter {
 
 		// skip header
 		for (const row of data.slice(1)) {
-			const person = this.standardizeName(row[nameIndex]);
+			if (!row[nameIndex] || !row[nameIndex].trim()) continue; // blank/malformed row
+			const person = this.standardizeName(row[nameIndex].trim());
+
+			// Rows are chronological. If someone appears again (e.g. an admin appended a
+			// corrective row), the latest row replaces their earlier picks for this round.
+			picks[person] = {};
+
 			const colIter = row.slice(picksStartIndex).values();
 
 			for (const col of colIter) {
@@ -61,6 +50,12 @@ export class PicksImporter {
 				const numGames = colIter.next().value;
 
 				if (!teamName || !numGames) continue;
+
+				const gamesCount = parseInt(numGames, 10);
+				if (Number.isNaN(gamesCount)) {
+					console.warn(`Ignoring pick for ${person}: invalid games value "${numGames}" for ${teamName}`);
+					continue;
+				}
 
 				// Extract opponent if provided in the string (e.g. "NYR (vs BOS)")
 				let opponentMatch = teamNameFull.match(/\(vs ([A-Z]+)\)/);
@@ -94,23 +89,18 @@ export class PicksImporter {
 						continue;
 					}
 
-					if (typeof numGames !== 'string') {
-						throw new Error(`Invalid games value for ${person} in series ${series.letter}`);
-					}
-
-					if (!picks[person]) picks[person] = {};
-
 					if (!picks[person][series.letter]) {
 						picks[person][series.letter] = [];
 					}
 
 					picks[person][series.letter].push(Pick.create({
 						team: team.short,
-						games: parseInt(numGames, 10),
+						games: gamesCount,
 						opponent: opponent,
 					}));
 				} catch (e) {
-					throw new Error(`Skipping pick for ${person}: ${e.message}`);
+					// An unrecognised team shouldn't take the whole year's page down
+					console.warn(`Skipping pick for ${person}: ${e.message}`);
 				}
 			}
 		}

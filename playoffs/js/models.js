@@ -18,12 +18,47 @@ export const WINNER_MAP = {
 };
 
 // enum
-export var PickStatus;
-(function (PickStatus) {
-	PickStatus['CORRECT'] = 'CORRECT';
-	PickStatus['INCORRECT'] = 'INCORRECT';
-	PickStatus['UNKNOWN'] = 'UNKNOWN';
-})(PickStatus || (PickStatus = {}));
+export const PickStatus = Object.freeze({
+	CORRECT: 'CORRECT',
+	INCORRECT: 'INCORRECT',
+	UNKNOWN: 'UNKNOWN',
+});
+
+/**
+ * True when a seed value refers to an actual team (the NHL API / our own
+ * placeholders use undefined, 'undefined' and 'TBD' for unresolved seeds).
+ */
+export function isTeamKnown(seed) {
+	return !!seed && seed !== 'undefined' && String(seed).toUpperCase() !== 'TBD';
+}
+
+/**
+ * Chooses which of a person's (possibly conditional) picks applies to a series.
+ *
+ * Overlapping rounds let people submit one pick per possible matchup, tagged
+ * "TEAM (vs OPP)". Once the matchup is known the pick made for exactly that
+ * matchup wins; picks without an opponent tag (older format) fall back to
+ * matching on team alone. While the matchup is still unknown the first pick is used.
+ */
+export function selectActivePick(pickArray, series) {
+	if (!pickArray || pickArray.length === 0) return null;
+	if (pickArray.length === 1) return pickArray[0];
+	const { topSeed, bottomSeed } = series;
+	if (!isTeamKnown(topSeed) || !isTeamKnown(bottomSeed)) return pickArray[0];
+
+	const inSeries = (team) => team === topSeed || team === bottomSeed;
+	const exact = pickArray.find(
+		(p) =>
+			p.opponent &&
+			((p.team === topSeed && p.opponent === bottomSeed) || (p.team === bottomSeed && p.opponent === topSeed)),
+	);
+	if (exact) return exact;
+	return (
+		pickArray.find((p) => !p.opponent && inSeries(p.team)) ||
+		pickArray.find((p) => inSeries(p.team)) ||
+		pickArray[0]
+	);
+}
 
 class BaseModel {
 	static create(data = {}) {
@@ -75,10 +110,15 @@ export class Series extends BaseModel {
 		return null;
 	}
 	getTopSeedShort() {
-		return this.topSeed ? `${this.topSeed} ${this.topSeedWins}` : `Winner ${WINNER_MAP[this.letter][0]}`;
+		return this.topSeed ? `${this.topSeed} ${this.topSeedWins}` : this.getPlaceholderSeed(0);
 	}
 	getBottomSeedShort() {
-		return this.bottomSeed ? `${this.bottomSeed} ${this.bottomSeedWins}` : `Winner ${WINNER_MAP[this.letter][1]}`;
+		return this.bottomSeed ? `${this.bottomSeed} ${this.bottomSeedWins}` : this.getPlaceholderSeed(1);
+	}
+	// Round 1 series have no parents, so an unseeded one is just "TBD"
+	getPlaceholderSeed(index) {
+		const parents = WINNER_MAP[this.letter];
+		return parents ? `Winner ${parents[index]}` : 'TBD';
 	}
 	getSeriesSummary() {
 		return `${this.getTopSeedShort()} - ${this.getBottomSeedShort()}`;

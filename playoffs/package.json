@@ -7,7 +7,8 @@
     "test": "node scripts/run_tests.mjs",
     "start": "http-server . -c-1",
     "lint": "eslint js/ scripts/",
-    "historical": "node scripts/build_historical_stats.mjs"
+    "historical": "node scripts/build_historical_stats.mjs",
+    "index": "node scripts/update_yearly_index.mjs"
   },
   "keywords": [],
   "author": "",

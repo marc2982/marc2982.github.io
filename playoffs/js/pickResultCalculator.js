@@ -1,4 +1,4 @@
-import { PickResult, PickStatus } from './models.js';
+import { PickResult, PickStatus, isTeamKnown, selectActivePick } from './models.js';
 
 export class PickResultCalculator {
 	buildPickResults(scoring, seriesRepo, picks) {
@@ -8,14 +8,7 @@ export class PickResultCalculator {
 				const series = seriesRepo.getSeries(seriesLetter);
 				
 				const pickArray = Array.isArray(pickData) ? pickData : [pickData];
-				let activePick = pickArray[0];
-
-				if (series.topSeed && series.topSeed !== 'TBD' && series.bottomSeed && series.bottomSeed !== 'TBD') {
-					const matchedPick = pickArray.find(p => p.team === series.topSeed || p.team === series.bottomSeed);
-					if (matchedPick) {
-						activePick = matchedPick;
-					}
-				}
+				const activePick = selectActivePick(pickArray, series);
 
 				const winner = series.getWinner();
 				const teamStatus = this.getTeamStatus(activePick, winner, series);
@@ -51,9 +44,7 @@ export class PickResultCalculator {
 
 	getTeamStatus(pick, winner, series) {
 		if (winner === null) {
-			const isTopFinal = series.topSeed && series.topSeed !== 'TBD';
-			const isBottomFinal = series.bottomSeed && series.bottomSeed !== 'TBD';
-			if (isTopFinal && isBottomFinal) {
+			if (isTeamKnown(series.topSeed) && isTeamKnown(series.bottomSeed)) {
 				if (pick.team !== series.topSeed && pick.team !== series.bottomSeed) {
 					return PickStatus.INCORRECT;
 				}

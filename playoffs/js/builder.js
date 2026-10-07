@@ -1,6 +1,6 @@
 import { loadAndProcessCsvs } from './main.js';
 import { fetchJson } from './httpUtils.js';
-import JSZip from 'https://cdn.skypack.dev/jszip';
+import JSZip from 'https://cdn.skypack.dev/jszip@3.10.1';
 
 export async function loadAvailableYears() {
 	try {
@@ -51,8 +51,8 @@ export async function buildYearlyIndex() {
 			// Extract minimal data for index
 			index[year] = {
 				year: parseInt(year),
-				poolWinner: summary.tiebreakInfo?.winner || summary.winners?.[0] || null,
-				poolLoser: summary.losers?.[0] || null,
+				poolWinner: summary.tiebreakInfo?.winner || summary.winners?.join(', ') || null,
+				poolLoser: summary.losers?.length > 1 ? summary.losers : summary.losers?.[0] || null,
 				cupWinner: getCupWinner(summary),
 				tiebreaker: summary.tiebreakInfo?.winner ? summary.tiebreakInfo : null,
 				points: points,

@@ -67,18 +67,6 @@ export function runImporterTests() {
         assert(!picks['Dave'] || !picks['Dave']['A'], 'Unknown team pick should be skipped');
     });
 
-    test('PicksImporter', 'Legacy abbreviations map correctly (e.g. TB -> TBL)', () => {
-        // We use the real NhlTeamRepository logic here to test the historical translation
-        // We can just rely on the static-like map inside getTeam without needing real teams array, but to be safe we'll provide TBL.
-        import('../nhlApiHandler.js').then(({ NhlTeamRepository }) => {
-             const realTeamRepo = new NhlTeamRepository({ 'TBL': { short: 'TBL', name: 'Tampa Bay Lightning' } });
-             const importer = new PicksImporter(seriesRepo, realTeamRepo);
-             const legacyCsv = 'Timestamp,Name,Team,Games\n2025-01-01,OldSchool,TB,6\n';
-             const picks = importer.processRows(legacyCsv, 1);
-             assert(picks['Oldschool']['A'][0].team === 'TBL', 'Should have converted TB to TBL');
-        }).catch(() => {}); // handle async test casually since simple framework
-    });
-
     test('PicksImporter', 'Malformed CSV row (NaN games or empty team) is skipped safely', () => {
         const importer = new PicksImporter(seriesRepo, teamRepo);
         const badCsv = 'Timestamp,Name,Team,Games,Team,Games\n' +
@@ -88,7 +76,8 @@ export function runImporterTests() {
         const picks = importer.processRows(badCsv, 1);
         assert(!picks['Badhacker'] || !picks['Badhacker']['A'], 'Empty team should be completely skipped');
         assert(picks['Badhacker2'], 'Badhacker2 should exist because TOR pick was valid');
-        assert(isNaN(picks['Badhacker2']['A'][0].games), 'Games should be NaN but not crash the loop');
+        assert(!picks['Badhacker2']['A'], 'NaN-games pick must be dropped, not stored');
+        assert(picks['Badhacker2']['B'][0].games === 7, 'valid pick kept');
     });
 
     test('PicksImporter', 'Manual override: duplicate rows overwrite previous picks (last-writer-wins)', () => {
@@ -97,9 +86,8 @@ export function runImporterTests() {
                        '2025-01-01,Alice_Perfect,FLA,5,TOR,6\n' +
                        '2025-01-05,Alice_Perfect,FLA,6,TOR,7\n';
         const picks = importer.processRows(dupCsv, 1);
-        // Wait, if it appends instead of overwriting because of the array change, we need to check the LAST item in the array for the override test, or we should fix the importer to clear the person's picks on a new row.
-        const lastPick = picks['Alice_perfect']['A'][picks['Alice_perfect']['A'].length - 1];
-        assert(lastPick.games === 6, 'Should reflect the latest row (last writer wins)');
+        assert(picks['Alice_perfect']['A'].length === 1, 'Earlier row must be replaced, not appended');
+        assert(picks['Alice_perfect']['A'][0].games === 6, 'Should reflect the latest row (last writer wins)');
     });
 
     test('PicksImporter', 'processRows respects contingency opponent identifiers to prevent overwriting picks', () => {

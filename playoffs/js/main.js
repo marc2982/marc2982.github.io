@@ -1,29 +1,12 @@
 import { renderPage } from './year.js';
 import { fetchText } from './httpUtils.js';
 import { showGlobalError } from './errorOverlay.js';
-import {
-	Round,
-	YearlySummary,
-	SCORING,
-	ALL_SERIES,
-	WINNER_MAP,
-	TiebreakInfo,
-	Team,
-	Series,
-	PickResult,
-	Pick,
-	PersonPointsSummary,
-	RoundSummary,
-	Scoring,
-	ProjectionCell,
-} from './models.js';
+import { Round, YearlySummary, TiebreakInfo, Team, Series, PickResult, Pick, PersonPointsSummary, RoundSummary, Scoring, ProjectionCell } from './models.js';
 import { DataLoader } from './dataLoader.js';
-import { NhlApiHandler, NhlSeriesRepository, NhlTeamRepository } from './nhlApiHandler.js';
-import { PicksImporter } from './picksImporter.js';
-import { PickResultCalculator } from './pickResultCalculator.js';
-import { Summarizer } from './summarizer.js';
 import { ProjectionCalculator } from './projectionCalculator.js';
+import { buildYearData } from './yearBuilder.js';
 import { fetchJson } from './httpUtils.js';
+import { getBranchParam } from './urlParams.js';
 
 export async function render(year) {
 	try {
@@ -31,8 +14,7 @@ export async function render(year) {
 
 		// Load LLM summaries separately
 		try {
-			const urlParams = new URLSearchParams(window.location.search);
-			const branch = urlParams.get('branch');
+			const branch = getBranchParam();
 			const basePath = branch ? `https://raw.githubusercontent.com/marc2982/marc2982.github.io/${branch}/playoffs/data/archive/` : `./data/archive/`;
 			const summaries = await fetchJson(`${basePath}${year}/summaries.json`, true);
 			if (summaries) {
@@ -65,8 +47,7 @@ export async function render(year) {
 async function loadData(year) {
 	try {
 		// TODO: useful for testing, probably should remove this later
-		const urlParams = new URLSearchParams(window.location.search);
-		const branch = urlParams.get('branch');
+		const branch = getBranchParam();
 
 		if (branch) {
 			console.log(`Branch parameter found: ${branch}. Fetching data from GitHub raw...`);
@@ -174,95 +155,24 @@ export async function loadAndProcessCsvs(year, dataPath = `./data/archive/${year
 		? `https://raw.githubusercontent.com/marc2982/marc2982.github.io/${branch}/playoffs/data/archive/`
 		: `./data/archive/`;
 
-	const dataLoader = new DataLoader(year, archiveBasePath);
-	const api = new NhlApiHandler(year, dataLoader);
-	await api.load();
-
-	// Fetch schedules for all known series so startTimeUTC is available
-	const allLetters = ALL_SERIES.flat();
-	const knownLetters = api.getSeriesList()
-		.filter(s => s.topSeed && s.topSeed !== 'undefined' && s.topSeed.toUpperCase() !== 'TBD')
-		.map(s => s.letter);
-	const lettersToFetch = allLetters.filter(l => knownLetters.includes(l));
-	if (lettersToFetch.length > 0) {
-		await api.fetchSchedules(lettersToFetch);
-	}
-
-	const seriesRepo = new NhlSeriesRepository(api.getSeriesList());
-
-	// Populate possible seeds for unresolved series
-	for (const series of api.getSeriesList()) {
-		const parents = WINNER_MAP[series.letter];
-		if (parents) {
-			series.possibleTopSeeds = api.getPossibleWinners(parents[0]);
-			series.possibleBottomSeeds = api.getPossibleWinners(parents[1]);
-
-			// Fix NHL API assigning wrong top/bottom based on clinch order
-			if (series.topSeed && series.topSeed !== 'TBD' && series.topSeed !== 'undefined') {
-				if (!series.possibleTopSeeds.includes(series.topSeed) && series.possibleBottomSeeds.includes(series.topSeed)) {
-					const temp = series.topSeed;
-					series.topSeed = series.bottomSeed;
-					series.bottomSeed = temp;
-					
-					const tempWins = series.topSeedWins;
-					series.topSeedWins = series.bottomSeedWins;
-					series.bottomSeedWins = tempWins;
-				}
-			}
-			if (series.bottomSeed && series.bottomSeed !== 'TBD' && series.bottomSeed !== 'undefined') {
-				if (!series.possibleBottomSeeds.includes(series.bottomSeed) && series.possibleTopSeeds.includes(series.bottomSeed)) {
-					const temp = series.topSeed;
-					series.topSeed = series.bottomSeed;
-					series.bottomSeed = temp;
-					
-					const tempWins = series.topSeedWins;
-					series.topSeedWins = series.bottomSeedWins;
-					series.bottomSeedWins = tempWins;
-				}
-			}
-		}
-	}
-
-	const teamRepo = new NhlTeamRepository(api.getTeams());
-
-	const picksImporter = new PicksImporter(seriesRepo, teamRepo);
-	const calculator = new PickResultCalculator();
-	const summarizer = new Summarizer(year, teamRepo);
-	const projector = new ProjectionCalculator(seriesRepo, teamRepo);
-
 	// Get expected participants from last year's round 1
 	const expectedParticipants = await getLastYearParticipants(year, archiveBasePath);
 
-	const rounds = [];
+	const { rounds, teamRepo, summarizer, seriesRepo } = await buildYearData({
+		year,
+		dataLoader: new DataLoader(year, archiveBasePath),
+		readRoundCsv: async (roundNum) => {
+			try {
+				return await fetchText(`${dataPath}/round${roundNum}.csv`);
+			} catch (err) {
+				if (err.message === 'NOT_FOUND') return null;
+				throw err;
+			}
+		},
+		expectedParticipants,
+	});
 
-	for (let roundNum = 1; roundNum <= 4; roundNum++) {
-		const scoring = SCORING[roundNum - 1];
-		const seriesLetters = ALL_SERIES[roundNum - 1];
-		const serieses = seriesLetters.map((letter) => seriesRepo.getSeries(letter));
-		const picks = await picksImporter.readCsv(dataPath, roundNum);
-		const pickResults = calculator.buildPickResults(scoring, seriesRepo, picks);
-		const summary = summarizer.summarizeRound(pickResults);
-
-		// Determine if this round has started (any game 1 has begun)
-		const earliestStart = serieses
-			.filter(s => s.startTimeUTC)
-			.map(s => new Date(s.startTimeUTC))
-			.sort((a, b) => a - b)[0];
-		const roundStarted = earliestStart ? new Date() >= earliestStart : false;
-
-		rounds.push(
-			Round.create({
-				number: roundNum,
-				serieses: serieses,
-				pickResults: pickResults,
-				scoring: scoring,
-				summary: summary,
-				roundStarted: roundStarted,
-				expectedParticipants: expectedParticipants,
-			}),
-		);
-	}
-
+	const projector = new ProjectionCalculator(seriesRepo, teamRepo);
 	const projections = projector.calculate(rounds);
 	return summarizer.summarizeYear(rounds, projections);
 }
