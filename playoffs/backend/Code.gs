@@ -22,6 +22,13 @@ const GITHUB_TOKEN = PropertiesService.getScriptProperties().getProperty('GITHUB
 // --- VALIDATION (pure functions; unit tested in js/tests/backend.test.js) ---
 const WINNER_PATTERN = /^[A-Z]{2,3}( \(vs [A-Z]{2,3}\))?$/;
 const TEST_YEAR = 3000;
+const NHL_API_BASE = 'https://api-web.nhle.com/v1';
+const ROUND_SERIES = [
+	['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
+	['I', 'J', 'K', 'L'],
+	['M', 'N'],
+	['O'],
+];
 
 /**
  * Validates and normalises an incoming submission.
@@ -44,13 +51,58 @@ function validateSubmission(data) {
 	}
 	const picks = [];
 	for (const p of data.picks) {
+		const series = p && typeof p.series === 'string' ? p.series.trim().toUpperCase() : '';
+		if (!ROUND_SERIES[round - 1].includes(series)) return { ok: false, error: 'Invalid series: ' + series };
 		const winner = p && typeof p.winner === 'string' ? p.winner.trim() : '';
 		const games = p ? Number(p.games) : NaN;
 		if (!WINNER_PATTERN.test(winner)) return { ok: false, error: 'Invalid pick: ' + winner };
 		if (!Number.isInteger(games) || games < 4 || games > 7) return { ok: false, error: 'Invalid games for ' + winner };
-		picks.push({ winner, games });
+		picks.push({ series, winner, games });
 	}
 	return { ok: true, value: { year, round, name, picks } };
+}
+
+// --- ROUND LOCKING ---
+
+/** Earliest game start (ISO string) in an NHL series-schedule payload, or null if none is scheduled yet. */
+function earliestStart(schedule) {
+	const times = ((schedule && schedule.games) || [])
+		.map((g) => g && g.startTimeUTC)
+		.filter(Boolean)
+		.map((t) => new Date(t).getTime())
+		.filter((t) => !Number.isNaN(t));
+	return times.length ? new Date(Math.min.apply(null, times)).toISOString() : null;
+}
+
+/** True if a pass entry "year:round:name" for this person is listed in the LATE_PASSES property. */
+function hasLatePass(passesStr, year, round, name) {
+	const target = `${year}:${round}:${String(name).trim().toLowerCase()}`;
+	return String(passesStr || '')
+		.split(',')
+		.some((p) => p.trim().toLowerCase() === target);
+}
+
+/** Fetches the series' first game time from the NHL API. Throws if it cannot be determined (fail closed). */
+function fetchSeriesStart(year, letter) {
+	const url = `${NHL_API_BASE}/schedule/playoff-series/${year - 1}${year}/${letter.toLowerCase()}`;
+	const res = UrlFetchApp.fetch(url, { muteHttpExceptions: true });
+	const code = res.getResponseCode();
+	if (code === 404) return null; // series not scheduled yet
+	if (code !== 200) throw new Error('NHL schedule lookup failed: ' + code);
+	return earliestStart(JSON.parse(res.getContentText()));
+}
+
+/** Returns the series letters (from the submission) whose first game has already started. */
+function findLockedSeries(year, picks, now) {
+	const locked = [];
+	const checked = {};
+	picks.forEach((p) => {
+		if (checked[p.series] !== undefined) return;
+		const start = fetchSeriesStart(year, p.series);
+		checked[p.series] = true;
+		if (start && now >= new Date(start)) locked.push(p.series);
+	});
+	return locked;
 }
 
 /** Builds the CSV row: Timestamp, Name, Team, Games, ... */
@@ -115,6 +167,22 @@ function doPost(e) {
 		const timestampStr = Utilities.formatDate(new Date(), 'GMT', 'M/d/yyyy H:mm:ss');
 		const csvRow = buildCsvRow(timestampStr, name, picks);
 		const sheetName = `round${roundNum}`;
+
+		// 3b. Lock check: reject picks for series whose first game has started, unless this person has a late pass.
+		const latePassed = hasLatePass(
+			PropertiesService.getScriptProperties().getProperty('LATE_PASSES'), year, roundNum, name);
+		if (year !== TEST_YEAR && !latePassed) {
+			let lockedSeries;
+			try {
+				lockedSeries = findLockedSeries(year, picks, new Date());
+			} catch (lockErr) {
+				console.error('Lock check failed:', lockErr);
+				return respond({ result: 'error', error: 'Could not verify the series start times. Please try again shortly, or ask Marc to add your picks.' });
+			}
+			if (lockedSeries.length) {
+				return respond({ result: 'error', error: `Locked: series ${lockedSeries.join(', ')} already started. Reload the page, or ask Marc to add your picks.` });
+			}
+		}
 
 		// 4. Duplicate check against the backup sheet (case-insensitive)
 		let ss = null;

@@ -14,6 +14,15 @@ const CURRENT_YEAR = (function () {
 })();
 let activeRound = 1;
 
+// Late-pass mode (?late=1): lets someone Marc has approved submit for series that already started.
+// The server only accepts it if their name is listed in the LATE_PASSES script property.
+const LATE_MODE = new URLSearchParams(window.location.search).get('late') === '1';
+
+function hasSeriesStarted(s) {
+	if (LATE_MODE) return false;
+	return s.isLocked() || s.topSeedWins > 0 || s.bottomSeedWins > 0;
+}
+
 $(document).ready(async function () {
 	$('#season-subtitle').text(`NHL Playoffs ${CURRENT_YEAR}`);
 	await init();
@@ -180,7 +189,7 @@ function renderMatchups(seriesList, teamsObjects, targetRoundIdx, apiHandler) {
 			const topTeam = teamsObjects[s.topSeed] || { logo: '', rank: 'Top' };
 			const botTeam = teamsObjects[s.bottomSeed] || { logo: '', rank: 'Bot' };
 
-			const hasStarted = s.isLocked() || s.topSeedWins > 0 || s.bottomSeedWins > 0;
+			const hasStarted = hasSeriesStarted(s);
 			if (!hasStarted) allLocked = false;
 
 			container.append(renderMatchupCard(s, s.topSeed, topTeam, s.bottomSeed, botTeam));
@@ -203,7 +212,7 @@ function renderMatchups(seriesList, teamsObjects, targetRoundIdx, apiHandler) {
 				});
 
 				// Check if any could have started (though TBD usually means not started)
-				const hasStarted = s.isLocked() || s.topSeedWins > 0 || s.bottomSeedWins > 0;
+				const hasStarted = hasSeriesStarted(s);
 				if (!hasStarted) allLocked = false;
 			}
 		}
@@ -214,6 +223,10 @@ function renderMatchups(seriesList, teamsObjects, targetRoundIdx, apiHandler) {
 	} else {
 		$('#submit-picks').prop('disabled', false).text('Submit Picks');
 		attachEventHandlers();
+	}
+
+	if (LATE_MODE) {
+		container.prepend('<div class="intro-card" style="background-color: #fff3cd; color: #856404; border-color: #ffeeba; margin-bottom: 20px;"><h3>Late pass mode</h3><p>Started series are open for you. This only works if Marc has added your name.</p></div>');
 	}
 
 	if (hasContingency) {
@@ -227,7 +240,7 @@ function renderMatchups(seriesList, teamsObjects, targetRoundIdx, apiHandler) {
 }
 
 function renderMatchupCard(series, topTeamShort, topTeam, bottomTeamShort, bottomTeam, isContingency = false) {
-	const hasStarted = series.isLocked() || series.topSeedWins > 0 || series.bottomSeedWins > 0;
+	const hasStarted = hasSeriesStarted(series);
 	const disabledClass = hasStarted ? 'style="pointer-events: none; opacity: 0.7;"' : '';
 	const lockBadge = hasStarted ? '<div class="lock-badge">🔒 Locked</div>' : '';
 	const contingencyBadge = isContingency

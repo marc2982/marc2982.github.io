@@ -64,3 +64,11 @@ Since the script will write to your repository, it needs a **Personal Access Tok
 > 1.  Create a new tab in your Google Sheet for each year.
 > 2.  Create any missing folders or CSV files in your GitHub repository.
 > 3.  Trigger a GitHub Pages rebuild with every new submission.
+
+## Round locking and late picks
+The backend rejects any pick for a series whose first game has already started (start times come from the NHL API; if the lookup fails the submission is refused rather than let through). Picks must include a `series` letter.
+
+If someone misses the lock and everyone is fine with it, pick one:
+1. **Late pass (they submit themselves):** in Apps Script > Settings > Script Properties add `LATE_PASSES` with a comma-separated list of `year:round:name`, e.g. `2026:2:jake`. They then open `picks.html?late=1`, which shows started series as pickable. Remove the entry afterwards.
+2. **Add it yourself:** `node scripts/add_picks.mjs --year=2026 --round=2 --name=Jake MTL:6 CAR:5 COL:6 VGK:7` (use `NYR@BOS:7` for contingency picks), then commit and push. You can also just edit `data/archive/<year>/roundN.csv` by hand.
+

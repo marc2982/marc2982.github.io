@@ -12,7 +12,11 @@ async function loadBackend(stubs = {}) {
 	const log = { sheetWrites: [], githubPuts: [], lockReleased: 0 };
 	const sandbox = {
 		console: { log() {}, warn() {}, error() {} },
-		PropertiesService: { getScriptProperties: () => ({ getProperty: () => (stubs.token === undefined ? 'tok' : stubs.token) }) },
+		PropertiesService: {
+			getScriptProperties: () => ({
+				getProperty: (k) => (k === 'LATE_PASSES' ? stubs.latePasses || '' : stubs.token === undefined ? 'tok' : stubs.token),
+			}),
+		},
 		LockService: {
 			getScriptLock: () => ({
 				tryLock: () => stubs.lockOk !== false,
@@ -37,6 +41,14 @@ async function loadBackend(stubs = {}) {
 					const code = stubs.githubPutCode ?? 200;
 					return { getResponseCode: () => code, getContentText: () => 'err' };
 				}
+				if (url.includes('api-web.nhle.com')) {
+					if (stubs.nhlCode) return { getResponseCode: () => stubs.nhlCode, getContentText: () => '' };
+					const start = stubs.seriesStart || '2999-01-01T00:00:00Z';
+					return {
+						getResponseCode: () => 200,
+						getContentText: () => JSON.stringify({ games: [{ startTimeUTC: start }, { startTimeUTC: '2999-12-31T00:00:00Z' }] }),
+					};
+				}
 				if (stubs.existingCsv !== undefined && url.includes('round')) {
 					return {
 						getResponseCode: () => 200,
@@ -55,7 +67,7 @@ async function loadBackend(stubs = {}) {
 	const exports = vm.runInContext(
 		code +
 			`
-;({ doPost, validateSubmission, buildCsvRow, csvHasName,
+;({ doPost, validateSubmission, buildCsvRow, csvHasName, earliestStart, hasLatePass,
    setSheet(fn){ getOrCreateYearlySpreadsheet = fn; } })`,
 		sandbox,
 	);
@@ -69,7 +81,7 @@ export async function runBackendTests() {
 		name: 'Marc',
 		year: 2026,
 		round: 1,
-		picks: [{ winner: 'FLA', games: 5 }, { winner: 'NYR (vs BOS)', games: '7' }],
+		picks: [{ series: 'A', winner: 'FLA', games: 5 }, { series: 'B', winner: 'NYR (vs BOS)', games: '7' }],
 	};
 
 	test('Backend validate', 'accepts a valid submission and normalises games', async () => {
@@ -90,10 +102,12 @@ export async function runBackendTests() {
 			{ ...good, name: 'a,b' },
 			{ ...good, name: 'x\ny' },
 			{ ...good, picks: [] },
-			{ ...good, picks: [{ winner: 'FLA', games: 3 }] },
-			{ ...good, picks: [{ winner: 'FLA', games: 8 }] },
-			{ ...good, picks: [{ winner: '=HYPERLINK("x")', games: 5 }] },
-			{ ...good, picks: [{ winner: 'FLA,TOR', games: 5 }] },
+			{ ...good, picks: [{ series: 'A', winner: 'FLA', games: 3 }] },
+			{ ...good, picks: [{ series: 'A', winner: 'FLA', games: 8 }] },
+			{ ...good, picks: [{ series: 'A', winner: '=HYPERLINK("x")', games: 5 }] },
+			{ ...good, picks: [{ series: 'A', winner: 'FLA,TOR', games: 5 }] },
+			{ ...good, picks: [{ winner: 'FLA', games: 5 }] },
+			{ ...good, picks: [{ series: 'I', winner: 'FLA', games: 5 }] },
 			null,
 		];
 		bad.forEach((b, i) => assert(!api.validateSubmission(b).ok, `case ${i} should be rejected`));
@@ -165,6 +179,68 @@ export async function runBackendTests() {
 		assert(log.githubPuts.length >= 1);
 		assertEq(writes.length, 2); // header + row
 		assertEq(log.lockReleased, 1);
+	});
+
+	test('Backend lock', 'earliestStart picks the earliest game and tolerates empty schedules', async () => {
+		const { api } = await loadBackend();
+		assertEq(api.earliestStart({ games: [{ startTimeUTC: '2026-04-20T00:00:00Z' }, { startTimeUTC: '2026-04-18T00:00:00Z' }] }), '2026-04-18T00:00:00.000Z');
+		assertEq(api.earliestStart({ games: [] }), null);
+		assertEq(api.earliestStart(null), null);
+	});
+
+	test('Backend lock', 'hasLatePass matches year:round:name case-insensitively', async () => {
+		const { api } = await loadBackend();
+		assert(api.hasLatePass('2026:2:Jake, 2026:3:ryan', 2026, 2, 'jake'));
+		assert(api.hasLatePass('2026:3:ryan', 2026, 3, ' Ryan '));
+		assert(!api.hasLatePass('2026:2:jake', 2026, 3, 'jake'));
+		assert(!api.hasLatePass('', 2026, 1, 'jake'));
+	});
+
+	test('Backend doPost', 'picks for a started series are rejected', async () => {
+		const { api, log } = await loadBackend({ seriesStart: '2020-01-01T00:00:00Z' });
+		api.setSheet(() => null);
+		const r = post(api, { ...good, passcode: '' });
+		assertEq(r.result, 'error');
+		assert(r.error.startsWith('Locked'), r.error);
+		assertEq(log.githubPuts.length, 0);
+	});
+
+	test('Backend doPost', 'a late pass lets a locked submission through', async () => {
+		const { api, log } = await loadBackend({ seriesStart: '2020-01-01T00:00:00Z', latePasses: '2026:1:marc' });
+		api.setSheet(() => null);
+		assertEq(post(api, { ...good, passcode: '' }).result, 'success');
+		assert(log.githubPuts.length >= 1);
+	});
+
+	test('Backend doPost', 'lock lookup failure fails closed', async () => {
+		const { api, log } = await loadBackend({ nhlCode: 500 });
+		api.setSheet(() => null);
+		const r = post(api, { ...good, passcode: '' });
+		assertEq(r.result, 'error');
+		assertEq(log.githubPuts.length, 0);
+	});
+
+	test('Backend doPost', 'unscheduled series (404) is not locked', async () => {
+		const { api } = await loadBackend({ nhlCode: 404 });
+		api.setSheet(() => null);
+		assertEq(post(api, { ...good, passcode: '' }).result, 'success');
+	});
+
+	test('Add picks', 'appendPicksRow appends, formats contingency picks and rejects duplicates / bad specs', async () => {
+		const path = await import('node:path');
+		const url = await import('node:url');
+		const root = path.join(path.dirname(url.fileURLToPath(import.meta.url)), '../..');
+		const { appendPicksRow, parsePickSpec } = await import(path.join(root, 'scripts/lib/picksCsv.mjs'));
+		const csv = 'Timestamp,Your name,Team,Games\n1/1/2026 0:00:00,Marc,FLA,5\n';
+		const out = appendPicksRow(csv, 'Jake', ['TBL:6', 'NYR@BOS:7'], new Date('2026-04-20T12:05:09Z'));
+		assert(out.endsWith('4/20/2026 12:05:09,Jake,TBL,6,NYR (vs BOS),7\n'), out);
+		assertEq(parsePickSpec('nyr@bos:7').winner, 'NYR (vs BOS)');
+		let threw = 0;
+		for (const f of [() => appendPicksRow(out, 'jake', ['TBL:6']), () => parsePickSpec('TBL:8'), () => parsePickSpec('TBL')]) {
+			try { f(); } catch { threw++; }
+		}
+		assertEq(threw, 3);
+		assert(appendPicksRow('', 'Ann', ['TBL:6']).startsWith('Timestamp,Your name,Team,Games\n'));
 	});
 
 	test('Round facts', 'pre-scored facts match real data (2024 R1: Theodore all-4-games, 12 pts)', async () => {

@@ -73,15 +73,15 @@ export async function runSimulation(passcode, log) {
     const picksPayloads = [
         { 
             name: 'Alice_Perfect', // Team (FLA), Games (6), Bonus (+3)
-            picks: [{ winner: 'FLA', games: 6 }, { winner: 'TOR', games: 7 }] 
+            picks: [{ series: 'A', winner: 'FLA', games: 6 }, { series: 'B', winner: 'TOR', games: 7 }] 
         },
         { 
             name: 'Bob_TeamOnly', // Team (FLA), Games wrong (5)
-            picks: [{ winner: 'FLA', games: 5 }, { winner: 'TOR', games: 7 }] 
+            picks: [{ series: 'A', winner: 'FLA', games: 5 }, { series: 'B', winner: 'TOR', games: 7 }] 
         },
         { 
             name: 'Charlie_GamesOnly', // Team wrong (TBL), Games correct (6)
-            picks: [{ winner: 'TBL', games: 6 }, { winner: 'TOR', games: 7 }] 
+            picks: [{ series: 'A', winner: 'TBL', games: 6 }, { series: 'B', winner: 'TOR', games: 7 }] 
         }
     ];
 

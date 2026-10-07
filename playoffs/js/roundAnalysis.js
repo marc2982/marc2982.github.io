@@ -1,6 +1,6 @@
 import { PEOPLE } from './constants.js';
 import { loadAllYearsDetailed } from './common.js';
-import { getPercent } from './tableUtils.js'; // Assuming getPercent might be moved there or just keep local if not
+import { getPercent, initDataTable } from './tableUtils.js';
 
 export async function roundAnalysis(container) {
 	// Load all years data
@@ -144,7 +144,7 @@ function buildRoundDifficultyTable(container, stats) {
 	$section.append($table);
 	container.append($section);
 
-	$table.DataTable({ info: false, paging: false, searching: false, autoWidth: false, order: [[5, 'desc']] });
+	initDataTable($table, { order: [[5, 'desc']] });
 }
 
 function buildBonusEfficiencyTable(container, stats) {
@@ -186,7 +186,7 @@ function buildBonusEfficiencyTable(container, stats) {
 	$section.append($table);
 	container.append($section);
 
-	$table.DataTable({ info: false, paging: false, searching: false, autoWidth: false, order: [[5, 'desc']] });
+	initDataTable($table, { order: [[5, 'desc']] });
 }
 
 function buildSweepPredictionTable(container, stats) {
@@ -214,7 +214,7 @@ function buildSweepPredictionTable(container, stats) {
 	$section.append($table);
 	container.append($section);
 
-	$table.DataTable({ info: false, paging: false, searching: false, autoWidth: false, order: [[3, 'desc']] });
+	initDataTable($table, { order: [[3, 'desc']] });
 }
 
 function buildGame7PredictionTable(container, stats) {
@@ -240,5 +240,5 @@ function buildGame7PredictionTable(container, stats) {
 	$section.append($table);
 	container.append($section);
 
-	$table.DataTable({ info: false, paging: false, searching: false, autoWidth: false, order: [[3, 'desc']] });
+	initDataTable($table, { order: [[3, 'desc']] });
 }
