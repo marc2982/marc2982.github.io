@@ -1,0 +1,98 @@
+/* Person and team chips (see js/badges.js) */
+.person-chip {
+	--bg: hsl(var(--h) 70% 94%);
+	--fg: hsl(var(--h) 55% 28%);
+	--av: hsl(var(--h) 62% 48%);
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 2px 10px 2px 3px;
+	margin: 2px 3px;
+	border-radius: 999px;
+	background: var(--bg);
+	color: var(--fg);
+	font-weight: 600;
+	font-size: 0.95rem;
+	white-space: nowrap;
+	line-height: 1.4;
+}
+
+.person-chip .avatar {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	background: var(--av);
+	color: #fff;
+	font-size: 0.8rem;
+	font-weight: 700;
+}
+
+.person-chip .chip-icon {
+	font-size: 0.95rem;
+}
+
+/* Winner: gold ring and a slightly bolder chip */
+.person-chip.person-winner {
+	box-shadow: 0 0 0 2px #f2b705, 0 2px 8px rgba(242, 183, 5, 0.35);
+	background: linear-gradient(135deg, var(--bg), #fff7d6);
+	font-weight: 700;
+}
+
+/* Loser: quiet, so the winner column is what the eye lands on */
+.person-chip.person-loser {
+	--bg: #f1f3f5;
+	--fg: #6c757d;
+	--av: #adb5bd;
+	font-weight: 500;
+	font-size: 0.9rem;
+}
+
+.team-chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 2px 12px 2px 8px;
+	border-radius: 8px;
+	border-left: 4px solid var(--team);
+	background: rgba(0, 0, 0, 0.03);
+	font-weight: 500;
+	white-space: nowrap;
+}
+
+.team-chip .team-logo {
+	width: 24px;
+	height: 24px;
+	object-fit: contain;
+}
+
+/* Dark mode */
+html.dark-mode .person-chip {
+	--bg: hsl(var(--h) 35% 22%);
+	--fg: hsl(var(--h) 80% 86%);
+	--av: hsl(var(--h) 60% 52%);
+}
+
+html.dark-mode .person-chip.person-winner {
+	background: linear-gradient(135deg, hsl(var(--h) 35% 22%), #4a3d0c);
+	box-shadow: 0 0 0 2px #f2b705, 0 2px 10px rgba(242, 183, 5, 0.3);
+	color: #fff1b8;
+}
+
+html.dark-mode .person-chip.person-loser {
+	--bg: rgba(255, 255, 255, 0.06);
+	--fg: #98a2b3;
+	--av: #5b6577;
+}
+
+html.dark-mode .team-chip {
+	background: rgba(255, 255, 255, 0.06);
+}
+
+html.dark-mode .team-chip .team-logo {
+	background: #fff;
+	border-radius: 50%;
+	padding: 2px;
+}

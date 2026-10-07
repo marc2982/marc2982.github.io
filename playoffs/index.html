@@ -7,6 +7,8 @@
     <link href="css/index.css" rel="stylesheet" />
     <link href="css/teams.css" rel="stylesheet" />
     <link href="css/tables.css" rel="stylesheet" />
+    <link href="css/badges.css" rel="stylesheet" />
+    <link href="css/home.css" rel="stylesheet" />
     <link href="css/dark-mode.css" rel="stylesheet" />
     <script>
         if (document.cookie.split('; ').find(row => row.startsWith('darkMode='))?.split('=')[1] !== 'false') {
@@ -45,6 +47,7 @@
 
 		<!-- Tab Content -->
 		<div id="results" class="tab-content active">
+			<div id="hero"></div>
 			<div class="section-card">
 				<h2>Yearly Results</h2>
 				<table id="yearlyResults" class="containing_table"></table>

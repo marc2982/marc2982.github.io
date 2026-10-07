@@ -256,6 +256,27 @@ export async function runBackendTests() {
 		assert(appendPicksRow('', 'Ann', ['TBL:6']).startsWith('Timestamp,Your name,Team,Games\n'));
 	});
 
+	test('Home stats', 'repeat champions and hero stats match the real index', async () => {
+		const fs = await import('node:fs');
+		const path = await import('node:path');
+		const url = await import('node:url');
+		const root = path.join(path.dirname(url.fileURLToPath(import.meta.url)), '../..');
+		const { getRealYears } = await import(path.join(root, 'js/common.js'));
+		const { findRepeatChampions, heroStats } = await import(path.join(root, 'js/homeStats.js'));
+		const index = JSON.parse(fs.readFileSync(path.join(root, 'data/summaries/yearly_index.json'), 'utf8'));
+		const years = getRealYears(index);
+		const runs = findRepeatChampions(years);
+		const span = (n) => (runs[n] || []).map((r) => `${r.start}-${r.end}`).join(',');
+		assertEq(span('Nathan'), '2014-2015,2019-2020');
+		assertEq(span('Stephanie'), '2021-2022');
+		assertEq(span('Glenda'), '2024-2025');
+		assertEq(span('Derrick'), '1999-2000,2004-2006'); // the 2005 lockout does not break a run
+		assert(!runs.Marc, 'Marc has no back-to-back titles');
+		const hero = heroStats(years);
+		assertEq([hero.year, hero.winners, hero.titleLeaders, hero.titleLeaderCount], [2026, ['Derrick'], ['Derrick'], 7]);
+		assertEq(heroStats([{ year: 2030, poolWinner: 'In Progress', points: {} }]), null);
+	});
+
 	test('Round facts', 'pre-scored facts match real data (2024 R1: Theodore all-4-games, 12 pts)', async () => {
 		const path = await import('node:path');
 		const url = await import('node:url');
