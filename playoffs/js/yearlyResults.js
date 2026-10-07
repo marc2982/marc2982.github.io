@@ -44,7 +44,7 @@ async function updateProgressState(year) {
 						earliestStart = gameStart;
 					}
 				}
-			} catch (e) {
+			} catch {
 				// Schedule not available yet, skip
 			}
 		}

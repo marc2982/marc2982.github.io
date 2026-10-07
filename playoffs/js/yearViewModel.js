@@ -159,7 +159,6 @@ export function prepareRoundViewModel(teams, round, priorOverall = null) {
 				seriesPicks: sortedSeries.map((series) => {
 					const seriesResult = results[series.letter];
 					const pick = seriesResult?.pick || {};
-					const team = teams[pick.team];
 					const topIsTbd = !isTeamKnown(series.topSeed);
 					const botIsTbd = !isTeamKnown(series.bottomSeed);
 					const isTBD = !pick.team && (topIsTbd || botIsTbd);

@@ -1,7 +1,6 @@
 // Single entry point that builds the fact sheet for a round or a whole year (used by both the
 // Gemini generator and by manual/Claude-written roasts).
 import path from 'path';
-import fs from 'fs';
 import { calculateYearSummary } from './yearSummary.mjs';
 import { buildRoundFacts } from './roundFacts.mjs';
 import { loadHistory, roundPoints } from './history.mjs';

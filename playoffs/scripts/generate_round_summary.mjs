@@ -87,7 +87,7 @@ async function commitYear(year, playoffsDir) {
         execSync('git pull --rebase --autostash', { cwd: path.join(playoffsDir, '..'), stdio: 'pipe' });
         execSync('git push', { cwd: path.join(playoffsDir, '..'), stdio: 'pipe' });
         console.log(`Committed and pushed summaries for ${year}`);
-    } catch (e) {
+    } catch {
         // commit fails if no changes — that's fine
     }
 }
@@ -204,11 +204,6 @@ Do not output markdown bolding, just plain text.`;
 				return;
 			}
 
-			const maxPoints = sortedPeople[0][1].points;
-			const minPoints = sortedPeople[sortedPeople.length - 1][1].points;
-			const winnerName = indexEntry.poolWinner;
-			const loserName = [].concat(indexEntry.poolLoser).join(', ');
-			const cupWinner = indexEntry.cupWinner;
 
 			// The fact sheet reads official results from the index, so write this year's entry first.
 			const indexPath = path.join(playoffsDir, 'data', 'summaries', 'yearly_index.json');

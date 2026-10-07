@@ -141,7 +141,8 @@ export async function runBackendTests() {
 	test('Backend doPost', 'missing year no longer defaults to 2026', async () => {
 		const { api, log } = await loadBackend();
 		api.setSheet(() => null);
-		const { year, ...noYear } = good;
+		const noYear = { ...good };
+		delete noYear.year;
 		assertEq(post(api, { ...noYear, passcode: '' }).result, 'error');
 		assertEq(log.githubPuts.length, 0);
 	});

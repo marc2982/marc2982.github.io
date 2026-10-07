@@ -191,7 +191,7 @@ export function renderRound(teams, round, table, priorOverall = null) {
 							(pick) => `
                         <td>
                             <div style="${pick.picksData.length > 1 ? 'display:flex;gap:8px;justify-content:center;' : ''}">
-                            ${pick.picksData.map((cp, idx) => {
+                            ${pick.picksData.map((cp) => {
 								const isMulti = pick.picksData.length > 1;
 								const scaleStyle = isMulti ? 'transform:scale(0.85);margin:-8px 0;' : '';
 								const teamHtml = cp.teamShort

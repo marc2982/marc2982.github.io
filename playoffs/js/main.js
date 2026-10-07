@@ -23,7 +23,7 @@ export async function render(year) {
 				});
 				data.overallSummary = summaries.overall;
 			}
-		} catch (e) {
+		} catch {
 			// ignore if not found
 		}
 

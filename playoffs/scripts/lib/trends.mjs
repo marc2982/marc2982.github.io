@@ -88,7 +88,6 @@ export function buildTrends(history, year, roundNum) {
 	const rp = Object.fromEntries(people.map((p) => [p, roundPoints(round, p)]));
 	// Round-level extremes and habits
 	if (!isOverall) {
-	const teamsRight = Object.fromEntries(people.map((p) => [p, Object.values(round.picks[p]).filter((x) => x.teamOk).length]));
 	const nSeries = round.series.length;
 	for (const p of people) {
 		const picks = Object.values(round.picks[p]);

@@ -48,7 +48,6 @@ export async function runTests() {
 
 	test('ScenarioAnalyzer', 'In-Progress Filtering', () => {
 		const analyzer = new ScenarioAnalyzer();
-		const scoring = Scoring.create({ team: 1, games: 0, bonus: 0 });
 		// EDM is up 3-0. VAN cannot win in 4, 5, or 6.
 		const series = mockSeries({ letter: 'I', topSeed: 'EDM', bottomSeed: 'VAN', topSeedWins: 3, bottomSeedWins: 0 });
 		
