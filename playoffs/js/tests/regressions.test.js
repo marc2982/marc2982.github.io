@@ -5,7 +5,7 @@ import { prepareRoundViewModel } from '../yearViewModel.js';
 import { escapeHtml } from '../html.js';
 import { parseBranch } from '../urlParams.js';
 import { toNameList, getRealYears, calculateCareerStats } from '../common.js';
-import { aggregateTeamStats } from '../teamAnalysis.js';
+import { aggregateTeamStats, getConference } from '../teamAnalysis.js';
 import { PicksImporter } from '../picksImporter.js';
 import { NhlTeamRepository } from '../nhlApiHandler.js';
 import { resolveSeriesSeeds } from '../yearBuilder.js';
@@ -203,6 +203,15 @@ export async function runRegressionTests() {
 		assertEq([uta.name, uta.timesPicked, uta.timesWon, uta.timesLost, uta.totalPoints], ['Utah Mammoth', 2, 1, 1, 9]);
 		assertEq(uta.avgPoints, 4.5);
 		assertEq(conferenceStats.Western, { picked: 2, correct: 1 });
+	});
+
+	test('teamAnalysis', 'conference is era-aware (DET/CBJ were Western until 2013, ATL counted)', () => {
+		assertEq(getConference('DET', 2010), 'Western');
+		assertEq(getConference('CBJ', 2013), 'Western');
+		assertEq(getConference('DET', 2014), 'Eastern');
+		assertEq(getConference('CBJ', 2024), 'Eastern');
+		assertEq(getConference('ATL', 2005), 'Eastern');
+		assertEq(getConference('ZZZ', 2005), null);
 	});
 
 	// ---- importer ----

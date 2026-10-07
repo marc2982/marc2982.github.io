@@ -15,7 +15,7 @@ export function aggregateTeamStats(results) {
 		Western: { picked: 0, correct: 0 },
 	};
 
-	results.forEach(({ summary }) => {
+	results.forEach(({ year, summary }) => {
 		summary.rounds?.forEach((round) => {
 			Object.values(round.pickResults || {}).forEach((seriesResults) => {
 				Object.values(seriesResults).forEach((result) => {
@@ -30,10 +30,12 @@ export function aggregateTeamStats(results) {
 							timesWon: 0,
 							timesLost: 0,
 							totalPoints: 0,
-							conference: getConference(pickedTeam),
+							conference: getConference(pickedTeam, year),
 						};
 					}
 					const t = teamStats[pickedTeam];
+					// Conference is per pick: DET/CBJ moved West->East in 2014, so a team-level value would be wrong for old years
+					t.conference = getConference(pickedTeam, year);
 					t.timesPicked++;
 					t.totalPoints += result.points || 0;
 
@@ -179,7 +181,9 @@ function buildConferenceSuccessTable(container, conferenceStats) {
 }
 
 // Helper function to determine conference
-function getConference(teamCode) {
+export function getConference(teamCode, year) {
+	// Detroit and Columbus played in the Western Conference until the 2013-14 realignment (2014 playoffs)
+	if ((teamCode === 'DET' || teamCode === 'CBJ') && Number(year) <= 2013) return 'Western';
 	// Eastern Conference teams
 	const eastern = [
 		'BOS',
@@ -198,6 +202,7 @@ function getConference(teamCode) {
 		'PHI',
 		'PIT',
 		'WSH',
+		'ATL', // Atlanta Thrashers (became Winnipeg)
 	];
 
 	// Western Conference teams

@@ -1,5 +1,5 @@
 import { PEOPLE } from './constants.js';
-import { loadYearlyIndex, calculateCareerStats, getRealYears, IN_PROGRESS } from './common.js';
+import { loadYearlyIndex, calculateCareerStats, getRealYears, IN_PROGRESS, toNameList } from './common.js';
 import { escapeHtml as esc } from './html.js';
 import { createSection } from './tableUtils.js';
 
@@ -285,9 +285,11 @@ function buildCompetitionMargins(years) {
 	const margins = [];
 
 	years.forEach((y) => {
+		// Among tied scores the pool winner (tiebreak) comes first, so a tie at the top names the right winner
+		const winners = toNameList(y.poolWinner);
 		const scores = Object.entries(y.points || {})
 			.map(([name, score]) => ({ name, score }))
-			.sort((a, b) => b.score - a.score);
+			.sort((a, b) => b.score - a.score || (winners.includes(b.name) ? 1 : 0) - (winners.includes(a.name) ? 1 : 0));
 
 		if (scores.length >= 2 && scores[0].score > 0) {
 			// Filter out years with missing data (0 points)
