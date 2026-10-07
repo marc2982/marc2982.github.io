@@ -15,7 +15,7 @@ jobs:
         env:
           BACKEND_URL: https://script.google.com/macros/s/AKfycbxdrVz7n_EXpeaB6RyLbw85_Vp9gl5GiNn2eEdM6lPhuLWj52UW4Iw1RlcB1KjnQa_z9g/exec
         run: |
-          resp=$(curl -sSL --max-time 60 -X POST -d '{"action":"health"}' "$BACKEND_URL")
+          resp=$(curl -sSL --max-time 60 -d '{"action":"health"}' "$BACKEND_URL")
           echo "Response: $resp"
           python3 - "$resp" <<'PY'
           import json, sys, datetime
