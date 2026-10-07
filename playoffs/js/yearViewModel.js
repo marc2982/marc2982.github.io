@@ -1,5 +1,6 @@
 import { ScenarioAnalyzer } from './scenarioAnalyzer.js';
 import { excelRank } from './common.js';
+import { isTeamKnown } from './models.js';
 
 
 export function prepareSummaryViewModel(data) {
@@ -16,13 +17,15 @@ export function prepareSummaryViewModel(data) {
 		roundRankMaps.push(rankMap);
 	});
 
+	// Columns: person, one per round, Total, Rank, Max Possible, Games, Teams, Bonus
+	const headers = ['R1', 'R2', 'R3', 'R4'];
+	const totalCol = headers.length + 1;
+	const rankCol = totalCol + 1;
+	const gamesCol = totalCol + 3;
+	const teamsCol = totalCol + 4;
+
 	return {
-		headers: [
-			'R1',
-			'R2',
-			'R3',
-			'R4',
-		],
+		headers: headers,
 		rows: Object.entries(data.personSummaries).map(([person, summary]) => ({
 			person: person,
 			isLeader: person === data.tiebreakInfo?.winner,
@@ -55,14 +58,14 @@ export function prepareSummaryViewModel(data) {
 			searching: false,
 			info: false,
 			order: [
-				[5, 'desc'],
-				[8, 'desc'],
-				[9, 'desc'],
+				[totalCol, 'desc'],
+				[gamesCol, 'desc'],
+				[teamsCol, 'desc'],
 			],
 			ordering: true,
 			autoWidth: false,
 			columnDefs: [
-				{ targets: [5, 6], className: 'dt-body-center dt-head-center points' },
+				{ targets: [totalCol, rankCol], className: 'dt-body-center dt-head-center points' },
 				{ targets: [-1, -2, -3, -4], width: '5%' },
 				{ targets: '*', className: 'dt-body-center dt-head-center' },
 			],
@@ -89,22 +92,7 @@ export function prepareRoundViewModel(teams, round, priorOverall = null) {
 				roundNumber: round.number,
 				censored: true,
 				hasPriorOverall: !!priorOverall,
-				series: sortedSeries.map((series) => {
-					const topIsTbd = !series.topSeed || series.topSeed === 'undefined' || series.topSeed.toUpperCase() === 'TBD';
-					const botIsTbd = !series.bottomSeed || series.bottomSeed === 'undefined' || series.bottomSeed.toUpperCase() === 'TBD';
-					return {
-						letter: series.letter,
-						topSeed: topIsTbd ? (series.possibleTopSeeds?.join('/') || 'TBD') : series.topSeed,
-						topSeedWins: series.topSeedWins,
-						bottomSeed: botIsTbd ? (series.possibleBottomSeeds?.join('/') || 'TBD') : series.bottomSeed,
-						bottomSeedWins: series.bottomSeedWins,
-						topSeedIsWinner: series.topSeedWins === 4,
-						bottomSeedIsWinner: series.bottomSeedWins === 4,
-						nextGameDesc: series.getNextGameDesc(),
-						scoresTooltip: series.getScoresTooltip(),
-						isTbd: topIsTbd || botIsTbd
-					};
-				}),
+				series: sortedSeries.map(buildSeriesViewModel),
 				participants: allPeople.map(person => ({
 					person,
 					hasSubmitted: submitted.has(person),
@@ -113,9 +101,11 @@ export function prepareRoundViewModel(teams, round, priorOverall = null) {
 		}
 	}
 
-	const isScenarioEnabled = round.number > 1;
-	const scenarioAnalyzer = isScenarioEnabled ? new ScenarioAnalyzer() : null;
-	const volatility = isScenarioEnabled ? scenarioAnalyzer.analyzeRankVolatility(round, priorOverall) : {};
+	// Scenarios can only be enumerated once every unfinished matchup in the round is known
+	const scenarioAnalyzer = round.number > 1 ? new ScenarioAnalyzer() : null;
+	const scenariosPending = !!scenarioAnalyzer && scenarioAnalyzer.hasUndeterminedSeries(round);
+	const isScenarioEnabled = !!scenarioAnalyzer && !scenariosPending;
+	const volatility = scenarioAnalyzer ? scenarioAnalyzer.analyzeRankVolatility(round, priorOverall) : {};
 	const leaders = round.summary.winners;
 	const roundIsOver = sortedSeries.every(s => s.isOver());
 
@@ -124,22 +114,7 @@ export function prepareRoundViewModel(teams, round, priorOverall = null) {
 		roundIsOver,
 		hasPriorOverall: !!priorOverall,
 		llmSummary: round.llmSummary,
-		series: sortedSeries.map((series) => {
-			const topIsTbd = !series.topSeed || series.topSeed === 'undefined' || series.topSeed.toUpperCase() === 'TBD';
-			const botIsTbd = !series.bottomSeed || series.bottomSeed === 'undefined' || series.bottomSeed.toUpperCase() === 'TBD';
-			return {
-				letter: series.letter,
-				topSeed: topIsTbd ? (series.possibleTopSeeds?.join('/') || 'TBD') : series.topSeed,
-				topSeedWins: series.topSeedWins,
-				bottomSeed: botIsTbd ? (series.possibleBottomSeeds?.join('/') || 'TBD') : series.bottomSeed,
-				bottomSeedWins: series.bottomSeedWins,
-				topSeedIsWinner: series.topSeedWins === 4,
-				bottomSeedIsWinner: series.bottomSeedWins === 4,
-				nextGameDesc: series.getNextGameDesc(),
-				scoresTooltip: series.getScoresTooltip(),
-				isTbd: topIsTbd || botIsTbd
-			};
-		}),
+		series: sortedSeries.map(buildSeriesViewModel),
 		picks: Object.entries(round.pickResults).map(([person, results]) => {
 			const summary = round.summary.summaries[person];
 			const personVolatility = volatility[person];
@@ -185,8 +160,8 @@ export function prepareRoundViewModel(teams, round, priorOverall = null) {
 					const seriesResult = results[series.letter];
 					const pick = seriesResult?.pick || {};
 					const team = teams[pick.team];
-					const topIsTbd = !series.topSeed || series.topSeed === 'undefined' || series.topSeed.toUpperCase() === 'TBD';
-					const botIsTbd = !series.bottomSeed || series.bottomSeed === 'undefined' || series.bottomSeed.toUpperCase() === 'TBD';
+					const topIsTbd = !isTeamKnown(series.topSeed);
+					const botIsTbd = !isTeamKnown(series.bottomSeed);
 					const isTBD = !pick.team && (topIsTbd || botIsTbd);
 
 					let picksToRender = [pick];
@@ -216,6 +191,8 @@ export function prepareRoundViewModel(teams, round, priorOverall = null) {
 				priorOverall: priorOverall ? (priorOverall[person] || 0) : null,
 				rank: summary.rank,
 				rankRange: personVolatility?.rankRange,
+				scenariosAvailable: isScenarioEnabled,
+				scenariosPending: scenariosPending,
 				targets: targets.sort((a, b) => a.gap - b.gap),
 				threats: threats.sort((a, b) => a.gap - b.gap),
 				possiblePoints: summary.possiblePoints,
@@ -225,6 +202,23 @@ export function prepareRoundViewModel(teams, round, priorOverall = null) {
 			};
 		}),
 		dataTableConfig: getDataTableConfigForRound(sortedSeries.length, !!priorOverall),
+	};
+}
+
+function buildSeriesViewModel(series) {
+	const topIsTbd = !isTeamKnown(series.topSeed);
+	const botIsTbd = !isTeamKnown(series.bottomSeed);
+	return {
+		letter: series.letter,
+		topSeed: topIsTbd ? series.possibleTopSeeds?.join('/') || 'TBD' : series.topSeed,
+		topSeedWins: series.topSeedWins,
+		bottomSeed: botIsTbd ? series.possibleBottomSeeds?.join('/') || 'TBD' : series.bottomSeed,
+		bottomSeedWins: series.bottomSeedWins,
+		topSeedIsWinner: series.topSeedWins === 4,
+		bottomSeedIsWinner: series.bottomSeedWins === 4,
+		nextGameDesc: series.getNextGameDesc(),
+		scoresTooltip: series.getScoresTooltip(),
+		isTbd: topIsTbd || botIsTbd,
 	};
 }
 

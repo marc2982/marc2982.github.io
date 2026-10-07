@@ -1,19 +1,35 @@
-import { PickStatus } from './models.js';
+import { isTeamKnown, selectActivePick } from './models.js';
 
 export class ScenarioAnalyzer {
-	constructor(pickResultCalculator) {
-		this.calculator = pickResultCalculator;
+	constructor() {
+		// round -> { permutations, totalsByPerson } so each person's scenario
+		// totals are computed once per round instead of once per pair of people.
+		this.scenarioCache = new WeakMap();
+	}
+
+	/** A series is "determined" once both of its teams are known. */
+	isDetermined(series) {
+		return isTeamKnown(series.topSeed) && isTeamKnown(series.bottomSeed);
+	}
+
+	/** True if any unfinished series in the round still has an unknown team. */
+	hasUndeterminedSeries(round) {
+		return round.serieses.some((s) => !s.isOver() && !this.isDetermined(s));
 	}
 
 	/**
 	 * For each person, calculate their current overall points and their potential max/min points.
 	 * Returns a map of person -> { current, min, max, rankRange: [best, worst] }
+	 *
+	 * Series whose teams are still unknown can't be enumerated, so they are bounded
+	 * conservatively: 0 points at worst, the pick's remaining possible points at best.
 	 */
 	analyzeRankVolatility(round, priorOverall) {
 		const people = Object.keys(round.pickResults);
 		const scoring = round.scoring;
 		const activeSeries = round.serieses.filter((s) => !s.isOver());
 		const completedSeries = round.serieses.filter((s) => s.isOver());
+		const maxForSeries = scoring ? scoring.team + scoring.games + scoring.bonus : 0;
 
 		// 1. Calculate constant points (already earned or locked in)
 		const baseOverallPoints = {};
@@ -35,18 +51,20 @@ export class ScenarioAnalyzer {
 			potentials[person] = {};
 			for (const series of activeSeries) {
 				const picks = round.pickResults[person][series.letter];
-				const outcomes = this.getPossibleOutcomes(series);
-				let maxPts = -Infinity;
-				let minPts = Infinity;
 
-				const pickArray = Array.isArray(picks?.conditionalPicks) ? picks.conditionalPicks : [picks?.pick].filter(Boolean);
-				
-				for (const outcome of outcomes) {
-					// We need to handle conditional picks logic here too
-					const activePick = this.findActivePick(pickArray, series, outcome);
-					const pts = this.calculatePointsForOutcome(scoring, activePick, outcome);
-					maxPts = Math.max(maxPts, pts);
-					minPts = Math.min(minPts, pts);
+				if (!this.isDetermined(series)) {
+					potentials[person][series.letter] = { min: 0, max: picks?.possiblePoints ?? maxForSeries };
+					continue;
+				}
+
+				const outcomes = this.getPossibleOutcomes(series);
+				const activePick = selectActivePick(this.getPickArray(picks), series);
+				let maxPts = 0;
+				let minPts = 0;
+				if (outcomes.length > 0) {
+					const pts = outcomes.map((outcome) => this.calculatePointsForOutcome(scoring, activePick, outcome));
+					maxPts = Math.max(...pts);
+					minPts = Math.min(...pts);
 				}
 				potentials[person][series.letter] = { min: minPts, max: maxPts };
 			}
@@ -85,72 +103,101 @@ export class ScenarioAnalyzer {
 		return results;
 	}
 
+	getCurrentGap(person, target, round, priorOverall) {
+		const total = (name) => ((priorOverall && priorOverall[name]) || 0) + (round.summary.summaries[name]?.points || 0);
+		return total(target) - total(person);
+	}
+
+	/** Permutations of the remaining outcomes plus per-person point totals for each, cached per round. */
+	getScenarioData(round, activeSeries) {
+		let data = this.scenarioCache.get(round);
+		if (!data) {
+			const seriesOutcomes = activeSeries.map((s) => this.getPossibleOutcomes(s));
+			data = { permutations: this.getPermutations(seriesOutcomes), totalsByPerson: new Map() };
+			this.scenarioCache.set(round, data);
+		}
+		return data;
+	}
+
+	getPersonTotals(person, round, activeSeries, data) {
+		let totals = data.totalsByPerson.get(person);
+		if (!totals) {
+			const picks = round.pickResults[person] || {};
+			const activePicks = activeSeries.map((s) => selectActivePick(this.getPickArray(picks[s.letter]), s));
+			totals = data.permutations.map((scenario) =>
+				scenario.reduce((sum, outcome, i) => sum + this.calculatePointsForOutcome(round.scoring, activePicks[i], outcome), 0),
+			);
+			data.totalsByPerson.set(person, totals);
+		}
+		return totals;
+	}
+
 	/**
 	 * Brute-forces all possible outcomes for active series and returns statistical insights.
+	 * Every outcome (team + series length) is weighted equally, so "successCount / totalCount"
+	 * is a share of scenarios, not a probability.
 	 */
 	analyzeAllScenarios(person, target, round, priorOverall) {
 		const activeSeries = round.serieses.filter((s) => !s.isOver());
-		if (activeSeries.length === 0) return { successCount: 0, totalCount: 1, highImpact: [], bestPath: null, worstPath: null };
+		const currentGap = this.getCurrentGap(person, target, round, priorOverall);
+
+		if (activeSeries.length === 0) {
+			return { successCount: 0, totalCount: 1, canCatch: false, highImpact: [], bestPath: null, worstPath: null, currentGap };
+		}
+		if (activeSeries.some((s) => !this.isDetermined(s))) {
+			// Matchups still unknown: outcomes can't be enumerated yet
+			return {
+				undetermined: true,
+				successCount: 0,
+				totalCount: 0,
+				canCatch: false,
+				highImpact: [],
+				conservativePath: null,
+				aggressivePath: null,
+				currentGap,
+			};
+		}
 
 		const scoring = round.scoring;
-		const personPicks = round.pickResults[person];
-		const targetPicks = round.pickResults[target];
-		
-		const currentGap = ((priorOverall && priorOverall[target]) || 0) + (round.summary.summaries[target]?.points || 0) - 
-						  (((priorOverall && priorOverall[person]) || 0) + (round.summary.summaries[person]?.points || 0));
+		const personPicks = round.pickResults[person] || {};
+		const targetPicks = round.pickResults[target] || {};
 
-		const seriesOutcomes = activeSeries.map(s => this.getPossibleOutcomes(s));
-		const permutations = this.getPermutations(seriesOutcomes);
+		const data = this.getScenarioData(round, activeSeries);
+		const { permutations } = data;
+		const personTotals = this.getPersonTotals(person, round, activeSeries, data);
+		const targetTotals = this.getPersonTotals(target, round, activeSeries, data);
 		const totalCount = permutations.length;
 
 		let successCount = 0;
 		const outcomeFrequencies = {}; // "L:EDM:6" -> count
-		const teamFrequencies = {};    // "L:EDM" -> count
+		const teamFrequencies = {}; // "L:EDM" -> count
 		let bestRelGain = -Infinity;
 		let worstRelGain = Infinity;
 		let bestScenario = null;
 		let worstScenario = null;
 
-		for (const scenario of permutations) {
-			let pPts = 0;
-			let tPts = 0;
-			
+		for (let n = 0; n < totalCount; n++) {
+			const relGain = personTotals[n] - targetTotals[n];
+			if (relGain < currentGap) continue;
+
+			const scenario = permutations[n];
+			successCount++;
+			// Track frequencies for successful paths
 			for (let i = 0; i < scenario.length; i++) {
 				const outcome = scenario[i];
-				const seriesLetter = activeSeries[i].letter;
-				
-				const pPickArr = this.getPickArray(personPicks[seriesLetter]);
-				const tPickArr = this.getPickArray(targetPicks[seriesLetter]);
-				
-				const pPick = this.findActivePick(pPickArr, activeSeries[i], outcome);
-				const tPick = this.findActivePick(tPickArr, activeSeries[i], outcome);
-				
-				pPts += this.calculatePointsForOutcome(scoring, pPick, outcome);
-				tPts += this.calculatePointsForOutcome(scoring, tPick, outcome);
+				const outcomeKey = `${activeSeries[i].letter}:${outcome.team}:${outcome.games}`;
+				const teamKey = `${activeSeries[i].letter}:${outcome.team}`;
+				outcomeFrequencies[outcomeKey] = (outcomeFrequencies[outcomeKey] || 0) + 1;
+				teamFrequencies[teamKey] = (teamFrequencies[teamKey] || 0) + 1;
 			}
 
-			const relGain = pPts - tPts;
-			const isSuccess = relGain >= currentGap;
-
-			if (isSuccess) {
-				successCount++;
-				// Track frequencies for successful paths
-				for (let i = 0; i < scenario.length; i++) {
-					const outcome = scenario[i];
-					const outcomeKey = `${activeSeries[i].letter}:${outcome.team}:${outcome.games}`;
-					const teamKey = `${activeSeries[i].letter}:${outcome.team}`;
-					outcomeFrequencies[outcomeKey] = (outcomeFrequencies[outcomeKey] || 0) + 1;
-					teamFrequencies[teamKey] = (teamFrequencies[teamKey] || 0) + 1;
-				}
-
-				if (relGain > bestRelGain) {
-					bestRelGain = relGain;
-					bestScenario = scenario;
-				}
-				if (relGain < worstRelGain || worstRelGain === Infinity) {
-					worstRelGain = relGain;
-					worstScenario = scenario;
-				}
+			if (relGain > bestRelGain) {
+				bestRelGain = relGain;
+				bestScenario = scenario;
+			}
+			if (relGain < worstRelGain) {
+				worstRelGain = relGain;
+				worstScenario = scenario;
 			}
 		}
 
@@ -182,7 +229,7 @@ export class ScenarioAnalyzer {
 			highImpact: highImpact.sort((a, b) => b.frequency - a.frequency),
 			conservativePath: successCount > 0 ? this.buildPath(activeSeries, worstScenario, personPicks, targetPicks, scoring) : null,
 			aggressivePath: successCount > 0 ? this.buildPath(activeSeries, bestScenario, personPicks, targetPicks, scoring) : null,
-			currentGap
+			currentGap,
 		};
 	}
 
@@ -206,8 +253,8 @@ export class ScenarioAnalyzer {
 		let totalRelGain = 0;
 		const path = seriesList.map((series, i) => {
 			const outcome = scenario[i];
-			const pPick = this.findActivePick(this.getPickArray(personPicks[series.letter]), series, outcome);
-			const tPick = this.findActivePick(this.getPickArray(targetPicks[series.letter]), series, outcome);
+			const pPick = this.findActivePick(this.getPickArray(personPicks[series.letter]), series);
+			const tPick = this.findActivePick(this.getPickArray(targetPicks[series.letter]), series);
 			const pPts = this.calculatePointsForOutcome(scoring, pPick, outcome);
 			const tPts = this.calculatePointsForOutcome(scoring, tPick, outcome);
 			const relGain = pPts - tPts;
@@ -218,99 +265,36 @@ export class ScenarioAnalyzer {
 				outcome,
 				personPoints: pPts,
 				targetPoints: tPts,
-				relativeGain: relGain
+				relativeGain: relGain,
 			};
 		});
 		return { path, totalRelativeGain: totalRelGain };
 	}
 
-	/**
-	 * Finds the specific set of outcomes that allows 'person' to gain the most points relative to 'target'.
-	 */
-	calculateBestPath(person, target, round, priorOverall) {
-		const scoring = round.scoring;
-		const activeSeries = round.serieses.filter((s) => !s.isOver());
-		const path = [];
-		let totalRelativeGain = 0;
-
-		const currentGap = ((priorOverall && priorOverall[target]) || 0) + (round.summary.summaries[target]?.points || 0) - 
-						  (((priorOverall && priorOverall[person]) || 0) + (round.summary.summaries[person]?.points || 0));
-
-		for (const series of activeSeries) {
-			const personPicks = round.pickResults[person][series.letter];
-			const targetPicks = round.pickResults[target][series.letter];
-			
-			const personPickArr = Array.isArray(personPicks?.conditionalPicks) ? personPicks.conditionalPicks : [personPicks?.pick].filter(Boolean);
-			const targetPickArr = Array.isArray(targetPicks?.conditionalPicks) ? targetPicks.conditionalPicks : [targetPicks?.pick].filter(Boolean);
-
-			const outcomes = this.getPossibleOutcomes(series);
-			let maxRelGain = -Infinity;
-			let bestOutcome = null;
-			let personPtsAtBest = 0;
-			let targetPtsAtBest = 0;
-
-			for (const outcome of outcomes) {
-				const pPick = this.findActivePick(personPickArr, series, outcome);
-				const tPick = this.findActivePick(targetPickArr, series, outcome);
-				
-				const pPts = this.calculatePointsForOutcome(scoring, pPick, outcome);
-				const tPts = this.calculatePointsForOutcome(scoring, tPick, outcome);
-				
-				const relGain = pPts - tPts;
-				if (relGain > maxRelGain) {
-					maxRelGain = relGain;
-					bestOutcome = outcome;
-					personPtsAtBest = pPts;
-					targetPtsAtBest = tPts;
-				}
-			}
-
-			if (maxRelGain !== 0 || (bestOutcome && (personPtsAtBest > 0 || targetPtsAtBest > 0))) {
-				path.push({
-					seriesLetter: series.letter,
-					seriesDesc: series.getShortDesc(),
-					outcome: bestOutcome,
-					personPoints: personPtsAtBest,
-					targetPoints: targetPtsAtBest,
-					relativeGain: maxRelGain
-				});
-				totalRelativeGain += maxRelGain;
-			}
-		}
-
-		return {
-			target,
-			currentGap,
-			totalRelativeGain,
-			canCatch: totalRelativeGain >= currentGap,
-			path
-		};
-	}
-
 	getPossibleOutcomes(series) {
 		const outcomes = [];
-		const teams = [series.topSeed, series.bottomSeed].filter(t => t && t !== 'TBD' && t !== 'undefined');
-		
+		const teams = [series.topSeed, series.bottomSeed].filter(isTeamKnown);
+
 		if (teams.length < 2) return [];
 
 		const topWins = series.topSeedWins || 0;
 		const botWins = series.bottomSeedWins || 0;
 
 		for (const team of teams) {
-			const currentWins = (team === series.topSeed) ? topWins : botWins;
-			const oppWins = (team === series.topSeed) ? botWins : topWins;
-			
+			const currentWins = team === series.topSeed ? topWins : botWins;
+			const oppWins = team === series.topSeed ? botWins : topWins;
+
 			// A team needs 4 wins to win the series.
 			// They can win in 4, 5, 6, or 7 games total.
 			for (let totalGames = 4; totalGames <= 7; totalGames++) {
 				// To win in 'totalGames', the opponent must have exactly (totalGames - 4) wins.
 				const requiredOppWins = totalGames - 4;
-				
+
 				// This outcome is possible if:
 				// 1. The opponent hasn't already won more games than allowed for this outcome.
 				// 2. The team hasn't already won 4 games (should be covered by isOver check, but good to be safe).
 				// 3. The current total games played is less than the target totalGames.
-				if (oppWins <= requiredOppWins && currentWins < 4 && (topWins + botWins) < totalGames) {
+				if (oppWins <= requiredOppWins && currentWins < 4 && topWins + botWins < totalGames) {
 					outcomes.push({ team, games: totalGames });
 				}
 			}
@@ -318,20 +302,16 @@ export class ScenarioAnalyzer {
 		return outcomes;
 	}
 
-	findActivePick(pickArray, series, outcome) {
-		if (pickArray.length === 0) return null;
-		if (pickArray.length === 1) return pickArray[0];
-		
-		// Match conditional pick logic from PickResultCalculator
-		const matchedPick = pickArray.find(p => p.team === outcome.team || p.opponent === outcome.team);
-		return matchedPick || pickArray[0];
+	/** Which of a person's picks applies to this series (depends on the matchup, not the outcome). */
+	findActivePick(pickArray, series) {
+		return selectActivePick(pickArray, series);
 	}
 
 	calculatePointsForOutcome(scoring, pick, outcome) {
 		if (!pick || !outcome) return 0;
 		const correctTeam = pick.team === outcome.team;
 		const correctGames = pick.games === outcome.games;
-		
+
 		let pts = 0;
 		if (correctTeam) pts += scoring.team;
 		if (correctGames) pts += scoring.games;
