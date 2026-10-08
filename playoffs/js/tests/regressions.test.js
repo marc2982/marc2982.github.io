@@ -9,6 +9,7 @@ import { aggregateTeamStats, getConference } from '../teamAnalysis.js';
 import { PicksImporter } from '../picksImporter.js';
 import { NhlTeamRepository } from '../nhlApiHandler.js';
 import { resolveSeriesSeeds } from '../yearBuilder.js';
+import { picksYear, pickTargetRound, roundPicksState } from '../picksStatus.js';
 
 const mkSeries = (d) => Series.create({ topSeedWins: 0, bottomSeedWins: 0, ...d });
 const mkPick = (team, games, opponent = null) => Pick.create({ team, games, opponent });
@@ -265,6 +266,56 @@ export async function runRegressionTests() {
 		const csv = 'Timestamp,Name,Team,Games\n2025-01-01,OldSchool,TB,6\n';
 		const picks = new PicksImporter(seriesRepo, repo).processRows(csv, 1);
 		assertEq(picks.Oldschool.A[0].team, 'TBL');
+	});
+
+	// ---- picksStatus (home page Make Picks button) ----
+	const hrs = (n, now) => new Date(now.getTime() + n * 3600 * 1000).toISOString();
+	const NOW = new Date('2027-04-20T12:00:00Z');
+	const ser = (letter, top, bot, startOffsetH, wins = [0, 0]) =>
+		Object.assign(mkSeries({ letter, topSeed: top, bottomSeed: bot, topSeedWins: wins[0], bottomSeedWins: wins[1] }), {
+			startTimeUTC: startOffsetH === null ? undefined : hrs(startOffsetH, NOW),
+		});
+	const round1 = (offsets, wins = {}) => 'ABCDEFGH'.split('').map((l, i) => ser(l, 'T' + l, 'B' + l, offsets[i], wins[l]));
+	const futureRounds = () => 'IJKLMNO'.split('').map((l) => mkSeries({ letter: l, topSeed: undefined, bottomSeed: undefined }));
+
+	test('picksStatus', 'picksYear looks ahead from September', () => {
+		assertEq(picksYear(new Date(2026, 9, 7)), 2027);
+		assertEq(picksYear(new Date(2027, 3, 20)), 2027);
+		assertEq(picksYear(new Date(2027, 8, 1)), 2028);
+	});
+
+	test('picksStatus', 'round more than 3 days out is not open, with the unlock date', () => {
+		const list = [...round1([100, 100, 101, 101, 102, 102, 103, 103]), ...futureRounds()];
+		const st = roundPicksState(list, pickTargetRound(list, NOW), NOW);
+		assertEq(st.state, 'not-open');
+		assertEq(st.round, 1);
+		assertEq(st.unlockDate.toISOString(), hrs(100 - 72, NOW));
+	});
+
+	test('picksStatus', 'open within 3 days, locked once every series has started', () => {
+		let list = [...round1([40, 40, 41, 41, 42, 42, 43, 43]), ...futureRounds()];
+		assertEq(roundPicksState(list, pickTargetRound(list, NOW), NOW).state, 'open');
+		list = [...round1([-5, -5, -4, -4, -3, -3, -2, -2]), ...futureRounds()];
+		assertEq(roundPicksState(list, pickTargetRound(list, NOW), NOW).state, 'locked');
+		// some started, some not: still open for the rest
+		list = [...round1([-5, -5, 20, 20, 20, 20, 20, 20]), ...futureRounds()];
+		assertEq(roundPicksState(list, pickTargetRound(list, NOW), NOW).state, 'open');
+	});
+
+	test('picksStatus', 'overlapping next round opens while round 1 is locked', () => {
+		const r1 = round1([-90, -90, -88, -88, -86, -86, -84, -84], { A: [4, 1] });
+		const r2 = 'IJKL'.split('').map((l) => ser(l, 'X' + l, 'Y' + l, 30));
+		const list = [...r1, ...r2, ...'MNO'.split('').map((l) => mkSeries({ letter: l }))];
+		const target = pickTargetRound(list, NOW);
+		assertEq(target, 1);
+		assertEq(roundPicksState(list, target, NOW).state, 'open');
+		assertEq(roundPicksState(list, target, NOW).round, 2);
+	});
+
+	test('picksStatus', 'no bracket yet is not open', () => {
+		const list = futureRounds();
+		assertEq(pickTargetRound(list, NOW), -1);
+		assertEq(roundPicksState(list, -1, NOW).state, 'not-open');
 	});
 
 	// ---- yearBuilder ----

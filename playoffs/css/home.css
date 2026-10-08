@@ -35,6 +35,30 @@ html.dark-mode .picks-btn:hover {
 	box-shadow: 0 4px 12px rgba(0, 51, 160, 0.45);
 }
 
+/* Closed state: still a link (to the picks page or the year), but clearly not the call to action */
+.picks-btn.picks-closed,
+html.dark-mode .picks-btn.picks-closed {
+	background: transparent;
+	color: #6c757d;
+	border: 1px solid rgba(128, 128, 128, 0.5);
+	box-shadow: none;
+	font-weight: 600;
+}
+
+html.dark-mode .picks-btn.picks-closed {
+	color: #adb5bd;
+}
+
+.picks-btn.picks-closed:hover {
+	color: #495057;
+	transform: none;
+	box-shadow: none;
+}
+
+html.dark-mode .picks-btn.picks-closed:hover {
+	color: #e6e6e6;
+}
+
 /* ---- Hero strip ---- */
 .hero-strip {
 	display: grid;
