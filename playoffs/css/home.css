@@ -173,7 +173,7 @@ html.dark-mode .picks-btn.picks-closed:hover {
 	display: inline-flex;
 	flex-wrap: wrap;
 	align-items: center;
-	justify-content: flex-end;
+	justify-content: flex-start;
 	gap: 4px 6px;
 }
 
@@ -222,11 +222,37 @@ tr.roast-row.roast-hidden {
 }
 
 /* ---- Wins & losses ---- */
+/* Desktop: a compact leaderboard, left-aligned, bars fill their column (mobile cards are further down) */
+@media (min-width: 701px) {
+	#winsLosses th,
+	#winsLosses td {
+		text-align: left !important;
+	}
+
+	#winsLosses th:first-child,
+	#winsLosses td:first-child {
+		padding-left: 20px;
+	}
+
+	#winsLosses th:first-child,
+	#winsLosses td:first-child,
+	html.dark-mode #winsLosses th:first-child,
+	html.dark-mode #winsLosses td:first-child {
+		background: transparent !important;
+		backdrop-filter: none;
+		-webkit-backdrop-filter: none;
+	}
+
+	#winsLosses th:first-child {
+		width: 36%;
+	}
+}
+
 .bar-cell {
 	display: flex;
 	align-items: center;
-	gap: 10px;
-	justify-content: center;
+	gap: 12px;
+	justify-content: flex-start;
 }
 
 .bar-num {
@@ -236,8 +262,8 @@ tr.roast-row.roast-hidden {
 }
 
 .bar-track {
-	flex: 0 1 140px;
-	width: 140px;
+	flex: 1 1 auto;
+	max-width: 260px;
 	height: 8px;
 	border-radius: 4px;
 	background: rgba(0, 0, 0, 0.06);
@@ -457,8 +483,13 @@ html.dark-mode .repeat-badge {
 	}
 
 	.bar-track {
-		flex-basis: 90px;
+		flex: 0 1 90px;
 		width: 90px;
+		max-width: none;
+	}
+
+	.person-cell {
+		justify-content: flex-end;
 	}
 
 	html.dark-mode #winsLosses tr {
