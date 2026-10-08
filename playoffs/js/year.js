@@ -384,8 +384,8 @@ export function renderProjections(data, table) {
                     <td>${scenario.games}</td>
                     ${scenario.cells
 						.map(
-							(cell) => `
-                        <td class="${cell.cssClass}">
+							(cell, ci) => `
+                        <td class="${cell.cssClass}" data-team="${esc(viewModel.teams[ci].short)}">
                             <div class="projection-box">
                                 <div class="projection-content">
                                     <div class="projection-winners">

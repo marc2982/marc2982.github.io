@@ -158,5 +158,48 @@ html.dark-mode .st-card {
     #main-content .containing_table .pick .img_container { padding: 3px 2px; }
     #main-content .containing_table .pick .games { padding: 3px 4px; font-size: 0.9rem; }
     #main-content .containing_table .pick { margin-top: 2px; margin-bottom: 2px; }
-    #main-content .containing_table .round-points-cell .points-wrap { width: 2em; }
+}
+
+/* Phones: projection scenarios become stacked cards ("Cup final in 6 games" -> one box per team) */
+@media (max-width: 700px) {
+    #projectionsTable { overflow: visible; }
+    #projectionsTable thead { display: none; }
+    #projectionsTable tbody,
+    #projectionsTable tr,
+    #projectionsTable td { display: block; width: auto !important; }
+    #projectionsTable tr {
+        margin-bottom: 14px;
+        padding: 8px 10px;
+        border: 1px solid rgba(128, 128, 128, 0.3);
+        border-radius: 10px;
+    }
+    #projectionsTable td:first-child {
+        position: static;
+        padding: 2px 4px 6px;
+        font-size: 1rem;
+        font-weight: 700;
+        height: auto;
+        background: transparent !important;
+        backdrop-filter: none;
+    }
+    #projectionsTable td:first-child::before { content: 'Final in '; opacity: 0.7; font-weight: 600; }
+    #projectionsTable td:first-child::after { content: ' games'; opacity: 0.7; font-weight: 600; }
+    #projectionsTable td[data-team] { height: auto; padding: 0; }
+    #projectionsTable td[data-team]::before {
+        content: 'If ' attr(data-team) ' wins';
+        display: block;
+        margin: 6px 4px 0;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        opacity: 0.65;
+    }
+    #projectionsTable .projection-box { height: auto; margin: 4px 0; padding: 10px 12px; }
+    #projectionsTable .projection-content { gap: 10px; }
+    #projectionsTable .projection-winners { padding-right: 10px; }
+}
+
+@media (max-width: 700px) {
+    #summaryTable td.stats-divider { padding-left: 1.6rem; }
 }
