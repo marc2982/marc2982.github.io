@@ -87,7 +87,7 @@ function renderHero(container, years) {
 			<div class="hero-tile hero-champ">
 				<div class="hero-label">Reigning champion · ${hero.year}</div>
 				<div class="hero-main">${personChips(hero.winners, 'winner')}${pts(hero.winnerPoints)}</div>
-				<div class="hero-sub">Cup: ${teamChip(hero.cupWinner)}</div>
+				<div class="hero-sub"><span class="hero-sub-label">Cup</span>${teamChip(hero.cupWinner)}</div>
 			</div>
 			<div class="hero-tile">
 				<div class="hero-label">Wooden spoon · ${hero.year}</div>
