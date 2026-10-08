@@ -60,15 +60,42 @@
 }
 
 /* ---- Table polish ---- */
-#yearlyResults tr.decade-start td {
-	border-top: 2px solid rgba(102, 126, 234, 0.3);
+/* Each decade gets its own hue: a faint row tint plus a stripe down the left edge */
+#yearlyResults tbody tr[data-decade] td {
+	background: hsla(var(--dh), 60%, 50%, 0.08);
+}
+
+#yearlyResults tbody tr[data-decade] td:first-child {
+	box-shadow: inset 4px 0 0 hsl(var(--dh), 60%, 50%);
+}
+
+.chip-row {
+	display: inline-flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: center;
+}
+
+.chip-row.multi .person-chip {
+	font-size: 0.8rem;
+	padding-right: 8px;
+}
+
+.chip-row.multi .person-chip .avatar {
+	width: 20px;
+	height: 20px;
+	font-size: 0.7rem;
+}
+
+.chip-row.multi .chip-icon {
+	display: none;
 }
 
 /* ---- Expandable recap rows ---- */
 .roast-toggle {
 	border: none;
 	background: none;
-	color: #667eea;
+	color: hsl(var(--dh, 230), 55%, 45%);
 	cursor: pointer;
 	font-size: 0.95rem;
 	padding: 4px 6px;
@@ -95,7 +122,7 @@ tr.roast-row.roast-hidden {
 	padding: 12px 24px 14px 72px;
 	font-size: 0.95rem;
 	line-height: 1.5;
-	border-left: 3px solid #667eea;
+	border-left: 3px solid hsl(var(--dh, 230), 55%, 50%);
 }
 
 .roast-body p {
@@ -103,7 +130,7 @@ tr.roast-row.roast-hidden {
 }
 
 .roast-body a {
-	color: #667eea;
+	color: hsl(var(--dh, 230), 55%, 45%);
 	font-weight: 600;
 	text-decoration: none;
 }
@@ -178,16 +205,20 @@ html.dark-mode .hero-pts {
 	color: #e6e6e6;
 }
 
-html.dark-mode #yearlyResults tr.decade-start td {
-	border-top-color: rgba(233, 69, 96, 0.35);
+html.dark-mode #yearlyResults tbody tr[data-decade] td {
+	background: hsla(var(--dh), 65%, 60%, 0.1);
+}
+
+html.dark-mode #yearlyResults tbody tr[data-decade] td:first-child {
+	box-shadow: inset 4px 0 0 hsl(var(--dh), 65%, 60%);
 }
 
 html.dark-mode .roast-toggle {
-	color: #e94560;
+	color: hsl(var(--dh, 230), 70%, 70%);
 }
 
 html.dark-mode .roast-toggle:hover {
-	background: rgba(233, 69, 96, 0.15);
+	background: hsla(var(--dh, 230), 65%, 60%, 0.2);
 }
 
 html.dark-mode tr.roast-row td {
@@ -195,11 +226,11 @@ html.dark-mode tr.roast-row td {
 }
 
 html.dark-mode .roast-body {
-	border-left-color: #e94560;
+	border-left-color: hsl(var(--dh, 230), 65%, 60%);
 }
 
 html.dark-mode .roast-body a {
-	color: #e94560;
+	color: hsl(var(--dh, 230), 70%, 70%);
 }
 
 html.dark-mode .bar-track {
@@ -245,7 +276,8 @@ html.dark-mode .repeat-badge {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 12px;
+		flex-wrap: wrap;
+		gap: 4px 12px;
 		height: auto !important;
 		padding: 5px 10px !important;
 		text-align: right !important;
@@ -268,6 +300,21 @@ html.dark-mode .repeat-badge {
 
 	#yearlyResults tr.decade-start {
 		margin-top: 18px;
+	}
+
+	#yearlyResults tbody tr[data-decade] {
+		background: hsla(var(--dh), 60%, 50%, 0.1);
+		box-shadow: inset 4px 0 0 hsl(var(--dh), 60%, 50%);
+	}
+
+	#yearlyResults tbody tr[data-decade] td,
+	html.dark-mode #yearlyResults tbody tr[data-decade] td {
+		background: transparent;
+	}
+
+	#yearlyResults tbody tr[data-decade] td:first-child,
+	html.dark-mode #yearlyResults tbody tr[data-decade] td:first-child {
+		box-shadow: none;
 	}
 
 	#yearlyResults tr.roast-row {
@@ -293,8 +340,12 @@ html.dark-mode .repeat-badge {
 		width: 90px;
 	}
 
-	html.dark-mode #yearlyResults tr,
 	html.dark-mode #winsLosses tr {
 		background: rgba(255, 255, 255, 0.04);
+	}
+
+	html.dark-mode #yearlyResults tbody tr[data-decade] {
+		background: hsla(var(--dh), 65%, 60%, 0.12);
+		box-shadow: inset 4px 0 0 hsl(var(--dh), 65%, 60%);
 	}
 }

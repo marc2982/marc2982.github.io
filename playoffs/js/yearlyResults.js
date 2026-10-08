@@ -6,6 +6,18 @@ import { personChip, personChips, teamChip } from './badges.js';
 import { heroStats } from './homeStats.js';
 import { escapeHtml as esc } from './html.js';
 
+// Hue per decade (1990s, 2000s, 2010s, 2020s, ...) used for the row tint and left stripe.
+const DECADE_HUES = [35, 170, 275, 230, 330, 100];
+function decadeHue(decade) {
+	const n = DECADE_HUES.length;
+	return DECADE_HUES[((((decade - 1990) / 10) % n) + n) % n];
+}
+
+// Chips on one line, so rows keep a constant height when a year has several winners/losers.
+function chipRow(names, role) {
+	return `<span class="chip-row${names.length > 1 ? ' multi' : ''}">${personChips(names, role)}</span>`;
+}
+
 // Detects current season phase and updates the progress-state span.
 async function updateProgressState(year) {
 	const el = document.getElementById(`progress-state-${year}`);
@@ -99,6 +111,8 @@ async function toggleRecap(row, year, button) {
 	}
 	const detail = document.createElement('tr');
 	detail.className = 'roast-row';
+	detail.dataset.decade = row.dataset.decade;
+	detail.style.setProperty('--dh', row.style.getPropertyValue('--dh'));
 	const cell = detail.insertCell();
 	cell.colSpan = 4;
 	cell.innerHTML = '<div class="roast-body"><em>Loading recap…</em></div>';
@@ -150,7 +164,7 @@ export async function yearlyResults(resultsTable) {
 			const poolLosers = toNameList(poolLoser);
 			const poolWinnersHtml = isCurrentProgress
 				? `<span id="progress-state-${yearData.year}">In Progress</span>`
-				: personChips(poolWinners, 'winner');
+				: chipRow(poolWinners, 'winner');
 
 			var row = tbody.insertRow();
 			if (isLockout) {
@@ -166,6 +180,9 @@ export async function yearlyResults(resultsTable) {
 			}
 			
 			if (yearData.year % 10 === 9) row.classList.add('decade-start');
+			const decade = Math.floor(yearData.year / 10) * 10;
+			row.dataset.decade = String(decade);
+			row.style.setProperty('--dh', String(decadeHue(decade)));
 
 			const toggle = hasLink
 				? '<button class="roast-toggle" type="button" aria-expanded="false" aria-label="Show ' + yearData.year + ' recap" title="Show recap">▸</button>'
@@ -173,7 +190,7 @@ export async function yearlyResults(resultsTable) {
 			row.insertCell().outerHTML = '<td data-label="Year">' + toggle + '<span class="year-badge">' + yearData.year + '</span></td>';
 			const statusHtml = isLockout ? esc(TEAMS[cupWinner] || cupWinner) : poolWinnersHtml;
 			row.insertCell().outerHTML = '<td data-label="Winner" class="' + (shouldSpan ? 'status-span' : '') + '">' + statusHtml + '</td>';
-			row.insertCell().outerHTML = '<td data-label="Last place">' + (shouldSpan ? '' : personChips(poolLosers, 'loser')) + '</td>';
+			row.insertCell().outerHTML = '<td data-label="Last place">' + (shouldSpan ? '' : chipRow(poolLosers, 'loser')) + '</td>';
 			row.insertCell().outerHTML = '<td data-label="Cup winner">' + (shouldSpan ? '' : teamChip(cupWinner)) + '</td>';
 
 			if (hasLink) {
