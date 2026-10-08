@@ -12,7 +12,7 @@ export function picksYear(now = new Date()) {
 	return now.getMonth() >= 8 ? now.getFullYear() + 1 : now.getFullYear();
 }
 
-const hasTeams = (s) => s.topSeed && s.topSeed !== 'undefined' && s.topSeed.toUpperCase() !== 'TBD' && s.bottomSeed && s.bottomSeed !== 'undefined' && s.bottomSeed.toUpperCase() !== 'TBD';
+export const hasTeams = (s) => s.topSeed && s.topSeed !== 'undefined' && s.topSeed.toUpperCase() !== 'TBD' && s.bottomSeed && s.bottomSeed !== 'undefined' && s.bottomSeed.toUpperCase() !== 'TBD';
 
 export function roundIndexOf(letter) {
 	return ALL_SERIES.findIndex((round) => round.includes(letter));
@@ -25,6 +25,13 @@ export function highestActiveRound(seriesList) {
 		max = Math.max(max, roundIndexOf(s.letter));
 	});
 	return max;
+}
+
+/** Series letters whose schedules are needed to decide the target round: the highest active round and the next one. */
+export function lettersToFetch(maxRoundIdx) {
+	const letters = new Set(ALL_SERIES[maxRoundIdx] || []);
+	if (maxRoundIdx + 1 < ALL_SERIES.length) ALL_SERIES[maxRoundIdx + 1].forEach((l) => letters.add(l));
+	return [...letters];
 }
 
 /** The round picks apply to: the highest active round, or the next one once it has opened (overlapping rounds). */
@@ -43,7 +50,7 @@ export function pickTargetRound(seriesList, now = new Date()) {
  * State of the target round: 'open' (at least one series can still be picked), 'locked' (every series has started)
  * or 'not-open' (more than 3 days before the first game, or no schedule yet; unlockDate set when known).
  */
-export function roundPicksState(seriesList, targetRoundIdx, now = new Date()) {
+export function roundPicksState(seriesList, targetRoundIdx, now = new Date(), { late = false } = {}) {
 	if (targetRoundIdx < 0) return { state: 'not-open', round: null, unlockDate: null };
 	const round = targetRoundIdx + 1;
 	const roundSeries = seriesList.filter((s) => roundIndexOf(s.letter) === targetRoundIdx);
@@ -52,7 +59,8 @@ export function roundPicksState(seriesList, targetRoundIdx, now = new Date()) {
 		const unlockDate = lead?.startTimeUTC ? new Date(new Date(lead.startTimeUTC).getTime() - 3 * 24 * 60 * 60 * 1000) : null;
 		return { state: 'not-open', round, unlockDate };
 	}
-	const anyPickable = roundSeries.some((s) => !(hasTeams(s) && (s.isLocked(now) || s.topSeedWins > 0 || s.bottomSeedWins > 0)));
+	// A late pass (picks.html?late=1) treats started series as pickable too.
+	const anyPickable = late || roundSeries.some((s) => !(hasTeams(s) && (s.isLocked(now) || s.topSeedWins > 0 || s.bottomSeedWins > 0)));
 	return { state: anyPickable ? 'open' : 'locked', round, unlockDate: null };
 }
 
@@ -69,9 +77,7 @@ export async function getPicksStatus(now = new Date()) {
 
 		const max = highestActiveRound(seriesList);
 		if (max < 0) return { state: 'not-open', round: null, unlockDate: null, year };
-		const letters = new Set(ALL_SERIES[max]);
-		if (max + 1 < ALL_SERIES.length) ALL_SERIES[max + 1].forEach((l) => letters.add(l));
-		await api.fetchSchedules([...letters]);
+		await api.fetchSchedules(lettersToFetch(max));
 
 		return { ...roundPicksState(seriesList, pickTargetRound(seriesList, now), now), year };
 	} catch (e) {

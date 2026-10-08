@@ -106,6 +106,8 @@ The site will now automatically write and publish AI Round Recaps! If you don't 
 
 The backend (`backend/Code.gs`) rejects any pick for a series whose first game has already started. Start times come from the NHL API, and if that lookup fails the submission is refused rather than let through. After editing `Code.gs`, you must paste it into the Apps Script project and redeploy (Deploy > Manage deployments > edit > New version) for changes to take effect.
 
+On the site, the "which round are picks for, and is it open/locked?" logic lives in one place, `js/picksStatus.js`. Both `picks.html` (`js/picks.js`) and the home page's Make Picks button (`js/picksButton.js`) use it, so change the rules there (the picks season starts in September, rounds open 3 days before the first game, series lock when they start). The server-side lock in `Code.gs` is separate and is the one that actually enforces it.
+
 If someone misses the lock and the group is fine with it, pick one:
 
 1. **Late pass (they submit themselves).** In Apps Script go to Settings > Script Properties and add a property `LATE_PASSES` with a comma-separated list of `year:round:name`, for example `2026:2:jake,2026:3:ryan`. That person then opens `picks.html?late=1`, which shows started series as pickable. The server only accepts it if their name is listed. Remove the entry afterwards.

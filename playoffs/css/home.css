@@ -150,6 +150,15 @@ html.dark-mode .picks-btn.picks-closed:hover {
 	display: none;
 }
 
+/* Name chip + repeat badges stay together, so the cell lays out the same with or without badges */
+.person-cell {
+	display: inline-flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 4px 6px;
+}
+
 /* ---- Expandable recap rows ---- */
 .roast-toggle {
 	border: none;

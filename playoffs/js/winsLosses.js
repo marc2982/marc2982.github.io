@@ -50,7 +50,7 @@ export async function winsLosses(winsLossesTable) {
 		const runs = (repeats[person] || [])
 			.map((r) => `<span class="repeat-badge" title="${esc(person)} won ${r.length} in a row (${r.start}–${r.end})">🔥 ${runLabel(r)}</span>`)
 			.join('');
-		row.insertCell().outerHTML = '<td data-label="Person">' + personChip(person) + runs + '</td>';
+		row.insertCell().outerHTML = '<td data-label="Person"><span class="person-cell">' + personChip(person) + runs + '</span></td>';
 		row.insertCell().outerHTML = `<td data-label="Wins" data-order="${wins}">${bar(wins, maxWins, 'bar-win')}</td>`;
 		row.insertCell().outerHTML = `<td data-label="Last place" data-order="${lost}">${bar(lost, maxLosses, 'bar-loss')}</td>`;
 	});

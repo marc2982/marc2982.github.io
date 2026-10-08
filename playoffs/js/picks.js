@@ -2,16 +2,12 @@ import { escapeHtml as esc } from './html.js';
 import { GOOGLE_SCRIPT_URL, DEBUG_MODE } from './config.js';
 import { DataLoader } from './dataLoader.js';
 import { NhlApiHandler } from './nhlApiHandler.js';
-import { ALL_SERIES, Series, WINNER_MAP } from './models.js';
+import { WINNER_MAP } from './models.js';
+import { picksYear, highestActiveRound, lettersToFetch, pickTargetRound, roundPicksState, roundIndexOf, hasTeams } from './picksStatus.js';
 import { PEOPLE } from './constants.js';
 
-// Determine year (auto-detect based on current date)
-const CURRENT_YEAR = (function () {
-	const now = new Date();
-	const year = now.getFullYear();
-	// If it's September (month 8) or later, we're looking ahead to next year's playoffs
-	return now.getMonth() >= 8 ? year + 1 : year;
-})();
+// Picks season (auto-detected; shared with the home page button, see picksStatus.js)
+const CURRENT_YEAR = picksYear();
 let activeRound = 1;
 
 // Late-pass mode (?late=1): lets someone Marc has approved submit for series that already started.
@@ -54,51 +50,12 @@ async function init() {
 			return;
 		}
 
-		// Determine target round
-		const activeSeries = seriesList.filter(
-			(s) => s.topSeed && s.topSeed !== 'undefined' && s.topSeed.toUpperCase() !== 'TBD' && s.bottomSeed && s.bottomSeed !== 'undefined' && s.bottomSeed.toUpperCase() !== 'TBD',
-		);
+		// Determine target round (shared with the home page button, see picksStatus.js)
+		const maxRoundIdx = highestActiveRound(seriesList);
 
-		if (activeSeries.length > 0) {
-			const seriesToRound = {};
-			ALL_SERIES.forEach((roundLetters, roundIdx) => {
-				roundLetters.forEach((letter) => (seriesToRound[letter] = roundIdx));
-			});
-
-			let maxRoundIdx = -1;
-			activeSeries.forEach((s) => {
-				const rIdx = seriesToRound[s.letter];
-				if (rIdx > maxRoundIdx) maxRoundIdx = rIdx;
-			});
-
-			let targetRoundIdx = maxRoundIdx;
-
-			const lettersToFetch = new Set();
-			
-			// Always add ALL series in the current max round
-			if (maxRoundIdx >= 0) {
-				ALL_SERIES[maxRoundIdx].forEach(l => lettersToFetch.add(l));
-			}
-
-			// Add ALL series in the next round (for overlap detection)
-			if (maxRoundIdx + 1 < ALL_SERIES.length) {
-				ALL_SERIES[maxRoundIdx + 1].forEach(l => lettersToFetch.add(l));
-			}
-
-			await apiHandler.fetchSchedules([...lettersToFetch]);
-
-			// Now check if the NEXT round is actually open (overlapping)
-			if (maxRoundIdx + 1 < ALL_SERIES.length) {
-				const nextRoundLetters = ALL_SERIES[maxRoundIdx + 1];
-				const nextRoundSeries = seriesList.filter(s => nextRoundLetters.includes(s.letter));
-				
-				// Find the true chronological lead series of the next round
-				const nextRoundOpenSeries = nextRoundSeries.filter(s => s.startTimeUTC && Series.isRoundOpen(s.startTimeUTC));
-				if (nextRoundOpenSeries.length > 0) {
-					targetRoundIdx = maxRoundIdx + 1;
-				}
-			}
-
+		if (maxRoundIdx >= 0) {
+			await apiHandler.fetchSchedules(lettersToFetch(maxRoundIdx));
+			const targetRoundIdx = pickTargetRound(seriesList);
 			activeRound = targetRoundIdx + 1;
 			renderMatchups(seriesList, teams, targetRoundIdx, apiHandler);
 		} else {
@@ -146,22 +103,14 @@ function renderMatchups(seriesList, teamsObjects, targetRoundIdx, apiHandler) {
 		return;
 	}
 
-	const seriesToRound = {};
-	ALL_SERIES.forEach((roundLetters, roundIdx) => {
-		roundLetters.forEach((letter) => (seriesToRound[letter] = roundIdx));
-	});
+	const targetSeries = seriesList.filter((s) => roundIndexOf(s.letter) === targetRoundIdx);
 
-	const targetSeries = seriesList.filter((s) => seriesToRound[s.letter] === targetRoundIdx);
+	// 1. Check if Round is Open (3 days before chronological Lead Series); see picksStatus.js
+	const roundState = roundPicksState(seriesList, targetRoundIdx, new Date(), { late: LATE_MODE });
 
-	// 1. Check if Round is Open (3 days before chronological Lead Series)
-	const chronologicalLeadSeries = Series.getChronologicalLeadSeries(targetSeries);
-
-	// Strictly require startTimeUTC. If missing, it's either TBD or a projection (not open yet).
-	const isRoundOpen = !!(chronologicalLeadSeries && Series.isRoundOpen(chronologicalLeadSeries.startTimeUTC));
-
-	if (!isRoundOpen) {
-		if (chronologicalLeadSeries && chronologicalLeadSeries.startTimeUTC) {
-			const unlockDate = new Date(new Date(chronologicalLeadSeries.startTimeUTC).getTime() - 3 * 24 * 60 * 60 * 1000);
+	if (roundState.state === 'not-open') {
+		if (roundState.unlockDate) {
+			const unlockDate = roundState.unlockDate;
 			const weekdayStr = unlockDate.toLocaleString('default', { weekday: 'long' });
 			const monthStr = unlockDate.toLocaleString('default', { month: 'short' });
 			const dayStr = unlockDate.getDate();
@@ -180,17 +129,11 @@ function renderMatchups(seriesList, teamsObjects, targetRoundIdx, apiHandler) {
 	}
 
 	// 2. Render Cards
-	let allLocked = true;
 	let hasContingency = false;
 	targetSeries.forEach((s) => {
-		const isParticipantSet = s.topSeed && s.topSeed !== 'undefined' && s.topSeed.toUpperCase() !== 'TBD' && s.bottomSeed && s.bottomSeed !== 'undefined' && s.bottomSeed.toUpperCase() !== 'TBD';
-
-		if (isParticipantSet) {
+		if (hasTeams(s)) {
 			const topTeam = teamsObjects[s.topSeed] || { logo: '', rank: 'Top' };
 			const botTeam = teamsObjects[s.bottomSeed] || { logo: '', rank: 'Bot' };
-
-			const hasStarted = hasSeriesStarted(s);
-			if (!hasStarted) allLocked = false;
 
 			container.append(renderMatchupCard(s, s.topSeed, topTeam, s.bottomSeed, botTeam));
 		} else {
@@ -210,15 +153,11 @@ function renderMatchups(seriesList, teamsObjects, targetRoundIdx, apiHandler) {
 						);
 					});
 				});
-
-				// Check if any could have started (though TBD usually means not started)
-				const hasStarted = hasSeriesStarted(s);
-				if (!hasStarted) allLocked = false;
 			}
 		}
 	});
 
-	if (allLocked) {
+	if (roundState.state === 'locked') {
 		$('#submit-picks').prop('disabled', true).text('Round Locked');
 	} else {
 		$('#submit-picks').prop('disabled', false).text('Submit Picks');
