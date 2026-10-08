@@ -1,5 +1,40 @@
 /* Home page extras: hero strip, expandable recap rows, bars, mobile cards (see yearlyResults.js / winsLosses.js) */
 
+/* ---- Page top: title + Make Picks ---- */
+.page-top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 12px;
+	margin-bottom: 20px;
+}
+
+.picks-btn {
+	flex: none;
+	background: #0033a0;
+	color: #fff;
+	padding: 10px 20px;
+	border-radius: 20px;
+	font-weight: bold;
+	font-family: sans-serif;
+	text-decoration: none;
+	white-space: nowrap;
+	box-shadow: 0 2px 8px rgba(0, 51, 160, 0.35);
+	transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.picks-btn,
+html.dark-mode .picks-btn,
+.picks-btn:hover,
+html.dark-mode .picks-btn:hover {
+	color: #fff;
+}
+
+.picks-btn:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 4px 12px rgba(0, 51, 160, 0.45);
+}
+
 /* ---- Hero strip ---- */
 .hero-strip {
 	display: grid;
@@ -244,6 +279,41 @@ html.dark-mode .repeat-badge {
 
 /* ---- Mobile: stack each row as a card ---- */
 @media (max-width: 700px) {
+	.page-top {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.page-top #pageHeader {
+		text-align: center;
+	}
+
+	.picks-btn {
+		text-align: center;
+		padding: 12px 20px;
+		font-size: 1.05rem;
+	}
+
+	.hero-strip {
+		grid-template-columns: 1fr;
+		gap: 10px;
+	}
+
+	.hero-tile {
+		text-align: center;
+	}
+
+	.hero-main {
+		justify-content: center;
+	}
+
+	.hero-sub {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 6px;
+	}
+
 	.hero-strip {
 		grid-template-columns: 1fr;
 		gap: 10px;
