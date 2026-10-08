@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Apply dark mode styles to the toggle itself if in dark mode
     if (isDarkMode) {
-        toggleContainer.style.background = '#16213e';
+        toggleContainer.style.background = '#121c2e';
         toggleContainer.style.boxShadow = '0 2px 10px rgba(0,0,0,0.5)';
     }
 
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (isDark) {
             document.documentElement.setAttribute('data-bs-theme', 'dark');
-            toggleContainer.style.background = '#16213e';
+            toggleContainer.style.background = '#121c2e';
             toggleContainer.style.boxShadow = '0 2px 10px rgba(0,0,0,0.5)';
         } else {
             document.documentElement.removeAttribute('data-bs-theme');

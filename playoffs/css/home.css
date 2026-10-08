@@ -181,7 +181,7 @@ html.dark-mode .picks-btn.picks-closed:hover {
 .roast-toggle {
 	border: none;
 	background: none;
-	color: hsl(var(--dh, 230), 55%, 45%);
+	color: hsl(var(--dh, 205), 55%, 45%);
 	cursor: pointer;
 	font-size: 0.95rem;
 	padding: 4px 6px;
@@ -190,14 +190,14 @@ html.dark-mode .picks-btn.picks-closed:hover {
 }
 
 .roast-toggle:hover {
-	background: rgba(102, 126, 234, 0.12);
+	background: rgba(26, 143, 209, 0.12);
 }
 
 tr.roast-row td {
 	text-align: left !important;
 	height: auto !important;
 	padding: 0 !important;
-	background: rgba(102, 126, 234, 0.05);
+	background: rgba(26, 143, 209, 0.05);
 }
 
 tr.roast-row.roast-hidden {
@@ -208,7 +208,7 @@ tr.roast-row.roast-hidden {
 	padding: 12px 24px 14px 72px;
 	font-size: 0.95rem;
 	line-height: 1.5;
-	border-left: 3px solid hsl(var(--dh, 230), 55%, 50%);
+	border-left: 3px solid hsl(var(--dh, 205), 55%, 50%);
 }
 
 .roast-body p {
@@ -216,7 +216,7 @@ tr.roast-row.roast-hidden {
 }
 
 .roast-body a {
-	color: hsl(var(--dh, 230), 55%, 45%);
+	color: hsl(var(--dh, 205), 55%, 45%);
 	font-weight: 600;
 	text-decoration: none;
 }
@@ -272,13 +272,13 @@ tr.roast-row.roast-hidden {
 
 /* ---- Dark mode ---- */
 html.dark-mode .hero-tile {
-	background: #16213e;
+	background: #121c2e;
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 	border-left-color: #5b6577;
 }
 
 html.dark-mode .hero-tile.hero-champ {
-	background: linear-gradient(135deg, #16213e 60%, #3b3210);
+	background: linear-gradient(135deg, #121c2e 60%, #3b3210);
 	border-left-color: #f2b705;
 }
 
@@ -300,11 +300,11 @@ html.dark-mode #yearlyResults tbody tr[data-decade] td:first-child {
 }
 
 html.dark-mode .roast-toggle {
-	color: hsl(var(--dh, 230), 70%, 70%);
+	color: hsl(var(--dh, 205), 70%, 70%);
 }
 
 html.dark-mode .roast-toggle:hover {
-	background: hsla(var(--dh, 230), 65%, 60%, 0.2);
+	background: hsla(var(--dh, 205), 65%, 60%, 0.2);
 }
 
 html.dark-mode tr.roast-row td {
@@ -312,11 +312,11 @@ html.dark-mode tr.roast-row td {
 }
 
 html.dark-mode .roast-body {
-	border-left-color: hsl(var(--dh, 230), 65%, 60%);
+	border-left-color: hsl(var(--dh, 205), 65%, 60%);
 }
 
 html.dark-mode .roast-body a {
-	color: hsl(var(--dh, 230), 70%, 70%);
+	color: hsl(var(--dh, 205), 70%, 70%);
 }
 
 html.dark-mode .bar-track {

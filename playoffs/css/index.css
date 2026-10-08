@@ -16,9 +16,9 @@ body {
 	padding: 30px 20px;
 	margin: 0 0 30px 0;
 	border-radius: 8px;
-	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	background: linear-gradient(135deg, #1a8fd1 0%, #0b5f9e 100%);
 	color: white;
-	box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+	box-shadow: 0 4px 12px rgba(26, 143, 209, 0.3);
 	font-weight: bold;
 	letter-spacing: 1px;
 	text-align: center;
@@ -49,12 +49,12 @@ body {
 
 .tab-button:hover {
 	color: #495057;
-	background-color: rgba(102, 126, 234, 0.05);
+	background-color: rgba(26, 143, 209, 0.05);
 }
 
 .tab-button.active {
-	color: #667eea;
-	border-bottom-color: #667eea;
+	color: #0b79bd;
+	border-bottom-color: #0b79bd;
 }
 
 /* Tab Content */
@@ -79,7 +79,7 @@ body {
 	padding: 25px;
 	margin-bottom: 20px;
 	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-	border-left: 4px solid #667eea;
+	border-left: 4px solid #0b79bd;
 }
 
 .section-card h2 {
@@ -162,20 +162,20 @@ body {
 }
 
 .clickable-row:hover td {
-	background-color: rgba(102, 126, 234, 0.08) !important;
+	background-color: rgba(26, 143, 209, 0.08) !important;
 }
 
 /* Year badge styling */
 .year-badge {
 	display: inline-block;
-	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	background: linear-gradient(135deg, #1a8fd1 0%, #0b5f9e 100%);
 	color: white;
 	padding: 4px 12px;
 	border-radius: 12px;
 	font-weight: 600;
 	font-size: 0.95rem;
 	letter-spacing: 0.5px;
-	box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
+	box-shadow: 0 2px 4px rgba(26, 143, 209, 0.3);
 }
 
 /* Loser column — dimmer text */

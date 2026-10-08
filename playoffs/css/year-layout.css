@@ -108,7 +108,7 @@ html.dark-mode .jump-bar .jump-all { background: transparent; border-color: rgba
 .st-bar .r3, .st-legend .r3 { background: var(--st-r3); }
 
 html.dark-mode .st-card {
-    background-color: #0f1526;
+    background-color: #080e1a;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
