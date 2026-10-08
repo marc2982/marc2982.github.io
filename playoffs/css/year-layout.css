@@ -64,20 +64,19 @@ html.dark-mode .jump-bar .jump-all { background: transparent; border-color: rgba
 /* Standings card */
 #standings { scroll-margin-top: 60px; }
 .st-card {
-    background: #f8f9fa;
-    border: 1px solid #dee2e6;
-    border-left: 4px solid #4c6ef5;
+    background-color: #f8f9fa;
     border-radius: 8px;
-    padding: 16px 20px;
+    padding: 20px;
     margin: 20px 0;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #0d6efd;
 }
-.st-card h3 {
-    margin: 0 0 10px;
-    font-size: 1.05rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    opacity: 0.75;
+/* Same heading treatment as Overall / Round N */
+.st-card h2 {
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #dee2e6;
+    font-weight: bold;
 }
 .st-row {
     display: grid;
@@ -109,9 +108,8 @@ html.dark-mode .jump-bar .jump-all { background: transparent; border-color: rgba
 .st-bar .r3, .st-legend .r3 { background: var(--st-r3); }
 
 html.dark-mode .st-card {
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(255, 255, 255, 0.1);
-    border-left-color: #4c6ef5;
+    background-color: #0f1526;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 /* Collapsible sections: header and AI recap stay visible, the table hides */
@@ -139,7 +137,7 @@ html.dark-mode .st-card {
     .st-row .st-bar { grid-column: 2 / 5; grid-row: 2; }
     .st-legend { flex-wrap: wrap; }
     .st-key { margin-left: 0; flex-basis: 100%; }
-    .st-card { padding: 12px; }
+    .st-card { padding: 10px; margin: 10px 0; }
 }
 
 /* Phones: stop the page scrolling sideways and tighten the pick tables */

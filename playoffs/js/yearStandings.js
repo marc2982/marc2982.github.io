@@ -23,5 +23,5 @@ export function renderStandings(data, container) {
 		})
 		.join('');
 	const legend = Array.from({ length: vm.roundCount }, (_, i) => `<span><b class="r${i}"></b>R${i + 1}</span>`).join('');
-	$(container).html(`<div class="st-card"><h3>Standings</h3>${rows}<div class="st-legend">${legend}<span class="st-key">T = teams · G = games · B = bonus (perfect picks)</span></div></div>`);
+	$(container).html(`<div class="st-card"><h2>Standings</h2>${rows}<div class="st-legend">${legend}<span class="st-key">T = teams · G = games · B = bonus (perfect picks)</span></div></div>`);
 }
