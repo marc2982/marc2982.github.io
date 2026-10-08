@@ -81,7 +81,7 @@ html.dark-mode .jump-bar .jump-all { background: transparent; border-color: rgba
 }
 .st-row {
     display: grid;
-    grid-template-columns: 28px 140px 1fr 64px 44px;
+    grid-template-columns: 28px 140px 1fr 96px 44px;
     align-items: center;
     gap: 10px;
     padding: 4px 0;
