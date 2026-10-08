@@ -81,7 +81,7 @@ html.dark-mode .jump-bar .jump-all { background: transparent; border-color: rgba
 }
 .st-row {
     display: grid;
-    grid-template-columns: 28px 140px 1fr 44px;
+    grid-template-columns: 28px 140px 1fr 64px 44px;
     align-items: center;
     gap: 10px;
     padding: 4px 0;
@@ -97,6 +97,9 @@ html.dark-mode .jump-bar .jump-all { background: transparent; border-color: rgba
     min-width: 2px;
 }
 .st-bar i { display: block; height: 100%; }
+.st-extra { text-align: right; font-size: 0.9rem; opacity: 0.65; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.st-extra small { font-size: 0.75em; margin-left: 1px; }
+.st-key { margin-left: auto; opacity: 0.8; }
 .st-total { text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; }
 .st-legend { display: flex; gap: 12px; margin-top: 8px; font-size: 0.75rem; opacity: 0.8; }
 .st-legend b { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px; }
@@ -131,6 +134,8 @@ html.dark-mode .st-card {
     .st-row { grid-template-columns: 22px minmax(0, 1fr) 36px; row-gap: 3px; }
     .st-row .st-who { grid-column: 2; grid-row: 1; }
     .st-row .st-total { grid-column: 3; grid-row: 1; }
+    .st-row .st-extra { display: none; }
+    .st-key { display: none; }
     .st-row .st-rank { grid-row: 1 / 3; align-self: start; }
     .st-row .st-bar { grid-column: 2 / 4; grid-row: 2; }
     .st-card { padding: 12px; }

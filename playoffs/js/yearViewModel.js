@@ -10,6 +10,8 @@ export function prepareStandingsViewModel(data) {
 		rank: r.rank,
 		total: r.totalPoints,
 		rounds: r.roundPoints.map((rp) => rp.points),
+		teams: r.teamsCorrect,
+		games: r.gamesCorrect,
 	}));
 	rows.sort((a, b) => a.rank - b.rank || b.total - a.total || a.person.localeCompare(b.person));
 	const max = Math.max(1, ...rows.map((r) => r.total));

@@ -17,10 +17,11 @@ export function renderStandings(data, container) {
 				<span class="st-rank">${r.rank}</span>
 				<span class="st-who">${personChip(r.person)}</span>
 				<div class="st-bar" style="width:${r.widthPct}%">${segs}</div>
+				<span class="st-extra" title="${r.teams} series winners picked, ${r.games} series lengths nailed">${r.teams}<small>T</small> ${r.games}<small>G</small></span>
 				<span class="st-total">${r.total}</span>
 			</div>`;
 		})
 		.join('');
 	const legend = Array.from({ length: vm.roundCount }, (_, i) => `<span><b class="r${i}"></b>R${i + 1}</span>`).join('');
-	$(container).html(`<div class="st-card"><h3>Standings</h3>${rows}<div class="st-legend">${legend}</div></div>`);
+	$(container).html(`<div class="st-card"><h3>Standings</h3>${rows}<div class="st-legend">${legend}<span class="st-key">T = teams correct · G = games correct</span></div></div>`);
 }
