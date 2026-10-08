@@ -141,3 +141,22 @@ html.dark-mode .st-card {
     .st-key { margin-left: 0; flex-basis: 100%; }
     .st-card { padding: 12px; }
 }
+
+/* Phones: stop the page scrolling sideways and tighten the pick tables */
+@media (max-width: 560px) {
+    .series-grid { grid-template-columns: 1fr; gap: 12px; }
+    .series-overview { padding: 15px; }
+}
+
+@media (max-width: 700px) {
+    #main-content .containing_table td,
+    #main-content .containing_table th { height: auto; }
+    #main-content .containing_table td { padding: 0.2rem 0.25rem; }
+    #main-content .containing_table th:first-child { font-size: 0.85rem; padding: 0.2rem 0.4rem; }
+    #main-content .containing_table .stats-cell { font-size: 0.85rem; }
+    #main-content .containing_table .pick img { width: 32px; height: auto; }
+    #main-content .containing_table .pick .img_container { padding: 3px 2px; }
+    #main-content .containing_table .pick .games { padding: 3px 4px; font-size: 0.9rem; }
+    #main-content .containing_table .pick { margin-top: 2px; margin-bottom: 2px; }
+    #main-content .containing_table .round-points-cell .points-wrap { width: 2em; }
+}
